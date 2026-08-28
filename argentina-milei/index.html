@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argentina con Milei, sin bandos: qué ha mejorado y qué ha empeorado de verdad | Pablo González</title>
+<meta name="description" content="La inflación bajó de casi 300% al 33% y hay superávit fiscal. La pobreza dejó de caer y las tarifas se han multiplicado. Los datos, sin relatos.">
+<link rel="canonical" href="https://piezas.elur.es/argentina-milei/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Argentina con Milei, sin bandos: qué ha mejorado y qué ha empeorado de verdad">
+<meta property="og:description" content="La inflación bajó de casi 300% al 33% y hay superávit fiscal. La pobreza dejó de caer y las tarifas se han multiplicado. Los datos, sin relatos.">
+<meta property="og:url" content="https://piezas.elur.es/argentina-milei/">
+<meta property="og:image" content="https://piezas.elur.es/argentina-milei/portada.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/argentina-milei/portada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Argentina con Milei, sin bandos — inflación de ≈300% a 33%, pobreza de 28,2% a ≈30%.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Argentina con Milei, sin bandos">
+<meta name="twitter:description" content="Qué ha mejorado y qué ha empeorado de verdad, con los datos oficiales y sin relatos.">
+<meta name="twitter:image" content="https://piezas.elur.es/argentina-milei/portada.jpg">
+<meta name="twitter:image:alt" content="Inflación de ≈300% a 33%; pobreza de 28,2% a ≈30%.">
+
+<link rel="preload" href="../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Argentina con Milei, sin bandos: qué ha mejorado y qué ha empeorado de verdad",
+  "description": "La inflación ha pasado de casi el 300% al 33% en dos años y hay superávit fiscal por primera vez en más de una década. A la vez, la pobreza dejó de caer y las tarifas se han multiplicado. Esto es lo que dicen los números.",
+  "image": ["https://piezas.elur.es/argentina-milei/portada.jpg"],
+  "inLanguage": "es",
+  "articleSection": "Economía",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/argentina-milei/" }
+}
+</script>
+
+<style>
+/* Tokens del Design (--accent, --hairline, --paper-raised, …) ya viven en periodismo.css */
+#milei .badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--hairline);color:var(--grey-warm);border-radius:2px;}
+#milei .nutgraf{border-left:3px solid var(--terra);padding-left:18px;}
+
+/* ============ Dashboard (Fig. 1) ============ */
+#milei .dash{border:1px solid var(--hairline);border-radius:6px;background:var(--paper-raised);padding:20px 18px 18px;min-width:0;}
+#milei .dash-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+#milei .dash-tag{font-family:var(--font-mono);font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--ink-70);cursor:pointer;}
+#milei .dash-tag[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+#milei .dash-tag:hover{border-color:var(--terra);}
+
+#milei .dash-panel-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+#milei .dash-metric-label{font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--ink);}
+#milei .dash-metric-unit{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--grey-warm);}
+
+#milei .dash-bars{display:flex;align-items:flex-end;gap:10px;padding:6px 2px 0;min-width:0;}
+#milei .dash-bar-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;}
+#milei .dash-bar-track{height:150px;width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;}
+#milei .dash-bar-val{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--ink);white-space:nowrap;}
+#milei .dash-bar{width:100%;max-width:40px;border-radius:2px 2px 0 0;}
+#milei .dash-bar.s{background:var(--data-secondary);}
+#milei .dash-bar.a{background:var(--accent);}
+#milei .dash-bar-x{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--grey-warm);margin-top:8px;text-align:center;}
+
+#milei .dash-pair{display:flex;align-items:center;justify-content:center;gap:20px;padding:20px 0;flex-wrap:wrap;}
+#milei .dash-pair-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
+#milei .dash-pair-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--grey-warm);}
+#milei .dash-pair-value{font-family:var(--font-display);font-weight:600;font-size:26px;}
+#milei .dash-pair-value.s{color:var(--data-secondary);}
+#milei .dash-pair-value.a{color:var(--accent);}
+#milei .dash-pair-arrow{font-family:var(--font-display);font-size:22px;color:var(--grey-warm);}
+
+#milei .dash-note{font-family:var(--font-body);font-style:italic;font-size:13px;color:var(--grey-warm);margin:14px 0 0;border-top:1px solid var(--hairline);padding-top:12px;}
+#milei .dash-source{font-family:var(--font-mono);font-size:11.5px;color:var(--grey-warm);margin:8px 0 0;}
+
+/* Los controles interactivos sólo se muestran cuando milei.js ha inicializado.
+   Va al final del bloque: misma especificidad que las reglas de componente
+   de arriba (#milei .x), y gana por orden de aparición en la cascada. */
+#milei .needs-js{display:none;}
+#milei.ready .needs-js{display:revert;}
+#milei.ready .needs-js.flex{display:flex;}
+
+@media (max-width:640px){
+  #milei .dash{padding:16px 12px 14px;}
+  #milei .dash-bar-track{height:120px;}
+  #milei .dash-metric-label{font-size:18px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../">PIEZAS<b>.</b></a>
+    <nav><a href="../">Todas las piezas</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="milei">
+  <article class="col">
+    <p class="kicker">Economía · Internacional</p>
+    <h1 class="headline">Argentina con Milei, sin bandos: qué ha mejorado y qué ha empeorado de verdad</h1>
+    <p class="dek">La inflación ha pasado de casi el 300% al 33% en dos años. Hay superávit fiscal por primera vez en más de una década. Y, a la vez, la pobreza dejó de caer y las tarifas se han multiplicado. Esto es lo que dicen los números, no los relatos que buscan influir o radicalizar.</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>·</span>
+      <span>18 de agosto de 2026</span>
+      <span>·</span>
+      <span>Lectura ~7 min</span>
+      <span class="badge">Análisis</span>
+    </div>
+
+    <div class="body lead">
+      <p>En Argentina casi nadie mira los datos: se mira de qué lado estás. Para unos, Milei es el hombre que domó la inflación; para otros, el que hundió a los pobres. Los dos tienen una parte de razón, y por eso conviene apagar el ruido y mirar las cifras oficiales, una por una, con el contexto que casi siempre se omite.</p>
+      <p>Esta pieza no reparte medallas ni culpas: cuenta lo que ha mejorado, lo que ha empeorado, y lo que no dependía del gobierno. Y se hace una pregunta incómoda que casi nadie plantea en frío: ¿este ajuste tan duro era <b>evitable</b>, o es el peaje que Argentina tenía que pagar para no irse a la quiebra? Porque en economía es fácil mentir con datos verdaderos: contar solo la mitad, confundir lo que coincide en el tiempo con lo que se causa, u olvidar de dónde se partía.</p>
+    </div>
+
+    <div class="body">
+      <h2 class="ladillo">De dónde se partía (el contexto que se olvida)</h2>
+      <p>Milei no llegó a un país en calma. Heredó una inflación desbocada (cerca del <b>300% anual</b>), unas reservas del banco central <b>negativas</b> (en torno a –10.000 millones de dólares), más del <b>40%</b> de la población en la pobreza y un Estado que gastaba mucho más de lo que ingresaba, tapando el agujero con emisión de dinero (la gasolina de la inflación). Ese es el punto de partida: un país que llevaba décadas conviviendo con la subida de precios como una enfermedad crónica.</p>
+
+      <h2 class="ladillo">La gran victoria: la inflación y el déficit cero</h2>
+      <p>Empecemos por lo que casi nadie discute. La inflación anual ha caído de casi el <b>300%</b> a alrededor del <b>33%</b> (pasando por el 118% a finales de 2024). Y detrás de ese logro hay uno más técnico pero decisivo: Argentina cerró 2024 con <b>superávit fiscal por primera vez en unos catorce años</b>. El Estado dejó de gastar más de lo que ingresa, con un recorte del gasto de alrededor del 27% en términos reales. Es la famosa «motosierra»: menos subsidios a la energía y el transporte, menos obra pública, menos transferencias a las provincias, y un tijeretazo a las jubilaciones. Sin déficit no hace falta emitir, y sin emisión la inflación afloja. Ese es, en una frase, el motor de todo el plan.</p>
+
+      <h2 class="ladillo">El coste: las tarifas y la pobreza que repunta</h2>
+      <p>Pero ese logro se ha pagado, y conviene no maquillarlo. Los servicios públicos, antes muy subvencionados, se han encarecido más de un <b>500%</b> desde diciembre de 2023 (el transporte cerca de un 900%, el gas un 748%, el agua un 365%, la luz un 339%). La contrapartida de quitar subsidios es que el recibo lo paga la gente. Y la pobreza, que había empezado a bajar (cerró 2025 en el 28,2%, unos 8,5 millones de personas), ha vuelto a subir a alrededor del <b>30%</b> en el primer trimestre de 2026, con la indigencia en el 6,5%. El dato más duro: el <b>41% de los menores de 14 años es pobre</b>. A esto se suma un matiz que corta en las dos direcciones: los salarios han empezado a recuperarse y el índice general del INDEC subía un 35,7% interanual en junio de 2026, por encima de la inflación del mismo periodo —de hecho, encadenaban tres meses sin perder contra los precios—; pero el reparto es muy desigual, porque el sector privado registrado sube un 29,3% y el público, un 27,4%, mientras el tirón del agregado lo aporta el trabajo no registrado (66,3%), que parte de mucho más abajo. En corto: el ajuste funcionó en las cuentas del Estado, pero el coste lo pagaron los ciudadanos, y lo notaron primero, y más, los de abajo.</p>
+    </div>
+
+    <!-- ============ Fig. 1 · Dashboard de indicadores ============ -->
+    <figure class="figure" id="fig-dash">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 1 · interactivo</div>
+        <h3 class="fig-title">Argentina en seis indicadores</h3>
+        <p class="fig-note">Por defecto, la inflación interanual. <span class="needs-js">Toca una etiqueta para cambiar de indicador.</span></p>
+      </div>
+
+      <div class="dash" id="milei-dash">
+        <div class="dash-tags needs-js flex" role="group" aria-label="Elegir indicador">
+          <button type="button" class="dash-tag" data-metric="inflacion" aria-pressed="true">Inflación</button>
+          <button type="button" class="dash-tag" data-metric="fiscal" aria-pressed="false">Resultado fiscal</button>
+          <button type="button" class="dash-tag" data-metric="pobreza" aria-pressed="false">Pobreza</button>
+          <button type="button" class="dash-tag" data-metric="tarifas" aria-pressed="false">Tarifas</button>
+          <button type="button" class="dash-tag" data-metric="pib" aria-pressed="false">PIB</button>
+          <button type="button" class="dash-tag" data-metric="reservas" aria-pressed="false">Reservas / dólar</button>
+        </div>
+
+        <!-- Inflación — métrica por defecto, visible sin JS -->
+        <div class="dash-panel" data-metric-panel="inflacion">
+          <div class="dash-panel-head">
+            <span class="dash-metric-label">Inflación</span>
+            <span class="dash-metric-unit">% interanual</span>
+          </div>
+          <div class="dash-bars">
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">≈300%</span><span class="dash-bar s" style="height:150px"></span></div>
+              <span class="dash-bar-x">Dic 2023</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">118%</span><span class="dash-bar s" style="height:59px"></span></div>
+              <span class="dash-bar-x">Dic 2024</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">≈33%</span><span class="dash-bar a" style="height:17px"></span></div>
+              <span class="dash-bar-x">2026</span>
+            </div>
+          </div>
+          <p class="dash-note">El fin de subsidios y el ajuste fiscal explican gran parte de la caída.</p>
+          <p class="dash-source">Fuente: INDEC, IPC — variación interanual.</p>
+        </div>
+
+        <!-- Resto de métricas — solo aparecen al elegirlas con JS -->
+        <div class="dash-panel" data-metric-panel="fiscal" hidden>
+          <div class="dash-panel-head"><span class="dash-metric-label">Resultado fiscal</span></div>
+          <div class="dash-pair">
+            <div class="dash-pair-item"><span class="dash-pair-label">2023</span><span class="dash-pair-value s">Déficit</span></div>
+            <span class="dash-pair-arrow">→</span>
+            <div class="dash-pair-item"><span class="dash-pair-label">2024</span><span class="dash-pair-value a">Superávit</span></div>
+          </div>
+          <p class="dash-note">Superávit 2024: primero en unos catorce años (≈0,3% del PIB financiero).</p>
+          <p class="dash-source">Fuente: Ministerio de Economía / Infobae / Bloomberg.</p>
+        </div>
+
+        <div class="dash-panel" data-metric-panel="pobreza" hidden>
+          <div class="dash-panel-head">
+            <span class="dash-metric-label">Pobreza</span>
+            <span class="dash-metric-unit">% de la población</span>
+          </div>
+          <div class="dash-bars">
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">&gt;40%</span><span class="dash-bar s" style="height:150px"></span></div>
+              <span class="dash-bar-x">Herencia 2023</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">28,2%</span><span class="dash-bar s" style="height:106px"></span></div>
+              <span class="dash-bar-x">Cierre 2025</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">≈30%</span><span class="dash-bar a" style="height:113px"></span></div>
+              <span class="dash-bar-x">1T 2026</span>
+            </div>
+          </div>
+          <p class="dash-note">Indigencia: 6,5% · Pobreza infantil (menores de 14): 41%.</p>
+          <p class="dash-source">Fuente: INDEC, EPH — medición en disputa política.</p>
+        </div>
+
+        <div class="dash-panel" data-metric-panel="tarifas" hidden>
+          <div class="dash-panel-head">
+            <span class="dash-metric-label">Tarifas</span>
+            <span class="dash-metric-unit">% acumulado desde dic-2023</span>
+          </div>
+          <div class="dash-bars">
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">365%</span><span class="dash-bar s" style="height:61px"></span></div>
+              <span class="dash-bar-x">Agua</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">339%</span><span class="dash-bar s" style="height:57px"></span></div>
+              <span class="dash-bar-x">Luz</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">748%</span><span class="dash-bar s" style="height:125px"></span></div>
+              <span class="dash-bar-x">Gas</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">≈900%</span><span class="dash-bar a" style="height:150px"></span></div>
+              <span class="dash-bar-x">Transporte</span>
+            </div>
+          </div>
+          <p class="dash-note">Conjunto de servicios: +500% desde diciembre de 2023.</p>
+          <p class="dash-source">Fuente: entes reguladores / prensa económica.</p>
+        </div>
+
+        <div class="dash-panel" data-metric-panel="pib" hidden>
+          <div class="dash-panel-head">
+            <span class="dash-metric-label">PIB</span>
+            <span class="dash-metric-unit">% variación anual</span>
+          </div>
+          <div class="dash-bars">
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">+4,2%</span><span class="dash-bar s" style="height:150px"></span></div>
+              <span class="dash-bar-x">2025</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">≈+3%</span><span class="dash-bar s" style="height:107px"></span></div>
+              <span class="dash-bar-x">2026 (prev.)</span>
+            </div>
+            <div class="dash-bar-col">
+              <div class="dash-bar-track"><span class="dash-bar-val">≈+3%</span><span class="dash-bar a" style="height:107px"></span></div>
+              <span class="dash-bar-x">2027 (prev.)</span>
+            </div>
+          </div>
+          <p class="dash-note">2026 y 2027 son cifras de previsión.</p>
+          <p class="dash-source">Fuente: OCDE, FMI, consultoras y banca privada.</p>
+        </div>
+
+        <div class="dash-panel" data-metric-panel="reservas" hidden>
+          <div class="dash-panel-head">
+            <span class="dash-metric-label">Reservas / dólar</span>
+            <span class="dash-metric-unit">millones de USD (BCRA)</span>
+          </div>
+          <div class="dash-pair">
+            <div class="dash-pair-item"><span class="dash-pair-label">Herencia</span><span class="dash-pair-value s">-10.000 M</span></div>
+            <span class="dash-pair-arrow">→</span>
+            <div class="dash-pair-item"><span class="dash-pair-label">25-ago-2026</span><span class="dash-pair-value a">50.912 M</span></div>
+          </div>
+          <p class="dash-note">Dólar oficial: ≈1.400 → ≈1.700. Debate abierto sobre levantar del todo el cepo.</p>
+          <p class="dash-source">Fuente: BCRA / prensa económica.</p>
+        </div>
+      </div>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">La recuperación que asoma</h2>
+      <p>La foto no es solo de ajuste. Tras la recesión inicial (inevitable cuando cierras el grifo de golpe), la actividad ha vuelto a crecer: el PIB avanzó alrededor de un <b>4%</b> en 2025 y las previsiones lo sitúan en torno al 3% en 2026 y 2027, empujado por la inversión y las exportaciones, con la energía y la minería como motor — sobre todo Vaca Muerta, el gran yacimiento de petróleo y gas no convencional en la Patagonia que se ha convertido en la principal apuesta exportadora del país. Las reservas se han recompuesto: el 25 de agosto de 2026 cerraron en 50.912 millones de dólares, máximo de la era Milei y el nivel más alto desde septiembre de 2019, aunque buena parte de la subida reciente viene de la revalorización del oro y no de compras y el debate ahora es cuándo se levantará del todo el «cepo» (las restricciones para comprar dólares), algo que el mercado da por probable. Es el argumento de fondo del oficialismo: lo peor ya pasó y lo bueno empieza a llegar.</p>
+
+      <h2 class="ladillo">La pregunta de verdad: ¿era evitable?</h2>
+      <p>Aquí está el núcleo, y merece plantearse en serio en vez de por consignas. Milei defiende que no había alternativa: que los ajustes <b>graduales</b> «siempre terminan en crisis» y que, sin financiación para estirar el proceso, solo quedaba el <b>shock</b>. Su tesis, resumida: un país no puede sostener una inflación del 300% indefinidamente, y parte del problema eran precisamente unos subsidios y un gasto que no se podían pagar; por eso, que algunas cosas encarezcan es el peaje inevitable para no acabar en la hiperinflación y el colapso.</p>
+      <p>Enfrente, la crítica no niega que hubiera que ajustar, sino <b>cómo</b> se repartió el ajuste: que el peso cayó de forma desproporcionada sobre jubilados y hogares vulnerables, y que se podía haber protegido más a los de abajo mientras se recortaba por arriba. Es el viejo dilema entre el «shock» y el «gradualismo», y no tiene una respuesta técnica limpia: depende de cuánto margen fiscal real había (poco, coinciden casi todos) y de cuánto dolor social es asumible a cambio de estabilidad. Contarlo honestamente es reconocer que ambas cosas pueden ser verdad a la vez: que el ajuste era en gran medida inevitable <b>y</b> que su reparto es discutible.</p>
+
+      <h2 class="ladillo">Lo que no dependía del gobierno (y una advertencia)</h2>
+      <p>Parte de lo bueno y de lo malo viene de fuera: la herencia ya descrita, la sequía que golpeó al campo, los precios internacionales. Y una advertencia de método: la propia medición de la pobreza del INDEC está en disputa política, así que aquí se usa el dato oficial y se dice que hay controversia, sin comprar ni el relato de los «15 millones rescatados» ni el catastrofista.</p>
+
+      <h2 class="ladillo">Lo que viene</h2>
+      <p>En 2027 hay elecciones, y ahí se juega el plan entero. La pregunta no es ideológica sino práctica: si la inflación sigue baja y la actividad crece, pero la pobreza no cede lo suficiente, ¿aguanta la sociedad el ajuste el tiempo que hace falta para que lo bueno llegue a la mesa de todos? Porque a la gente no le paga la factura el PIB: le importa su sueldo, y los precios de sus facturas.</p>
+
+      <h2 class="ladillo">Cierre</h2>
+      <p>Argentina no es un experimento que confirme una ideología: es un país real donde una cosa mejora mientras otra empeora al mismo tiempo, y donde la pregunta interesante no es «¿Milei bueno o malo?», sino «¿había otra forma de salir de aquí, y a quién le toca pagarla?». Los propios datos apuntan a una respuesta parcial: el margen fiscal real era mínimo (en eso coinciden casi todos los analistas), así que un ajuste más lento habría estirado la inflación —y su propio coste social— en el tiempo, sin garantía de mejor resultado; Argentina ya probó el gradualismo con Macri entre 2015 y 2019, y terminó igual en una crisis cambiaria y un rescate del FMI. Donde sí parece haber habido más margen es en el reparto: proteger algo más a jubilados y hogares vulnerables recortando más en otros capítulos del gasto. Ninguna de las dos vías evita el dolor por completo; solo cambia quién lo paga y cuándo.</p>
+    </div>
+
+    <blockquote class="pull">Quien te venda solo una mitad, te está vendiendo la mitad.</blockquote>
+
+    <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Ficha de fuentes</h2>
+      <ol>
+        <li><b>INDEC</b> — IPC (inflación), pobreza/indigencia, PIB. Primaria.</li>
+        <li>Resultado fiscal 2024 (superávit, primero en ≈14 años) — Ministerio de Economía / Infobae / Bloomberg.</li>
+        <li>Proyecciones de PIB 2025–2027 — OCDE, FMI, consultoras y banca privada (LA NACION, El Cronista).</li>
+        <li>Reservas, dólar y cepo — BCRA / prensa económica.</li>
+        <li>Shock vs. gradualismo — discursos de Milei (Infobae) y análisis (LA NACION, Prime Economics).</li>
+      </ol>
+    </section>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../">Todas las piezas</a></span>
+  </div>
+</footer>
+
+<script src="../assets/graphics.js" defer></script>
+<script src="../assets/milei.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nadie quería comprar Netflix, y tenían sus motivos | Pablo González</title>
+<meta name="description" content="Blockbuster pudo comprar Netflix por 50 millones y se rió. Kodak, Yahoo, Microsoft y Xerox también dijeron que no. Ninguno era idiota: por qué no lo vieron.">
+<link rel="canonical" href="https://piezas.elur.es/dijeron-que-no/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Nadie quería comprar Netflix, y tenían sus motivos">
+<meta property="og:description" content="Blockbuster pudo comprar Netflix por 50 millones y se rió. Kodak, Yahoo, Microsoft y Xerox también dijeron que no. Ninguno era idiota: por qué no lo vieron.">
+<meta property="og:url" content="https://piezas.elur.es/dijeron-que-no/">
+<meta property="og:image" content="https://piezas.elur.es/dijeron-que-no/portada.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/dijeron-que-no/portada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Los cinco noes, ficha a ficha: Blockbuster, Microsoft, Kodak, Yahoo y Xerox, y lo que cada uno no vio venir.">
+<meta property="article:published_time" content="2026-08-28">
+<meta property="article:modified_time" content="2026-08-28">
+<meta property="article:author" content="Pablo González">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nadie quería comprar Netflix, y tenían sus motivos">
+<meta name="twitter:description" content="Blockbuster pudo comprarla por 50 millones y se rió. Yahoo, Kodak, Microsoft y Xerox también dijeron que no. Ninguno era idiota.">
+<meta name="twitter:image" content="https://piezas.elur.es/dijeron-que-no/portada.jpg">
+<meta name="twitter:image:alt" content="Los cinco noes, ficha a ficha: Blockbuster, Microsoft, Kodak, Yahoo y Xerox.">
+
+<link rel="preload" href="../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Nadie quería comprar Netflix, y tenían sus motivos",
+  "description": "Blockbuster pudo comprar Netflix por 50 millones y se rió. Kodak, Yahoo, Microsoft y Xerox también dijeron que no. Ninguno era idiota: por qué no lo vieron.",
+  "image": ["https://piezas.elur.es/dijeron-que-no/portada.jpg"],
+  "inLanguage": "es",
+  "articleSection": "Empresa y estrategia",
+  "keywords": "Netflix, Blockbuster, Kodak, Yahoo, Microsoft, Xerox, disrupción, Clayton Christensen, Uri Levine",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/dijeron-que-no/" }
+}
+</script>
+
+<style>
+/* ===== Estilos específicos de la pieza «Los cinco noes» ===== */
+
+/* Contrato de controles interactivos: nada que dependa de JS se muestra
+   hasta que la pieza marca #noes.ready. El <details> del pie NO usa esto:
+   funciona de forma nativa sin JavaScript. */
+#noes .needs-js{display:none;}
+#noes.ready .needs-js{display:revert;}
+
+#noes .nutgraf{border-left:3px solid var(--terra); padding-left:20px;
+  max-width:var(--measure); margin:2.4em auto 0;}
+#noes .nutgraf p{font-size:1.06rem; line-height:1.6;}
+#noes .pull-cite{max-width:60ch; margin:-14px auto 2.4em; font-family:var(--font-mono);
+  font-size:13px; color:var(--gray); text-align:right; letter-spacing:.02em;}
+#noes .pull-cite::before{content:"— ";}
+
+/* ---- G1 · Las cinco fichas ---------------------------------- */
+#noes #fig-noes{max-width:1040px;}
+#noes .noes-grid{display:grid; gap:1px; background:var(--hair);
+  border:1px solid var(--hair); grid-template-columns:1fr;}
+#noes .noe{background:var(--paper); padding:clamp(18px,2.4vw,24px);
+  display:grid; gap:16px; align-content:start; min-width:0;}
+#noes .noe-top{display:flex; align-items:baseline; justify-content:space-between;
+  gap:10px; font-family:var(--font-mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase;}
+#noes .noe-co{color:var(--terra);}
+#noes .noe-year{color:var(--gray); white-space:nowrap;}
+#noes .noe-q{margin:0; font-family:var(--font-display); font-weight:500;
+  font-size:clamp(19px,2.1vw,22px); line-height:1.28; letter-spacing:-.01em;
+  text-wrap:pretty; overflow-wrap:break-word;}
+#noes .noe-attr{font-family:var(--font-mono); font-size:10px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--gray); line-height:1.55;}
+#noes .noe-data{display:grid; gap:10px; border-top:1px solid var(--hair); padding-top:14px;}
+#noes .noe-field{display:grid; gap:3px; min-width:0;}
+#noes .noe-k{font-family:var(--font-mono); font-size:9px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gray); line-height:1.5;}
+#noes .noe-v{font-family:var(--font-mono); font-size:15px; font-weight:500;
+  font-variant-numeric:tabular-nums; overflow-wrap:break-word;}
+#noes .noe-sub{font-size:15px; line-height:1.5; color:var(--ink-70);}
+#noes .noe-hero{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;
+  border-top:2px solid var(--ink); padding-top:12px;}
+#noes .noe-hero .n{font-family:var(--font-mono); font-size:clamp(26px,3.2vw,34px);
+  font-weight:500; line-height:1; color:var(--terra); font-variant-numeric:tabular-nums;}
+#noes .noe-hero .u{font-family:var(--font-mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gray); line-height:1.3;}
+
+/* Xerox — ficha invertida */
+#noes .noe.invert{background:var(--ink); color:var(--paper);}
+#noes .noe.invert .noe-co{color:var(--paper); border:1px solid rgba(244,239,228,.45);
+  padding:4px 8px;}
+#noes .noe.invert .noe-year{color:rgba(244,239,228,.6);}
+#noes .noe.invert .noe-q{font-size:clamp(21px,2.6vw,26px); line-height:1.22;
+  letter-spacing:-.012em;}
+#noes .noe.invert .noe-lead{font-size:16px; line-height:1.55; color:rgba(244,239,228,.88);}
+#noes .noe.invert .noe-data{border-top-color:rgba(244,239,228,.28); gap:14px;}
+#noes .noe.invert .noe-k{color:rgba(244,239,228,.6);}
+#noes .noe.invert .noe-turn{font-family:var(--font-display); font-weight:500;
+  font-size:18px; line-height:1.3;}
+
+@media (min-width:620px){
+  #noes .noes-grid{grid-template-columns:1fr 1fr;}
+  #noes .noe.invert{grid-column:1 / -1;}
+  #noes .noe.invert .noe-data{grid-template-columns:1fr 1fr;}
+}
+@media (min-width:1180px){
+  #noes .noes-grid{grid-template-columns:repeat(4,1fr);}
+}
+
+/* ---- Los cinco casos ---------------------------------------- */
+#noes .caso{border-top:2px solid var(--ink); padding-top:18px;
+  margin:0 auto 36px; max-width:var(--measure);}
+#noes .caso:last-child{margin-bottom:0;}
+#noes .caso-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  margin-bottom:18px;}
+#noes .caso-n{font-family:var(--font-mono); font-size:12px; letter-spacing:.12em;
+  color:var(--terra);}
+#noes .caso h3{margin:0; font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.45rem,3.4vw,1.9rem); line-height:1.1; letter-spacing:-.015em;}
+#noes .caso-k{display:block; font-family:var(--font-mono); font-size:11px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin-bottom:8px;}
+#noes .caso p{margin:0; max-width:none;}
+#noes .novio{border-left:3px solid var(--terra); padding-left:18px; margin-top:18px;}
+#noes .novio .caso-k{color:var(--terra);}
+#noes .novio p{font-family:var(--font-display); font-weight:500;
+  font-size:clamp(1.16rem,2.3vw,1.36rem); line-height:1.4;}
+#noes .caso-nota{border-top:1px solid var(--hair); padding-top:12px; margin-top:20px;}
+#noes .caso-nota p{font-size:15px; line-height:1.6; color:var(--ink-70);}
+
+#noes .caso.invert{background:var(--ink); color:var(--paper); border-top:0;
+  padding:clamp(22px,4vw,34px);}
+#noes .caso.invert .caso-head{margin-bottom:14px;}
+#noes .caso.invert .caso-badge{font-family:var(--font-mono); font-size:11px;
+  letter-spacing:.14em; text-transform:uppercase; border:1px solid rgba(244,239,228,.45);
+  padding:5px 10px; color:var(--paper);}
+#noes .caso.invert .caso-n{color:rgba(244,239,228,.6);}
+#noes .caso.invert .caso-k{color:rgba(244,239,228,.6);}
+#noes .caso.invert p{color:rgba(244,239,228,.92);}
+#noes .caso.invert .novio{border-left-color:var(--paper); margin-top:20px;}
+#noes .caso.invert .novio .caso-k{color:var(--paper);}
+#noes .caso.invert .novio p{color:var(--paper); font-size:clamp(1.22rem,2.6vw,1.55rem);
+  line-height:1.35;}
+
+/* ---- El patrón ---------------------------------------------- */
+#noes .mecanismos{list-style:none; margin:0 auto; padding:0; display:grid; gap:20px;
+  max-width:var(--measure);}
+#noes .mecanismos li{display:grid; grid-template-columns:auto 1fr; gap:16px;
+  align-items:start; border-top:1px solid var(--hair); padding-top:16px;}
+#noes .mecanismos .m-n{font-family:var(--font-mono); font-size:22px; font-weight:500;
+  color:var(--terra); line-height:1.1; font-variant-numeric:tabular-nums;}
+#noes .mecanismos p{margin:0; max-width:none;}
+
+/* ---- G2 · El mercado que cada uno estaba midiendo ------------ */
+#noes #fig-medida{max-width:880px;}
+#noes .medida{padding:clamp(4px,2.6vw,20px) 0 0;}
+#noes .med-head{display:grid; grid-template-columns:1fr; gap:4px;
+  padding-bottom:12px; border-bottom:2px solid var(--ink);}
+#noes .med-head span{font-family:var(--font-mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; line-height:1.5;}
+#noes .med-head .a{color:var(--gray);}
+#noes .med-head .b{color:var(--terra);}
+#noes .med-row{display:grid; grid-template-columns:1fr; gap:10px;
+  padding:16px 0; border-bottom:1px solid var(--hair);}
+#noes .med-row:last-of-type{border-bottom:0;}
+#noes .med-from{display:grid; gap:5px; min-width:0;}
+#noes .med-co{font-family:var(--font-mono); font-size:9px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gray);}
+#noes .med-a{font-family:var(--font-display); font-weight:500;
+  font-size:clamp(17px,2.2vw,22px); line-height:1.22; color:var(--ink-70);
+  text-wrap:pretty;}
+#noes .med-b{font-family:var(--font-display); font-weight:600;
+  font-size:clamp(17px,2.2vw,22px); line-height:1.22; color:var(--terra);
+  text-wrap:pretty; min-width:0; border-top:1px solid var(--hair); padding-top:10px;}
+#noes .med-out{margin:0; border-top:1px solid var(--hair); padding-top:14px;
+  font-size:16px; line-height:1.55; color:var(--ink-70); max-width:none;}
+@media (min-width:560px){
+  #noes .med-head{grid-template-columns:1fr 1fr; gap:0 clamp(14px,3vw,32px);
+    align-items:end;}
+  #noes .med-head .b{padding-left:clamp(13px,2vw,19px);}
+  #noes .med-row{grid-template-columns:1fr 1fr; gap:0 clamp(14px,3vw,32px);
+    align-items:center; padding:clamp(14px,2vw,18px) 0;}
+  #noes .med-b{border-top:0; padding-top:0; border-left:1px solid var(--hair);
+    padding-left:clamp(12px,2vw,18px);}
+}
+
+/* ---- Pie: cómo hemos comprobado las cifras ------------------- */
+/* Componente compartido details.data-table-wrap (periodismo.css).
+   Funciona sin JavaScript: no lo reimplementamos. */
+#noes #comprobacion{margin:64px auto 0; border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);}
+#noes #comprobacion summary{padding:20px 0; letter-spacing:.14em;}
+#noes .check-body{padding:0 0 28px; display:grid; gap:18px;}
+#noes .check-body p{margin:0; font-size:17px; line-height:1.62; max-width:none;}
+#noes .check-intro,#noes .check-out{color:var(--ink-70);}
+#noes .checks{display:grid; gap:0; border-top:1px solid var(--hair);}
+#noes .check{display:grid; gap:6px; padding:14px 0; border-bottom:1px solid var(--hair);}
+#noes .check-k{font-family:var(--font-mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gray); line-height:1.5;}
+
+/* ---- Cierre -------------------------------------------------- */
+#noes .cierre-rule{display:flex; align-items:center; gap:14px;
+  max-width:var(--measure); margin:3em auto 1.6em;}
+#noes .cierre-rule i{height:1px; flex:1; background:var(--hair);}
+#noes .cierre-rule b{width:7px; height:7px; background:var(--terra); flex:0 0 auto;}
+#noes .cierre-final{font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.35rem,3.2vw,1.82rem); line-height:1.28; letter-spacing:-.015em;
+  max-width:var(--measure); margin:0 auto;}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../">PIEZAS<b>.</b></a>
+    <nav><a href="../">Todas las piezas</a></nav>
+  </div>
+</header>
+
+<main class="piece">
+  <article id="noes">
+
+    <div class="col">
+      <p class="kicker">Empresa · Estrategia</p>
+      <h1 class="headline">Nadie quería comprar Netflix, y tenían sus motivos</h1>
+      <p class="dek">Blockbuster pudo comprarla por 50 millones. Yahoo negoció Google y se levantó de la mesa. Kodak inventó la cámara digital y no corrió. Microsoft se rió del iPhone. Xerox regaló el futuro y hasta ganó dinero con ello. Ninguno era idiota.</p>
+
+      <div class="byline">
+        <span class="who">Pablo González</span>
+        <span>Análisis</span>
+        <span>28 de agosto de 2026</span>
+        <span>Vigo</span>
+        <span>Lectura ~10 min</span>
+      </div>
+
+      <div class="body lead">
+        <p>En el año 2000, Reed Hastings voló a Dallas para reunirse con John Antioco, el consejero delegado de Blockbuster. Hastings tenía cuarenta años, había vendido su anterior empresa de software por cientos de millones y dirigía desde hacía tres una compañía que mandaba DVD por correo dentro de sobres rojos. Se llamaba Netflix y perdía dinero.</p>
+
+        <p>Llevaba una propuesta: que Blockbuster comprase Netflix por 50 millones de dólares y que su equipo se encargase de montar y llevar Blockbuster.com como la división de alquiler online de la compañía.</p>
+
+        <p>Barry McCarthy, entonces director financiero de Netflix, estaba en la sala. Años después contó lo que vio en la cara de Antioco cuando escuchó la cifra: el labio le tembló un instante.</p>
+      </div>
+
+      <blockquote class="pull">En cuanto lo vi, supe lo que estaba pasando: John Antioco estaba luchando por no reírse.</blockquote>
+      <p class="pull-cite">Barry McCarthy, entonces director financiero de Netflix</p>
+
+      <div class="body">
+        <p>En una entrevista posterior lo resumió más seco: los echaron de la oficina entre risas.</p>
+
+        <!-- DATO-DINAMICO · capitalización de Netflix, verificada el 25.08.2026.
+             Aparece también en la ficha 1 del G1 y en la línea de fuentes.
+             Si se actualiza el valor hay que recalcular el múltiplo ×6.600
+             (valor actual ÷ 50 M$) y cambiar la fecha en los tres sitios. -->
+        <p>Diez años después, Blockbuster se declaraba en quiebra. Netflix ya no alquila películas: las produce, gana premios de cine y a finales de agosto de 2026 vale en bolsa alrededor de 333.000 millones de dólares. Unas 6.600 veces lo que pedía aquella tarde en Dallas.</p>
+      </div>
+
+      <div class="nutgraf body">
+        <p>Es tentador leer estas historias como un desfile de malos empresarios. No lo son. Casi todos los que dijeron que no eran gestores competentes y dueños soberanos de sus mercados, decidiendo con la información que tenían entonces.</p>
+        <p>Lo interesante no es su torpeza. Es algo bastante más incómodo: por qué la disrupción es casi imposible de ver desde dentro de la empresa a la que va a arrasar, y por qué juzgarla veinte años después, sabiendo el final, es la forma más fácil y más tramposa de contarlo.</p>
+      </div>
+
+      <div class="body">
+        <h2 class="ladillo">Quién lo cuenta</h2>
+        <p>El marco lo pone Uri Levine, que fundó Waze y la vendió a Google, y después Moovit, que acabó comprando Intel. En <i>Enamórate del problema, no de la solución</i> dedica un capítulo a la disrupción y la define de una forma que conviene retener: no va de tecnología, va de cambiar el comportamiento del mercado. Y añade una frase sobre el camino del que llega a romper algo:</p>
+      </div>
+
+      <blockquote class="pull">Primero se ríen de nosotros, después nos ignoran y luego ganamos.</blockquote>
+      <p class="pull-cite">Uri Levine, fundador de Waze y Moovit</p>
+
+      <div class="body">
+        <p>Levine tiene una autoridad rara aquí: es de los pocos que ha estado en los dos lados de la mesa.</p>
+
+        <h2 class="ladillo">Los cinco noes</h2>
+      </div>
+    </div>
+
+    <!-- ============ G1 · Las cinco fichas ============ -->
+    <div class="wrap">
+      <!-- Sin .reveal en las cabeceras de figura: si el IntersectionObserver
+           de graphics.js no llega a disparar, .js .reveal deja el rotulo en
+           opacity:0 de forma permanente. La pieza se ve igual con y sin JS. -->
+      <figure class="figure" id="fig-noes">
+        <div class="fig-head">
+          <div class="fig-num">Gráfico 1</div>
+          <h3 class="fig-title">Los cinco noes, ficha a ficha</h3>
+          <p class="fig-note">Cada ficha recoge la frase, el año y las cifras que se detallan más abajo en el texto.</p>
+        </div>
+
+        <div class="noes-grid">
+
+          <div class="noe">
+            <div class="noe-top">
+              <span class="noe-co">Blockbuster</span>
+              <span class="noe-year">2000</span>
+            </div>
+            <p class="noe-q">«Netflix es un negocio con un nicho muy pequeño»</p>
+            <span class="noe-attr">Sobre Netflix</span>
+            <div class="noe-data">
+              <div class="noe-field">
+                <span class="noe-k">Pedía</span>
+                <span class="noe-v">50 M&nbsp;$</span>
+              </div>
+              <div class="noe-field">
+                <!-- DATO-DINAMICO · valor en bolsa de Netflix a 25.08.2026.
+                     Lleva fecha visible: al actualizarlo, cambiar también la
+                     fecha, el múltiplo ×6.600 de abajo, el párrafo del cuerpo
+                     y la línea de fuente de esta figura. -->
+                <span class="noe-k">Vale hoy · 25.08.2026</span>
+                <span class="noe-v">≈ 333.000 M&nbsp;$</span>
+              </div>
+            </div>
+            <div class="noe-hero">
+              <!-- Sin data-count: toLocaleString('es-ES') formatea 6600 como
+                   «6600» (el español no agrupa cuatro cifras) y contradiría
+                   el «6.600 veces» del cuerpo. La cifra va estática. -->
+              <span class="n">×6.600</span>
+              <span class="u">Veces la<br>oferta</span>
+            </div>
+          </div>
+
+          <div class="noe">
+            <div class="noe-top">
+              <span class="noe-co">Microsoft</span>
+              <span class="noe-year">2007</span>
+            </div>
+            <p class="noe-q">«No hay ninguna posibilidad de que el iPhone consiga una cuota de mercado significativa»</p>
+            <span class="noe-attr">Steve Ballmer · sobre el iPhone</span>
+            <div class="noe-data">
+              <div class="noe-field">
+                <span class="noe-k">Su cálculo</span>
+                <span class="noe-v">60-80%</span>
+                <span class="noe-sub">de los 1.300 millones de teléfonos que se vendían al año</span>
+              </div>
+              <div class="noe-field">
+                <span class="noe-k">Antes que</span>
+                <span class="noe-v">2-3%</span>
+                <span class="noe-sub">que podría arañar Apple</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="noe">
+            <div class="noe-top">
+              <span class="noe-co">Kodak</span>
+              <span class="noe-year">1975</span>
+            </div>
+            <p class="noe-q">«Es muy bonita, pero no le habléis a nadie de ella»</p>
+            <span class="noe-attr">Frase atribuida a la dirección · atribución no cerrada</span>
+            <div class="noe-data">
+              <div class="noe-field">
+                <span class="noe-k">El hecho · 12.12.1975</span>
+                <span class="noe-sub">Steve Sasson, ingeniero de 24 años, hace la primera fotografía digital</span>
+              </div>
+              <div class="noe-field">
+                <span class="noe-k">Después</span>
+                <span class="noe-sub">Patenta el invento y gana dinero con la patente hasta que expira en 2007. Quiebra en 2012</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="noe">
+            <div class="noe-top">
+              <span class="noe-co">Yahoo</span>
+              <span class="noe-year">2002</span>
+            </div>
+            <p class="noe-q">Negoció comprar Google y se levantó de la mesa</p>
+            <span class="noe-attr">Sobre Google</span>
+            <div class="noe-data">
+              <div class="noe-field">
+                <span class="noe-k">2002</span>
+                <span class="noe-sub">Terry Semel ofreció 3.000 millones; Google pidió 5.000 y Semel se levantó de la mesa</span>
+              </div>
+              <div class="noe-field">
+                <span class="noe-k">Final · 2017</span>
+                <span class="noe-sub">El negocio acaba vendido a Verizon por 4.480 millones</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="noe invert">
+            <div class="noe-top">
+              <span class="noe-co">Xerox · el que rompe el molde</span>
+              <span class="noe-year">Diciembre de 1979</span>
+            </div>
+            <p class="noe-q">No dijo que no</p>
+            <span class="noe-lead">Enseñó su interfaz gráfica a un Steve Jobs de 24 años a cambio del derecho a comprar 100.000 acciones de Apple a 10 dólares.</span>
+            <div class="noe-data">
+              <div class="noe-field">
+                <span class="noe-k">Salida a bolsa · 12.12.1980</span>
+                <span class="noe-v">22 $ → cierra en 29 $</span>
+              </div>
+              <div class="noe-field">
+                <span class="noe-k">El giro</span>
+                <span class="noe-turn">Ganó dinero con la operación. Lo que perdió fue el futuro</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="fig-source">Frases y datos citados en el texto · valor de Netflix verificado el 25.08.2026.</p>
+      </figure>
+    </div>
+
+    <div class="col">
+      <div class="body">
+        <h2 class="ladillo">Por qué cada «no» tenía sentido</h2>
+        <p>Aquí está lo que casi nadie cuenta, y es lo único que hace esta historia interesante.</p>
+      </div>
+
+      <article class="caso">
+        <header class="caso-head">
+          <span class="caso-n">01 / 05</span>
+          <h3>Blockbuster</h3>
+        </header>
+        <div>
+          <span class="caso-k">Su lógica</span>
+          <p>En 2000, Netflix tenía menos de 300.000 suscriptores, quemaba caja y se disponía a perder decenas de millones ese mismo año. La banda ancha era todavía un lujo minoritario y el negocio consistía en mandar sobres por correo. Blockbuster, mientras, tenía tiendas en cada esquina —más locales que Starbucks entonces— y una dimensión que hoy cuesta imaginar: Viacom la había comprado en 1994 por unos 8.000 millones de dólares.</p>
+        </div>
+        <div class="novio">
+          <span class="caso-k">Lo que no vio</span>
+          <p>Comprar por 50 millones una empresa que perdía dinero en un nicho postal no era una obviedad: era una apuesta.</p>
+        </div>
+        <div class="caso-nota">
+          <span class="caso-k">Nota sobre el dato</span>
+          <p>Las cifras que circulan sobre el valor de Blockbuster en 2000 varían mucho según fuente y método —de 5.000 a 8.400 millones—, así que se manejan como orden de magnitud, no como dato.</p>
+        </div>
+      </article>
+
+      <article class="caso">
+        <header class="caso-head">
+          <span class="caso-n">02 / 05</span>
+          <h3>Microsoft</h3>
+        </header>
+        <div>
+          <span class="caso-k">Su lógica</span>
+          <p>El razonamiento de Ballmer, que casi nunca se cita entero, era este: prefería tener software de Microsoft en el 60, 70 u 80% de los 1.300 millones de teléfonos que se vendían al año, antes que el 2 o 3% que podría arañar Apple. Visto así, no es una tontería. Es un cálculo correcto sobre un mercado que él definía de otra forma. Ballmer medía cuota de teléfonos.</p>
+        </div>
+        <div class="novio">
+          <span class="caso-k">Lo que no vio</span>
+          <p>Apple no venía a competir por cuota de teléfonos: venía a cambiar qué era un teléfono.</p>
+        </div>
+      </article>
+
+      <article class="caso">
+        <header class="caso-head">
+          <span class="caso-n">03 / 05</span>
+          <h3>Kodak</h3>
+        </header>
+        <div>
+          <span class="caso-k">Su lógica</span>
+          <p>El más injusto de los cinco. Kodak no escondió el invento en un cajón: lo patentó, y durante años ganó dinero con esa patente, que expiró en 2007. Lo que hizo fue no acelerar, y la razón la repetía la propia compañía: «Estamos en la industria del papel y de la química.» Ningún directivo de 1975 iba a canibalizar el producto que sostenía la empresa por un aparato pesado, lento y de baja resolución. La decisión que hoy parece suicida era, entonces, la de proteger lo que ya funcionaba.</p>
+        </div>
+        <div class="novio">
+          <span class="caso-k">Lo que no vio</span>
+          <p>Una cámara sin carrete no era una oportunidad para ese negocio: era su final.</p>
+        </div>
+      </article>
+
+      <article class="caso">
+        <header class="caso-head">
+          <span class="caso-n">04 / 05</span>
+          <h3>Yahoo</h3>
+        </header>
+        <div>
+          <span class="caso-k">Su lógica</span>
+          <p>El motivo que dio es el más revelador: no querían un buscador que mandase tráfico fuera, a webs de terceros, como hacía PageRank. Querían que el usuario se quedase en su página. Y era coherente con su modelo, porque Yahoo era un portal y su negocio consistía en retener.</p>
+        </div>
+        <div class="novio">
+          <span class="caso-k">Lo que no vio</span>
+          <p>Que se podía ganar más dinero dejando marchar al usuario y cobrando por los anuncios de esos terceros.</p>
+        </div>
+        <div class="caso-nota">
+          <span class="caso-k">Después</span>
+          <p>Cuando lo entendieron, era tarde. Compraron Inktomi para reaccionar, ejecutaron mal, y en 2017 el negocio acabó vendido a Verizon por 4.480 millones —rebajados desde los 4.830 acordados, tras conocerse dos brechas masivas de datos.</p>
+        </div>
+      </article>
+
+      <article class="caso invert">
+        <header class="caso-head">
+          <span class="caso-badge">El que rompe el molde</span>
+          <span class="caso-n">05 / 05</span>
+        </header>
+        <h3>Xerox</h3>
+        <div>
+          <span class="caso-k">Su lógica</span>
+          <p>En diciembre de 1979, Xerox dejó entrar a un equipo de Apple en su centro de investigación de Palo Alto a cambio del derecho a comprar 100.000 acciones de Apple a 10 dólares antes de la salida a bolsa. Allí, un Steve Jobs de veinticuatro años vio el Xerox Alto: interfaz gráfica, ratón, ventanas. Apple salió a bolsa el 12 de diciembre de 1980 a 22 dólares y cerró el primer día en 29. Su negocio era vender fotocopiadoras a empresas, y un ordenador personal no encajaba ahí por ninguna parte.</p>
+        </div>
+        <div class="novio">
+          <span class="caso-k">Lo que no vio</span>
+          <p>Xerox no perdió dinero: su participación valía ya varias veces lo pagado. Perdió el futuro, no la inversión.</p>
+        </div>
+      </article>
+
+      <div class="body">
+        <h2 class="ladillo">El patrón</h2>
+        <p>Cinco casos, tres mecanismos que se repiten:</p>
+      </div>
+
+      <ol class="mecanismos">
+        <li>
+          <span class="m-n">1</span>
+          <p>Miedo a canibalizar el negocio que hoy da de comer. El carrete, las tiendas, el portal, la fotocopiadora.</p>
+        </li>
+        <li>
+          <span class="m-n">2</span>
+          <p>Infravalorar lo peor pero más barato o más cómodo. La disrupción casi siempre entra por ahí, con un producto que al principio es objetivamente inferior.</p>
+        </li>
+        <li>
+          <span class="m-n">3</span>
+          <p>Medir el mercado equivocado. Ballmer contaba teléfonos. Yahoo contaba visitas. Kodak contaba carretes. Xerox contaba copias. Todos midieron bien; midieron la cosa que estaba a punto de dejar de importar.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- ============ G2 · El mercado que cada uno medía ============ -->
+    <div class="wrap">
+      <figure class="figure" id="fig-medida">
+        <div class="fig-head">
+          <div class="fig-num">Gráfico 2</div>
+          <h3 class="fig-title">El mercado que cada uno estaba midiendo</h3>
+          <p class="fig-note">La unidad que cada empresa contaba, frente a la unidad que acabó decidiendo el mercado.</p>
+        </div>
+
+        <div class="medida">
+          <div class="med-head">
+            <span class="a">Lo que medía</span>
+            <span class="b">Lo que decidía la partida</span>
+          </div>
+
+          <div class="med-row">
+            <div class="med-from">
+              <span class="med-co">Kodak</span>
+              <span class="med-a">Carretes vendidos</span>
+            </div>
+            <span class="med-b">Fotografías hechas al año</span>
+          </div>
+
+          <div class="med-row">
+            <div class="med-from">
+              <span class="med-co">Microsoft</span>
+              <span class="med-a">Cuota de teléfonos</span>
+            </div>
+            <span class="med-b">Minutos de uso del aparato</span>
+          </div>
+
+          <div class="med-row">
+            <div class="med-from">
+              <span class="med-co">Yahoo</span>
+              <span class="med-a">Visitas retenidas</span>
+            </div>
+            <span class="med-b">Búsquedas resueltas</span>
+          </div>
+
+          <div class="med-row">
+            <div class="med-from">
+              <span class="med-co">Blockbuster</span>
+              <span class="med-a">Tiendas abiertas</span>
+            </div>
+            <span class="med-b">Películas vistas en casa</span>
+          </div>
+
+          <div class="med-row">
+            <div class="med-from">
+              <span class="med-co">Xerox</span>
+              <span class="med-a">Copias por minuto</span>
+            </div>
+            <span class="med-b">Ordenadores por escritorio</span>
+          </div>
+
+          <p class="med-out">Ninguna midió mal. Midieron bien la cosa que estaba a punto de dejar de importar.</p>
+        </div>
+
+        <p class="fig-source">Esquema · elaboración propia a partir de los casos documentados en la pieza.</p>
+      </figure>
+    </div>
+
+    <div class="col">
+      <div class="body">
+        <h2 class="ladillo">La pregunta que casi nadie se hace</h2>
+        <p>Y ahora la parte incómoda, que Levine plantea mejor que nadie porque le tocó vivirla.</p>
+        <p>A él le preguntan constantemente si vender Waze a Google en 2013 fue un error. La empresa tenía entonces un millón de dólares de ingresos y unos 55 millones de usuarios; hoy supera los 300 millones de ingresos y ronda los mil millones de usuarios. ¿Habría valido más esperando?</p>
+      </div>
+
+      <blockquote class="pull">Hay decisiones correctas y luego están las NO decisiones. Cuando tomamos una decisión y elegimos un camino, nadie sabe qué habría pasado si hubiéramos elegido otro diferente.</blockquote>
+      <p class="pull-cite">Uri Levine</p>
+
+      <div class="body">
+        <p>Y el giro que lo cambia todo. En lugar de preguntarnos qué habría pasado si Yahoo hubiera comprado Google, la pregunta buena es otra: ¿se habría convertido Google en lo que es hoy bajo el liderazgo y la visión de Yahoo?</p>
+        <p>Probablemente no. Google es lo que es en parte porque Yahoo dijo que no. Lo mismo vale para Netflix: quizá no habría llegado a ser Netflix dentro de Blockbuster, gestionada como una división más. Levine lo cierra así: cualquier afirmación sobre si aquellas decisiones fueron acertadas o equivocadas es irrelevante, sencillamente porque no podemos saber qué habría ocurrido en el camino que no se eligió.</p>
+
+        <h2 class="ladillo">La teoría, y su crítica</h2>
+        <p>El mecanismo lo describió Clayton Christensen en <i>El dilema del innovador</i>: las empresas líderes fallan no por gestionar mal, sino por gestionar bien según los criterios que las hicieron líderes.</p>
+        <p>Conviene, eso sí, no comprarlo como dogma. El propio concepto de disrupción ha sido discutido con dureza; la historiadora Jill Lepore lo criticó en The New Yorker por su escaso valor predictivo: sirve muy bien para explicar el pasado y bastante mal para anticipar el futuro, que es justo lo que promete. Es una herramienta para entender, no una bola de cristal.</p>
+      </div>
+
+      <div class="cierre-rule" aria-hidden="true"><i></i><b></b><i></i></div>
+
+      <div class="body">
+        <p>Ninguna de estas empresas murió por estúpida. Murieron —o encogieron— por seguir haciendo bien lo que siempre les había funcionado, un poco más de tiempo del que debían.</p>
+        <p>La lección no es «mira qué tontos los del pasado». Es mucho más difícil que eso: aprender a reconocer, cuando te toque a ti, ese producto peor, más barato y más incómodo del que todo el mundo se está riendo.</p>
+      </div>
+
+      <p class="cierre-final">Porque cuando le llegue el turno a tu sector, tú también tendrás motivos excelentes para decir que no.</p>
+
+      <details class="data-table-wrap" id="comprobacion">
+        <summary>Cómo hemos comprobado estas cifras</summary>
+        <div class="check-body">
+          <p class="check-intro">Estas historias circulan deformadas en casi todas partes. No es culpa de nadie en concreto: es lo que le pasa a un relato que se cuenta mil veces. Se redondea, se simplifica y se le pone la cifra que suena mejor. Estas son las cuatro que más se repiten mal, y lo que dicen las fuentes:</p>
+          <div class="checks">
+            <div class="check">
+              <span class="check-k">Kodak · 1973 → 1975</span>
+              <p>Suele leerse que Kodak inventó la cámara digital en 1973. Fue en 1975: Steve Sasson, ingeniero de veinticuatro años, hizo la primera fotografía digital el 12 de diciembre de 1975.</p>
+            </div>
+            <div class="check">
+              <span class="check-k">Google · no fue a Yahoo</span>
+              <p>Suele leerse que Google se ofreció a Yahoo por dos millones. Se ofreció a Excite, que era otra empresa. En 1999 Page y Brin pidieron un millón a su consejero delegado, George Bell; después bajaron a 750.000 dólares. Bell tampoco quiso.</p>
+            </div>
+            <div class="check">
+              <span class="check-k">Yahoo · negociación rota</span>
+              <p>Suele leerse que Yahoo rechazó pagar 5.000 millones por Google. En 2002 Terry Semel ofreció 3.000 millones. Fue Google quien pidió 5.000, y Semel se levantó de la mesa. Es una negociación rota, no un «no».</p>
+            </div>
+            <div class="check">
+              <span class="check-k">Waze · 1.150 → 966 millones</span>
+              <p>Suele leerse que Google pagó 1.150 millones por Waze. Esa fue la cifra de prensa. La propia Google declaró después 966 millones.</p>
+            </div>
+          </div>
+          <p class="check-out">Que estos desajustes aparezcan incluso en libros escritos por protagonistas de la historia dice bastante de lo difícil que es sostener el dato exacto cuando un caso se convierte en leyenda.</p>
+        </div>
+      </details>
+
+      <section class="sources" aria-labelledby="src-h">
+        <h2 id="src-h">Fuentes</h2>
+        <ol>
+          <li>Uri Levine, <i>Enamórate del problema, no de la solución</i> — capítulo sobre disrupción; definición del concepto y reflexión sobre las «no decisiones».</li>
+          <li>Clayton Christensen, <i>El dilema del innovador</i> — el mecanismo por el que las empresas líderes fallan gestionando bien.</li>
+          <li>Jill Lepore, The New Yorker — crítica al valor predictivo del concepto de disrupción.</li>
+          <li>Declaraciones de Barry McCarthy, entonces director financiero de Netflix, sobre la reunión de 2000 en Dallas con John Antioco.</li>
+          <li>Valor en bolsa de Netflix referido al 25 de agosto de 2026.<!-- DATO-DINAMICO --></li>
+          <li>Fechas y cifras de Kodak (12 de diciembre de 1975), Yahoo–Google (2002), Yahoo–Verizon (2017), Xerox–Apple (diciembre de 1979) y salida a bolsa de Apple (12 de diciembre de 1980), detalladas en «Cómo hemos comprobado estas cifras».</li>
+        </ol>
+      </section>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../">Todas las piezas</a></span>
+  </div>
+</footer>
+
+<script src="../assets/graphics.js" defer></script>
+</body>
+</html>

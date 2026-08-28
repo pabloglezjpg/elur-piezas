@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gracias/
+
+Sitemap: https://piezas.elur.es/sitemap.xml

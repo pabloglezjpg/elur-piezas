@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tres cafés al día: la ciencia dice que vives un poco más | Pablo González</title>
+<meta name="description" content="Los grandes estudios asocian tomar café con moderación a vivir más: menos riesgo cardiovascular, diabetes y enfermedad hepática. Los matices que nadie cuenta.">
+<link rel="canonical" href="https://piezas.elur.es/cafe-salud/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Tres cafés al día: la ciencia dice que vives un poco más">
+<meta property="og:description" content="Los grandes estudios asocian tomar café con moderación a vivir más: menos riesgo cardiovascular, diabetes y enfermedad hepática. Los matices que nadie cuenta.">
+<meta property="og:url" content="https://piezas.elur.es/cafe-salud/">
+<meta property="og:image" content="https://piezas.elur.es/cafe-salud/portada.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/cafe-salud/portada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Café y longevidad: unas 3,5 tazas al día es donde más baja el riesgo de mortalidad, según el mayor metaanálisis disponible.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tres cafés al día: la ciencia dice que vives un poco más">
+<meta name="twitter:description" content="Los grandes estudios asocian el café con moderación a vivir más. Los dos matices que casi nadie cuenta, con minijuego incluido.">
+<meta name="twitter:image" content="https://piezas.elur.es/cafe-salud/portada.jpg">
+<meta name="twitter:image:alt" content="Café y longevidad: unas 3,5 tazas al día es donde más baja el riesgo de mortalidad, según el mayor metaanálisis disponible.">
+
+<link rel="preload" href="../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tres cafés al día: la ciencia dice que vives un poco más (con dos peros)",
+  "description": "Los grandes estudios de los últimos años asocian tomar café con moderación a vivir más: menos enfermedad cardiovascular, menos diabetes tipo 2 y menos enfermedad hepática. Con dos matices: la curva tiene forma de U y el beneficio se mide sobre café, no sobre lo que le añades.",
+  "image": ["https://piezas.elur.es/cafe-salud/portada.jpg"],
+  "inLanguage": "es",
+  "articleSection": "Ciencia y salud",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-20",
+  "dateModified": "2026-08-20",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/cafe-salud/" }
+}
+</script>
+
+<style>
+/* Tokens del Design (--accent, --hairline, --paper-raised, …) ya viven en periodismo.css */
+/* ===== Estilos específicos de la pieza (curva en U + minijuego) ===== */
+#cafe .figure{max-width:820px;}
+#cafe .badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--hair);color:var(--gray);border-radius:2px;}
+
+/* ============ Fig. 1 · Curva en U (SVG estático, sin JS) ============ */
+#cafe .curve-wrap{
+  max-width:480px;margin:0 auto;min-width:0;
+  border:1px solid var(--hair);border-radius:6px;background:var(--paper);
+  padding:14px 16px 10px;
+}
+@media (min-width:641px){
+  #cafe .curve-wrap{max-width:640px;}
+}
+#cafe .curve-svg{display:block;width:100%;height:auto;min-width:0;}
+#cafe .curve-zone{fill:var(--terra);opacity:.12;}
+#cafe .curve-axis{stroke:var(--hair);stroke-width:1;}
+#cafe .curve-line{fill:none;stroke:var(--terra);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round;}
+#cafe .curve-dot{fill:var(--terra);}
+#cafe .curve-tick{font-family:var(--font-mono);font-size:10px;fill:var(--gray);text-anchor:middle;font-variant-numeric:tabular-nums;}
+#cafe .curve-zone-label{font-family:var(--font-mono);font-size:10px;fill:var(--terra);text-anchor:middle;letter-spacing:.04em;}
+#cafe .curve-axis-label{font-family:var(--font-mono);font-size:9.5px;fill:var(--gray);text-anchor:middle;letter-spacing:.04em;}
+#cafe .curve-side-label{font-family:var(--font-mono);font-size:9px;fill:var(--gray);}
+
+/* ============ Fig. 2 · Minijuego «Llena tu café» — máquina ============ */
+#cafe .cafe-game{max-width:620px;margin:0 auto;}
+#cafe .cafe-machine{
+  display:flex;flex-wrap:wrap;gap:22px 28px;align-items:flex-start;justify-content:center;
+  background:var(--ink);border-radius:14px;padding:26px 22px 22px;margin-bottom:4px;
+}
+#cafe .cafe-cup-wrap{flex:0 0 auto;text-align:center;width:120px;}
+#cafe .cafe-cup{
+  width:92px;height:108px;margin:0 auto;position:relative;
+  border:2.5px solid var(--paper);border-top:none;border-radius:0 0 16px 16px;
+  overflow:hidden;background:rgba(244,239,228,.06);
+  display:flex;flex-direction:column-reverse;
+  transition:width .3s ease,height .3s ease;
+}
+#cafe .cafe-cup::before{
+  content:"";position:absolute;top:0;left:-2.5px;right:-2.5px;height:2.5px;background:var(--paper);
+}
+#cafe .cafe-cup-handle{
+  position:absolute;right:-17px;top:22px;width:16px;height:30px;
+  border:2.5px solid var(--paper);border-left:none;border-radius:0 12px 12px 0;
+}
+#cafe .cafe-cup.cafe-cup--grande{width:108px;height:130px;}
+#cafe .cafe-layer{width:100%;flex:0 0 auto;transition:height .35s ease,background .35s ease;}
+#cafe .cafe-layer-coffee{background:#5C3A21;height:100%;}
+#cafe .cafe-layer-coffee.capsula{background:#8A6A4A;}
+#cafe .cafe-layer-coffee.descaf{background:#7A5638;}
+#cafe .cafe-layer-milk{background:#E8D9BE;height:0;}
+#cafe .cafe-layer-milk.vegetal{background:#DCE4C8;}
+#cafe .cafe-layer-extra{background:var(--terra);height:0;}
+#cafe .cafe-cup-size{color:var(--paper);opacity:.65;font-family:var(--font-mono);font-size:10.5px;
+  letter-spacing:.06em;text-transform:uppercase;margin-top:10px;}
+
+#cafe .cafe-controls{flex:1 1 240px;min-width:210px;}
+#cafe .cafe-group{margin-bottom:14px;}
+#cafe .cafe-group-label{
+  display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--paper);opacity:.6;margin-bottom:8px;
+}
+#cafe .cafe-tags{display:flex;flex-wrap:wrap;gap:8px;}
+#cafe .cafe-tag{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.01em;padding:7px 14px;
+  border:1px solid rgba(244,239,228,.28);border-radius:999px;background:transparent;color:var(--paper);
+  cursor:default;
+}
+.js #cafe .cafe-tag{cursor:pointer;}
+#cafe .cafe-tag[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:var(--paper);}
+.js #cafe .cafe-tag:hover{border-color:var(--terra);}
+
+#cafe .cafe-result{
+  border-top:1px solid var(--hairline);margin-top:16px;padding-top:16px;
+  display:flex;flex-direction:column;gap:2px;
+}
+#cafe .cafe-score{display:flex;align-items:baseline;gap:8px;}
+#cafe .cafe-score-num{
+  font-family:var(--font-display);font-weight:600;font-size:40px;color:var(--terra);line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+#cafe .cafe-score-max{font-family:var(--font-mono);font-size:12px;color:var(--gray);font-weight:400;}
+#cafe .cafe-score-label{font-family:var(--font-mono);font-size:12px;color:var(--gray);margin:4px 0 0;}
+#cafe .cafe-explain{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:10px 0 0;}
+#cafe .cafe-disclaimer{
+  font-family:var(--font-mono,monospace);font-size:10.5px;letter-spacing:.02em;line-height:1.55;
+  color:var(--gray);margin:14px 0 0;border-top:1px dashed var(--hairline);padding-top:10px;
+}
+
+/* Los controles del minijuego sólo se muestran cuando cafe-salud.js ha
+   inicializado. Se usa el id (#cafe) para ganar a las reglas de
+   componente (.cafe-controls), igual que en el resto de piezas. */
+#cafe .needs-js{display:none;}
+#cafe.ready .needs-js{display:revert;}
+
+@media (max-width:640px){
+  #cafe .cafe-score-num{font-size:34px;}
+  #cafe .curve-wrap{padding:10px 10px 8px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../">PIEZAS<b>.</b></a>
+    <nav><a href="../">Todas las piezas</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="cafe">
+  <article class="col">
+    <p class="kicker">Ciencia · Salud</p>
+    <h1 class="headline">Tres cafés al día: la ciencia dice que vives un poco más (con dos peros)</h1>
+    <p class="dek">Los grandes estudios de los últimos años apuntan todos en la misma dirección: tomar café con moderación se asocia a vivir más. Con dos matices que casi nadie te cuenta.</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>·</span>
+      <span>20 de agosto de 2026</span>
+      <span>·</span>
+      <span>Lectura ~4 min</span>
+      <span class="badge">Análisis</span>
+    </div>
+
+    <div class="body lead">
+      <p>Durante décadas, el café arrastró fama de vicio: que si el corazón, que si la tensión, que si mejor lo dejas. Los datos más recientes dicen lo contrario, y no de forma tibia: quien toma unas tres tazas y media al día tiene, de media, un riesgo algo menor de morir. ¿De qué? Sobre todo de lo que más nos mata: la evidencia lo asocia a <b>menos enfermedad cardiovascular</b> (corazón e ictus), <b>menos diabetes tipo 2</b> y <b>menos enfermedad y cáncer de hígado</b>. El problema no es el café. Es lo que le echas y cuánto te pasas.</p>
+      <p>Hablamos de asociación, no de milagro: son estudios que observan a mucha gente durante años, no experimentos que «demuestren» que el café alarga la vida. Pero la señal es consistente en grandes estudios de seguimiento de Estados Unidos, Europa y Asia. El más citado es el metaanálisis de Kim, Je y Giovannucci (2019), que combinó 40 estudios de cohortes y 3.852.651 personas; para la diabetes tipo 2, la referencia es el de Ding et al. (2014), con 28 estudios y 1.109.272 personas. Aquí te contamos qué dice la ciencia de verdad, y cómo saber si tu café juega a favor o en contra.</p>
+    </div>
+
+    <div class="body">
+      <h2 class="ladillo">Lo que dicen los estudios</h2>
+      <p>El punto óptimo está en unas tres tazas y media al día. Conviene dar la cifra exacta, porque el estudio distingue: el metaanálisis de Kim, Je y Giovannucci sitúa el menor riesgo de <b>mortalidad total</b> en <b>3,5 tazas diarias</b> (un 15% menos de riesgo que quien no toma café) y el de <b>mortalidad cardiovascular</b> algo antes, en <b>2,5 tazas</b> (un 17% menos). El de diabetes tipo 2, según Ding et al., baja hasta un 9% por cada taza de café con cafeína (un 6% si es descafeinado, una diferencia que no llegó a ser estadísticamente significativa). Y el de cáncer de hígado también baja al aumentar el consumo.</p>
+    </div>
+
+    <div class="body">
+      <h2 class="ladillo">El primer matiz: la curva tiene forma de U invertida</h2>
+      <p>Más no es mejor. Lo que encontró el metaanálisis es que, pasado ese punto óptimo, tomar más café ya no reduce más el riesgo: el beneficio deja de crecer. Ojo con el salto fácil, que es donde se equivoca medio internet: que el beneficio se agote no significa que el café pase a hacer daño, y el estudio no establece un umbral a partir del cual la balanza se invierta. Lo que sí aparece, y por la vía de la experiencia clínica más que de este metaanálisis, son los efectos conocidos del exceso de cafeína (sueño, ansiedad, tensión). Y hay personas para las que la recomendación no aplica: embarazadas, gente con hipertensión no controlada o con arritmias. La conclusión no es «bebe café para vivir más»; es «si ya lo tomas con moderación, tranquilo».</p>
+    </div>
+
+    <!-- ============ Fig. 1 · Curva en U (SVG estático, sin JS) ============ -->
+    <figure class="figure" id="fig-curva">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 1</div>
+        <h3 class="fig-title">Cuánto baja el riesgo según las tazas de café al día</h3>
+        <p class="fig-note">La reducción de riesgo crece hasta unas 3,5 tazas diarias; a partir de ahí, tomar más deja de aportar.</p>
+      </div>
+
+      <div class="curve-wrap">
+        <svg class="curve-svg" viewBox="0 0 320 155" role="img" aria-labelledby="curveT curveD" preserveAspectRatio="xMidYMid meet">
+          <title id="curveT">Reducción del riesgo de mortalidad según las tazas de café diarias</title>
+          <desc id="curveD">La reducción de riesgo crece desde 0 tazas hasta un máximo en torno a 3,5 tazas diarias (zona óptima resaltada) y a partir de ahí se desvanece progresivamente, volviendo hacia el nivel de quien no toma café. El estudio no establece que pasado ese punto el café llegue a aumentar el riesgo.</desc>
+          <rect class="curve-zone" x="129" y="10" width="31" height="100"/>
+          <line class="curve-axis" x1="36" y1="110" x2="284" y2="110"/>
+          <line class="curve-axis" x1="36" y1="10" x2="36" y2="130"/>
+          <path class="curve-line" d="M36,110.0 L67,76.2 L98,53.8 L129,25.6 L160,31.2 L191,52.0 L222,78.0 L253,95.0 L284,104.0"/>
+          <circle class="curve-dot" cx="36" cy="110.0" r="2.5"/>
+          <circle class="curve-dot" cx="67" cy="76.2" r="2.5"/>
+          <circle class="curve-dot" cx="98" cy="53.8" r="2.5"/>
+          <circle class="curve-dot" cx="129" cy="25.6" r="2.5"/>
+          <circle class="curve-dot" cx="160" cy="31.2" r="2.5"/>
+          <circle class="curve-dot" cx="191" cy="52.0" r="2.5"/>
+          <circle class="curve-dot" cx="222" cy="78.0" r="2.5"/>
+          <circle class="curve-dot" cx="253" cy="95.0" r="2.5"/>
+          <circle class="curve-dot" cx="284" cy="104.0" r="2.5"/>
+          <text class="curve-tick" x="36" y="126">0</text>
+          <text class="curve-tick" x="98" y="126">2</text>
+          <text class="curve-tick" x="160" y="126">4</text>
+          <text class="curve-tick" x="222" y="126">6</text>
+          <text class="curve-tick" x="284" y="126">8</text>
+          <text class="curve-zone-label" x="144.5" y="24">ÓPTIMO</text>
+          <text class="curve-axis-label" x="160" y="142">TAZAS DE CAFÉ AL DÍA</text>
+          <text class="curve-side-label" x="30" y="14">− riesgo</text>
+          <text class="curve-side-label" x="30" y="106">igual que sin café</text>
+        </svg>
+      </div>
+
+      <p class="fig-source">Fuente: a partir de Kim, Je y Giovannucci, <em>European Journal of Epidemiology</em>, 2019 (40 cohortes, 3.852.651 personas, 450.256 muertes). Curva ilustrativa de la forma de la asociación; el mínimo de riesgo se sitúa en 3,5 tazas para mortalidad total y 2,5 para mortalidad cardiovascular. La caída del tramo final representa que el beneficio se desvanece, no que el café pase a perjudicar.</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">El segundo matiz: lo que le echas</h2>
+      <p>Aquí se cae media noticia. El beneficio se mide sobre café, no sobre postres líquidos: el azúcar, los siropes y la nata borran buena parte de la ventaja. No es lo mismo un solo que un frappuccino con caramelo.</p>
+    </div>
+
+    <!-- ============ Fig. 2 · Minijuego «Llena tu café» ============ -->
+    <figure class="figure" id="fig-minijuego">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 2 · minijuego</div>
+        <h3 class="fig-title">Llena tu café</h3>
+        <p class="fig-note">Por defecto: un café de calidad, solo, tamaño normal — puntuación máxima. <span class="needs-js">Cambia base, leche, añadidos y tamaño, y mira cómo se llena la taza.</span></p>
+      </div>
+
+      <div class="cafe-game" id="cafe-game">
+        <div class="cafe-machine">
+          <div class="cafe-cup-wrap">
+            <div class="cafe-cup" id="cafe-cup" aria-hidden="true">
+              <div class="cafe-layer cafe-layer-extra" id="layer-extra"></div>
+              <div class="cafe-layer cafe-layer-milk" id="layer-milk"></div>
+              <div class="cafe-layer cafe-layer-coffee" id="layer-coffee"></div>
+              <div class="cafe-cup-handle"></div>
+            </div>
+            <p class="cafe-cup-size needs-js" id="cafe-cup-size">Normal</p>
+          </div>
+
+          <div class="cafe-controls needs-js" id="cafe-controls">
+            <div class="cafe-group">
+              <span class="cafe-group-label">Base</span>
+              <div class="cafe-tags" role="group" aria-label="Base del café">
+                <button type="button" class="cafe-tag" data-group="base" data-value="calidad" aria-pressed="true">Café de calidad</button>
+                <button type="button" class="cafe-tag" data-group="base" data-value="capsula" aria-pressed="false">Cápsula barata</button>
+                <button type="button" class="cafe-tag" data-group="base" data-value="descaf" aria-pressed="false">Descafeinado</button>
+              </div>
+            </div>
+            <div class="cafe-group">
+              <span class="cafe-group-label">Leche</span>
+              <div class="cafe-tags" role="group" aria-label="Leche">
+                <button type="button" class="cafe-tag" data-group="leche" data-value="ninguna" aria-pressed="true">Ninguna</button>
+                <button type="button" class="cafe-tag" data-group="leche" data-value="entera" aria-pressed="false">Entera</button>
+                <button type="button" class="cafe-tag" data-group="leche" data-value="vegetal" aria-pressed="false">Vegetal</button>
+              </div>
+            </div>
+            <div class="cafe-group">
+              <span class="cafe-group-label">Añadidos</span>
+              <div class="cafe-tags" role="group" aria-label="Añadidos">
+                <button type="button" class="cafe-tag" data-group="extra" data-value="azucar" aria-pressed="false">Azúcar</button>
+                <button type="button" class="cafe-tag" data-group="extra" data-value="sirope" aria-pressed="false">Sirope</button>
+                <button type="button" class="cafe-tag" data-group="extra" data-value="nata" aria-pressed="false">Nata</button>
+              </div>
+            </div>
+            <div class="cafe-group">
+              <span class="cafe-group-label">Tamaño</span>
+              <div class="cafe-tags" role="group" aria-label="Tamaño">
+                <button type="button" class="cafe-tag" data-group="tamano" data-value="normal" aria-pressed="true">Normal</button>
+                <button type="button" class="cafe-tag" data-group="tamano" data-value="grande" aria-pressed="false">Grande</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <output class="cafe-result" id="cafe-result" aria-live="polite">
+          <div class="cafe-score">
+            <span class="cafe-score-num" id="cafe-score">100</span><span class="cafe-score-max">/ 100</span>
+          </div>
+          <p class="cafe-score-label" id="cafe-label">Café tal cual se estudió</p>
+          <p class="cafe-explain" id="cafe-explain">Así es como se mide el beneficio en los estudios: café, sin extras.</p>
+        </output>
+        <p class="cafe-disclaimer">Recurso educativo, no un diagnóstico médico. El objetivo es que entiendas lo que tomas, no que tomes más ni menos.</p>
+      </div>
+
+      <p class="fig-source">Fuente: herramienta educativa ELUR, a partir de la composición típica de cada añadido. No es un consejo médico.</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">Cierre</h2>
+      <p>El café pasó de sospechoso a recomendable sin que cambiara el café: cambió lo que sabíamos medir. La pregunta útil ya no es «¿es bueno o malo?», sino «¿qué le estoy echando yo?».</p>
+    </div>
+
+    <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Ficha de fuentes</h2>
+      <ol>
+        <li>Kim Y, Je Y, Giovannucci E. «Coffee consumption and all-cause and cause-specific mortality: a meta-analysis by potential modifiers». <em>European Journal of Epidemiology</em>, 2019; 34(8):731–752. DOI: <a href="https://doi.org/10.1007/s10654-019-00524-3">10.1007/s10654-019-00524-3</a> — primaria (40 estudios de cohortes, 3.852.651 personas).</li>
+        <li>Ding M, et al. «Caffeinated and Decaffeinated Coffee Consumption and Risk of Type 2 Diabetes: A Systematic Review and a Dose-Response Meta-analysis». <em>Diabetes Care</em>, 2014; 37(2):569–586. DOI: <a href="https://doi.org/10.2337/dc13-1203">10.2337/dc13-1203</a> — primaria (28 estudios, 1.109.272 personas).</li>
+        <li>Fundación Española del Corazón / prensa especializada — secundaria.</li>
+      </ol>
+    </section>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../">Todas las piezas</a></span>
+  </div>
+</footer>
+
+<script src="../assets/graphics.js" defer></script>
+<script src="../assets/cafe-salud.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La crisis de la memoria: por qué tu próximo PC, móvil o consola sube de precio | Pablo González</title>
+<meta name="description" content="El precio de la memoria RAM se ha duplicado en un año por la IA, y no bajará hasta 2027. Cuánto sube cada producto y por qué no hay competencia que lo frene.">
+<link rel="canonical" href="https://piezas.elur.es/crisis-memoria-ia/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Por qué tu próximo PC, móvil o consola te va a costar más">
+<meta property="og:description" content="El precio de la memoria de tu próximo ordenador, móvil o consola se ha duplicado en un año. No es un pico pasajero: la causa es la inteligencia artificial, y no se arreglará hasta 2027 (como pronto).">
+<meta property="og:url" content="https://piezas.elur.es/crisis-memoria-ia/">
+<meta property="og:image" content="https://piezas.elur.es/crisis-memoria-ia/portada.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/crisis-memoria-ia/portada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cuánto ha subido cada producto: la DRAM entre un 93% y un 98% en un solo trimestre y el SSD empresarial 6,5 veces en un año, frente a solo un 35% del disco duro mecánico.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Por qué tu próximo PC, móvil o consola te va a costar más">
+<meta name="twitter:description" content="El precio de la memoria RAM se ha duplicado en un año por la IA, que absorbe una quinta parte de la capacidad mundial de fabricación. No se arreglará hasta 2027.">
+<meta name="twitter:image" content="https://piezas.elur.es/crisis-memoria-ia/portada.jpg">
+<meta name="twitter:image:alt" content="La DRAM subió entre un 93% y un 98% en un solo trimestre y el SSD empresarial 6,5 veces en un año, frente a solo un 35% del disco duro mecánico.">
+
+<link rel="preload" href="../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tu próximo PC, móvil o consola cuesta más por la IA: así te afecta la crisis de la memoria",
+  "description": "El precio de la memoria de tu próximo ordenador, móvil o consola se ha duplicado en un año. No es un pico pasajero: la causa es la inteligencia artificial, y no se arreglará hasta 2027 (como pronto).",
+  "image": ["https://piezas.elur.es/crisis-memoria-ia/portada.jpg"],
+  "inLanguage": "es",
+  "articleSection": "Tecnología y consumo",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-25",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/crisis-memoria-ia/" }
+}
+</script>
+
+<style>
+/* ===== Estilos específicos de la pieza ===== */
+#ram .figure{max-width:820px;}
+
+/* Entradilla destacada (cita de Apple) + nut graf — comparten el bloque .body.lead para el capitular */
+#ram .entradilla{
+  border-left:4px solid var(--terra); padding-left:20px; margin:0 0 26px;
+  font-family:var(--font-body); font-weight:600; color:var(--ink);
+  font-size:clamp(1.14rem,3vw,1.32rem); line-height:1.5; max-width:var(--measure);
+}
+#ram .sub-lede{
+  font-style:italic; color:var(--ink-2); max-width:var(--measure);
+  font-size:clamp(1rem,2.2vw,1.09rem); line-height:1.65; margin:0 0 6px;
+}
+#ram .body ol{font-size:18px; line-height:1.7; max-width:var(--measure); margin:0 0 1.25em; padding-left:1.3em; color:var(--ink);}
+#ram .body ol li{margin-bottom:.6em;}
+
+/* Cita de Apple */
+#ram .pull-cite{max-width:60ch; margin:-8px auto 0; font-family:var(--font-mono,monospace); font-size:13px; color:var(--gray); text-align:right; letter-spacing:.02em;}
+#ram .pull-cite::before{content:"— ";}
+
+/* Lista "qué significa para ti" */
+#ram .prod-list{list-style:none; margin:0 0 2.4em; padding:0; font-size:18px; line-height:1.7; max-width:var(--measure); color:var(--ink);}
+#ram .prod-list li{padding-left:16px; border-left:3px solid var(--hair); margin-bottom:16px;}
+#ram .prod-list li:last-child{margin-bottom:0;}
+#ram .prod-list strong{font-family:var(--font-display); font-weight:600;}
+
+/* Hueco (sin datos / opcional) */
+#ram .hueco{
+  border:1px dashed var(--hairline,var(--hair)); padding:18px 20px; margin:0 0 40px; max-width:var(--measure);
+  font-family:var(--font-mono,monospace); font-size:12.5px; line-height:1.6; color:var(--grey-warm,var(--gray));
+}
+
+/* G1 — Sankey */
+#ram .sankey-wrap svg{display:block; width:100%; height:auto;}
+#ram .ram-note{
+  border-left:3px solid var(--terra); padding:12px 16px; margin:14px auto 0; max-width:var(--measure);
+  background:var(--paper-2); font-size:14px; line-height:1.55; color:var(--ink-2);
+}
+#ram .ram-note-label{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--terra); margin-bottom:6px;
+}
+
+/* G2 — comparador */
+#ram .cmp{max-width:620px; margin:0 auto;}
+#ram .cmp-axis{display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--hair);}
+#ram .cmp-axis-sp{width:120px; flex:0 0 120px;}
+#ram .cmp-axis-sp2{width:82px; flex:0 0 82px;}
+#ram .cmp-axis-track{flex:1 1 auto; position:relative; height:14px; min-width:0;}
+#ram .cmp-tick{position:absolute; top:0; transform:translateX(-50%); font-family:var(--font-mono); font-size:10.5px; color:var(--gray); white-space:nowrap;}
+#ram .cmp-tick::before{content:""; position:absolute; left:50%; top:-10px; width:1px; height:6px; background:var(--hair);}
+#ram .cmp-row{display:flex; align-items:center; gap:10px; margin-bottom:13px;}
+#ram .cmp-row:last-child{margin-bottom:0;}
+#ram .cmp-label{width:120px; flex:0 0 120px; font-family:var(--font-display); font-weight:600; font-size:13.5px; color:var(--ink); line-height:1.22;}
+#ram .cmp-label small{display:block; font-family:var(--font-mono); font-size:9.5px; font-weight:500; color:var(--gray); text-transform:uppercase; letter-spacing:.04em; margin-top:2px;}
+#ram .cmp-track{flex:1 1 auto; position:relative; height:24px; background:var(--paper-2); border:1px solid var(--hair); border-radius:3px; overflow:hidden; min-width:0;}
+#ram .cmp-fill{position:absolute; left:0; top:0; bottom:0; border-radius:2px;}
+#ram .cmp-fill.accent{background:var(--terra);}
+#ram .cmp-fill.ref{background:var(--ink);}
+#ram .cmp-value{width:82px; flex:0 0 82px; text-align:right; font-family:var(--font-mono); font-size:12.5px; font-weight:600; color:var(--ink);}
+#ram .cmp-chips{display:flex; flex-wrap:wrap; gap:8px; margin:18px auto 0; max-width:var(--measure);}
+#ram .cmp-chips .chip-label{
+  width:100%; font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--terra); margin-bottom:2px;
+}
+#ram .chip{
+  background:var(--ink); color:var(--paper); font-family:var(--font-mono); font-size:11.5px;
+  padding:6px 10px; border-radius:3px;
+}
+
+@media (max-width:420px){
+  #ram .cmp-label,#ram .cmp-axis-sp{width:96px; flex:0 0 96px; font-size:12px;}
+  #ram .cmp-value,#ram .cmp-axis-sp2{width:60px; flex:0 0 60px; font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../">PIEZAS<b>.</b></a>
+    <nav><a href="../">Todas las piezas</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="ram">
+  <article class="col">
+    <p class="kicker">Tecnología y consumo</p>
+    <h1 class="headline">Tu próximo PC, móvil o consola cuesta más por la IA: así te afecta la crisis de la memoria</h1>
+    <p class="dek">El precio de la memoria de tu próximo ordenador, móvil o consola se ha duplicado en un año. No es un pico pasajero: la causa es la inteligencia artificial, y no se arreglará hasta 2027 (como pronto).</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>Análisis</span>
+      <span>18 de agosto de 2026 · actualizada el 25 de agosto</span>
+      <span>Lectura ~12 min</span>
+    </div>
+
+    <div class="body lead">
+      <p class="entradilla">Cuando hasta Apple sube los precios y lo explica sin rodeos, es que algo gordo pasa. En junio de 2026, la empresa más poderosa del sector encareció sus Mac entre un 15% y un 20% y sus iPad hasta un 25%, y lo dijo por escrito: «Hemos llegado a un punto en que tenemos que empezar a subir precios (…) nunca habíamos visto un componente subir tanto y tan rápido.» Ese componente es la memoria RAM — el chip (DRAM) que cualquier ordenador, móvil o consola usa para trabajar con datos al vuelo. Y lo que le pasa a Apple te va a pasar a ti en tu próximo dispositivo.</p>
+
+      <p class="sub-lede">La razón no es que tu tienda quiera ganar más: está en los centros de datos de Google, Microsoft, Amazon y Meta, que se están llevando la mayor parte de la memoria RAM que se fabrica en el mundo para entrenar y hacer funcionar la IA. Lo que sobra (cada vez menos) se reparte entre todos los demás. Aquí te contamos cuánto ha subido, por qué, por qué no lo arregla la competencia, y si te conviene comprar ya o esperar.</p>
+
+      <h2 class="ladillo">El dato que lo explica</h2>
+
+      <p>Hace unos años, el grueso de la memoria del mundo iba a lo de siempre: ordenadores, móviles, consolas. Hoy, <strong style="color:var(--terra);">la inteligencia artificial se lleva en torno a una quinta parte de toda la capacidad mundial de fabricación de memoria</strong>, según TrendForce. Suena poco hasta que se mira de cerca: un servidor de IA usa alrededor de ocho veces más memoria que un servidor convencional, y la memoria que llevan sus aceleradores (la HBM) ocupa cuatro veces más superficie de oblea por gigabyte que la memoria normal. Es decir: cada punto de capacidad que se va a la IA se lleva por delante mucha más memoria de la que parece. Los tres fabricantes que dominan el mercado (Samsung, SK Hynix y Micron) mandan sus obleas a lo que más les renta, firman contratos de años con los gigantes y dejan al consumidor con lo que queda.</p>
+    </div>
+
+    <!-- ============ G1 · Sankey ============ -->
+    <figure class="figure" id="fig-sankey">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 1</div>
+        <h3 class="fig-title">Cuánta capacidad de fabricación de memoria se lleva la IA (2026)</h3>
+        <p class="fig-note">Reparto de la capacidad mundial de obleas de DRAM, por destino.</p>
+      </div>
+
+      <div class="fig-media sankey-wrap reveal">
+        <svg class="chart" viewBox="0 0 680 400" role="img" preserveAspectRatio="xMidYMid meet" aria-labelledby="g1t g1d">
+          <title id="g1t">Reparto de la capacidad mundial de obleas de DRAM entre inteligencia artificial y el resto de usos, 2026</title>
+          <desc id="g1d">De toda la capacidad mundial de obleas de DRAM en 2026, en torno al 20% se destina a memoria para inteligencia artificial (HBM y GDDR7). El 80% restante se reparte entre PC, móvil, consolas, servidores convencionales, automóvil y otros usos. Ese 20% pesa mucho más de lo que parece porque un gigabyte de HBM consume cuatro veces más capacidad de oblea que uno de memoria convencional.</desc>
+
+          <text x="340" y="22" text-anchor="middle" class="g-cap" style="font-size:12px;letter-spacing:.06em;">CAPACIDAD MUNDIAL DE OBLEAS DE DRAM — 100%</text>
+
+          <!-- ribbons -->
+          <path d="M54,40 C340,40 340,40 626,40 L626,100 C340,100 340,100 54,100 Z" fill="#B84A2C" fill-opacity="0.82"/>
+          <path d="M54,100 C340,100 340,110 626,110 L626,340 C340,340 340,340 54,340 Z" fill="#191510" fill-opacity="0.08" stroke="#191510" stroke-width="1.5"/>
+
+          <!-- nodes -->
+          <rect x="40" y="40" width="14" height="300" fill="#191510"/>
+          <rect x="626" y="40" width="14" height="60" fill="#B84A2C"/>
+          <rect x="626" y="110" width="14" height="230" fill="none" stroke="#191510" stroke-width="2"/>
+
+          <!-- labels -->
+          <text x="340" y="64" text-anchor="middle" fill="#F4EFE4" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;">MEMORIA PARA IA (HBM Y GDDR7)</text>
+          <text x="340" y="90" text-anchor="middle" fill="#F4EFE4" style="font-family:var(--font-display);font-weight:700;font-size:22px;">~20%</text>
+
+          <text x="340" y="210" text-anchor="middle" fill="#191510" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;">RESTO: PC, MÓVIL, CONSOLAS, SERVIDOR, AUTO Y OTROS</text>
+          <text x="340" y="245" text-anchor="middle" fill="#191510" style="font-family:var(--font-display);font-weight:700;font-size:30px;">~80%</text>
+        </svg>
+      </div>
+
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:#B84A2C"></i>Memoria para IA — HBM y GDDR7</span>
+        <span><i style="background:#191510"></i>Resto — PC, móvil, consolas, servidor convencional y otros</span>
+      </div>
+
+      <aside class="ram-note" role="note">
+        <div class="ram-note-label">Por qué ese 20% duele tanto</div>
+        <p style="margin:0;">Un gigabyte de HBM consume unas <strong>4 veces</strong> más capacidad de oblea que uno de DRAM convencional (el GDDR7, unas 1,7 veces). Por eso una quinta parte de la capacidad se traduce en una porción mucho mayor de los chips de gama alta que acaban en centros de datos: hay estimaciones de la industria que la sitúan en torno a 7 de cada 10, aunque esa cifra circula sin una fuente primaria que la respalde y conviene tomarla como orden de magnitud, no como dato cerrado.</p>
+      </aside>
+
+      <p class="fig-source">Fuente: TrendForce (diciembre de 2025): la IA consumirá en torno al 20% de la capacidad mundial de obleas de DRAM en 2026, con HBM y GDDR7 al frente de la demanda.</p>
+    </figure>
+
+    <blockquote class="pull">Hemos llegado a un punto en que tenemos que empezar a subir precios (…) nunca habíamos visto un componente subir tanto y tan rápido.</blockquote>
+    <p class="pull-cite">Apple, junio de 2026</p>
+
+    <div class="body">
+      <h2 class="ladillo">Cuánto ha subido</h2>
+
+      <p>En un solo trimestre (el primero de 2026), los precios de contrato de la DRAM convencional subieron entre un <strong style="color:var(--terra);">93% y un 98%</strong> respecto al trimestre anterior, según TrendForce, que tuvo que revisar al alza su propia previsión dos veces en dos meses. La memoria para PC se llevó la peor parte, con una subida <strong style="color:var(--terra);">superior al 100%</strong> en un trimestre —el mayor salto registrado—, y la de servidor rondó el 90%. Puesto en la tienda: los analistas ya daban por hecho que 2026 sería el año del módulo DDR5 de 32&nbsp;GB a 500 dólares.</p>
+
+      <p>Y hay una segunda víctima que casi nadie asocia: el almacenamiento. Conviene aclararlo, porque se confunden: la memoria RAM es un tipo de chip (DRAM) y el disco SSD es otro (NAND). Son chips distintos, pero los fabrican las mismas empresas, y la IA se lleva los dos. Resultado: un SSD empresarial de 30&nbsp;TB que costaba unos 3.000 dólares a mediados de 2025 ronda hoy los <strong style="color:var(--terra);">22.600 dólares</strong>, unas seis veces y media más en un año, mientras que un disco duro mecánico (HDD) de la misma época subía en torno a un 35%. La brecha es tal que el SSD empresarial ha pasado a costar casi <strong style="color:var(--terra);">19 veces más por terabyte</strong> que el disco duro. ¿Por qué tan poco el HDD? Porque no lleva NAND: el disco duro de toda la vida se ha librado de la crisis. Esto no es un detalle técnico: al fotógrafo, al que edita vídeo o a cualquiera que guarde sus recuerdos y archivos, le sale mucho más caro el SSD, y el viejo disco mecánico se convierte en la solución temporal más sensata para archivar.</p>
+    </div>
+
+    <!-- ============ G2 · Comparador ============ -->
+    <figure class="figure" id="fig-comparador">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 2</div>
+        <h3 class="fig-title">Cuánto ha subido cada cosa</h3>
+        <p class="fig-note">Variación de precio por producto o componente entre mediados de 2025 y el primer trimestre de 2026. El HDD mecánico, en negro, no lleva memoria NAND: casi no se ha movido. El SSD siguió disparándose después de este corte: a agosto de 2026 acumula unas 6,5 veces en un año.</p>
+      </div>
+
+      <div class="cmp reveal">
+        <div class="cmp-axis" aria-hidden="true">
+          <div class="cmp-axis-sp"></div>
+          <div class="cmp-axis-track">
+            <span class="cmp-tick" style="left:0%;">0</span>
+            <span class="cmp-tick" style="left:19.2%;">50</span>
+            <span class="cmp-tick" style="left:38.5%;">100</span>
+            <span class="cmp-tick" style="left:57.7%;">150</span>
+            <span class="cmp-tick" style="left:76.9%;">200</span>
+            <span class="cmp-tick" style="left:96.2%;">250%</span>
+          </div>
+          <div class="cmp-axis-sp2"></div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-label">SSD 30 TB<small>NAND</small></div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:98.8%;"></div></div>
+          <div class="cmp-value">+257%</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">DRAM de PC<small>1T-2026, TrendForce</small></div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:38.5%;"></div></div>
+          <div class="cmp-value">&gt;+100%</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">DRAM<small>conjunto</small></div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:37.7%;"></div></div>
+          <div class="cmp-value">+93–98%</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">HDD mecánico<small>referencia — sin NAND</small></div>
+          <div class="cmp-track"><div class="cmp-fill ref" style="width:13.5%;"></div></div>
+          <div class="cmp-value">+35%</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">iPad</div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:9.6%;"></div></div>
+          <div class="cmp-value">hasta +25%</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">Mac</div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:7.7%;"></div></div>
+          <div class="cmp-value">+15–20%</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">PC medio<small>IDC · previsión 2026</small></div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:7.0%;"></div></div>
+          <div class="cmp-value">+18,3%</div>
+        </div>
+      </div>
+
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:var(--terra)"></i>Sube por la presión de la IA (DRAM/NAND)</span>
+        <span><i style="background:var(--ink)"></i>HDD — no lleva NAND, referencia</span>
+      </div>
+
+      <div class="cmp-chips" aria-hidden="true">
+        <div class="chip-label">Precios de consolas, actualizado</div>
+        <span class="chip">PS5 (lector): 649,99 $ (abr-26) → 549,99 $ (ago-26, Sony revirtió la subida)</span>
+        <span class="chip">PS5 Pro: 899,99 $ (abr-26) → 749,99 $ (ago-26, misma reversión)</span>
+        <span class="chip">Xbox Series X: 799,99 $</span>
+        <span class="chip">Switch 2: 449,99 → 499,99 $ (1-sep-26)</span>
+      </div>
+
+      <p class="fig-source">Fuente: Counterpoint, TrendForce, MacRumors/CNBC, Forbes/GameSpot, IDC. Precios de PlayStation actualizados a 21-ago-2026: Sony deshizo la subida que había aplicado el 2 de abril y devolvió toda la gama a su precio anterior.</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">Cómo hemos llegado aquí, en tres pasos</h2>
+
+      <ol>
+        <li>La IA dispara la demanda de memoria de alta gama para sus aceleradores, y esa memoria «come» capacidad de fábrica: la HBM ocupa unas cuatro veces más superficie de oblea por gigabyte que la memoria normal, y ya va camino del 22% del consumo de obleas de DRAM.</li>
+        <li>Los fabricantes redirigen sus obleas a lo que más margen deja: HBM y DRAM de servidor.</li>
+        <li>El consumidor final compite por lo que queda, y paga la diferencia.</li>
+      </ol>
+    </div>
+
+    <!-- ============ G3 · DDR5, la subida en un trimestre ============ -->
+    <figure class="figure" id="fig-ddr5">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 3</div>
+        <h3 class="fig-title">La memoria que más ha subido: DDR5, precio por gigabyte</h3>
+        <p class="fig-note">De 6,84 $/GB a 27,20 $/GB en un solo trimestre — casi ×4.</p>
+      </div>
+
+      <div class="cmp reveal" style="max-width:480px;">
+        <div class="cmp-row">
+          <div class="cmp-label">Sep. 2025</div>
+          <div class="cmp-track"><div class="cmp-fill ref" style="width:25%;"></div></div>
+          <div class="cmp-value">6,84 $/GB</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-label">Dic. 2025</div>
+          <div class="cmp-track"><div class="cmp-fill accent" style="width:100%;"></div></div>
+          <div class="cmp-value">27,20 $/GB</div>
+        </div>
+      </div>
+
+      <aside class="ram-note" role="note">
+        <div class="ram-note-label">Por qué escasea la memoria «normal»</div>
+        <p style="margin:0;">La HBM (la memoria que llevan los aceleradores de IA) va camino de ocupar el <strong>22%</strong> de las obleas de DRAM de los tres grandes fabricantes a finales de 2026, frente al 18% un año antes, y apunta al 30% a finales de 2027. Y cada gigabyte de HBM consume unas cuatro veces más capacidad de oblea que uno de memoria convencional: cada oblea que va a HBM es oblea que deja de fabricar la memoria que lleva tu ordenador. <em>Nota sobre las dos cifras de esta pieza: el ~20% del gráfico 1 es la previsión de TrendForce para el conjunto del año 2026 sobre toda la capacidad mundial, e incluye HBM y GDDR7; este 22% es una foto de salida de año y se refiere solo a la HBM en los tres fabricantes principales. Miden cosas distintas y por eso el segundo puede superar al primero.</em></p>
+      </aside>
+
+      <p class="fig-source">Fuente: TrendForce — precio spot del chip DDR5 (2Gx8), de 6,84&nbsp;$/GB en septiembre de 2025 a 27,20&nbsp;$/GB en diciembre de 2025, un alza acumulada de casi el 300%; y cuota de HBM sobre el consumo de obleas de DRAM (18% en 2025, ~22% previsto a finales de 2026).</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">Por qué no lo arregla la competencia</h2>
+
+      <p>Aquí está la pregunta que todos se hacen: si hay tanta demanda, ¿por qué no aparecen más fábricas de memoria y se acabó el problema? Porque el mercado es un oligopolio de manual. Tres empresas se reparten casi todo: en el primer trimestre de 2026, Samsung tenía el 38% del mercado de DRAM, SK Hynix el 29% y Micron el 22%. Entre las tres, el 89%. Y montar una fábrica nueva no está al alcance de casi nadie: cuesta entre 15.000 y 20.000 millones de dólares, necesita máquinas de litografía que fabrica un único proveedor (el holandés ASML) y tarda años en producir a pleno rendimiento. Nadie ha logrado entrar en la DRAM de consumo en décadas; el último intento serio, la japonesa Elpida, quebró y acabó en manos de Micron en 2013. Ese foso protege a los tres de tener que competir en precio. Tanto, que en 2026 una demanda colectiva en EE.&nbsp;UU. les acusa de restringir la oferta para sostener los precios (algo que ellos niegan).</p>
+
+      <h2 class="ladillo">Qué significa para ti, producto por producto</h2>
+
+      <ul class="prod-list">
+        <li><strong>Ordenador y portátil.</strong> La memoria y el SSD son los componentes que más suben. La consultora IDC prevé que el precio medio del PC suba un <strong>18,3%</strong> en 2026 (revisó al alza su previsión inicial, que era de hasta un 8%), con los envíos cayendo un 11,3%: se venden menos ordenadores, pero más caros, hasta el punto de que el mercado crece un 1,6% en valor.</li>
+        <li><strong>Consolas.</strong> Las tres grandes ya han movido ficha, y todas citan la crisis de componentes. Sony subió toda la gama PlayStation en abril de 2026 (el modelo con lector a 649,99&nbsp;$ y la PS5 Pro a 899,99&nbsp;$) y dio marcha atrás el 21 de agosto, devolviéndola a 549,99&nbsp;$ y 749,99&nbsp;$ respectivamente; Microsoft puso la Xbox Series X en 799,99&nbsp;$; y Nintendo sube la Switch 2 de 449,99 a 499,99&nbsp;$ el 1 de septiembre. Que Sony haya podido revertir su subida matiza el relato: la presión de la memoria es real, pero no todas las subidas de precio se explican solo por ella.</li>
+        <li><strong>Móvil.</strong> Los fabricantes trasladan el mismo coste; Apple ya ha encarecido el iPad hasta un 25%. Y va a por el producto más vendido de la casa: según adelantó Bloomberg el 23 de agosto de 2026, <strong>toda la gama del iPhone 18 subirá unos 100 dólares</strong>, con el modelo Pro arrancando en 1.199. El motivo, otra vez, es la memoria. TrendForce lo pone en números: el coste de materiales de un iPhone 18 Pro de 256&nbsp;GB sube alrededor de un 38% interanual, y la memoria ha pasado de suponer en torno al 10% de ese coste hace un año a rondar el 34%, camino de superar el 40% en la primera mitad de 2027.</li>
+        <li><strong>Almacenamiento.</strong> SSD por las nubes (NAND); el disco duro mecánico (HDD), mucho menos, como refugio temporal.</li>
+        <li><strong>Y hasta el altavoz de la cocina.</strong> El 21 de agosto de 2026, Amazon subió de noche y sin anuncio los precios de su gama de aparatos: el Echo Dot pasó de 49 a 79 dólares (un 60% más), el Kindle de 16&nbsp;GB de 109,99 a 149,99, el Fire TV Stick 4K Max de 59,99 a 84,99. La empresa lo explicó a <em>Fortune</em> con estas palabras: «aumentos significativos en los costes de los componentes de memoria y almacenamiento», que dice haber absorbido todo lo que pudo antes de trasladarlos.</li>
+      </ul>
+
+      <aside class="ram-note" role="note">
+        <div class="ram-note-label">El círculo se cierra</div>
+        <p style="margin:0;">Cuatro semanas antes de subir esos precios, Amazon había elevado su previsión de inversión para 2026 hasta los <strong>220.000 millones de dólares</strong>, en buena parte para comprar los mismos chips escasos que necesitan sus centros de datos de inteligencia artificial. Es decir: la compañía encarece su altavoz doméstico por una escasez que ella misma está ayudando a provocar. No es hipocresía, es cómo funciona el mercado cuando un comprador gigante entra en la puja: <strong>el consumidor y el centro de datos compiten por la misma oblea, y el consumidor no puede pagar lo que paga la IA.</strong></p>
+      </aside>
+
+      <h2 class="ladillo">Cuándo comprar y cuándo esperar</h2>
+
+      <p>La respuesta corta: si necesitas comprar o ampliar memoria o almacenamiento, hazlo cuanto antes. Ninguna previsión seria ve alivio antes de la segunda mitad de 2027, y SK Hynix ha llegado a avisar de que la escasez podría durar más allá de 2030. En almacenamiento, si solo necesitas guardar archivos, el disco duro mecánico sigue siendo barato. Esperar, en este caso, no premia.</p>
+
+      <h2 class="ladillo">Qué dicen los que creen que se corrige antes</h2>
+
+      <p>Parte de la subida responde a acaparamiento y a contratos que podrían relajarse; de hecho, el almacenamiento (NAND) da señales de aliviarse antes que la memoria (DRAM) ya en 2027. Es la posición minoritaria, y se cuenta como tal, sin equipararla artificialmente a la dominante.</p>
+    </div>
+
+    <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Ficha de fuentes</h2>
+      <ol>
+        <li><strong>Apple:</strong> subida de precios de Mac/iPad y declaración oficial (jun-2026). MacRumors, CNBC, 9to5Mac. Cita textual de Apple + Tim Cook («costes de memoria significativamente mayores»).</li>
+        <li><strong>Counterpoint Research:</strong> memoria/almacenamiento ×4 en tres trimestres; cuota de mercado de DRAM en 1T-2026 (Samsung 38%, SK Hynix 29%, Micron 22% — 89% conjunto).</li>
+        <li><strong>TrendForce:</strong> precios de contrato del 1T-2026 (DRAM convencional +93-98% intertrimestral, PC DRAM &gt;100%, servidor ≈90%); la IA consumirá ~20% de la capacidad mundial de obleas de DRAM en 2026, con HBM y GDDR7 al frente; cuota de HBM sobre consumo de obleas (18% en 2025 → ~22% previsto a finales de 2026) y demanda de HBM +70% interanual; precio spot del chip DDR5 2Gx8 (6,84 $/GB en sep-2025 → 27,20 $/GB en dic-2025, casi +300% acumulado); divergencia DRAM/NAND en 2027.</li>
+        <li><strong>Oligopolio:</strong> coste de una fábrica nueva 15-20.000 M$; ASML; consolidación de Elpida en Micron (2013); demanda antimonopolio en EE. UU. (2026, vía Reuters).</li>
+        <li><strong>Almacenamiento:</strong> VDURA / StorageReview / Tom's Hardware — un SSD empresarial de 30&nbsp;TB pasó de ~3.000 $ (2T-2025) a 22.600 $ (agosto de 2026), unas 6,5 veces en un año y ~19 veces el precio por terabyte de un HDD, que subió en torno a un 35% en el mismo periodo.</li>
+        <li><strong>Consolas:</strong> precios PS5/PS5 Pro (subida de 2-abr-2026 y reversión de 21-ago-2026), Xbox Series X y Switch 2 (subida del 1-sep-2026) — PlayStation Blog, Nintendo y prensa especializada.</li>
+        <li><strong>IDC (previsión 2026):</strong> precio medio del PC +18,3%, envíos −11,3%, mercado +1,6% en valor hasta 274.000 M$, sin alivio previsto antes de finales de 2027. <strong>SK Hynix:</strong> la escasez podría prolongarse más allá de 2030.</li>
+        <li><strong>Amazon (21-ago-2026, en vigor el 22):</strong> subida de precios en Echo, Kindle, Fire TV y eero de hasta el 60%, atribuida por la propia compañía a «aumentos significativos en los costes de los componentes de memoria y almacenamiento» — exclusiva de <em>Fortune</em>, con detalle de precios en Tom's Guide. Cuatro semanas antes había elevado su previsión de inversión de 2026 a 220.000 M$.</li>
+        <li><strong>iPhone 18 (23-ago-2026):</strong> subida prevista de ~100&nbsp;$ en toda la gama, con el Pro desde 1.199&nbsp;$ — Bloomberg (Mark Gurman). <strong>TrendForce (10-ago-2026):</strong> el coste de materiales del iPhone 18 Pro de 256&nbsp;GB sube ~38% interanual; la memoria pasa de ~10% de ese coste a ~34% en el tercer trimestre de 2026 y superará el 40% en el primer semestre de 2027.</li>
+        <li><strong>Xbox Series X:</strong> 799,99&nbsp;$ desde el 1 de agosto de 2026 (+23% sobre 649,99&nbsp;$), con Microsoft citando expresamente los costes de memoria y almacenamiento.</li>
+        <li><strong>Servidores de IA:</strong> usan aproximadamente 8 veces más DRAM y 3 veces más NAND que un servidor convencional (análisis de industria). Un gigabyte de HBM consume unas 4 veces más capacidad de oblea que uno de DRAM convencional; el GDDR7, unas 1,7 veces.</li>
+        <li>TechRadar — previsión de analistas de que 2026 sería el año del módulo DDR5 de 32&nbsp;GB a 500 dólares. Secundaria.</li>
+      </ol>
+    </section>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../">Todas las piezas</a></span>
+  </div>
+</footer>
+
+<script src="../assets/graphics.js" defer></script>
+</body>
+</html>

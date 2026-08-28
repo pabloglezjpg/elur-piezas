@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple Upgrade: por qué Apple quiere que alquiles tu próximo iPhone | Pablo González</title>
+<meta name="description" content="Apple lanza en EE. UU. un programa para alquilar el iPhone, el Mac, el iPad o el Watch con Klarna. Calculadora: cuánto cuesta alquilar frente a comprar.">
+<link rel="canonical" href="https://piezas.elur.es/apple-upgrade/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Apple quiere que alquiles tu próximo iPhone">
+<meta property="og:description" content="Apple lanza en EE. UU. un programa para alquilar el iPhone, el Mac, el iPad o el Watch con Klarna. Calculadora: cuánto cuesta alquilar frente a comprar.">
+<meta property="og:url" content="https://piezas.elur.es/apple-upgrade/">
+<meta property="og:image" content="https://piezas.elur.es/apple-upgrade/portada.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/apple-upgrade/portada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apple Upgrade: alquilar un iPhone 17 Pro cuesta 767,76 dólares en 24 meses frente a 1.099 dólares de comprarlo, y nunca es tuyo.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apple quiere que alquiles tu próximo iPhone">
+<meta name="twitter:description" content="Con Apple Upgrade y Klarna, el iPhone deja de ser tuyo: pagas cada mes y lo devuelves. Cuánto cuesta alquilar frente a comprar, con calculadora.">
+<meta name="twitter:image" content="https://piezas.elur.es/apple-upgrade/portada.jpg">
+<meta name="twitter:image:alt" content="767,76 dólares de alquiler en 24 meses frente a 1.099 dólares de compra de un iPhone 17 Pro.">
+
+<link rel="preload" href="../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Apple quiere que alquiles tu próximo iPhone",
+  "description": "Apple ha lanzado en EE. UU. un programa para pagar el iPhone, el Mac, el iPad o el Watch al mes, con Klarna. La propiedad del aparato se convierte, poco a poco, en una suscripción más.",
+  "image": ["https://piezas.elur.es/apple-upgrade/portada.jpg"],
+  "inLanguage": "es",
+  "articleSection": "Economía y empresa",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/apple-upgrade/" }
+}
+</script>
+
+<style>
+/* ===== Estilos específicos de la pieza (calculadora) ===== */
+#apple .figure{max-width:820px;}
+#apple .pull-cite{max-width:60ch;margin:-8px auto 0;font-family:var(--font-mono,monospace);font-size:13px;color:var(--gray);text-align:right;letter-spacing:.02em;}
+#apple .pull-cite::before{content:"— ";}
+#apple .badge-accent{
+  display:inline-block;font-family:var(--font-mono,monospace);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:5px 12px;
+}
+#apple .opinion{
+  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+  padding:24px 0;margin:0 0 32px;display:flex;flex-direction:column;gap:14px;max-width:var(--measure);
+}
+#apple .opinion p{font-family:var(--font-body);font-style:italic;font-size:19px;line-height:1.6;color:var(--ink);margin:0;}
+#apple .hueco{
+  border:1px dashed var(--hairline);padding:18px 20px;margin:0 0 40px;max-width:var(--measure);
+  font-family:var(--font-mono,monospace);font-size:12.5px;line-height:1.6;color:var(--grey-warm,var(--gray));
+}
+
+/* Calculadora */
+.calc{max-width:600px;margin:0 auto;}
+.calc-controls{display:flex;flex-direction:column;gap:18px;margin-bottom:20px;}
+.calc-step-label{
+  font-family:var(--font-mono,monospace);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--grey-warm,var(--gray));margin-bottom:8px;
+}
+.calc-tabs{display:flex;flex-wrap:wrap;gap:8px;}
+.calc-tabs button{
+  font-family:var(--font-mono,monospace);font-size:12px;letter-spacing:.02em;padding:8px 13px;
+  border:1px solid var(--hairline);background:transparent;color:var(--grey-warm,var(--gray));
+  cursor:pointer;border-radius:999px;
+}
+.calc-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.calc-devgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(136px,1fr));gap:8px;}
+.calc-dev-card{
+  cursor:pointer;border:1px solid var(--hairline);background:transparent;padding:11px 12px;
+  text-align:left;border-radius:4px;font:inherit;width:100%;
+}
+.calc-dev-card[aria-pressed="true"]{border-color:var(--ink);background:var(--paper-raised);}
+.calc-dev-name{display:block;font-family:var(--font-body);font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.25;}
+.calc-dev-price{display:block;font-family:var(--font-mono,monospace);font-size:11.5px;color:var(--grey-warm,var(--gray));margin-top:4px;}
+.calc-usecase{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.calc-usecase legend{padding:0;margin:0 0 8px;}
+.calc-usecase label{display:flex;gap:9px;align-items:flex-start;font-family:var(--font-body);font-size:15px;line-height:1.4;color:var(--ink);cursor:pointer;}
+.calc-usecase input[type="radio"]{margin-top:3px;accent-color:var(--accent);flex:0 0 auto;}
+
+.calc-result{
+  background:var(--paper-raised);border:1px solid var(--hairline);border-radius:6px;
+  padding:18px;display:flex;flex-direction:column;gap:16px;
+}
+.calc-hr{height:1px;background:var(--hairline);}
+.calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.calc-label{font-family:var(--font-mono,monospace);font-size:11px;text-transform:uppercase;letter-spacing:.02em;color:var(--grey-warm,var(--gray));}
+.calc-value{font-family:var(--font-display,Georgia,serif);font-weight:600;font-size:24px;display:block;margin-top:2px;}
+.calc-value.accent{color:var(--accent);}
+.calc-value.small{font-family:var(--font-body);font-size:17px;font-weight:600;}
+.calc-hint{font-family:var(--font-mono,monospace);font-size:11px;color:var(--grey-warm,var(--gray));margin-top:3px;}
+.calc-chart-wrap svg{display:block;width:100%;height:auto;min-width:0;}
+.calc-pctbar{height:10px;background:var(--paper);border:1px solid var(--hairline);border-radius:4px;overflow:hidden;margin-top:4px;}
+.calc-pctbar-fill{height:100%;background:var(--accent);}
+.calc-pct-readout{font-family:var(--font-mono,monospace);font-size:13px;color:var(--accent);margin-top:6px;}
+.calc-finance{font-family:var(--font-body);font-size:15px;color:var(--ink-70,var(--ink-2));}
+.calc-verdict{
+  border-left:3px solid var(--accent);padding-left:14px;font-family:var(--font-body);
+  font-size:16px;line-height:1.55;color:var(--ink);
+}
+.calc-fineprint{font-family:var(--font-mono,monospace);font-size:11px;color:var(--grey-warm,var(--gray));line-height:1.6;margin-top:14px;}
+.calc-more{margin-top:18px;}
+.calc-more summary{
+  cursor:pointer;font-family:var(--font-mono,monospace);font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--accent);padding:8px 0;list-style:none;
+}
+.calc-more summary::-webkit-details-marker{display:none;}
+.calc-more summary::before{content:"+ ";}
+.calc-more[open] summary::before{content:"− ";}
+
+@media (max-width:420px){
+  .calc-value{font-size:21px;}
+  .calc-grid2{gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../">PIEZAS<b>.</b></a>
+    <nav><a href="../">Todas las piezas</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="apple">
+  <article class="col">
+    <p class="kicker">Economía y empresa</p>
+    <h1 class="headline">Apple quiere que alquiles tu próximo iPhone</h1>
+    <p class="dek">Apple ha lanzado en EE. UU. un programa para pagar el iPhone —y otros dispositivos— al mes, con Klarna. La propiedad del aparato se convierte, poco a poco, en una suscripción más.</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>Análisis</span>
+      <span>18 de agosto de 2026</span>
+      <span>Lectura ~6 min</span>
+    </div>
+
+    <div class="body lead">
+      <p>Durante veinte años, la relación con Apple fue simple: pagabas mucho y el aparato era tuyo. El 28 de julio de 2026, Apple estrenó en Estados Unidos otra idea. Se llama Apple Upgrade y, en la práctica, convierte los dispositivos en algo que no compras: lo alquilas.</p>
+
+      <p>No es «Apple se ha vuelto una empresa de suscripciones» (eso ya estaba contado con Apple Music, iCloud o Apple TV). Es un paso más: la suscripción llega al <strong>propio hardware</strong>. Y no es un capricho de Apple: es hacia donde empuja media industria, de la propiedad a la recurrencia. Aquí te contamos cómo funciona, por qué le interesa a Apple y qué letra pequeña conviene mirar antes de que este modelo llegue a España.</p>
+
+      <h2 class="ladillo">Cómo funciona</h2>
+
+      <p>Apple Upgrade, en asociación con la financiera Klarna, deja pagar una cuota mensual por el iPhone, el Apple Watch, el Mac o el iPad, a plazo fijo (12-24 meses en iPhone y Watch, 24-36 en Mac y iPad), con la opción de actualizar el aparato, devolverlo o quedártelo al final. Empieza desde 17,99 dólares al mes por un iPhone. Sustituye a los antiguos programas de pago y actualización de Apple, y Klarna hace una consulta de crédito «blanda» que no afecta a tu historial.</p>
+
+      <h2 class="ladillo">Por qué le interesa a Apple</h2>
+
+      <p>De entrada, ingresos previsibles y recurrentes en vez de un pago grande cada varios años. Además, ata al cliente al ciclo de actualización (siempre con el último modelo, siempre pagando) y, al meter a Klarna por medio, saca el riesgo de impago de sus propias cuentas. Es un modelo que la industria lleva años persiguiendo, y con precedentes muy concretos: Adobe dejó de vender su software en caja y lo pasó a suscripción con Creative Cloud en 2013, y en 2022 BMW llegó a cobrar unos 18 dólares al mes por los asientos calefactables que ya venían instalados de fábrica en el coche — el rechazo fue tal que la retiró al año siguiente. Apple Upgrade es la misma lógica aplicada al aparato entero.</p>
+    </div>
+
+    <!-- ============ G1 · Calculadora comprar vs. alquilar ============ -->
+    <figure class="figure" id="fig-calc">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 1 · calculadora</div>
+        <h3 class="fig-title">¿Te compensa el alquiler o la compra?</h3>
+        <p class="fig-note">Caso por defecto: iPhone 17 Pro, contrato de 24 meses. <span>Cambia categoría, modelo, plazo y horizonte para tu caso.</span></p>
+      </div>
+
+      <div class="calc" id="calc">
+        <div class="calc-controls" id="calc-controls" hidden>
+          <div class="calc-step">
+            <div class="calc-step-label">1. Categoría</div>
+            <div class="calc-tabs" id="calc-cat" role="group" aria-label="Categoría de dispositivo"></div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-step-label">2. Modelo</div>
+            <div class="calc-devgrid" id="calc-dev" role="group" aria-label="Modelo de dispositivo"></div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-step-label">3. Plazo del contrato (= cada cuánto renuevas)</div>
+            <div class="calc-tabs" id="calc-term" role="group" aria-label="Plazo del contrato"></div>
+          </div>
+          <div class="calc-step">
+            <div class="calc-step-label">4. Horizonte a proyectar</div>
+            <div class="calc-tabs" id="calc-horizon" role="group" aria-label="Horizonte a proyectar"></div>
+          </div>
+          <fieldset class="calc-usecase">
+            <legend class="calc-step-label">5. ¿Para qué lo quieres?</legend>
+            <label><input type="radio" name="calc-usecase" id="calc-use-capricho" checked> Capricho personal — lo cambio porque me apetece</label>
+            <label><input type="radio" name="calc-usecase" id="calc-use-profesional"> Material de trabajo — me hace producir más</label>
+          </fieldset>
+        </div>
+
+        <div class="calc-result" id="calc-result">
+          <div class="calc-grid2">
+            <div>
+              <div class="calc-label">Cuota Apple Upgrade</div>
+              <output class="calc-value accent" id="calc-monthly">31,99 $ /mes</output>
+            </div>
+            <div>
+              <div class="calc-label">Precio de venta al público</div>
+              <output class="calc-value" id="calc-retail">1.099 $</output>
+            </div>
+          </div>
+
+          <div class="calc-verdict" id="calc-verdict" aria-live="polite">Si es un capricho: renovando cada 24 meses, en 2 años habrás pagado 767,76 $ sin que el aparato llegue a ser tuyo en ningún momento, frente a 1.099 $ pagados una sola vez si lo compras y lo conservas. Para un capricho, rara vez compensa frente a comprarlo (o no comprarlo).</div>
+
+          <details class="calc-more">
+            <summary>Ver el desglose completo</summary>
+
+            <div class="calc-hr"></div>
+            <div class="calc-grid2">
+              <div>
+                <div class="calc-label">Alquilar y renovar cada <span id="calc-term-label">24 meses</span> (<span id="calc-horizon-label">2 años</span>)</div>
+                <output class="calc-value small accent" id="calc-total-rent">767,76 $</output>
+                <div class="calc-hint">nunca es tuyo — lo devuelves en cada ciclo</div>
+              </div>
+              <div>
+                <div class="calc-label">Comprarlo una vez y conservarlo <span id="calc-horizon-label-2">2 años</span></div>
+                <output class="calc-value small" id="calc-total-buy">1.099 $</output>
+                <div class="calc-hint">es tuyo desde el primer día</div>
+              </div>
+            </div>
+            <div class="calc-hr"></div>
+            <div class="calc-chart-wrap">
+              <div class="calc-label" style="margin-bottom:8px;">Coste acumulado en el horizonte</div>
+              <svg class="chart" viewBox="0 0 320 140" role="img" preserveAspectRatio="xMidYMid meet" aria-labelledby="g1t g1d">
+                <title id="g1t">Coste acumulado: alquilar frente a comprar un iPhone 17 Pro</title>
+                <desc id="g1d">Comparación del coste acumulado en 24 meses: alquilar con Apple Upgrade suma 767,76 dólares al ritmo de 31,99 dólares al mes, sin llegar nunca al precio de compra; comprarlo una vez cuesta 1.099 dólares desde el primer día, como pago único.</desc>
+                <line x1="8" y1="132" x2="312" y2="132" stroke="#D8CFBE" stroke-width="1"/>
+                <path id="calc-chart-buy" d="M8,13.9 L312,13.9" fill="none" stroke="#3F5A63" stroke-width="2" stroke-dasharray="4,3"/>
+                <path id="calc-chart-rent" d="M8.0,132.0 L20.7,128.6 L33.3,125.1 L46.0,121.7 L58.7,118.2 L71.3,114.8 L84.0,111.4 L96.7,107.9 L109.3,104.5 L122.0,101.1 L134.7,97.6 L147.3,94.2 L160.0,90.7 L172.7,87.3 L185.3,83.9 L198.0,80.4 L210.7,77.0 L223.3,73.6 L236.0,70.1 L248.7,66.7 L261.3,63.2 L274.0,59.8 L286.7,56.4 L299.3,52.9 L312.0,49.5" fill="none" stroke="#B84A2C" stroke-width="2"/>
+              </svg>
+              <div class="legend" aria-hidden="true">
+                <span><i style="background:#B84A2C"></i>alquiler acumulado</span>
+                <span><i style="background:#3F5A63"></i>compra única</span>
+              </div>
+            </div>
+            <div class="calc-hr"></div>
+            <div>
+              <div class="calc-label" style="margin-bottom:6px;">% del valor del aparato pagado si te lo quedas al final del primer ciclo</div>
+              <div class="calc-pctbar"><div class="calc-pctbar-fill" id="calc-bar-fill" style="width:70%"></div></div>
+              <output class="calc-pct-readout" id="calc-pct-label">70% del valor del aparato · recompra: 331,24 $</output>
+            </div>
+            <div class="calc-label">Alternativa real: financiación a 0% con Apple Card, mismo plazo</div>
+            <output class="calc-finance" id="calc-finance">45,79 $ /mes — a plazo terminas siendo dueño, sin coste extra por el 0% de interés.</output>
+
+            <div class="calc-fineprint">Fuera del programa (no elegibles para Apple Upgrade): iPhone 16, Apple Watch SE, iPad de entrada, MacBook Neo, Mac mini. El cálculo asume renovación continua sin comisión por cambio anticipado y sin intereses (así lo define Apple).</div>
+          </details>
+        </div>
+      </div>
+
+      <p class="fig-source">Fuente: Apple Newsroom; apple.com/shop/apple-upgrade y fichas de producto de apple.com/shop (verificado 18-ago-2026); MacRumors; AppleInsider. Apple pareja sus cuotas oficiales con un ejemplo de 1.099&nbsp;$ para el iPhone 17 Pro 256GB en la propia letra pequeña de Apple Upgrade; la ficha de producto independiente del mismo modelo lista 1.199&nbsp;$. Este gráfico usa el precio de 1.099&nbsp;$ porque es el que Apple asocia directamente a las cuotas de 31,99&nbsp;$/45,79&nbsp;$ que también verificamos.</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">La letra pequeña</h2>
+      <p>Aquí conviene aclarar algo, porque el nombre engaña: Apple Upgrade es un <strong>alquiler de verdad</strong>, no una financiación. Con el antiguo programa de Apple pagabas el móvil a plazos (con un 0% de interés) y al final <strong>era tuyo</strong>; con Apple Upgrade, salvo que pagues un extra para quedártelo al terminar, <strong>nunca llegas a poseerlo</strong>: lo devuelves o lo cambias por otro, y sigues pagando. La cuota mensual parece barata (un iPhone 17 Pro sale por 31,99 dólares al mes a dos años, frente a los 1.099 de comprarlo), pero si encadenas actualizaciones, pagas para siempre. No es ni una estafa ni un chollo: es un cambio en la forma de tener las cosas. (Para quien prefiera comprar, Apple mantiene la financiación a 0% con Apple Card.)</p>
+
+      <h2 class="ladillo">Cierre</h2>
+      <p>Apple no ha inventado el leasing, igual que no inventó casi nada: lo ha llevado a su producto más deseado y lo ha hecho fácil. La pregunta que deja no es técnica sino cultural: ¿nos parece bien dejar de ser dueños de las cosas a cambio de tenerlas siempre nuevas?</p>
+    </div>
+
+    <div class="opinion">
+      <span class="badge-accent">Opinión — primera persona</span>
+      <p>Aquí va una opinión, en primera persona. Como fotógrafo, distingo dos cosas: el material del que voy a sacar un rendimiento real (una cámara, un ordenador que me hace producir más) y el capricho. Para lo primero, si el interés es cero o muy bajo, no desembolsar todo de golpe puede compensar: es un activo que aumenta tu productividad y te libera caja. Para lo segundo, casi nunca: endeudarse o entrar en un leasing por un capricho rara vez es la mejor decisión financiera.</p>
+    </div>
+
+    <!-- ============ G2 · Línea temporal «todo se vuelve suscripción» ============ -->
+    <figure class="figure" id="fig-timeline">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 2</div>
+        <h3 class="fig-title">Todo se vuelve suscripción: de la música al hardware</h3>
+        <p class="fig-note">Cinco hitos que llevaron la lógica de la suscripción de lo que ves a lo que tienes en las manos.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">2007</div>
+          <h4 class="tl-h">Netflix lanza el streaming</h4>
+          <p class="tl-p">Dejas de comprar o alquilar película a película: te suscribes y ves lo que haya. El primer gran salto de la propiedad a la recurrencia, aplicado al contenido.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2013</div>
+          <h4 class="tl-h">Adobe pasa el software a Creative Cloud</h4>
+          <p class="tl-p">Photoshop e Illustrator dejan de venderse en caja: a partir de ahora se alquilan por mes. El salto llega al software que usas para trabajar, no solo para entretenerte.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2015</div>
+          <h4 class="tl-h">Apple Music</h4>
+          <p class="tl-p">Apple, que había vendido canciones sueltas durante una década con iTunes, se suma a la suscripción musical.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2022</div>
+          <h4 class="tl-h">BMW cobra por los asientos calefactables</h4>
+          <p class="tl-p">Unos 18 dólares al mes por activar una función ya instalada de fábrica en el coche. El rechazo fue tan sonoro que BMW la retiró al año siguiente, pero el aviso quedó: el hardware físico ya no escapa a la lógica de la suscripción.</p>
+        </div>
+        <div class="tl-item crit">
+          <div class="tl-date">2026</div>
+          <h4 class="tl-h">Apple Upgrade</h4>
+          <p class="tl-p">Le toca al aparato entero: el iPhone, el Mac, el iPad o el Watch se pueden alquilar por mes, sin llegar a ser tuyos salvo que pagues un extra al final.</p>
+        </div>
+      </div>
+
+      <p class="fig-source">Fuente: Netflix Newsroom; Adobe Newsroom (2013); Apple Newsroom (Apple Music, 2015); The Drive / Autoblog (BMW, asientos calefactables, 2022-2023); Apple Newsroom (Apple Upgrade, 2026).</p>
+    </figure>
+
+    <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Ficha de fuentes</h2>
+      <ol>
+        <li>Apple Newsroom — «Apple Upgrade launches in the United States», 28-jul-2026. Primaria.</li>
+        <li>apple.com/shop/apple-upgrade y fichas de producto de apple.com/shop (iPhone 17 Pro, Apple Watch Series 11, iPad Pro, MacBook Pro) — verificado 18-ago-2026. Primaria.</li>
+        <li>MacRumors — «Apple Upgrade: Apple Retires iPhone Upgrade Program for Klarna-Backed Leases». Secundaria solvente.</li>
+        <li>AppleInsider — cobertura de precios y condiciones por categoría. Secundaria solvente.</li>
+        <li>TechCrunch, 28-jul-2026. Secundaria solvente.</li>
+        <li>CNBC, 28-jul-2026. Secundaria solvente.</li>
+        <li>Newsweek. Secundaria solvente.</li>
+      </ol>
+    </section>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../">Todas las piezas</a></span>
+  </div>
+</footer>
+
+<script src="../assets/graphics.js" defer></script>
+<script src="../assets/apple-upgrade.js" defer></script>
+</body>
+</html>

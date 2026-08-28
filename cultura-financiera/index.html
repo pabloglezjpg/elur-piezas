@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿De verdad los españoles no tenemos cultura financiera? Tres preguntas lo dicen | Pablo González</title>
+<meta name="description" content="El Banco de España mide la cultura financiera con tres preguntas: solo el 19% las acierta todas. Pruébate y compara España con Europa y EE. UU.">
+<link rel="canonical" href="https://piezas.elur.es/cultura-financiera/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="¿De verdad los españoles no tenemos cultura financiera? Tres preguntas lo dicen">
+<meta property="og:description" content="El Banco de España mide la cultura financiera con tres preguntas: solo el 19% las acierta todas. Pruébate y compara España con Europa y EE. UU.">
+<meta property="og:url" content="https://piezas.elur.es/cultura-financiera/">
+<meta property="og:image" content="https://piezas.elur.es/cultura-financiera/portada.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/cultura-financiera/portada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cultura financiera en España: solo el 19% acierta las tres preguntas básicas del Banco de España.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿De verdad los españoles no tenemos cultura financiera? Tres preguntas lo dicen">
+<meta name="twitter:description" content="Solo el 19% de los españoles acierta las tres preguntas básicas de cultura financiera del Banco de España. Pruébate.">
+<meta name="twitter:image" content="https://piezas.elur.es/cultura-financiera/portada.jpg">
+<meta name="twitter:image:alt" content="Cultura financiera en España: solo el 19% acierta las tres preguntas básicas del Banco de España.">
+
+<link rel="preload" href="../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "¿De verdad los españoles no tenemos cultura financiera? Tres preguntas lo dicen",
+  "description": "El Banco de España mide la cultura financiera con tres preguntas sobre inflación, interés compuesto y diversificación del riesgo: solo el 19% de los adultos las acierta todas.",
+  "image": ["https://piezas.elur.es/cultura-financiera/portada.jpg"],
+  "inLanguage": "es",
+  "articleSection": "Economía",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-20",
+  "dateModified": "2026-08-20",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/cultura-financiera/" }
+}
+</script>
+
+<style>
+/* Tokens del Design (--accent, --hairline, --paper-raised, …) ya viven en periodismo.css */
+
+/* ============ Fig. 1 · Autotest — 3 preguntas de la ECF ============ */
+#cultfin .quiz-card{
+  border:1px solid var(--hair); border-radius:6px; background:var(--paper);
+  padding:22px 20px; max-width:var(--measure); margin:0 auto;
+}
+#cultfin .quiz-progress{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--terra); margin:0 0 10px;
+}
+#cultfin .quiz-text{
+  font-family:var(--font-body); font-size:17.5px; line-height:1.52;
+  color:var(--ink); margin:0 0 16px;
+}
+#cultfin .quiz-opts{display:flex; flex-direction:column; gap:8px;}
+#cultfin .quiz-opt{
+  font-family:var(--font-body); font-size:15.5px; line-height:1.4; text-align:left;
+  padding:11px 14px; border:1px solid var(--hair); border-radius:4px;
+  background:var(--paper); color:var(--ink); cursor:pointer;
+}
+#cultfin .quiz-opt:hover:not(:disabled){border-color:var(--terra);}
+#cultfin .js .quiz-opt.chosen{border-width:1.5px;}
+#cultfin .js .quiz-opt.is-correct{border-color:var(--ok); background:rgba(75,106,78,.12); color:var(--ink);}
+#cultfin .js .quiz-opt.is-wrong{border-color:var(--terra); background:rgba(184,74,44,.10);}
+#cultfin .js .quiz-opt:disabled{cursor:default;}
+
+#cultfin .quiz-result{margin-top:16px;}
+#cultfin .quiz-output{
+  display:block; font-family:var(--font-display); font-weight:500;
+  font-size:1.05rem; line-height:1.4; color:var(--ink);
+}
+#cultfin .quiz-output:empty{display:none;}
+#cultfin .quiz-reset{
+  margin-top:12px; font-family:var(--font-mono); font-size:12.5px; letter-spacing:.04em;
+  text-transform:uppercase; padding:9px 16px; border:1px solid var(--ink); border-radius:3px;
+  background:var(--ink); color:var(--paper); cursor:pointer;
+}
+#cultfin .quiz-reset:hover{background:var(--terra); border-color:var(--terra);}
+
+#cultfin .quiz-avg{
+  display:flex; flex-wrap:wrap; gap:9px 22px; margin-top:18px; padding-top:16px;
+  border-top:1px solid var(--hair); font-family:var(--font-mono); font-size:12px;
+  letter-spacing:.02em; color:var(--ink-2);
+}
+#cultfin .quiz-avg-label{
+  flex-basis:100%; text-transform:uppercase; letter-spacing:.08em; font-size:11px;
+  color:var(--gray); margin-bottom:2px;
+}
+#cultfin .quiz-avg b{color:var(--terra); font-variant-numeric:tabular-nums; font-weight:600;}
+
+/* Controles/pasos que solo tienen sentido con JS: ocultos por id para
+   ganar a cualquier regla de componente (ver periodismo-tecnica). */
+#cultfin .needs-js{display:none;}
+#cultfin.ready .needs-js{display:revert;}
+
+@media (max-width:640px){
+  #cultfin .quiz-card{padding:18px 15px;}
+}
+
+/* ============ Fig. 2 · Comparativa — dónde va el ahorro ============ */
+#cultfin .money-chart{min-width:0;}
+#cultfin .mc-lbl{font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; fill:var(--ink-2);}
+#cultfin .mc-re{fill:var(--terra);}
+#cultfin .mc-fi{fill:var(--slate);}
+#cultfin .mc-val{font-family:var(--font-mono); font-size:12.5px; font-weight:600; fill:#FBF7EE;}
+#cultfin .mc-tick{font-family:var(--font-mono); font-size:11px; fill:var(--gray);}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../">PIEZAS<b>.</b></a>
+    <nav><a href="../">Todas las piezas</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="cultfin">
+  <article class="col">
+    <p class="kicker">Economía · España</p>
+    <h1 class="headline">¿De verdad los españoles no tenemos cultura financiera? Tres preguntas lo dicen</h1>
+    <p class="dek">El tópico es verdad a medias: la mitad del país no domina tres conceptos básicos, y en uno de ellos hemos ido a peor. Pruébalo tú mismo.</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>·</span>
+      <span>20 de agosto de 2026</span>
+      <span>·</span>
+      <span>Lectura ~6 min</span>
+    </div>
+
+    <div class="body lead">
+      <p>Los españoles «no tenemos cultura financiera». Se dice tanto que ya nadie se atreve a discutirlo. Pero el Banco de España lo mide, y el resultado es más incómodo que el tópico: solo el <strong>19% de los adultos</strong> acierta tres preguntas básicas sobre inflación, interés compuesto y diversificación del riesgo. Es decir, ocho de cada diez fallan al menos una.</p>
+      <p>No es que no sepamos nada: es que fallamos justo en lo que hace falta para decidir sobre nuestro dinero (una hipoteca, un plan de pensiones, dónde meter los ahorros). Y hay un dato que debería encender una alarma: el concepto que peor llevamos, el interés compuesto, ha ido a peor en cinco años. Abajo puedes medirte tú con las mismas tres preguntas que hace el Banco de España, y te contamos qué falla y por qué.</p>
+    </div>
+
+    <h2 class="ladillo">Las tres preguntas</h2>
+    <div class="body">
+      <p>La Encuesta de Competencias Financieras (ECF) del Banco de España —elaborada con el INE, y en su primera edición de 2016 junto a la CNMV— hace tres preguntas sencillas, las mismas que usa la OCDE en decenas de países. Los españoles aciertan la de la inflación en un 65% de los casos, la del interés compuesto solo en un 41%, y la de la diversificación del riesgo en un 52%. Las tres juntas, solo el 19%.</p>
+    </div>
+
+    <!-- ============ Fig. 1 · Autotest — 3 preguntas de la ECF ============ -->
+    <figure class="figure" id="fig-quiz">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 1</div>
+        <h3 class="fig-title">Autotest — las 3 preguntas de la ECF</h3>
+        <p class="fig-note">Las mismas preguntas, casi literales, que usa el Banco de España. Contesta y compárate con la media nacional.</p>
+      </div>
+
+      <div class="quiz-card reveal" id="quiz">
+
+        <div class="quiz-q" data-q="1">
+          <p class="quiz-progress">Pregunta 1 de 3 · Inflación</p>
+          <p class="quiz-text">Imagina que cinco hermanos reciben un regalo de 1.000 euros y lo reparten a partes iguales: 200 euros cada uno. Si tuvieran que esperar un año para cobrar su parte, y la inflación de ese año fuera del 1%, dentro de un año podrán comprar…</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-correct="false">Más de lo que podrían comprar hoy con su parte</button>
+            <button type="button" class="quiz-opt" data-correct="false">La misma cantidad</button>
+            <button type="button" class="quiz-opt" data-correct="true">Menos de lo que podrían comprar hoy</button>
+          </div>
+        </div>
+
+        <div class="quiz-q needs-js" data-q="2" style="display:none">
+          <p class="quiz-progress">Pregunta 2 de 3 · Interés compuesto</p>
+          <p class="quiz-text">Ingresas 100 euros en una cuenta de ahorro con un interés fijo del 2% anual. No hay comisiones ni impuestos, y no metes ni sacas nada más. ¿Cuánto dinero habrá en la cuenta al cabo de cinco años?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-correct="true">Más de 110 euros</button>
+            <button type="button" class="quiz-opt" data-correct="false">Exactamente 110 euros</button>
+            <button type="button" class="quiz-opt" data-correct="false">Menos de 110 euros</button>
+            <button type="button" class="quiz-opt" data-correct="false">Es imposible saberlo con estos datos</button>
+          </div>
+        </div>
+
+        <div class="quiz-q needs-js" data-q="3" style="display:none">
+          <p class="quiz-progress">Pregunta 3 de 3 · Diversificación del riesgo</p>
+          <p class="quiz-text">¿Verdadero o falso? Por lo general, es posible reducir el riesgo de invertir en bolsa comprando una amplia variedad de acciones, en vez de una sola.</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-correct="true">Verdadero</button>
+            <button type="button" class="quiz-opt" data-correct="false">Falso</button>
+          </div>
+        </div>
+
+        <div class="quiz-result">
+          <output class="quiz-output" id="quiz-output" aria-live="polite"></output>
+          <button type="button" class="quiz-reset needs-js" id="quiz-reset" style="display:none">Repetir el test</button>
+        </div>
+
+        <div class="quiz-avg">
+          <span class="quiz-avg-label">Media nacional de aciertos (ECF 2021)</span>
+          <span>Inflación <b>65%</b></span>
+          <span>Interés compuesto <b>41%</b></span>
+          <span>Diversificación <b>52%</b></span>
+          <span>Las tres juntas <b>19%</b></span>
+        </div>
+
+      </div>
+
+      <p class="fig-source">Fuente: Encuesta de Competencias Financieras (ECF) 2021, Banco de España (con el INE). Preguntas adaptadas del cuestionario oficial.</p>
+    </figure>
+
+    <h2 class="ladillo">Lo que preocupa: vamos a peor en lo importante</h2>
+    <div class="body">
+      <p>Entre 2016 y 2021, la inflación la entendemos algo mejor (del 58% al 65%) y la diversificación también sube un poco (del 49% al 52%). Pero el interés compuesto —la idea de que el dinero, o la deuda, crecen sobre sí mismos con el tiempo— baja del 46% al 41%. Con una cautela que conviene decir: el Banco de España modificó la formulación de esa pregunta entre las dos ediciones, así que la caída no es una comparación estrictamente homogénea. Aun así, es el único de los tres conceptos que no mejora, y sigue siendo el peor de los tres por amplio margen.</p>
+    </div>
+
+    <blockquote class="pull">Es, precisamente, el concepto que más falta hace para no meter la pata con una tarjeta o un préstamo, y también el que más pesa a la hora de invertir.</blockquote>
+
+    <h2 class="ladillo">Y los que vienen detrás</h2>
+    <div class="body">
+      <p>Con los menores de 18 años no vamos mejor: en el informe PISA 2022, España saca 486 puntos frente a los 498 de media de la OCDE, y solo un 5% de los alumnos alcanza el nivel más alto en competencia financiera, frente al 11% de media. En el conjunto de adultos, la última medición internacional (OCDE/INFE, publicada en 2023 con datos recogidos sobre todo en 2022) deja a España en 64 sobre 100, algo por encima de la media OCDE (63); pero solo el 39% alcanza un nivel alto.</p>
+    </div>
+
+    <h2 class="ladillo">El otro problema: casi todos compramos piso, casi nadie invierte</h2>
+    <div class="body">
+      <p>Hay una consecuencia de todo esto que se ve poco. El español guarda su dinero, sobre todo, en una sola cosa: la vivienda. El <strong>73% de los hogares españoles es propietario de su vivienda principal</strong> (Encuesta de Hogares del Eurosistema, 2021), una de las tasas más altas de Europa —solo por detrás de Italia (77%)—. En Francia baja al 58%, y en Alemania, al 44%. Conviene un matiz para no exagerar: en <em>riqueza</em>, casi toda la zona euro tiene el grueso en activos reales (en torno al 80% de la riqueza bruta de los hogares), así que lo que distingue a España no es cuánto pesa el ladrillo en el balance, sino cuánta gente ha llegado a comprar. El contraste con Estados Unidos es de bolsa: allí en torno al 58% de las familias posee acciones contando la tenencia directa e indirecta (planes de pensiones, fondos); en España, un 17,6% de los hogares tiene acciones cotizadas directamente (EFF 2024). No son magnitudes idénticas, pero la distancia es real.</p>
+      <p>No hay nada malo en comprar vivienda, y aquí no se critica a quien lo hace. Pero la comparación deja una hipótesis razonable: que el piso sea, para tanta gente, la única forma de ahorro que se contempla no es solo cultura, es también falta de alternativas conocidas. Si más gente entendiera el interés compuesto y cómo funciona la bolsa, quizá parte del ahorro que hoy va a comprar pisos para invertir buscaría otros destinos, lo que de paso aliviaría algo la presión sobre el precio de la vivienda. Es una hipótesis, no una receta, pero encaja con los datos.</p>
+    </div>
+
+    <!-- ============ Fig. 2 · Comparativa — cuánta riqueza está en ladrillo ============ -->
+    <figure class="figure" id="fig-money">
+      <div class="fig-head reveal">
+        <div class="fig-num">Gráfico 2</div>
+        <h3 class="fig-title">Cuántos hogares son propietarios de su vivienda — Europa</h3>
+        <p class="fig-note">Porcentaje de hogares que poseen su vivienda principal. Mismo año y misma fuente para los cuatro países.</p>
+      </div>
+
+      <div class="fig-media reveal">
+        <svg class="chart money-chart" viewBox="0 0 560 320" role="img" aria-label="Gráfico de barras 100% apiladas, hogares propietarios de su vivienda principal frente a no propietarios: España 73% y 27%; Italia 77% y 23%; Francia 58% y 42%; Alemania 44% y 56%.">
+          <text class="mc-lbl" x="10" y="14">ESPAÑA</text>
+          <rect class="mc-re" x="10" y="24" width="394" height="36"/>
+          <rect class="mc-fi" x="404" y="24" width="146" height="36"/>
+          <text class="mc-val" x="207" y="47" text-anchor="middle">73%</text>
+          <text class="mc-val" x="477" y="47" text-anchor="middle">27%</text>
+
+          <text class="mc-lbl" x="10" y="90">ITALIA</text>
+          <rect class="mc-re" x="10" y="100" width="416" height="36"/>
+          <rect class="mc-fi" x="426" y="100" width="124" height="36"/>
+          <text class="mc-val" x="218" y="123" text-anchor="middle">77%</text>
+          <text class="mc-val" x="488" y="123" text-anchor="middle">23%</text>
+
+          <text class="mc-lbl" x="10" y="166">FRANCIA</text>
+          <rect class="mc-re" x="10" y="176" width="313" height="36"/>
+          <rect class="mc-fi" x="323" y="176" width="227" height="36"/>
+          <text class="mc-val" x="166" y="199" text-anchor="middle">58%</text>
+          <text class="mc-val" x="436" y="199" text-anchor="middle">42%</text>
+
+          <text class="mc-lbl" x="10" y="242">ALEMANIA</text>
+          <rect class="mc-re" x="10" y="252" width="238" height="36"/>
+          <rect class="mc-fi" x="248" y="252" width="302" height="36"/>
+          <text class="mc-val" x="129" y="275" text-anchor="middle">44%</text>
+          <text class="mc-val" x="399" y="275" text-anchor="middle">56%</text>
+
+          <line class="g-grid" x1="10" y1="300" x2="550" y2="300"/>
+          <text class="mc-tick" x="10" y="314">0%</text>
+          <text class="mc-tick" x="280" y="314" text-anchor="middle">50%</text>
+          <text class="mc-tick" x="550" y="314" text-anchor="end">100%</text>
+        </svg>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--terra)"></i>Hogares propietarios de su vivienda principal</span>
+        <span><i style="background:var(--slate)"></i>Hogares no propietarios (alquiler u otras formas)</span>
+      </div>
+
+      <p class="fig-source">Fuente: Encuesta de Hogares del Eurosistema (HFCS), ola 2021, explotada por Banque de France. Ojo con la confusión habitual: esta cifra mide cuántos hogares son propietarios, no qué proporción de su riqueza está en ladrillo (esa, en la zona euro, ronda el 80% en activos reales en casi todos los países).</p>
+    </figure>
+
+    <h2 class="ladillo">Cierre</h2>
+    <blockquote class="pull">El tópico acierta en el diagnóstico y falla en el tono: no es que seamos un desastre, es que fallamos en lo básico y nadie lo enseña a tiempo.</blockquote>
+
+    <div class="body">
+      <p>La buena noticia es que las tres preguntas se explican en un minuto. La mala, que llevamos años sin hacerlo.</p>
+    </div>
+
+    <section class="sources" aria-labelledby="src-h">
+      <h2 id="src-h">Ficha de fuentes</h2>
+      <ol>
+        <li>Encuesta de Competencias Financieras (ECF) 2021 — Banco de España, con el INE — primaria. La primera edición (2016) fue del Banco de España y la CNMV. El propio informe advierte de que la pregunta de interés compuesto cambió de formulación entre ambas ediciones.</li>
+        <li>Encuesta de Hogares del Eurosistema (HFCS), ola 2021, explotada por Banque de France — porcentaje de hogares propietarios de su vivienda principal, por país — primaria.</li>
+        <li>Encuesta Financiera de las Familias (EFF) 2024, Banco de España — tenencia directa de acciones cotizadas en España (17,6%).</li>
+        <li>Survey of Consumer Finances 2022, Reserva Federal de EE. UU. — tenencia de acciones directa e indirecta (58% de las familias).</li>
+        <li>Informe PISA 2022 (competencia financiera) — comparación internacional en menores de edad.</li>
+        <li>OCDE/INFE 2023, International Survey of Adult Financial Literacy — comparación internacional en adultos; los datos se recogieron principalmente en 2022.</li>
+      </ol>
+    </section>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../">Todas las piezas</a></span>
+  </div>
+</footer>
+
+<script src="../assets/graphics.js" defer></script>
+<script src="../assets/cultura-financiera.js" defer></script>
+</body>
+</html>
