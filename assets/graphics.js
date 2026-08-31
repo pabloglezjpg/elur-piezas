@@ -89,10 +89,7 @@
     var suffix = el.getAttribute("data-suffix") || "";
     var dur = 1400, start = null, from = 0;
     function fmt(v) {
-      var s = v.toLocaleString("es-ES", {
-        minimumFractionDigits: dec, maximumFractionDigits: dec
-      });
-      return prefix + s + suffix;
+      return prefix + numeroES(v, dec) + suffix;
     }
     function step(ts) {
       if (start === null) start = ts;
@@ -110,6 +107,13 @@
   }
 
   // ---- Utilidades ----
+  // Formato de número: fuente única en assets/formato.js. Si no estuviera
+  // cargado, se cae a toLocaleString aun sabiendo que no agrupa 4 cifras.
+  function numeroES(v, dec) {
+    if (window.Formato) return window.Formato.numero(v, dec);
+    return v.toLocaleString("es-ES", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+
   function qsa(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
 
   function finalizeAll() {
@@ -119,7 +123,7 @@
       if (isNaN(t)) return;
       var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
       el.textContent = (el.getAttribute("data-prefix") || "") +
-        t.toLocaleString("es-ES", { minimumFractionDigits: dec, maximumFractionDigits: dec }) +
+        numeroES(t, dec) +
         (el.getAttribute("data-suffix") || "");
     });
   }

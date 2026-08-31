@@ -41,7 +41,11 @@
     var readout = document.getElementById("promesa-readout");
     if (!tl || !readout) return;
     var items = Array.prototype.slice.call(tl.querySelectorAll(".tl-item"));
-    var TODAY = new Date(2026, 7, 11); // 11 ago 2026
+    // Se calcula en cada carga: si se congela, el contador miente más cada día.
+    var TODAY = (function () {
+      var n = new Date();
+      return new Date(n.getFullYear(), n.getMonth(), n.getDate());
+    })();
     var M = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
     function fmt(d){ return d.getDate() + " " + M[d.getMonth()] + " " + d.getFullYear(); }
     function select(item) {
@@ -54,6 +58,12 @@
         " días</b> después: Blindsight sigue en <b>0 pacientes</b>, 0 estudios revisados y 0 registros.";
     }
     items.forEach(function (it) {
+      // El rol de botón lo pone el JS: sin JS estos elementos no son
+      // interactivos y no deben anunciarse al lector de pantalla como si
+      // lo fueran.
+      it.setAttribute("role", "button");
+      it.setAttribute("tabindex", "0");
+      it.setAttribute("aria-pressed", "false");
       it.addEventListener("click", function () { select(it); });
       it.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(it); }
@@ -273,7 +283,7 @@
       ]);
       var nerve = new THREE.Mesh(
         new THREE.TubeGeometry(curve, 80, 0.14, 14, false),
-        new THREE.MeshStandardMaterial({ color: 0x797064, roughness: 0.8 }));
+        new THREE.MeshStandardMaterial({ color: 0x70675C, roughness: 0.8 }));
       group.add(nerve);
 
       // corteza visual

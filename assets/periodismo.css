@@ -18,7 +18,7 @@
   --ink-2:#3A332A;
   --terra:#B84A2C;
   --terra-soft:#E7C9BC;
-  --gray:#797064;
+  --gray:#70675C;   /* 4,84:1 sobre --paper. #797064 daba 4,24:1 y no llegaba a AA */
   --hair:#D8CFBE;
   --slate:#3F5A63;
   --ok:#4B6A4E;
@@ -30,7 +30,7 @@
   --accent-dim:rgba(184,74,44,.10);
   --accent-ink:#8C3A21;
   --data-secondary:#3F5A63;
-  --grey-warm:#797064;
+  --grey-warm:#70675C;
   --hairline:#D8CFBE;
 
   --measure:66ch;
@@ -66,10 +66,25 @@ a{color:inherit;}
 /* ---- Foco accesible ---- */
 :focus-visible{outline:2px solid var(--terra); outline-offset:3px; border-radius:2px;}
 
+/* ---- Saltar al contenido (visible solo al tabular) ---- */
+.skip-link{
+  /* Oculto por recorte, no por desplazamiento negativo: un left:-9999px
+     deja el elemento fuera del viewport y ensucia cualquier medición de
+     desbordamiento. Así ocupa 1x1 en su sitio y no falsea nada. */
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
+  background:var(--ink); color:var(--paper); text-decoration:none;
+  font-family:var(--font-mono); font-size:13px;
+}
+.skip-link:focus{
+  position:fixed; left:8px; top:8px; z-index:100;
+  width:auto; height:auto; overflow:visible;
+  clip:auto; clip-path:none; padding:10px 16px;
+}
+
 /* ---- Contenedores ---- */
 .wrap{width:100%; max-width:var(--wide); margin-inline:auto; padding-inline:20px;}
 .col{width:100%; max-width:720px; margin-inline:auto; padding-inline:20px;}
-.measure{max-width:var(--measure);}
 
 /* ============================================================
    Cabecera del sitio
@@ -131,7 +146,7 @@ a{color:inherit;}
 .ladillo{
   font-family:var(--font-display); font-weight:600;
   font-size:clamp(1.35rem,3.4vw,1.85rem); line-height:1.16;
-  letter-spacing:-.01em; margin:2.2em 0 .7em; color:var(--ink);
+  letter-spacing:-.01em; margin:3rem 0 .7em; color:var(--ink);
   max-width:var(--measure);
 }
 .ladillo::before{
@@ -157,7 +172,7 @@ a{color:inherit;}
 
 /* Cita destacada */
 .pull{
-  margin:2.4em auto; max-width:60ch;
+  margin:3rem auto; max-width:60ch;
   font-family:var(--font-display); font-weight:500;
   font-size:clamp(1.4rem,4.2vw,2.1rem); line-height:1.24;
   color:var(--ink); text-wrap:balance;
@@ -167,6 +182,15 @@ a{color:inherit;}
 /* Sin comillas: para citas destacadas que son voz del propio autor,
    no de una persona real citada (evita atribuir la frase a otro). */
 .pull.no-quote::before,.pull.no-quote::after{content:none;}
+/* Atribución de la cita. Va pegada a su cita, no flotando debajo.
+   Estaba duplicada en cinco piezas con tres valores distintos. */
+.pull-cite{
+  max-width:60ch; margin:0 auto 3rem;
+  font-family:var(--font-mono,monospace); font-size:13px; line-height:1.5;
+  color:var(--gray); text-align:right; letter-spacing:.02em;
+}
+.pull-cite::before{content:"— ";}
+.pull + .pull-cite{margin-top:-2.4rem;}
 
 /* ============================================================
    Figuras / gráficos
@@ -175,6 +199,10 @@ a{color:inherit;}
   margin:2.8em auto; max-width:920px;
 }
 .figure .fig-head{max-width:var(--measure); margin:0 auto 14px;}
+/* Fotografía documental. El crédito y la licencia van en el pie, siempre. */
+.foto img{display:block; width:100%; height:auto; border:1px solid var(--hairline);
+  background:var(--paper-raised);}
+.foto figcaption{margin-top:12px;}
 .fig-num{
   font-family:var(--font-mono); font-size:12px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--terra); margin-bottom:6px;
@@ -386,9 +414,10 @@ table.data td.na{color:var(--gray);}
   margin:0 0 28px; max-width:15ch; text-wrap:balance;}
 .home-lede{font-family:var(--font-body); font-size:clamp(1.1rem,2.4vw,1.4rem);
   line-height:1.55; color:var(--ink-70); max-width:46ch; margin:0;}
-.home-signature{margin:32px 0 0; padding-top:18px; border-top:1px solid var(--hairline);
-  font-family:var(--font-mono); font-size:12.5px; letter-spacing:.04em;
-  color:var(--grey-warm); max-width:46ch;}
+/* Dato del propio portfolio, bajo el lede. Contable abriendo el sitio. */
+.home-stat{margin:32px 0 0; padding-top:18px; border-top:1px solid var(--hairline);
+  font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em;
+  color:var(--grey-warm); max-width:46ch; font-variant-numeric:tabular-nums;}
 
 /* ---- Pieza destacada ---- */
 .home-feature{display:block; text-decoration:none; color:inherit;
@@ -421,8 +450,14 @@ table.data td.na{color:var(--gray);}
 .home-num{flex:0 0 auto; font-family:var(--font-mono); font-size:12px;
   color:var(--accent); padding-top:4px; font-variant-numeric:tabular-nums;}
 .home-card a{display:block; min-width:0; text-decoration:none; color:inherit;}
-.home-card-tag{display:block; font-family:var(--font-mono); font-size:11px;
+.home-card-tag{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  font-family:var(--font-mono); font-size:11px;
   letter-spacing:.08em; text-transform:uppercase; color:var(--grey-warm); margin-bottom:8px;}
+/* La cifra clave de la pieza. Solo la llevan las tarjetas que ya la dicen en su texto. */
+.home-card-fig{font-family:var(--font-mono); font-size:12.5px; font-weight:600;
+  letter-spacing:.02em; text-transform:none; color:var(--accent);
+  font-variant-numeric:tabular-nums; white-space:nowrap;}
+.home-card a:hover .home-card-fig{color:var(--ink);}
 .home-card-title{display:block; font-family:var(--font-display); font-weight:600;
   font-size:1.24rem; line-height:1.22; margin-bottom:8px; text-wrap:balance;}
 .home-card-desc{display:block; font-family:var(--font-body); font-size:.98rem;

@@ -30,6 +30,7 @@
 <meta name="twitter:image" content="https://piezas.elur.es/cultura-financiera/portada.jpg">
 <meta name="twitter:image:alt" content="Cultura financiera en España: solo el 19% acierta las tres preguntas básicas del Banco de España.">
 
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preload" href="../assets/periodismo.css" as="style">
 <link rel="stylesheet" href="../assets/periodismo.css">
 
@@ -41,7 +42,7 @@
   "description": "El Banco de España mide la cultura financiera con tres preguntas sobre inflación, interés compuesto y diversificación del riesgo: solo el 19% de los adultos las acierta todas.",
   "image": ["https://piezas.elur.es/cultura-financiera/portada.jpg"],
   "inLanguage": "es",
-  "articleSection": "Economía",
+  "articleSection": "Economía · España",
   "author": { "@type": "Person", "name": "Pablo González" },
   "publisher": { "@type": "Person", "name": "Pablo González" },
   "datePublished": "2026-08-20",
@@ -105,6 +106,15 @@
 /* Controles/pasos que solo tienen sentido con JS: ocultos por id para
    ganar a cualquier regla de componente (ver periodismo-tecnica). */
 #cultfin .needs-js{display:none;}
+.js #cultfin .quiz-q[data-q="2"],.js #cultfin .quiz-q[data-q="3"]{display:none;}
+/* Sin JS el autotest no puede responderse: los botones dejan de ofrecer
+   interacción y se marca la respuesta correcta, para que la pieza siga
+   contando lo que promete su titular. */
+#cultfin .solo-sin-js{display:none;}
+html:not(.js) #cultfin .solo-sin-js{display:inline;}
+html:not(.js) #cultfin .quiz-opt{pointer-events:none;}
+html:not(.js) #cultfin .quiz-opt[data-correct="true"]{border-color:var(--ok);}
+html:not(.js) #cultfin .quiz-opt[data-correct="true"]::after{content:" — correcta";color:var(--ok);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;}
 #cultfin.ready .needs-js{display:revert;}
 
 @media (max-width:640px){
@@ -121,6 +131,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#cultfin">Saltar al contenido</a>
 
 <header class="site-head">
   <div class="wrap">
@@ -158,7 +169,7 @@
       <div class="fig-head reveal">
         <div class="fig-num">Gráfico 1</div>
         <h3 class="fig-title">Autotest — las 3 preguntas de la ECF</h3>
-        <p class="fig-note">Las mismas preguntas, casi literales, que usa el Banco de España. Contesta y compárate con la media nacional.</p>
+        <p class="fig-note">Las mismas preguntas, casi literales, que usa el Banco de España. <span class="needs-js">Contesta y compárate con la media nacional.</span><span class="solo-sin-js">La respuesta correcta va marcada en cada una.</span></p>
       </div>
 
       <div class="quiz-card reveal" id="quiz">
@@ -173,7 +184,7 @@
           </div>
         </div>
 
-        <div class="quiz-q needs-js" data-q="2" style="display:none">
+        <div class="quiz-q" data-q="2">
           <p class="quiz-progress">Pregunta 2 de 3 · Interés compuesto</p>
           <p class="quiz-text">Ingresas 100 euros en una cuenta de ahorro con un interés fijo del 2% anual. No hay comisiones ni impuestos, y no metes ni sacas nada más. ¿Cuánto dinero habrá en la cuenta al cabo de cinco años?</p>
           <div class="quiz-opts">
@@ -184,7 +195,7 @@
           </div>
         </div>
 
-        <div class="quiz-q needs-js" data-q="3" style="display:none">
+        <div class="quiz-q" data-q="3">
           <p class="quiz-progress">Pregunta 3 de 3 · Diversificación del riesgo</p>
           <p class="quiz-text">¿Verdadero o falso? Por lo general, es posible reducir el riesgo de invertir en bolsa comprando una amplia variedad de acciones, en vez de una sola.</p>
           <div class="quiz-opts">
@@ -223,7 +234,7 @@
       <p>Con los menores de 18 años no vamos mejor: en el informe PISA 2022, España saca 486 puntos frente a los 498 de media de la OCDE, y solo un 5% de los alumnos alcanza el nivel más alto en competencia financiera, frente al 11% de media. En el conjunto de adultos, la última medición internacional (OCDE/INFE, publicada en 2023 con datos recogidos sobre todo en 2022) deja a España en 64 sobre 100, algo por encima de la media OCDE (63); pero solo el 39% alcanza un nivel alto.</p>
     </div>
 
-    <h2 class="ladillo">El otro problema: casi todos compramos piso, casi nadie invierte</h2>
+    <h2 class="ladillo">El otro problema: casi todo el que puede compra un piso, pero casi nadie invierte</h2>
     <div class="body">
       <p>Hay una consecuencia de todo esto que se ve poco. El español guarda su dinero, sobre todo, en una sola cosa: la vivienda. El <strong>73% de los hogares españoles es propietario de su vivienda principal</strong> (Encuesta de Hogares del Eurosistema, 2021), una de las tasas más altas de Europa —solo por detrás de Italia (77%)—. En Francia baja al 58%, y en Alemania, al 44%. Conviene un matiz para no exagerar: en <em>riqueza</em>, casi toda la zona euro tiene el grueso en activos reales (en torno al 80% de la riqueza bruta de los hogares), así que lo que distingue a España no es cuánto pesa el ladrillo en el balance, sino cuánta gente ha llegado a comprar. El contraste con Estados Unidos es de bolsa: allí en torno al 58% de las familias posee acciones contando la tenencia directa e indirecta (planes de pensiones, fondos); en España, un 17,6% de los hogares tiene acciones cotizadas directamente (EFF 2024). No son magnitudes idénticas, pero la distancia es real.</p>
       <p>No hay nada malo en comprar vivienda, y aquí no se critica a quien lo hace. Pero la comparación deja una hipótesis razonable: que el piso sea, para tanta gente, la única forma de ahorro que se contempla no es solo cultura, es también falta de alternativas conocidas. Si más gente entendiera el interés compuesto y cómo funciona la bolsa, quizá parte del ahorro que hoy va a comprar pisos para invertir buscaría otros destinos, lo que de paso aliviaría algo la presión sobre el precio de la vivienda. Es una hipótesis, no una receta, pero encaja con los datos.</p>
@@ -277,7 +288,6 @@
       <p class="fig-source">Fuente: Encuesta de Hogares del Eurosistema (HFCS), ola 2021, explotada por Banque de France. Ojo con la confusión habitual: esta cifra mide cuántos hogares son propietarios, no qué proporción de su riqueza está en ladrillo (esa, en la zona euro, ronda el 80% en activos reales en casi todos los países).</p>
     </figure>
 
-    <h2 class="ladillo">Cierre</h2>
     <blockquote class="pull">El tópico acierta en el diagnóstico y falla en el tono: no es que seamos un desastre, es que fallamos en lo básico y nadie lo enseña a tiempo.</blockquote>
 
     <div class="body">
@@ -305,6 +315,7 @@
   </div>
 </footer>
 
+<script src="../assets/formato.js" defer></script>
 <script src="../assets/graphics.js" defer></script>
 <script src="../assets/cultura-financiera.js" defer></script>
 </body>

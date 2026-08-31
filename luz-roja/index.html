@@ -41,7 +41,7 @@
   "description": "La fototerapia roja tiene evidencia clínica sólida en unos pocos usos concretos —heridas, mucositis, piel— y muy poca en casi todo lo que promete la publicidad. Esta pieza separa una cosa de la otra, uso por uso.",
   "image": ["https://piezas.elur.es/luz-roja/portada.jpg"],
   "inLanguage": "es",
-  "articleSection": "Ciencia y salud",
+  "articleSection": "Ciencia · Salud",
   "author": { "@type": "Person", "name": "Pablo González" },
   "publisher": { "@type": "Person", "name": "Pablo González" },
   "datePublished": "2026-08-18",
@@ -64,8 +64,16 @@
 #luzroja .ev-dot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px; flex:none;}
 #luzroja .ev-level{display:inline-flex; align-items:center;}
 #luzroja .ev-solid{background:#3F7D4F;}
-#luzroja .ev-mod{background:#B8862C;}
-#luzroja .ev-none{background:var(--terra);}
+#luzroja .ev-mod{background:#A87A28;}
+/* Regla de la casa: el teja marca el dato protagonista, nunca una valencia.
+   En esta pieza el teja es la luz roja (gráfico de melatonina), así que la
+   escala de evidencia no puede usarlo para decir «ninguna». */
+#luzroja .ev-none{background:var(--gray);}
+/* Cuatro niveles, tres colores: «Limitada» salía idéntica a «Moderada».
+   Se distingue por forma, no por un cuarto color: a 8 px ningún tono
+   intermedio entre la mostaza y el gris es distinguible, y la forma
+   además funciona en escala de grises y con daltonismo. */
+#luzroja .ev-lim{background:transparent; box-shadow:inset 0 0 0 2px #A87A28;}
 
 /* ============ Fig. 2 · Barras de melatonina (HTML/CSS, sin SVG) ============ */
 #luzroja .mel-chart{display:flex; align-items:flex-end; justify-content:center; gap:40px; max-width:420px; margin:4px auto 0; padding:0 8px; min-width:0;}
@@ -81,6 +89,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#luzroja">Saltar al contenido</a>
 
 <header class="site-head">
   <div class="wrap">
@@ -162,7 +171,7 @@
             </tr>
             <tr>
               <td>Dolor articular y muscular</td>
-              <td><span class="ev-level"><span class="ev-dot ev-mod"></span>Limitada</span></td>
+              <td><span class="ev-level"><span class="ev-dot ev-lim"></span>Limitada</span></td>
               <td>NIR 780-1.100nm</td>
               <td>Positivo en algunos ensayos</td>
             </tr>
@@ -202,7 +211,7 @@
           <span class="mel-label">Azul<br>(420-480nm)</span>
         </div>
         <div class="mel-col">
-          <div class="mel-track"><span class="mel-val">55%</span><span class="mel-bar" style="height:77px;background:#B8862C"></span></div>
+          <div class="mel-track"><span class="mel-val">55%</span><span class="mel-bar" style="height:77px;background:#A87A28"></span></div>
           <span class="mel-label">Verde/blanca</span>
         </div>
         <div class="mel-col">
@@ -238,6 +247,7 @@
   </div>
 </footer>
 
+<script src="../assets/formato.js" defer></script>
 <script src="../assets/graphics.js" defer></script>
 </body>
 </html>

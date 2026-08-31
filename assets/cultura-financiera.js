@@ -1,6 +1,7 @@
 /* ============================================================
    cultura-financiera — autotest interactivo (3 preguntas ECF)
-   El DOM ya muestra la pregunta 1 y las medias sin JS.
+   Sin JS el DOM muestra las TRES preguntas y las medias; con JS se van
+   mostrando de una en una.
    Este script añade la interacción (preguntas 2 y 3) y el resultado.
    ============================================================ */
 (function () {
@@ -20,7 +21,7 @@
   function init() {
     score = 0;
     qs.forEach(function (q, i) {
-      q.style.display = i === 0 ? "" : "none";
+      q.style.display = i === 0 ? "block" : "none";
       var opts = q.querySelectorAll(".quiz-opt");
       opts.forEach(function (b) {
         b.disabled = false;
@@ -52,7 +53,7 @@
     var i = qs.indexOf(q);
     q.style.display = "none";
     if (i + 1 < qs.length) {
-      qs[i + 1].style.display = "";
+      qs[i + 1].style.display = "block";
     } else {
       finish();
     }

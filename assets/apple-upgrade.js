@@ -34,14 +34,13 @@
   var HORIZONS = [2, 4, 6];
 
   function money(n, decimals) {
-    // Formateador manual (sin toLocaleString): el ICU de algunos navegadores
-    // no aplica separador de miles en es-ES aunque reporte el locale soportado.
+    // Fuente única: assets/formato.js. Antes esto era un formateador a mano
+    // porque el ICU de algunos navegadores no separa millares en es-ES.
+    if (window.Formato) return window.Formato.moneda(n, decimals, "$");
     var dec = decimals == null ? (Number.isInteger(n) ? 0 : 2) : decimals;
-    var fixed = n.toFixed(dec);
-    var parts = fixed.split(".");
+    var parts = n.toFixed(dec).split(".");
     var intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    var out = dec > 0 ? intPart + "," + parts[1] : intPart;
-    return out + " $";
+    return (dec > 0 ? intPart + "," + parts[1] : intPart) + " $";
   }
 
   function buildChartPaths(monthly, retail, horizonMonths) {
