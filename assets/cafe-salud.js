@@ -37,7 +37,9 @@
       var s = 100;
       var notas = [];
       if (state.base === "capsula") { s -= 20; notas.push("la cápsula barata resta frente a un café de calidad"); }
-      if (state.base === "descaf") { s -= 10; notas.push("el descafeinado no aporta el mismo perfil estudiado"); }
+      // Sin penalización: Kim 2019 mantiene la asociación «irrespective of caffeine content»
+      // y Ding 2014 mide el descafeinado y no encuentra diferencia significativa (P = 0,17).
+      if (state.base === "descaf") { notas.push("el descafeinado no resta: las dos fuentes de esta pieza lo miden y no encuentran diferencia significativa"); }
       if (state.leche === "entera") s -= 5;
       if (state.leche === "vegetal") s -= 2;
       if (state.extras.indexOf("azucar") !== -1) { s -= 20; notas.push("el azúcar te aleja del café tal cual se estudió"); }
