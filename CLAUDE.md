@@ -44,6 +44,34 @@ en `pablogonzalez.elur.es`.
 trabajo. Pablo publica haciendo doble clic en `~/Desktop/SUBIR_PIEZAS.command`.
 Cuando termines, dile qué archivos ha de subir.
 
+### El historial anterior NO está perdido
+
+El 28 de agosto de 2026 un proceso ajeno reinició la historia del repo. `main`
+arrancó de cero y los ocho commits anteriores quedaron **huérfanos**: fuera de la
+historia de `origin/main`, pero con los objetos vivos en el servidor. No estaban
+borrados, y el error fue darlos por muertos: en GitHub la página del commit carga
+entera, con su diff.
+
+Recuperados y fijados el 31 de agosto de 2026:
+
+```
+git fetch origin fce001405f8e03048a9559a0428843a9971952af
+git tag historial-anterior fce001405f8e03048a9559a0428843a9971952af
+```
+
+`historial-anterior` apunta a `fce0014` (28-ago-2026) y arrastra la cadena entera
+hasta `5e1c7eb`, la publicación original: ocho commits del 19 al 28 de agosto.
+Comprobado con `git log historial-anterior`.
+
+**La etiqueta es local.** Protege los objetos en este portátil, no en GitHub: para
+que el servidor deje de considerarlos recogibles hay que empujarla
+(`git push origin historial-anterior`), y eso lo decide Pablo. Si algún día el
+fetch por SHA falla —GitHub no siempre sirve objetos inalcanzables—, el zip sigue
+funcionando:
+`github.com/pabloglezjpg/elur-piezas/archive/fce001405f8e03048a9559a0428843a9971952af.zip`
+
+**No toques la historia.** Es de Pablo.
+
 ---
 
 ## La regla que este proyecto aprendió por las malas

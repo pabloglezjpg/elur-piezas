@@ -9,6 +9,16 @@ de los SVG). 225 ppm es el ritmo habitual de lectura atenta en español para
 texto analítico; usar una cifra única y reproducible evita lo que había antes,
 que iba de 81 a 194 ppm según la pieza.
 
+LOS <details> NO CUENTAN. Desde el 31 de agosto de 2026 se descuenta el contenido
+plegado de los <details>, y solo se cuenta su <summary>, que sí está siempre a la
+vista. Motivo: el aparato de verificación —pie de fuentes, huecos declarados,
+cálculos propios, notas de trazabilidad— es lectura opcional por definición y
+estaba inflando la cifra. En casio-encogerse, la auditoría de agosto sumó 623
+palabras de fuentes y subió el tiempo declarado de 20 a 23 minutos sin que
+hubiera una línea más de prosa: la pieza se había vuelto más rigurosa y, en el
+número que ve el lector, más larga. El número tiene que medir lo que se lee de
+corrido.
+
 Uso:
     python3 herramientas/tiempo_lectura.py            # informe, no toca nada
     python3 herramientas/tiempo_lectura.py --aplicar  # escribe los cambios
@@ -24,9 +34,22 @@ import re
 PPM = 225
 
 
+def sin_plegados(s: str) -> str:
+    """Deja el <summary> de cada <details> y tira su contenido plegado."""
+    def solo_summary(m):
+        sm = re.search(r"<summary[^>]*>.*?</summary>", m.group(0), flags=re.S)
+        return sm.group(0) if sm else " "
+    anterior = None
+    while anterior != s:            # los <details> pueden anidarse
+        anterior = s
+        s = re.sub(r"<details\b[^>]*>(?:(?!<details\b).)*?</details>", solo_summary, s, flags=re.S)
+    return s
+
+
 def palabras(doc: str) -> int:
     s = re.sub(r"<head.*?</head>", "", doc, flags=re.S)
     s = re.sub(r"<(script|style|nav|footer|svg).*?</\1>", "", s, flags=re.S)
+    s = sin_plegados(s)
     s = re.sub(r"<!--.*?-->", "", s, flags=re.S)
     s = re.sub(r"<[^>]+>", " ", s)
     return len(html.unescape(s).split())

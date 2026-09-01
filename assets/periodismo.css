@@ -380,6 +380,19 @@ table.data td.na{color:var(--gray);}
   color:var(--ink-2); margin-bottom:9px;
 }
 .sources a{color:var(--terra);}
+/* Pie de fuentes plegado. El aparato de verificación es lectura opcional: quien no
+   lo abra lee la pieza limpia, quien lo abra ve el trabajo entero. tiempo_lectura.py
+   descuenta el contenido de los <details> por ese mismo motivo. */
+details.sources summary{
+  cursor:pointer; list-style:none; font-family:var(--font-mono); font-size:13px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink); padding:0 0 14px;
+}
+details.sources summary::-webkit-details-marker{display:none;}
+details.sources summary::before{content:"+ "; color:var(--terra);}
+details.sources[open] summary::before{content:"− "; color:var(--terra);}
+details.sources summary:hover{color:var(--terra);}
+.sources-intro{font-family:var(--font-body); font-size:15px; line-height:1.55;
+  color:var(--ink-70); margin:0 0 14px; max-width:none;}
 .site-foot{
   border-top:1px solid var(--hair); margin-top:64px;
 }
