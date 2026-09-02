@@ -32,6 +32,12 @@
   ];
   var CATEGORIES = ["iPhone", "Watch", "iPad", "Mac"];
   var HORIZONS = [2, 4, 6];
+  // Apple Card Monthly Installments no tiene el plazo del alquiler: lo
+  // fija Apple por categoría (support.apple.com/en-us/102730, consultado
+  // el 2-sep-2026): 24 meses en iPhone; 12 en iPad, Apple Watch y Mac.
+  // Antes esta cuota se dividía entre el plazo del arrendamiento y salían
+  // plazos de ACMI que no existen (36 meses en Mac, 24 en iPad).
+  var ACMI_TERMS = { iPhone: 24, Watch: 12, iPad: 12, Mac: 12 };
 
   function money(n, decimals) {
     // Fuente única: assets/formato.js. Antes esto era un formateador a mano
@@ -162,7 +168,8 @@
       var totalLease = Math.round(monthly * state.term * 100) / 100;
       var buyout = Math.round((device.retail - totalLease) * 100) / 100;
       var pct = Math.min(100, (totalLease / device.retail) * 100);
-      var financeMonthly = Math.round((device.retail / state.term) * 100) / 100;
+      var acmiTerm = ACMI_TERMS[device.category] || state.term;
+      var financeMonthly = Math.round((device.retail / acmiTerm) * 100) / 100;
       var horizonMonths = horizon * 12;
       var totalRentHorizon = Math.round(monthly * horizonMonths * 100) / 100;
       var isProfesional = state.useCase === "profesional";
@@ -181,7 +188,7 @@
       if (out.totalBuy) out.totalBuy.textContent = money(device.retail);
       if (out.barFill) out.barFill.style.width = pct.toFixed(0) + "%";
       if (out.pctLabel) out.pctLabel.textContent = pct.toFixed(0) + "% del valor del aparato · recompra: " + money(buyout);
-      if (out.finance) out.finance.textContent = money(financeMonthly) + " /mes — a plazo terminas siendo dueño, sin coste extra por el 0% de interés.";
+      if (out.finance) out.finance.textContent = money(financeMonthly) + " /mes a " + acmiTerm + " meses — a plazo terminas siendo dueño, sin coste extra por el 0% de interés.";
 
       if (out.chartRent && out.chartBuy) {
         var paths = buildChartPaths(monthly, device.retail, horizonMonths);
@@ -193,13 +200,23 @@
         var verdictText;
         if (isProfesional) {
           verdictText = "Si es material de trabajo: pagando " + money(monthly) + "/mes liberas " + money(device.retail) +
-            " de caja hoy. El coste de quedártelo al final del primer ciclo (" + money(totalLease) + " + " + money(buyout) +
-            " de recompra = " + money(device.retail) + ") es idéntico al de comprarlo de una vez o financiarlo a 0% con Apple Card (" +
-            money(financeMonthly) + "/mes). Compensa si el margen de no inmovilizar ese dinero supera lo que arriesgas por depender de Klarna y sus condiciones.";
+            " de caja hoy. Con la recompra que asume este cálculo (" + money(totalLease) + " + " + money(buyout) +
+            " = " + money(device.retail) + "), quedártelo al final del primer ciclo cuesta lo mismo que comprarlo de una vez o financiarlo a 0% con Apple Card (" +
+            money(financeMonthly) + "/mes a " + acmiTerm + " meses). Compensa si el margen de no inmovilizar ese dinero supera lo que arriesgas por depender de Klarna y sus condiciones.";
         } else {
+          // El veredicto dice lo que dice el cálculo, no lo contrario. En el
+          // horizonte por defecto (2 años) el alquiler sale MÁS BARATO en caja
+          // que la compra, y durante meses la pieza concluía justo lo opuesto.
+          // La diferencia cambia de signo según el horizonte, así que se calcula.
+          var diffH = Math.round((device.retail - totalRentHorizon) * 100) / 100;
+          var cmp;
+          if (diffH > 0) cmp = "En ese horizonte el alquiler sale " + money(diffH) + " más barato en caja, pero te quedas sin aparato.";
+          else if (diffH < 0) cmp = "En ese horizonte el alquiler sale " + money(-diffH) + " más caro, y además te quedas sin aparato.";
+          else cmp = "En ese horizonte el alquiler cuesta lo mismo, y además te quedas sin aparato.";
           verdictText = "Si es un capricho: renovando cada " + state.term + " meses, en " + horTxt + " habrás pagado " +
             money(totalRentHorizon) + " sin que el aparato llegue a ser tuyo en ningún momento, frente a " + money(device.retail) +
-            " pagados una sola vez si lo compras y lo conservas. Para un capricho, rara vez compensa frente a comprarlo (o no comprarlo).";
+            " pagados una sola vez si lo compras y lo conservas. " + cmp +
+            " El cálculo no le asigna valor de reventa al comprado: cuanto más valga de segunda mano, peor sale el alquiler.";
         }
         out.verdict.textContent = verdictText;
       }

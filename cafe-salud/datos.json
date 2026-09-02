@@ -1,0 +1,52 @@
+{
+  "pieza": "cafe-salud",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "tazas_optimo": {
+      "valor": "3,5",
+      "unidad": "tazas al día",
+      "periodo": "menor riesgo de mortalidad total",
+      "fuente": "Kim, Je y Giovannucci (2019), PMID 31055709: «The lowest relative risk (RR) was at intakes of 3.5 cups/day for all-cause mortality»",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31055709/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "titulo",
+        "cuerpo",
+        "graficos"
+      ],
+      "variantes": [
+        "Tres tazas y media",
+        "tres tazas y media"
+      ]
+    },
+    "reduccion_riesgo": {
+      "valor": "15",
+      "unidad": "%",
+      "periodo": "reducción del riesgo de mortalidad total",
+      "fuente": "Kim 2019: RR = 0,85 (IC 95% 0,82-0,89). Es riesgo relativo, no esperanza de vida",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31055709/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "titulo",
+        "meta_description",
+        "og_description",
+        "twitter_description",
+        "jsonld",
+        "cuerpo",
+        "tarjeta_portada"
+      ]
+    },
+    "esperanza_vida_retirada": {
+      "valor": "vives un poco más",
+      "retirado": true,
+      "motivo": "Convertía un riesgo relativo de mortalidad en esperanza de vida. El abstract de Kim 2019 no contiene ninguna unidad temporal.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31055709/",
+      "consultado": "2026-09-02"
+    }
+  }
+}

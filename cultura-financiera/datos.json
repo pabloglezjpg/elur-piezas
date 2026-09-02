@@ -1,0 +1,44 @@
+{
+  "pieza": "cultura-financiera",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "acciones_cotizadas": {
+      "valor": "12,1",
+      "unidad": "% de hogares",
+      "periodo": "finales de 2024",
+      "fuente": "Banco de España, EFF 2024, Documento Ocasional 2610, §4.2.2: «era, a finales de 2024, del 12,1 %»",
+      "url": "https://www.bde.es/f/webbe/SES/Secciones/Publicaciones/PublicacionesSeriadas/DocumentosOcasionales/26/Fich/do2610.pdf",
+      "pagina": 29,
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "pie_fuentes"
+      ]
+    },
+    "propiedad_vivienda_es": {
+      "valor": "73",
+      "unidad": "% de hogares",
+      "periodo": "HFCS ola 2021",
+      "fuente": "BCE, HFCS Statistical Tables wave 2021, tabla A1, «Owners DH Households»: España 73,9",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2021_July2023.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "acciones_176_vieja": {
+      "valor": "17,6",
+      "retirado": true,
+      "motivo": "No existe en la EFF 2024, que da 12,1%.",
+      "url": "https://www.bde.es/f/webbe/SES/Secciones/Publicaciones/PublicacionesSeriadas/DocumentosOcasionales/26/Fich/do2610.pdf",
+      "consultado": "2026-09-02"
+    }
+  }
+}

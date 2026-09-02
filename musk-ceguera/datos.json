@@ -1,0 +1,62 @@
+{
+  "pieza": "musk-ceguera",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "synchron_inscritos": {
+      "valor": "11",
+      "unidad": "inscritos",
+      "periodo": "SWITCH (5) + COMMAND (6)",
+      "fuente": "ClinicalTrials.gov, NCT03834857 y NCT05035823, campo enrollmentInfo con type ACTUAL",
+      "url": "https://clinicaltrials.gov/study/NCT05035823",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos"
+      ]
+    },
+    "elche_personas": {
+      "valor": "2",
+      "unidad": "personas",
+      "periodo": "equipo de la Universidad Miguel Hernández",
+      "fuente": "Publicación del equipo de Elche recogida en la ficha de fuentes de la pieza",
+      "url": "https://www.science.org/doi/10.1126/sciadv.abd0323",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "blindsight_pacientes": {
+      "valor": "0",
+      "unidad": "pacientes",
+      "periodo": "a 2 de septiembre de 2026",
+      "fuente": "ClinicalTrials.gov: ninguno de los estudios de Neuralink es de visión; Blindsight no está registrado",
+      "url": "https://clinicaltrials.gov/search?spons=Neuralink",
+      "consultado": "2026-09-02",
+      "tipo": "DINAMICO",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "precision_retirada": {
+      "valor": "95",
+      "retirado": true,
+      "motivo": "«~95 pacientes» no existe en ninguna fuente primaria: el 510(k) K242618 de Precision se autorizó sin datos clínicos, solo con banco de pruebas y animales, y la empresa no tiene ensayos inscritos.",
+      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm?ID=K242618",
+      "consultado": "2026-09-02"
+    },
+    "blackrock_retirada": {
+      "valor": "+30 pacientes",
+      "retirado": true,
+      "motivo": "Sin respaldo. BrainGate, el mayor ensayo del campo, documenta 14 adultos implantados entre 2004 y 2021 (Rubin et al., Neurology 2023).",
+      "url": "https://doi.org/10.1212/WNL.0000000000201707",
+      "consultado": "2026-09-02"
+    }
+  }
+}

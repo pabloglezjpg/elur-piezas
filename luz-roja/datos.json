@@ -1,0 +1,56 @@
+{
+  "pieza": "luz-roja",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "rango_luz_roja": {
+      "valor": "630-700",
+      "unidad": "nanómetros",
+      "periodo": "fotobiomodulación",
+      "fuente": "JAAD 2024, revisión CME de fotobiomodulación",
+      "url": "https://www.jaad.org/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "denovo_fda": {
+      "valor": "DEN090008",
+      "unidad": "expediente",
+      "periodo": "decisión de 24 de agosto de 2010",
+      "fuente": "FDA, base De Novo: «fat reducing low level laser», Erchonia ML Scanner, granted",
+      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/denovo.cfm?ID=DEN090008",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos",
+        "pie_fuentes"
+      ]
+    },
+    "ensayo_acne": {
+      "valor": "16766484",
+      "unidad": "PMID",
+      "periodo": "Goldberg y Russell, 2006",
+      "fuente": "PubMed: «Combination blue (415 nm) and red (633 nm) LED phototherapy», 24 pacientes",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16766484/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "pie_fuentes"
+      ]
+    },
+    "melatonina_retirada": {
+      "valor": "55%",
+      "retirado": true,
+      "motivo": "Los tres porcentajes de supresión de melatonina por color no salían de ninguna fuente identificable. Brainard 2001 y Thapan 2001 no publican cifras por color ni midieron rojo ni ámbar.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.21-16-06405.2001",
+      "consultado": "2026-09-02"
+    }
+  }
+}

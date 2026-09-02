@@ -1,0 +1,77 @@
+{
+  "pieza": "crisis-memoria-ia",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "ssd_multiplo": {
+      "valor": "6,5",
+      "unidad": "veces",
+      "periodo": "3T-2025 a agosto de 2026",
+      "fuente": "VDURA, Flash Volatility Index (11 de agosto de 2026): SSD TLC de 30 TB, de 3.460 $ a 22.600 $",
+      "url": "https://vdura.com/flash-volatility-index/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "variantes": [
+        "seis veces y media",
+        "553"
+      ],
+      "superficies": [
+        "cuerpo",
+        "graficos",
+        "og_image_alt"
+      ]
+    },
+    "hdd_subida": {
+      "valor": "146",
+      "unidad": "%",
+      "periodo": "interanual a agosto de 2026",
+      "fuente": "VDURA: HDD de 30 TB, de 495 $ a 1.216 $. El titular de la propia nota dice «HDDs Only 2.5x»",
+      "url": "https://vdura.com/flash-volatility-index/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "variantes": [
+        "2,5 veces"
+      ],
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "dram_contrato": {
+      "valor": "93",
+      "unidad": "% (rango 93-98)",
+      "periodo": "primer trimestre de 2026",
+      "fuente": "TrendForce, precio de CONTRATO de DRAM. Distinto del precio spot, que es el del Gráfico 3",
+      "url": "https://www.trendforce.com/presscenter/news/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "mac_subida": {
+      "valor": "25,0",
+      "unidad": "%",
+      "periodo": "Mac Studio, 2026",
+      "fuente": "apple.com, Mac Studio de 1.999 $ a 2.499 $, contrastado con instantánea archivada del 31-may-2026. El registro exacto es +25,01%; la pieza publica +25,0% y muestra los dos precios.",
+      "url": "https://www.apple.com/mac-studio/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": true,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "ssd_257_retirada": {
+      "valor": "+257%",
+      "retirado": true,
+      "motivo": "El +553% real no sale de ninguna pareja publicada como +257%: era la cifra vieja del SSD, que sobrevivió en el Gráfico 2 cuando se corrigió el cuerpo. Obligó a reescalar el eje de 250% a 600% y a recalcular las siete barras.",
+      "url": "https://vdura.com/flash-volatility-index/",
+      "consultado": "2026-09-02"
+    }
+  }
+}

@@ -136,8 +136,11 @@ a{color:inherit;}
    Cuerpo
    ============================================================ */
 .body p{margin:0 0 1.25em; max-width:var(--measure);}
-/* Capitular SOLO en el primer bloque de cuerpo (marcar con .lead), no en cada .body */
-.body.lead p:first-of-type::first-letter{
+/* Capitular SOLO en el primer bloque de cuerpo (marcar con .lead), no en cada .body.
+   Y solo en un hijo DIRECTO: sin el «>», también la cogía el primer <p> de
+   cualquier <aside> o <figure> metido dentro del bloque. Le pasaba a la banda
+   de dato de caida-gopro, que salía con capitular. */
+.body.lead > p:first-of-type::first-letter{
   font-family:var(--font-display); float:left; font-size:3.6em;
   line-height:.72; padding:.06em .1em 0 0; color:var(--terra); font-weight:600;
 }
@@ -561,7 +564,7 @@ details.sources summary:hover{color:var(--terra);}
 @media (max-width:640px){
   body{font-size:17.5px;}
   .col,.wrap{padding-inline:16px;}
-  .body.lead p:first-of-type::first-letter{font-size:3.1em;}
+  .body.lead > p:first-of-type::first-letter{font-size:3.1em;}
   .fig-media{padding:12px 8px 8px;}
   .timeline{padding-left:28px;}
   .tl-item::before{left:-27px;}

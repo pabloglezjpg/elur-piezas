@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tres cafés al día: la ciencia dice que vives un poco más | Pablo González</title>
-<meta name="description" content="Los grandes estudios asocian tomar café con moderación a vivir más: menos riesgo cardiovascular, diabetes y enfermedad hepática. Los matices que nadie cuenta.">
+<title>Tres tazas y media al día: un 15% menos de riesgo de morir | Pablo González</title>
+<meta name="description" content="Los grandes estudios asocian tomar café con moderación a un 15% menos de riesgo de morir. Miden riesgo, no años de vida. Los matices que nadie cuenta.">
 <link rel="canonical" href="https://piezas.elur.es/cafe-salud/">
 <meta name="author" content="Pablo González">
 <meta name="theme-color" content="#F4EFE4">
@@ -13,22 +13,22 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Piezas · Pablo González">
-<meta property="og:title" content="Tres cafés al día: la ciencia dice que vives un poco más">
-<meta property="og:description" content="Los grandes estudios asocian tomar café con moderación a vivir más: menos riesgo cardiovascular, diabetes y enfermedad hepática. Los matices que nadie cuenta.">
+<meta property="og:title" content="Tres tazas y media al día: un 15% menos de riesgo de morir">
+<meta property="og:description" content="Los grandes estudios asocian tomar café con moderación a un 15% menos de riesgo de morir. Miden riesgo, no años de vida. Los matices que nadie cuenta.">
 <meta property="og:url" content="https://piezas.elur.es/cafe-salud/">
 <meta property="og:image" content="https://piezas.elur.es/cafe-salud/portada.jpg">
 <meta property="og:image:secure_url" content="https://piezas.elur.es/cafe-salud/portada.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Café y longevidad: unas 3,5 tazas al día es donde más baja el riesgo de mortalidad en el metaanálisis de referencia.">
+<meta property="og:image:alt" content="Café y mortalidad: unas 3,5 tazas al día es donde más baja el riesgo de mortalidad en el metaanálisis de referencia.">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tres cafés al día: la ciencia dice que vives un poco más">
-<meta name="twitter:description" content="Los grandes estudios asocian el café con moderación a vivir más. Los dos matices que casi nadie cuenta, con minijuego incluido.">
+<meta name="twitter:title" content="Tres tazas y media al día: un 15% menos de riesgo de morir">
+<meta name="twitter:description" content="Los grandes estudios asocian el café con moderación a un 15% menos de riesgo de morir. No miden años de vida. Los dos matices, con la taza interactiva.">
 <meta name="twitter:image" content="https://piezas.elur.es/cafe-salud/portada.jpg">
-<meta name="twitter:image:alt" content="Café y longevidad: unas 3,5 tazas al día es donde más baja el riesgo de mortalidad en el metaanálisis de referencia.">
+<meta name="twitter:image:alt" content="Café y mortalidad: unas 3,5 tazas al día es donde más baja el riesgo de mortalidad en el metaanálisis de referencia.">
 
 <link rel="preload" href="../assets/periodismo.css" as="style">
 <link rel="stylesheet" href="../assets/periodismo.css">
@@ -37,8 +37,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Tres cafés al día: la ciencia dice que vives un poco más (con dos peros)",
-  "description": "Los grandes estudios de los últimos años asocian tomar café con moderación a vivir más: menos enfermedad cardiovascular, menos diabetes tipo 2 y menos enfermedad hepática. Con dos matices: la curva tiene forma de U y el beneficio se mide sobre café, no sobre lo que le añades.",
+  "headline": "Tres tazas y media al día: un 15% menos de riesgo de morir (con dos peros)",
+  "description": "Los grandes estudios de los últimos años asocian tomar café con moderación a un riesgo menor de morir: un 15% menos a 3,5 tazas diarias, según el metaanálisis de Kim, Je y Giovannucci (2019). Lo que miden es riesgo, no años de vida. Con dos matices: la curva tiene forma de U y el beneficio se mide sobre café, no sobre lo que le añades.",
   "image": ["https://piezas.elur.es/cafe-salud/portada.jpg"],
   "inLanguage": "es",
   "articleSection": "Ciencia · Salud",
@@ -127,14 +127,17 @@
   border-top:1px solid var(--hairline);margin-top:16px;padding-top:16px;
   display:flex;flex-direction:column;gap:2px;
 }
-#cafe .cafe-score{display:flex;align-items:baseline;gap:8px;}
-#cafe .cafe-score-num{
-  font-family:var(--font-display);font-weight:600;font-size:40px;color:var(--terra);line-height:1;
-  font-variant-numeric:tabular-nums;
+/* Sin puntuación: los ocho coeficientes de la versión anterior no tenían fuente.
+   Queda el nombre de lo que hay en la taza, que es descriptivo, no una medida. */
+#cafe .cafe-state{
+  font-family:var(--font-display);font-weight:600;font-size:23px;color:var(--terra);
+  line-height:1.2;margin:0;
 }
-#cafe .cafe-score-max{font-family:var(--font-mono);font-size:12px;color:var(--gray);font-weight:400;}
-#cafe .cafe-score-label{font-family:var(--font-mono);font-size:12px;color:var(--gray);margin:4px 0 0;}
 #cafe .cafe-explain{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:10px 0 0;}
+#cafe .cafe-noscore{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;line-height:1.5;
+  color:var(--gray);margin:12px 0 0;
+}
 #cafe .cafe-disclaimer{
   font-family:var(--font-mono,monospace);font-size:10.5px;letter-spacing:.02em;line-height:1.55;
   color:var(--gray);margin:14px 0 0;border-top:1px dashed var(--hairline);padding-top:10px;
@@ -147,7 +150,7 @@
 #cafe.ready .needs-js{display:revert;}
 
 @media (max-width:640px){
-  #cafe .cafe-score-num{font-size:34px;}
+  #cafe .cafe-state{font-size:20px;}
   #cafe .curve-wrap{padding:10px 10px 8px;}
 }
 </style>
@@ -165,15 +168,15 @@
 <main class="piece" id="cafe">
   <article class="col">
     <p class="kicker">Ciencia · Salud</p>
-    <h1 class="headline">Tres cafés al día: la ciencia dice que vives un poco más (con dos peros)</h1>
-    <p class="dek">Los grandes estudios de los últimos años apuntan todos en la misma dirección: tomar café con moderación se asocia a vivir más. Con dos matices que casi nadie te cuenta.</p>
+    <h1 class="headline">Tres tazas y media al día: un 15% menos de riesgo de morir (con dos peros)</h1>
+    <p class="dek">Los grandes estudios de los últimos años apuntan todos en la misma dirección: tomar café con moderación se asocia a un riesgo menor de morir. Riesgo, no años de vida: eso no lo mide ninguno. Con dos matices que casi nadie te cuenta.</p>
 
     <div class="byline">
       <span class="who">Pablo González</span>
       <span>·</span>
       <span>20 de agosto de 2026</span>
       <span>·</span>
-      <span>Lectura ~4 min</span>
+      <span>Lectura ~5 min</span>
       <span class="badge">Análisis</span>
     </div>
 
@@ -185,6 +188,7 @@
     <div class="body">
       <h2 class="ladillo">Lo que dicen los estudios</h2>
       <p>El punto óptimo está en unas tres tazas y media al día. Conviene dar la cifra exacta, porque el estudio distingue: el metaanálisis de Kim, Je y Giovannucci sitúa el menor riesgo de <b>mortalidad total</b> en <b>3,5 tazas diarias</b> (un 15% menos de riesgo que quien no toma café) y el de <b>mortalidad cardiovascular</b> algo antes, en <b>2,5 tazas</b> (un 17% menos). El de diabetes tipo 2, según Ding et al., baja hasta un 9% por cada taza de café con cafeína (un 6% si es descafeinado, una diferencia que no llegó a ser estadísticamente significativa). Y el de cáncer de hígado también baja al aumentar el consumo.</p>
+      <p><strong>Hueco declarado.</strong> Riesgo no es esperanza de vida. Lo que mide Kim es el riesgo relativo de morir durante el seguimiento, no el tiempo que vives: en ese metaanálisis no hay ni un año ni un mes. Traducir ese 15% a «vives X años más» es una cuenta que la fuente no hace, y aquí tampoco se hace.</p>
     </div>
 
     <div class="body">
@@ -234,15 +238,15 @@
 
     <div class="body">
       <h2 class="ladillo">El segundo matiz: lo que le echas</h2>
-      <p>Aquí se cae media noticia. El beneficio se mide sobre café, no sobre postres líquidos: el azúcar, los siropes y la nata borran buena parte de la ventaja. No es lo mismo un solo que un frappuccino con caramelo.</p>
+      <p>Aquí se cae media noticia. El beneficio se mide sobre café, no sobre postres líquidos. Pero de los añadidos se ha medido poco, y lo medido no coincide: en la cohorte estadounidense de Zhou (2025, 46.222 adultos) la asociación con menos mortalidad aparece solo en el café solo y en el que lleva poco azúcar y poca grasa saturada; en el Biobanco británico (Liu, 2022, 171.616 personas) el café con azúcar en dosis moderada también se asocia a menos mortalidad. Del sirope y de la nata por separado no hay estudio. No es lo mismo un solo que un frappuccino con caramelo, pero cuánto cambia eso el riesgo nadie lo ha medido.</p>
     </div>
 
     <!-- ============ Fig. 2 · Minijuego «Llena tu café» ============ -->
     <figure class="figure" id="fig-minijuego">
       <div class="fig-head reveal">
-        <div class="fig-num">Gráfico 2 · minijuego</div>
+        <div class="fig-num">Gráfico 2 · interactivo</div>
         <h3 class="fig-title">Llena tu café</h3>
-        <p class="fig-note">Por defecto: un café de calidad, solo, tamaño normal — puntuación máxima. <span class="needs-js">Cambia base, leche, añadidos y tamaño, y mira cómo se llena la taza.</span></p>
+        <p class="fig-note">Por defecto: café solo, tamaño normal — el café tal cual se mide en los estudios. <span class="needs-js">Cambia base, leche, añadidos y tamaño, y mira qué se ha medido de cada cosa y qué no.</span></p>
       </div>
 
       <div class="cafe-game" id="cafe-game">
@@ -293,16 +297,14 @@
         </div>
 
         <output class="cafe-result" id="cafe-result" aria-live="polite">
-          <div class="cafe-score">
-            <span class="cafe-score-num" id="cafe-score">100</span><span class="cafe-score-max">/ 100</span>
-          </div>
-          <p class="cafe-score-label" id="cafe-label">Café tal cual se estudió</p>
-          <p class="cafe-explain" id="cafe-explain">Así es como se mide el beneficio en los estudios: café, sin extras.</p>
+          <p class="cafe-state" id="cafe-label">Café solo</p>
+          <p class="cafe-explain" id="cafe-explain">Café solo, sin azúcar ni grasa añadida: así es como se mide el beneficio en los estudios.</p>
         </output>
+        <p class="cafe-noscore">Esta taza no puntúa. No hay ninguna fuente que mida cuánto resta cada añadido, así que aquí no hay nota: solo lo que se ha medido de cada cosa y lo que no.</p>
         <p class="cafe-disclaimer">Recurso educativo, no un diagnóstico médico. El objetivo es que entiendas lo que tomas, no que tomes más ni menos.</p>
       </div>
 
-      <p class="fig-source">Fuente: herramienta educativa ELUR, a partir de la composición típica de cada añadido. No es un consejo médico.</p>
+      <p class="fig-source"><strong>Hueco declarado.</strong> Esta taza daba antes una nota de 0 a 100, y detrás no había ninguna fuente: ni Kim 2019 ni Ding 2014 estratifican por añadidos ni por formato, y Ding lo declara como limitación —«none of the studies assessed the amount of sugar and dairy added to coffee»—. La puntuación se retira. Lo que queda son las notas, y solo dicen lo medido: Zhou 2025 (azúcar y grasa saturada añadidos), Liu 2022 (café azucarado) y Tverdal 2020 (filtrado frente a no filtrado). De la cápsula, el sirope, la nata por separado, la leche echada al café y el tamaño de la taza no he localizado ningún estudio que lo mida. No es un consejo médico.</p>
     </figure>
 
     <div class="body">
@@ -314,6 +316,9 @@
       <ol>
         <li>Kim Y, Je Y, Giovannucci E. «Coffee consumption and all-cause and cause-specific mortality: a meta-analysis by potential modifiers». <em>European Journal of Epidemiology</em>, 2019; 34(8):731–752. DOI: <a href="https://doi.org/10.1007/s10654-019-00524-3">10.1007/s10654-019-00524-3</a> — primaria (40 estudios de cohortes, 3.852.651 personas).</li>
         <li>Ding M, et al. «Caffeinated and Decaffeinated Coffee Consumption and Risk of Type 2 Diabetes: A Systematic Review and a Dose-Response Meta-analysis». <em>Diabetes Care</em>, 2014; 37(2):569–586. DOI: <a href="https://doi.org/10.2337/dc13-1203">10.2337/dc13-1203</a> — primaria (28 estudios, 1.109.272 personas).</li>
+        <li>Zhou B, Ruan M, Pan Y, Wang L, Zhang FF. «Coffee Consumption and Mortality among United States Adults: A Prospective Cohort Study». <em>The Journal of Nutrition</em>, 2025; 155(7):2312–2321. DOI: <a href="https://doi.org/10.1016/j.tjnut.2025.05.004">10.1016/j.tjnut.2025.05.004</a> — primaria (46.222 adultos, NHANES 1999-2018). Es la única fuente localizada que mide el azúcar y la grasa saturada añadidos al café.</li>
+        <li>Liu D, Li ZH, Shen D, et al. «Association of Sugar-Sweetened, Artificially Sweetened, and Unsweetened Coffee Consumption With All-Cause and Cause-Specific Mortality». <em>Annals of Internal Medicine</em>, 2022; 175(7):909–917. DOI: <a href="https://doi.org/10.7326/M21-2977">10.7326/M21-2977</a> — primaria (Biobanco británico, 171.616 personas). Apunta en sentido contrario a Zhou sobre el azúcar; se citan las dos.</li>
+        <li>Tverdal A, Selmer R, Cohen JM, Thelle DS. «Coffee consumption and mortality from cardiovascular diseases and total mortality: Does the brewing method matter?». <em>European Journal of Preventive Cardiology</em>, 2020; 27(18):1986–1993. DOI: <a href="https://doi.org/10.1177/2047487320914443">10.1177/2047487320914443</a> — primaria (508.747 personas). Lo único localizado sobre el formato: filtrado frente a no filtrado.</li>
         <li>Fundación Española del Corazón / prensa especializada — secundaria.</li>
       </ol>
     </details>

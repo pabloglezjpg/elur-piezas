@@ -1,0 +1,46 @@
+{
+  "pieza": "narcolepsia-orexina",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "mwt_firstlight": {
+      "valor": "17,2",
+      "unidad": "minutos",
+      "periodo": "diferencia frente a placebo, dosis de 2 mg dos veces al día",
+      "fuente": "ClinicalTrials.gov, NCT06470828, resultados depositados",
+      "url": "https://clinicaltrials.gov/study/NCT06470828",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "mwt_radiantlight": {
+      "valor": "20,1",
+      "unidad": "minutos",
+      "periodo": "diferencia frente a placebo",
+      "fuente": "ClinicalTrials.gov, NCT06505031: 20,09 minutos de diferencia frente a placebo; la pieza lo redondea a 20,1",
+      "url": "https://clinicaltrials.gov/study/NCT06505031",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "aprobacion_fda": {
+      "valor": "5 de agosto de 2026",
+      "unidad": "fecha",
+      "periodo": "aprobación de Orzeyful (oveporexton)",
+      "fuente": "FDA, nota de aprobación",
+      "url": "https://www.fda.gov/news-events/press-announcements",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    }
+  }
+}

@@ -1,9 +1,10 @@
 /* ============================================================
    piezas.elur.es — pieza "cafe-salud"
-   Minijuego «Llena tu café». Mejora progresiva.
-   El DOM ya muestra el CASO POR DEFECTO (café de calidad, solo,
-   tamaño normal: puntuación 100). Sin JS (o si esto falla) la
-   pieza se lee entera igual; los controles solo aparecen con JS.
+   Taza interactiva «Llena tu café». Mejora progresiva. SIN PUNTUACIÓN:
+   ver el bloque de NOTAS más abajo, que explica por qué se retiró.
+   El DOM ya muestra el CASO POR DEFECTO (café solo, tamaño normal).
+   Sin JS (o si esto falla) la pieza se lee entera igual; los controles
+   solo aparecen con JS.
    ============================================================ */
 (function () {
   "use strict";
@@ -18,7 +19,6 @@
 
   function initJuego() {
     var controls = document.getElementById("cafe-controls");
-    var scoreEl = document.getElementById("cafe-score");
     var labelEl = document.getElementById("cafe-label");
     var explainEl = document.getElementById("cafe-explain");
     var cupEl = document.getElementById("cafe-cup");
@@ -26,43 +26,68 @@
     var layerMilk = document.getElementById("layer-milk");
     var layerExtra = document.getElementById("layer-extra");
     var cupSizeEl = document.getElementById("cafe-cup-size");
-    if (!controls || !scoreEl || !labelEl || !explainEl) return;
+    if (!controls || !labelEl || !explainEl) return;
 
     var buttons = Array.prototype.slice.call(controls.querySelectorAll(".cafe-tag"));
     if (!buttons.length) return;
 
     var state = { base: "calidad", leche: "ninguna", extras: [], tamano: "normal" };
 
-    function score() {
-      var s = 100;
+    /* ------------------------------------------------------------------
+       AQUÍ NO SE PUNTÚA, Y ES DELIBERADO.
+       La versión anterior daba una nota de 0 a 100 con ocho coeficientes
+       fijados a mano (cápsula −20, entera −5, vegetal −2, azúcar −20,
+       sirope −25, nata −20, grande −10). No había fuente detrás de ninguno:
+       ni Kim 2019 ni Ding 2014 estratifican por añadidos ni por formato, y
+       Ding lo dice en sus propias limitaciones —«none of the studies
+       assessed the amount of sugar and dairy added to coffee» y «Coffee
+       brewing methods were not assessed in the studies»—. Una escala
+       numérica le daba apariencia de medida a ocho cifras elegidas, en una
+       pieza de salud. Se retira.
+       Lo que queda es descriptivo: cómo se llama lo que hay en la taza y
+       qué dice —o no dice— la evidencia sobre cada añadido.
+       ------------------------------------------------------------------ */
+    var NOTAS = {
+      // Tverdal 2020 (508.747 personas) es lo único localizado sobre formato,
+      // y separa filtrado de no filtrado, no cápsula de café de calidad.
+      capsula: "de la cápsula no hay estudio: del formato solo se ha medido filtrado frente a no filtrado, y la cápsula es filtrada",
+      // Kim 2019 mantiene la asociación «irrespective of caffeine content»;
+      // Ding 2014 mide el descafeinado y no halla diferencia (P = 0,17).
+      descaf: "el descafeinado no resta: las dos fuentes de esta pieza lo miden y no encuentran diferencia significativa",
+      entera: "la leche que se echa al café no se ha medido en ninguno de estos estudios",
+      vegetal: "la leche vegetal tampoco se ha medido",
+      // Zhou 2025 frente a Liu 2022: la única discrepancia documentada.
+      azucar: "el azúcar es lo único añadido con estudios, y no coinciden: Zhou 2025 solo encuentra el beneficio en café solo o con poco azúcar, y Liu 2022 lo encuentra también con azúcar en dosis moderada",
+      sirope: "del sirope no hay ningún estudio que lo mida",
+      nata: "la nata no se ha medido por separado; lo medido es la grasa saturada añadida",
+      grande: "los estudios cuentan tazas al día, no el tamaño de la taza"
+    };
+
+    function lectura() {
       var notas = [];
-      if (state.base === "capsula") { s -= 20; notas.push("la cápsula barata resta frente a un café de calidad"); }
-      // Sin penalización: Kim 2019 mantiene la asociación «irrespective of caffeine content»
-      // y Ding 2014 mide el descafeinado y no encuentra diferencia significativa (P = 0,17).
-      if (state.base === "descaf") { notas.push("el descafeinado no resta: las dos fuentes de esta pieza lo miden y no encuentran diferencia significativa"); }
-      if (state.leche === "entera") s -= 5;
-      if (state.leche === "vegetal") s -= 2;
-      if (state.extras.indexOf("azucar") !== -1) { s -= 20; notas.push("el azúcar te aleja del café tal cual se estudió"); }
-      if (state.extras.indexOf("sirope") !== -1) { s -= 25; notas.push("el sirope convierte la taza en un postre líquido"); }
-      if (state.extras.indexOf("nata") !== -1) { s -= 20; notas.push("la nata suma calorías que no forman parte del beneficio"); }
-      if (state.tamano === "grande") { s -= 10; notas.push("el tamaño grande multiplica cualquier añadido"); }
-      s = Math.max(0, Math.min(100, s));
+      if (NOTAS[state.base]) notas.push(NOTAS[state.base]);
+      if (NOTAS[state.leche]) notas.push(NOTAS[state.leche]);
+      ["azucar", "sirope", "nata"].forEach(function (e) {
+        if (state.extras.indexOf(e) !== -1) notas.push(NOTAS[e]);
+      });
+      if (state.tamano === "grande") notas.push(NOTAS.grande);
 
-      var etiqueta = "Café tal cual se estudió";
-      if (s < 90 && s >= 65) etiqueta = "Se aleja un poco";
-      if (s < 65 && s >= 35) etiqueta = "Ya es otra cosa";
-      if (s < 35) etiqueta = "Postre líquido";
+      // Etiqueta descriptiva: nombra lo que hay en la taza. No ordena nada.
+      var etiqueta = "Café solo";
+      if (state.leche !== "ninguna") etiqueta = "Café con leche";
+      if (state.extras.length) etiqueta = "Café con azúcar o grasa añadida";
 
-      var explicacion = notas.length
-        ? notas.join("; ") + "."
-        : "Así es como se mide el beneficio en los estudios: café, sin extras.";
+      var explicacion = "Café solo, sin azúcar ni grasa añadida: así es como se mide el beneficio en los estudios.";
+      if (notas.length) {
+        var t = notas.join("; ") + ".";
+        explicacion = t.charAt(0).toUpperCase() + t.slice(1);
+      }
 
-      return { s: s, etiqueta: etiqueta, explicacion: explicacion };
+      return { etiqueta: etiqueta, explicacion: explicacion };
     }
 
     function render() {
-      var r = score();
-      scoreEl.textContent = r.s;
+      var r = lectura();
       labelEl.textContent = r.etiqueta;
       explainEl.textContent = r.explicacion;
       renderCup();

@@ -1,0 +1,61 @@
+{
+  "pieza": "apple-upgrade",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "cuota_24m": {
+      "valor": "31,99",
+      "unidad": "dólares al mes",
+      "periodo": "plazo de 24 meses",
+      "fuente": "Apple: «the typical monthly payment is $31.99 … for a 24-month lease term»",
+      "url": "https://www.apple.com/shop/apple-upgrade",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "cuota_12m": {
+      "valor": "45,99",
+      "unidad": "dólares al mes",
+      "periodo": "plazo de 12 meses",
+      "fuente": "Apple: «$45.99 … for a 12-month lease term»",
+      "url": "https://www.apple.com/shop/apple-upgrade",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos"
+      ]
+    },
+    "precio_iphone": {
+      "valor": "1.099",
+      "unidad": "dólares",
+      "periodo": "iPhone 17 Pro 256 GB",
+      "fuente": "Apple, ficha de producto",
+      "url": "https://www.apple.com/shop/buy-iphone",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "cuota_apple_card": {
+      "valor": "45,79",
+      "unidad": "dólares al mes",
+      "periodo": "24 meses, Apple Card",
+      "fuente": "Cálculo propio: 1.099/24. NO es la cuota de alquiler de Apple, que publica 45,99 $ a 12 meses; por eso la pieza escribe el plazo al lado.",
+      "url": "https://www.apple.com/shop/apple-upgrade",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": true,
+      "superficies": [
+        "cuerpo"
+      ]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "pieza": "casio-encogerse",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "facturacion_2026": {
+      "valor": "276.300",
+      "unidad": "millones de yenes",
+      "periodo": "ejercicio cerrado el 31 de marzo de 2026",
+      "fuente": "Casio, resultados del ejercicio cerrado el 31 de marzo de 2026",
+      "url": "https://world.casio.com/ir/financial/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "facturacion_2010": {
+      "valor": "427.925",
+      "unidad": "millones de yenes",
+      "periodo": "ejercicio cerrado en marzo de 2010",
+      "fuente": "Casio, 平成23年3月期決算短信",
+      "url": "https://world.casio.com/ir/financial/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "caida_desde_2010": {
+      "valor": "35,4",
+      "unidad": "%",
+      "periodo": "2010-2026",
+      "fuente": "Cálculo propio: 427.925 → 276.300",
+      "url": "https://world.casio.com/ir/financial/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": true,
+      "superficies": [
+        "twitter_description",
+        "jsonld",
+        "cuerpo",
+        "tarjeta_portada"
+      ]
+    },
+    "cambio_bce": {
+      "valor": "183,39",
+      "unidad": "yenes por euro",
+      "periodo": "31 de marzo de 2026",
+      "fuente": "BCE, tipo de cambio de referencia euro/yen",
+      "url": "https://data-api.ecb.europa.eu/service/data/EXR/D.JPY.EUR.SP00.A",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "pie_fuentes"
+      ]
+    }
+  }
+}

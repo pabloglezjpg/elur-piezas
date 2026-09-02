@@ -1,0 +1,91 @@
+{
+  "pieza": "argentina-milei",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "inflacion_2023": {
+      "valor": "211,4",
+      "unidad": "%",
+      "periodo": "doce meses de 2023",
+      "fuente": "INDEC, IPC de diciembre de 2023: «acumuló un incremento de 211,4% en los doce meses de 2023»",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_24DBD5D8158C.pdf",
+      "pagina": 3,
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "meta_description",
+        "og_description",
+        "twitter_image_alt",
+        "jsonld",
+        "dek",
+        "cuerpo",
+        "graficos",
+        "tarjeta_portada"
+      ]
+    },
+    "reservas_dic2023": {
+      "valor": "21.209",
+      "unidad": "millones de dólares",
+      "periodo": "7 de diciembre de 2023",
+      "fuente": "BCRA, Estadísticas Monetarias v4.0, variable «Reservas internacionales»",
+      "url": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1?desde=2023-12-01&hasta=2023-12-15",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "reservas_ago2026": {
+      "valor": "50.913",
+      "unidad": "millones de dólares",
+      "periodo": "25 de agosto de 2026",
+      "fuente": "BCRA, Estadísticas Monetarias v4.0, variable «Reservas internacionales»",
+      "url": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1?desde=2026-08-18&hasta=2026-08-31",
+      "consultado": "2026-09-02",
+      "tipo": "DINAMICO",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "salarios_privado": {
+      "valor": "29,6",
+      "unidad": "%",
+      "periodo": "interanual, junio de 2026",
+      "fuente": "INDEC, Índice de salarios de junio de 2026: «incrementos de 29,6% en el sector privado registrado»",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/salarios_08_26D1A1A01CB7.pdf",
+      "pagina": 5,
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "tarifas_canasta": {
+      "valor": "944",
+      "unidad": "%",
+      "periodo": "diciembre de 2023 a agosto de 2026",
+      "fuente": "IIEP (UBA-CONICET), Reporte de Tarifas y Subsidios n.º 41: «la canasta de servicios públicos del AMBA se incrementó 944%»",
+      "url": "https://economicas.uba.ar/iiep/wp-content/uploads/INFORME-IIEP-AGOSTO-2026.pdf",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "inflacion_300_vieja": {
+      "valor": "300%",
+      "retirado": true,
+      "motivo": "Era el pico interanual de abril de 2024, ya con Milei, rotulado como diciembre de 2023.",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_24DBD5D8158C.pdf",
+      "consultado": "2026-09-02"
+    }
+  }
+}

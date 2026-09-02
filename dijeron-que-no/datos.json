@@ -1,0 +1,40 @@
+{
+  "pieza": "dijeron-que-no",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "precio_netflix_2000": {
+      "valor": "50",
+      "unidad": "millones de dólares",
+      "periodo": "año 2000",
+      "fuente": "Relato de Marc Randolph en «That Will Never Work» y declaraciones de Barry McCarthy",
+      "url": "https://www.penguinrandomhouse.com/books/565000/that-will-never-work-by-marc-randolph/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "meta_description",
+        "og_description",
+        "twitter_description",
+        "jsonld",
+        "dek",
+        "cuerpo",
+        "tarjeta_portada"
+      ]
+    },
+    "patente_kodak": {
+      "valor": "2007",
+      "unidad": "año de expiración",
+      "periodo": "patente de Sasson",
+      "fuente": "Ficha de verificación de la propia pieza, contrastada con la cronología de Kodak",
+      "url": "https://www.kodak.com/en/company/page/kodak-history/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    }
+  }
+}

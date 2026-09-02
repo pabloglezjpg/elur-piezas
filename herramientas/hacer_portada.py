@@ -101,8 +101,11 @@ def chart_line(img, draw, box, serie, etiquetas):
         tw = max(draw.textlength(txt, font=f_val), draw.textlength(cap, font=f_cap))
         tx = min(px + 20, x1 - tw)          # nunca se sale por la derecha
         ty = py + dy
-        if ty < y0:                          # si choca arriba, la etiqueta baja
-            ty = py + 22
+        # Si no cabe arriba, se PEGA al borde superior. Antes bajaba a py+22 y el
+        # pie caía justo encima de la línea descendente: en la portada de gopro
+        # se leía «ct. 2014» con el «o» tapado, y el primer dígito del dato medio
+        # comido. Es la imagen que se ve al compartir el enlace.
+        ty = max(y0, ty)
         draw.text((tx, ty), txt, font=f_val, fill=INK)
         draw.text((tx, ty + 26), cap, font=f_cap, fill=MUTED)
 
@@ -180,12 +183,82 @@ def build(cfg, out_path):
     print(f"✓ {out_path}  ({os.path.getsize(out_path)//1024} KB)")
 
 
+def build_stats(cfg, out_path):
+    """Maqueta de tres datos en fila, a ancho completo. La usan las piezas cuyo
+    resumen son varias cifras y no una curva. Se añadió el 2-sep-2026 porque la
+    portada de argentina-milei llevaba «300 → 33%» y esa cifra resultó ser el pico
+    de abril de 2024, ya con Milei: el INDEC da 211,4% para los doce meses de 2023.
+    La portada no tenía plantilla y por eso se había quedado sin corregir."""
+    img = Image.new("RGBA", (W, H), PAPER)
+    d = ImageDraw.Draw(img)
+
+    d.text((MARGIN, 96), "PIEZAS", font=font(F_MONO_B, 20), fill=INK)
+    d.text((MARGIN + d.textlength("PIEZAS", font=font(F_MONO_B, 20)), 96), ".",
+           font=font(F_MONO_B, 20), fill=TERRA)
+
+    f_by = font(F_MONO, 15)
+    by = "PABLO GONZÁLEZ  ·  PIEZAS.ELUR.ES"
+    bw = d.textlength(by, font=f_by)
+    d.text((W - MARGIN - bw, 84), by, font=f_by, fill=MUTED)
+    d.line([(W - MARGIN - bw, 62), (W - MARGIN, 62)], fill=HAIRLINE, width=1)
+    d.line([(W - MARGIN - bw, 122), (W - MARGIN, 122)], fill=HAIRLINE, width=1)
+
+    d.text((MARGIN, 278), cfg["categoria"].upper(), font=font(F_MONO, 17), fill=TERRA)
+
+    f_h1 = font(F_DISPLAY, cfg.get("titular_px", 52))
+    y = 326
+    for line in wrap(d, cfg["titular"], f_h1, W - 2 * MARGIN):
+        d.text((MARGIN, y), line, font=f_h1, fill=INK)
+        y += int(f_h1.size * 1.06)
+
+    d.line([(MARGIN, 462), (W - MARGIN, 462)], fill=HAIRLINE, width=1)
+
+    # Ninguna fuente del repo tiene el glifo «→» (U+2192): salía una caja vacía.
+    # Se dibuja como vector, que además queda mejor a este tamaño.
+    def flecha(x, y_centro, alto):
+        largo = int(alto * 0.62)
+        d.line([(x, y_centro), (x + largo, y_centro)], fill=TERRA, width=3)
+        p = int(alto * 0.17)
+        d.polygon([(x + largo + p, y_centro), (x + largo - p, y_centro - p),
+                   (x + largo - p, y_centro + p)], fill=TERRA)
+        return largo + p
+
+    f_st = font(F_DISPLAY_B, 40)
+    f_cap = font(F_MONO, 15)
+    x = MARGIN
+    for stat in cfg["stats"]:
+        desde, hasta, pie = stat if len(stat) == 3 else (stat[0], None, stat[1])
+        x_ini = x
+        d.text((x, 494), desde, font=f_st, fill=TERRA)
+        x += d.textlength(desde, font=f_st)
+        if hasta:
+            x += 14
+            x += flecha(x, 494 + f_st.size // 2 + 2, f_st.size) + 14
+            d.text((x, 494), hasta, font=f_st, fill=TERRA)
+            x += d.textlength(hasta, font=f_st)
+        # El pie se parte en dos líneas si no cabe en su columna. Sin esto, el
+        # tercer dato se salía del lienzo: en la portada de cafe-salud el pie
+        # acababa cortado por el borde derecho.
+        ancho_col = (W - 2 * MARGIN - 2 * 56) // 3
+        lineas = wrap(d, pie, f_cap, ancho_col)[:2]
+        for j, ln in enumerate(lineas):
+            d.text((x_ini, 548 + j * 21), ln, font=f_cap, fill=MUTED)
+        ancho_pie = max(d.textlength(ln, font=f_cap) for ln in lineas)
+        x = max(x, x_ini + ancho_pie) + 56
+        if x > W - MARGIN:
+            break
+
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    img.convert("RGB").save(out_path, "JPEG", quality=92, optimize=True)
+    print(f"✓ {out_path}  ({os.path.getsize(out_path)//1024} KB)")
+
+
 # ── Piezas ───────────────────────────────────────────────────────────────────
 PORTADAS = {
     "casio-encogerse": {
         "categoria": "Economía y empresa",
         "titular": "Casio se hizo pequeña para sobrevivir",
-        "dek": "Abandonó pantallas, chips, móviles y las cámaras que ella misma inventó",
+        "dek": "Abandonó pantallas, chips, móviles y la cámara digital de consumo que inventó",
         "dato": "+62,1 %",
         "dato_pie": ["de beneficio operativo", "en un solo ejercicio"],
         "grafico": "linea",
@@ -208,7 +281,66 @@ PORTADAS = {
         "barra_pequena": ("50 M$", 50, "lo que pedía Netflix en 2000", TERRA),
         "barra_grande": ("333.000 M$", 333000, "lo que vale Netflix hoy", INK),
     },
-    # Regenerada: la anterior llevaba los datos viejos (−99,2 % y 0,75 $).
+    # Regenerada dos veces. La 1.ª por datos viejos (−99,2 % y 0,75 $); la 2.ª el
+    # 2-sep-2026 porque el 93,85 $ no es el máximo de CIERRE: el 10-K del ejercicio
+    # 2015 da 98,47 $ en el 4T de 2014. El −99,4 % aguanta: 1 − 0,60/98,47 = 99,39 %.
+    "cafe-salud": {
+        "formato": "stats",
+        "categoria": "Ciencia · Salud",
+        # 2-sep-2026: el titular decía «la ciencia dice que vives un poco más».
+        # Kim 2019 publica un riesgo relativo de mortalidad (RR 0,85 a 3,5 tazas),
+        # no esperanza de vida: en su abstract no hay ninguna unidad temporal. La
+        # portada se rehace anclada a la magnitud que la fuente sí publica.
+        "titular": "Tres tazas y media al día: un 15% menos de riesgo de morir",
+        "titular_px": 46,
+        "stats": [
+            ("3,5", "Tazas al día, el punto de menor riesgo"),
+            ("−15%", "De mortalidad total frente a quien no toma café"),
+            ("Riesgo", "No años de vida: eso no lo mide ningún estudio"),
+        ],
+    },
+    "crisis-memoria-ia": {
+        "formato": "stats",
+        "categoria": "Tecnología · Consumo",
+        # 2-sep-2026: la portada decía «+257%», que era la cifra vieja del SSD y no
+        # sale de ninguna pareja publicada por VDURA. El dato real es 3.460 $ →
+        # 22.600 $, unas 6,5 veces, que es lo que dicen el cuerpo y los dos alt.
+        "titular": "Tu próximo PC, móvil o consola cuesta más por la IA",
+        "titular_px": 46,
+        "stats": [
+            ("×6,5", "Lo que se ha multiplicado un SSD de 30 TB en un año"),
+            ("×2,5", "Lo que ha subido un disco duro, que no lleva memoria NAND"),
+            ("+93–98%", "La DRAM, en un solo trimestre"),
+        ],
+    },
+    "luz-roja": {
+        "formato": "stats",
+        "categoria": "Ciencia · Salud",
+        "titular": "Luz roja: ciencia vs. marketing",
+        # 2-sep-2026: la portada anterior decía «100 → 15%» (supresión de melatonina
+        # por color) y «Cero» en quemar grasa. Las dos se han caído en la pieza: los
+        # porcentajes no salían de ninguna fuente identificable y se retiró el
+        # gráfico entero; y «cero evidencia» es falso, porque la FDA autorizó por
+        # De Novo un láser de contorno corporal en 2010 (DEN090008).
+        "stats": [
+            ("630-700 nm", "La luz roja que usa la fototerapia"),
+            ("2", "Usos con evidencia sólida: heridas y mucositis"),
+            ("Muy limitada", "Lo que hay en «quemar grasa»"),
+        ],
+    },
+    "argentina-milei": {
+        "formato": "stats",
+        "categoria": "Economía · Internacional",
+        "titular": "Argentina con Milei, sin bandos",
+        # 2-sep-2026: era «300 → 33%». El INDEC da 211,4% para los doce meses de
+        # 2023 (informe del IPC de diciembre de 2023, «Destacados del mes»). El
+        # ~300% era el pico interanual de abril de 2024, ya con Milei.
+        "stats": [
+            ("211,4", "33%", "Inflación interanual, 2023–2026"),
+            ("28,2", "30%", "Pobreza, 2025–1T 2026"),
+            ("Superávit", "Resultado fiscal 2024"),
+        ],
+    },
     "caida-gopro": {
         "categoria": "Economía y empresa",
         "titular": "La caída de GoPro",
@@ -216,10 +348,10 @@ PORTADAS = {
         "dato": "−99,4 %",
         "dato_pie": ["de su valor en bolsa", "en una década"],
         "grafico": "linea",
-        "serie": [("2014a", 24.0), ("2014", 93.85), ("2018", 6.0),
+        "serie": [("2014a", 24.0), ("2014", 98.47), ("2018", 6.0),
                   ("2022", 5.5), ("2026", 0.60)],
         "anotaciones": {
-            1: ("93,85 $", "oct. 2014", -62),
+            1: ("98,47 $", "4T 2014", -62),
             4: ("0,60 $", "hoy", -62),
         },
     },
@@ -233,4 +365,6 @@ if __name__ == "__main__":
         if slug not in PORTADAS:
             print(f"✗ no conozco «{slug}». Disponibles: {', '.join(PORTADAS)}")
             continue
-        build(PORTADAS[slug], os.path.join(repo, slug, "portada.jpg"))
+        cfg = PORTADAS[slug]
+        destino = os.path.join(repo, slug, "portada.jpg")
+        (build_stats if cfg.get("formato") == "stats" else build)(cfg, destino)

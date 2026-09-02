@@ -234,7 +234,7 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado · actualizado el 2 de septiembre de 2026 (3.ª tanda del día)
+## Estado · actualizado el 2 de septiembre de 2026 (6.ª tanda del día · BLOQUEA a cero)
 
 > **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
 > los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
@@ -248,30 +248,37 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 > **Quien cierre una tanda actualiza esta sección y le cambia la fecha, o la borra.**
 > Una sección de estado caducada ya provocó una contradicción entre dos chats.
 
-**12 piezas publicadas.** De los 52 hallazgos documentados: 20 aplicados, 6 cerrados
-con hueco declarado, 1 retirado, 1 abierto, 1 sin acción y **23 pendientes**.
+**12 piezas publicadas.** De los 52 hallazgos documentados: 38 aplicados, 9 cerrados
+con hueco declarado, 1 retirado, 1 abierto, 1 sin acción y **2 pendientes**, que son
+las dos caducidades con fecha (B57 el 9 de septiembre, B58 el 24).
 
-**El número que manda: 18 BLOQUEA.** Es el subconjunto de los pendientes que dejaría
-a Pablo en evidencia si un jefe de sección lo comprueba — atribuciones fabricadas,
-cifras falsas en superficie visible (titular, dek, metadatos, gráficos) y
-derivaciones presentadas como dato publicado. Los otros 5 pendientes no bloquean:
-3 son matices (B46, B50, B55) y 2 son caducidad programada (B57, B58).
+# BLOQUEA: 0
 
-**Cinco piezas están a cero y se pueden enlazar hoy:** `casio-encogerse`,
-`dijeron-que-no`, `tim-cook-apple`, `argentina-milei` y `luz-roja`.
+Las doce piezas están a cero. Es el número que decide si Pablo puede escribir a un
+medio: cuenta las cifras falsas en superficie visible, las atribuciones fabricadas y
+las derivaciones presentadas como dato publicado. Los tres pendientes que no bloquean
+son matices (B46, B50, B55).
 
-| Pieza | BLOQUEA | | Pieza | BLOQUEA |
-|---|---|---|---|---|
-| caida-gopro | 3 | | cafe-salud | 2 |
-| apple-upgrade | 3 | | musk-ceguera | 2 |
-| crisis-memoria-ia | 3 | | narcolepsia-orexina | 2 |
-| cultura-financiera | 3 | | casio-encogerse | **0** |
-| **luz-roja** | **0** | | dijeron-que-no | **0** |
-| **argentina-milei** | **0** | | tim-cook-apple | **0** |
+**Aviso de calendario:** el keynote de Apple es el **miércoles 9** y caduca
+`apple-upgrade` entera (B57). Esa pieza necesita una segunda pasada de actualización
+de datos el 9 por la tarde o el jueves 10 — no de corrección, que ya está hecha.
 
-**La regla, con número detrás:** Pablo puede escribir a un medio **enlazando solo las
-piezas que estén a cero**. Mientras el total de BLOQUEA no sea 0, no se enlaza el
-resto ni se manda la web entera.
+### El manifiesto de datos
+
+Cada pieza tiene ahora `<slug>/datos.json`: las cifras que viven en más de una
+superficie, con su fuente primaria, si es dato oficial o cálculo propio, y en qué
+superficies aparece cada una. **49 cifras en las doce piezas.**
+
+`python3 herramientas/verificar_datos.py` comprueba que cada cifra dice lo mismo en
+todas sus superficies y falla con código 1 si no. Nace de que todos los errores de
+este proyecto tienen la misma forma: un número corregido en el cuerpo y no en las
+otras ocho superficies. El «300%» de Argentina siguió tres días en su `portada.jpg`
+después de corregirse en el HTML.
+
+**`--autotest` es obligatorio antes de fiarse de él.** Inyecta un error en cada pieza
+y exige cazarlo. La primera versión del verificador daba «0 fallos» siendo mentira:
+comparaba con `valor in texto`, así que «211,4» seguía estando dentro de «211,49».
+Un test que no puede fallar no prueba nada.
 
 ### Calendario con reloj
 

@@ -1,0 +1,71 @@
+{
+  "pieza": "tim-cook-apple",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "ingresos_2011": {
+      "valor": "108.249",
+      "unidad": "millones de dólares",
+      "periodo": "año fiscal 2011",
+      "fuente": "SEC/EDGAR, Apple Inc., 10-K 2011",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&type=10-K",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "og_description",
+        "jsonld",
+        "cuerpo",
+        "graficos",
+        "tarjeta_portada"
+      ]
+    },
+    "ingresos_2025": {
+      "valor": "416.161",
+      "unidad": "millones de dólares",
+      "periodo": "año fiscal 2025",
+      "fuente": "SEC/EDGAR, Apple Inc., 10-K 2025",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&type=10-K",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "og_description",
+        "jsonld",
+        "cuerpo",
+        "graficos",
+        "tarjeta_portada"
+      ]
+    },
+    "multiplicador_bolsa": {
+      "valor": "13",
+      "unidad": "veces",
+      "periodo": "agosto de 2011 a agosto de 2026",
+      "fuente": "Cálculo propio: ~350.000 → 4.572.790 millones de dólares de capitalización. Mide capitalización, no retorno del accionista",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&type=10-K",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": true,
+      "superficies": [
+        "titulo",
+        "og_description",
+        "jsonld",
+        "cuerpo",
+        "tarjeta_portada"
+      ]
+    },
+    "relevo_ternus": {
+      "valor": "1 de septiembre de 2026",
+      "unidad": "fecha",
+      "periodo": "relevo de consejero delegado",
+      "fuente": "Apple Newsroom, 20 de abril de 2026: «John Ternus, senior vice president of Hardware Engineering, will become Apple's next chief executive officer effective on September 1, 2026»",
+      "url": "https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "pieza": "caida-gopro",
+  "actualizado": "2026-09-02",
+  "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
+  "cifras": {
+    "maximo_cierre_2014": {
+      "valor": "98,47",
+      "unidad": "dólares por acción",
+      "periodo": "máximo de cierre del 4T de 2014",
+      "fuente": "GoPro Inc., 10-K del ejercicio 2015, «high and low closing sale price»",
+      "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043516000063/gpro2015-12x3110xk.htm",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "dek",
+        "cuerpo",
+        "og_image_alt",
+        "twitter_image_alt"
+      ]
+    },
+    "caida_desde_maximos": {
+      "valor": "99,4",
+      "unidad": "%",
+      "periodo": "2014-2026",
+      "fuente": "Cálculo propio: 1 − 0,60/98,47 = 99,39%. Las dos cotizaciones, en el 10-K y en el cierre del 25-ago-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043516000063/gpro2015-12x3110xk.htm",
+      "consultado": "2026-09-02",
+      "tipo": "DINAMICO",
+      "derivado": true,
+      "superficies": [
+        "meta_description",
+        "og_description",
+        "twitter_description",
+        "jsonld",
+        "cuerpo",
+        "og_image_alt",
+        "twitter_image_alt",
+        "tarjeta_portada"
+      ]
+    },
+    "ingresos_2022": {
+      "valor": "1.093,5",
+      "unidad": "millones de dólares",
+      "periodo": "ejercicio 2022",
+      "fuente": "GoPro Inc., 10-K del ejercicio 2023, «Revenue $ 1,093,541» (miles)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043524000021/gpro-20231231.htm",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos"
+      ]
+    },
+    "ingresos_2023": {
+      "valor": "1.005,5",
+      "unidad": "millones de dólares",
+      "periodo": "ejercicio 2023",
+      "fuente": "GoPro Inc., 10-K del ejercicio 2023, «Revenue $ 1,005,459» (miles)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043524000021/gpro-20231231.htm",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos"
+      ]
+    },
+    "unidades_2021": {
+      "valor": "3,1",
+      "unidad": "millones de cámaras enviadas",
+      "periodo": "ejercicio 2021",
+      "fuente": "GoPro Inc., 10-K del ejercicio 2021, «Camera units shipped 3,145» (miles)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043522000016/gpro-20211231.htm",
+      "consultado": "2026-09-02",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos"
+      ]
+    },
+    "maximo_cierre_viejo": {
+      "valor": "93,85",
+      "retirado": true,
+      "motivo": "No es el máximo de cierre: no aparece en ningún 10-K. El del 4T de 2014 es 98,47 $.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043516000063/gpro2015-12x3110xk.htm",
+      "consultado": "2026-09-02"
+    }
+  }
+}
