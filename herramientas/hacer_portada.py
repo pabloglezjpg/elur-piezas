@@ -355,6 +355,37 @@ PORTADAS = {
             4: ("0,60 $", "hoy", -62),
         },
     },
+
+    # ── Versiones inglesas ───────────────────────────────────────────────
+    # Existen porque las páginas /en/ compartían la portada española: un editor
+    # anglófono pegaba el enlace en Slack y la tarjeta salía en español, con
+    # puntuación española. El sufijo «-en» escribe portada-en.jpg en la carpeta
+    # de la pieza; el diseño es el mismo, cambian las cadenas y el formato
+    # numérico (coma de millar, punto decimal).
+    "dijeron-que-no-en": {
+        "categoria": "Economy & business",
+        "titular": "Nobody wanted to buy Netflix",
+        "dek": "Blockbuster could have had it for $50 million. And it had its reasons",
+        "dato": "6,600\u00d7",
+        "dato_pie": ["less than it is worth today", "was what it asked that afternoon"],
+        "grafico": "brecha",
+        "barra_pequena": ("$50M", 50, "what Netflix asked for in 2000", TERRA),
+        "barra_grande": ("$333B", 333000, "what Netflix is worth today", INK),
+    },
+    "caida-gopro-en": {
+        "categoria": "Economy & business",
+        "titular": "The fall of GoPro",
+        "dek": "The mistakes that made the brand disappear from the streets",
+        "dato": "\u2212""99.4 %",
+        "dato_pie": ["of its market value", "in a decade"],
+        "grafico": "linea",
+        "serie": [("2014a", 24.0), ("2014", 98.47), ("2018", 6.0),
+                  ("2022", 5.5), ("2026", 0.60)],
+        "anotaciones": {
+            1: ("$98.47", "Q4 2014", -62),
+            4: ("$0.60", "today", -62),
+        },
+    },
 }
 
 
@@ -366,5 +397,8 @@ if __name__ == "__main__":
             print(f"✗ no conozco «{slug}». Disponibles: {', '.join(PORTADAS)}")
             continue
         cfg = PORTADAS[slug]
-        destino = os.path.join(repo, slug, "portada.jpg")
+        if slug.endswith("-en"):
+            destino = os.path.join(repo, slug[:-3], "portada-en.jpg")
+        else:
+            destino = os.path.join(repo, slug, "portada.jpg")
         (build_stats if cfg.get("formato") == "stats" else build)(cfg, destino)
