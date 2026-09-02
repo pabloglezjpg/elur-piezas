@@ -234,30 +234,59 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado a 28 de agosto de 2026
+## Estado · actualizado el 2 de septiembre de 2026 (2.ª tanda del día)
 
-**12 piezas publicadas.** Auditoría externa recién entregada: 101 hallazgos, 97 de
-gravedad ALTA. Primera tanda de respuestas ya enviada al auditor.
+> **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
+> los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
+> tres se consultan en un minuto:
+>
+> - `python3 herramientas/coherencia_metadatos.py` — puerta de metadatos. Sale con 1
+>   si hay ERROR o si la cobertura baja respecto a `herramientas/superficies.json`.
+> - `~/Desktop/auditoria-piezas-2026-08-28/RETENIDOS-B07-B58.md` — los 52 hallazgos.
+> - `git status` — lo que está sin publicar.
+>
+> **Quien cierre una tanda actualiza esta sección y le cambia la fecha, o la borra.**
+> Una sección de estado caducada ya provocó una contradicción entre dos chats.
 
-**Lo más urgente:** los seis hallazgos de atribución de fuente (una pieza atribuye al
-INDEC cifras de la UCA). Eso es lo único que un jefe de sección no perdona.
+**12 piezas publicadas.** De los 52 hallazgos documentados: 18 aplicados, 4 cerrados
+con hueco declarado, 1 retirado, 1 abierto, 1 sin acción y **27 pendientes**.
 
-**Confirmados y en corrección en Casio:** el máximo histórico no es 2016 sino 2010
-(427.925 M¥, con pérdida operativa de 29.309 — la Casio grande perdía dinero, lo cual
-refuerza la tesis); «mejor ejercicio de la década» es falso; el bloque de precio y
-volumen falla su propia aritmética; los «nuevos negocios» del Gráfico 3 son en
-realidad 非継続事業, negocios discontinuados.
+**El número que manda: 22 BLOQUEA.** Es el subconjunto de los pendientes que dejaría
+a Pablo en evidencia si un jefe de sección lo comprueba — atribuciones fabricadas,
+cifras falsas en superficie visible (titular, dek, metadatos, gráficos) y
+derivaciones presentadas como dato publicado. Los otros 5 pendientes no bloquean:
+3 son matices (B46, B50, B55) y 2 son caducidad programada (B57, B58).
 
-**Regla mientras esto no cierre: Pablo no manda ningún correo a ningún medio.**
+**Cuatro piezas están a cero y se pueden enlazar hoy:** `casio-encogerse`,
+`dijeron-que-no`, `tim-cook-apple` y `argentina-milei`.
+
+| Pieza | BLOQUEA | | Pieza | BLOQUEA |
+|---|---|---|---|---|
+| luz-roja | 4 | | cafe-salud | 2 |
+| caida-gopro | 3 | | musk-ceguera | 2 |
+| apple-upgrade | 3 | | narcolepsia-orexina | 2 |
+| crisis-memoria-ia | 3 | | casio-encogerse | **0** |
+| cultura-financiera | 3 | | dijeron-que-no | **0** |
+| **argentina-milei** | **0** | | tim-cook-apple | **0** |
+
+**La regla, con número detrás:** Pablo puede escribir a un medio **enlazando solo las
+piezas que estén a cero**. Mientras el total de BLOQUEA no sea 0, no se enlaza el
+resto ni se manda la web entera.
 
 ### Calendario con reloj
 
 | Fecha | Qué pasa | A qué afecta |
 |---|---|---|
-| 1-sep-2026 | Tim Cook deja Apple | `tim-cook-apple`: todos los tiempos verbales pasan a pasado, también en la portada |
-| 9-sep-2026 | Keynote de Apple | `apple-upgrade` (el caso por defecto es el iPhone 17 Pro, congelado en OG), `tim-cook`, `crisis-memoria-ia` |
-| 24-sep-2026 | El INDEC publica pobreza del 1S2026 | `argentina-milei`: todo el panel de pobreza |
+| ~~1-sep-2026~~ | ~~Tim Cook deja Apple~~ | **HECHO** el 2-sep con `parche-b56.py`. Once superficies en pasado, `dateModified` 2026-09-02 |
+| 9-sep-2026 | Keynote de Apple | `apple-upgrade` (el caso por defecto es el iPhone 17 Pro, congelado en OG), `tim-cook`, `crisis-memoria-ia`. Es B57 |
+| 24-sep-2026 | El INDEC publica pobreza del 1S2026 | `argentina-milei`: 19 puntos + portada + `portada.jpg`. Es B58 |
 | sin fecha | GoPro puede anunciar su venta | `caida-gopro` tiene un bloque de actualización listo |
+
+### Parches preparados
+
+- `~/Desktop/auditoria-piezas-2026-08-28/parche-b56.py` — **ya aplicado** el 2-sep.
+- `~/Desktop/auditoria-piezas-2026-08-28/parche-b36-b37.py` — **ya aplicado** el 31-ago.
+  Ambos abortan si el texto no coincide; se pueden volver a lanzar sin riesgo.
 
 ---
 
