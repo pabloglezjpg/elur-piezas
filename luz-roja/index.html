@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luz roja: para qué sirve de verdad y para qué es marketing | Pablo González</title>
-<meta name="description" content="La fototerapia roja tiene evidencia sólida en heridas, mucositis y piel — y ninguna en «quemar grasa». Qué es ciencia y qué es marketing, uso por uso.">
+<meta name="description" content="La fototerapia roja tiene evidencia sólida en heridas y mucositis, moderada en piel y muy poca en casi todo lo demás. Qué es ciencia y qué es marketing, uso por uso.">
 <link rel="canonical" href="https://piezas.elur.es/luz-roja/">
 <meta name="author" content="Pablo González">
 <meta name="theme-color" content="#F4EFE4">
@@ -14,21 +14,21 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Piezas · Pablo González">
 <meta property="og:title" content="Luz roja: para qué sirve de verdad y para qué es marketing">
-<meta property="og:description" content="La fototerapia roja tiene evidencia sólida en heridas, mucositis y piel — y ninguna en «quemar grasa». Qué es ciencia y qué es marketing, uso por uso.">
+<meta property="og:description" content="La fototerapia roja tiene evidencia sólida en heridas y mucositis, moderada en piel y muy poca en casi todo lo demás. Qué es ciencia y qué es marketing, uso por uso.">
 <meta property="og:url" content="https://piezas.elur.es/luz-roja/">
 <meta property="og:image" content="https://piezas.elur.es/luz-roja/portada.jpg">
 <meta property="og:image:secure_url" content="https://piezas.elur.es/luz-roja/portada.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Luz roja: evidencia sólida en heridas y mucositis, nula en «quemar grasa».">
+<meta property="og:image:alt" content="Luz roja: evidencia sólida en heridas y mucositis, moderada en piel.">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Luz roja: para qué sirve de verdad y para qué es marketing">
-<meta name="twitter:description" content="Evidencia sólida en piel y mucositis. Ninguna en «quemar grasa». Uso por uso, sin vender nada.">
+<meta name="twitter:description" content="Evidencia sólida en heridas y mucositis, moderada en piel. Uso por uso, sin vender nada.">
 <meta name="twitter:image" content="https://piezas.elur.es/luz-roja/portada.jpg">
-<meta name="twitter:image:alt" content="Luz roja: evidencia sólida en heridas y mucositis, nula en «quemar grasa».">
+<meta name="twitter:image:alt" content="Luz roja: evidencia sólida en heridas y mucositis, moderada en piel.">
 
 <link rel="preload" href="../assets/periodismo.css" as="style">
 <link rel="stylesheet" href="../assets/periodismo.css">
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Luz roja: para qué sirve de verdad y para qué es marketing",
-  "description": "La fototerapia roja tiene evidencia clínica sólida en unos pocos usos concretos —heridas, mucositis, piel— y muy poca en casi todo lo que promete la publicidad. Esta pieza separa una cosa de la otra, uso por uso.",
+  "description": "La fototerapia roja tiene evidencia clínica sólida en unos pocos usos concretos —heridas y mucositis—, moderada en piel y muy poca en casi todo lo que promete la publicidad. Esta pieza separa una cosa de la otra, uso por uso.",
   "image": ["https://piezas.elur.es/luz-roja/portada.jpg"],
   "inLanguage": "es",
   "articleSection": "Ciencia · Salud",
@@ -65,27 +65,15 @@
 #luzroja .ev-level{display:inline-flex; align-items:center;}
 #luzroja .ev-solid{background:#3F7D4F;}
 #luzroja .ev-mod{background:#A87A28;}
-/* Regla de la casa: el teja marca el dato protagonista, nunca una valencia.
-   En esta pieza el teja es la luz roja (gráfico de melatonina), así que la
-   escala de evidencia no puede usarlo para decir «ninguna». */
-#luzroja .ev-none{background:var(--gray);}
+/* Regla de la casa: el teja marca el dato protagonista, nunca una valencia,
+   así que la escala de evidencia no lo usa. (El gráfico de melatonina que lo
+   llevaba se retiró: sus porcentajes no tenían fuente.) */
 /* Cuatro niveles, tres colores: «Limitada» salía idéntica a «Moderada».
    Se distingue por forma, no por un cuarto color: a 8 px ningún tono
    intermedio entre la mostaza y el gris es distinguible, y la forma
    además funciona en escala de grises y con daltonismo. */
 #luzroja .ev-lim{background:transparent; box-shadow:inset 0 0 0 2px #A87A28;}
 
-/* ============ Fig. 2 · Barras de melatonina (HTML/CSS, sin SVG) ============ */
-#luzroja .mel-chart{display:flex; align-items:flex-end; justify-content:center; gap:40px; max-width:420px; margin:4px auto 0; padding:0 8px; min-width:0;}
-#luzroja .mel-col{display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:8px; flex:1; min-width:0;}
-#luzroja .mel-track{height:140px; width:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:8px;}
-#luzroja .mel-val{font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap;}
-#luzroja .mel-bar{width:100%; max-width:58px; border-radius:3px 3px 0 0;}
-#luzroja .mel-label{font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--gray); text-align:center; line-height:1.3;}
-
-@media (max-width:640px){
-  #luzroja .mel-chart{gap:22px;}
-}
 </style>
 </head>
 <body>
@@ -109,7 +97,7 @@
       <span>·</span>
       <span>18 de agosto de 2026</span>
       <span>·</span>
-      <span>Lectura ~3 min</span>
+      <span>Lectura ~5 min</span>
       <span class="badge">Análisis</span>
     </div>
 
@@ -120,10 +108,10 @@
 
     <div class="body">
       <h2 class="ladillo">Donde sí hay evidencia</h2>
-      <p>Las revisiones clínicas recientes la respaldan con más fuerza en dos usos: la cicatrización de heridas y úlceras, y la mucositis (las llagas en la boca que provocan la quimio y la radioterapia), que es probablemente su indicación mejor documentada. En acné y rejuvenecimiento cutáneo los resultados son prometedores, pero la evidencia es más desigual y los protocolos están menos estandarizados, así que conviene no venderla como cerrada. También hay respaldo razonable en alopecia y resultados positivos en algunos ensayos sobre dolor articular y muscular, ahí con evidencia claramente más limitada.</p>
+      <p>Las revisiones clínicas recientes la respaldan con más fuerza en dos usos: la cicatrización de heridas y úlceras, y la mucositis (las llagas en la boca que provocan la quimio y la radioterapia), que es probablemente su indicación mejor documentada. En acné y rejuvenecimiento cutáneo los resultados son prometedores, con un matiz que casi nunca se cuenta: el ensayo de referencia (Goldberg y Russell, 2006, veinticuatro pacientes) no probó luz roja sola, sino luz azul de 415 nanómetros alternada con roja de 633. Como la fotobiomodulación se define por el rojo y el infrarrojo cercano, ese resultado no se le puede atribuir entero. La evidencia es más desigual y los protocolos están menos estandarizados, así que conviene no venderla como cerrada. También hay respaldo razonable en alopecia y resultados positivos en algunos ensayos sobre dolor articular y muscular, ahí con evidencia claramente más limitada.</p>
 
       <h2 class="ladillo">Donde está sobrevendida</h2>
-      <p>El salto del «sirve para la piel» al «sirve para todo» es puro marketing. Los usos genéricos de bienestar (quemar grasa, «detox», energía) no tienen respaldo sólido. Y cuidado con las cifras redondas que circulan en los blogs que venden lámparas («reduce la inflamación un 38%», «tres veces mejor que el placebo»): no están bien sostenidas, y alguna atribuye a revistas de prestigio cosas que no dicen.</p>
+      <p>El salto del «sirve para la piel» al «sirve para todo» es puro marketing. Los usos genéricos de bienestar (quemar grasa, «detox», energía) no tienen respaldo sólido, y conviene distinguir dentro del saco: en 2010 la FDA autorizó por la vía De Novo un láser de baja potencia para contorno corporal, así que «ninguna evidencia» sería falso. Ahora bien, una autorización regulatoria no es lo mismo que una revisión sistemática que demuestre que funciona, y para «detox» y «energía» no hay ni una cosa ni la otra. Y cuidado con las cifras redondas que circulan en los blogs que venden lámparas («reduce la inflamación un 38%», «tres veces mejor que el placebo»): no están bien sostenidas, y alguna atribuye a revistas de prestigio cosas que no dicen.</p>
     </div>
 
     <!-- ============ Fig. 1 · Tabla de evidencia ============ -->
@@ -160,8 +148,8 @@
             <tr>
               <td>Acné y rejuvenecimiento cutáneo</td>
               <td><span class="ev-level"><span class="ev-dot ev-mod"></span>Moderada</span></td>
-              <td>Roja 630-700nm</td>
-              <td>Aplicación tópica repetida</td>
+              <td>Azul 415nm <strong>+</strong> roja 633nm, combinadas</td>
+              <td>El ensayo de referencia alterna los dos colores; no es luz roja sola</td>
             </tr>
             <tr>
               <td>Alopecia</td>
@@ -177,9 +165,9 @@
             </tr>
             <tr>
               <td>«Quemar grasa» / detox / energía</td>
-              <td><span class="ev-level"><span class="ev-dot ev-none"></span>Ninguna</span></td>
-              <td>—</td>
-              <td>Marketing, sin respaldo</td>
+              <td><span class="ev-level"><span class="ev-dot ev-lim"></span>Muy limitada</span></td>
+              <td>Láser de baja potencia</td>
+              <td>La FDA autorizó un aparato de contorno corporal en 2010; «detox» y «energía», sin respaldo</td>
             </tr>
             <tr>
               <td>Luz de noche para dormir</td>
@@ -190,7 +178,7 @@
           </tbody>
         </table>
       </div>
-      <p class="fig-source">Fuente: <em>JAAD</em> 2024 (revisión CME de fotobiomodulación); <em>IJMS</em>/MDPI 2024.</p>
+      <p class="fig-source">Fuente: <em>JAAD</em> 2024 (revisión CME de fotobiomodulación); <em>IJMS</em>/MDPI 2024. Dos filas se apoyan además en fuentes propias: la de acné, en Goldberg y Russell 2006 (PMID 16766484), que alterna azul de 415 nm y roja de 633; la de «quemar grasa», en el expediente De Novo DEN090008 de la FDA, del 24 de agosto de 2010, que es una autorización de comercialización y no una prueba de eficacia.</p>
     </figure>
 
     <div class="body">
@@ -203,23 +191,16 @@
       <div class="fig-head reveal">
         <div class="fig-num">Gráfico 2</div>
         <h3 class="fig-title">Supresión de melatonina según el color de la luz</h3>
-        <p class="fig-note">Escala relativa 0-100%. Cuanta más supresión, más frena la luz la hormona que prepara el sueño.</p>
+        <p class="fig-note">Sin cifras: los porcentajes que había aquí no tenían fuente. Lo que se sostiene es el orden, no la magnitud.</p>
       </div>
-      <div class="mel-chart">
-        <div class="mel-col">
-          <div class="mel-track"><span class="mel-val">100%</span><span class="mel-bar" style="height:140px;background:var(--slate)"></span></div>
-          <span class="mel-label">Azul<br>(420-480nm)</span>
-        </div>
-        <div class="mel-col">
-          <div class="mel-track"><span class="mel-val">55%</span><span class="mel-bar" style="height:77px;background:#A87A28"></span></div>
-          <span class="mel-label">Verde/blanca</span>
-        </div>
-        <div class="mel-col">
-          <div class="mel-track"><span class="mel-val">15%</span><span class="mel-bar" style="height:21px;background:var(--terra)"></span></div>
-          <span class="mel-label">Roja/ámbar</span>
-        </div>
+      <div class="hueco" id="mel-hueco">
+        <strong>Gráfico retirado.</strong> Aquí había tres barras con la supresión de melatonina por color de luz:
+        azul 100%, verde/blanca 55%, roja/ámbar 15%. Esos porcentajes no salen de ninguna fuente identificable, y el
+        pie remitía a una ficha que no contiene ni un solo trabajo sobre ritmo circadiano. Los dos estudios canónicos
+        del campo (Brainard y Thapan, los dos de 2001) no publican porcentajes por color y no midieron luz roja ni
+        ámbar: sus rangos terminan en 600 y 548 nanómetros. Dibujar la barra roja era inventarla. Se retira entera y
+        el hueco queda declarado: lo que sí sostiene la evidencia está dicho en el texto de aquí abajo.
       </div>
-      <p class="fig-source">Fuente: fototerapia y ritmo circadiano, revisiones citadas en la ficha de fuentes.</p>
     </figure>
 
     <div class="body">
@@ -234,6 +215,9 @@
       <ol>
         <li><em>Journal of the American Academy of Dermatology</em> (2024), revisión CME de fotobiomodulación — primaria/revisión.</li>
         <li>Revisión en <em>IJMS</em> (MDPI, 2024) — primaria/revisión.</li>
+        <li>Goldberg DJ, Russell BA, «Combination blue (415 nm) and red (633 nm) LED phototherapy in the treatment of mild to severe acne vulgaris», <em>J Cosmet Laser Ther</em> 2006;8(2):71-75, PMID 16766484. Veinticuatro pacientes. Es el ensayo de la fila de acné, y alterna los dos colores.</li>
+        <li>FDA, base de datos De Novo, expediente <strong>DEN090008</strong> (número 510(k) asociado K082609): «fat reducing low level laser», Erchonia ML Scanner, decisión <em>granted</em> del 24 de agosto de 2010, regulación 878.5400. Es una autorización de comercialización, no una demostración de eficacia.</li>
+        <li><strong>Hueco declarado.</strong> Se ha retirado el Gráfico 2 (supresión de melatonina por color): sus tres porcentajes no tenían fuente y esta ficha no contiene ningún trabajo sobre ritmo circadiano. Brainard 2001 y Thapan 2001, los estudios canónicos, no publican cifras por color ni midieron rojo ni ámbar.</li>
         <li>Página comercial de referencia sobre lámparas de luz roja, usada solo como contexto de mercado, sin intención promocional.</li>
       </ol>
     </details>

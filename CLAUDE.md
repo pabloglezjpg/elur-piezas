@@ -234,7 +234,7 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado · actualizado el 2 de septiembre de 2026 (2.ª tanda del día)
+## Estado · actualizado el 2 de septiembre de 2026 (3.ª tanda del día)
 
 > **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
 > los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
@@ -248,25 +248,25 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 > **Quien cierre una tanda actualiza esta sección y le cambia la fecha, o la borra.**
 > Una sección de estado caducada ya provocó una contradicción entre dos chats.
 
-**12 piezas publicadas.** De los 52 hallazgos documentados: 18 aplicados, 4 cerrados
-con hueco declarado, 1 retirado, 1 abierto, 1 sin acción y **27 pendientes**.
+**12 piezas publicadas.** De los 52 hallazgos documentados: 20 aplicados, 6 cerrados
+con hueco declarado, 1 retirado, 1 abierto, 1 sin acción y **23 pendientes**.
 
-**El número que manda: 22 BLOQUEA.** Es el subconjunto de los pendientes que dejaría
+**El número que manda: 18 BLOQUEA.** Es el subconjunto de los pendientes que dejaría
 a Pablo en evidencia si un jefe de sección lo comprueba — atribuciones fabricadas,
 cifras falsas en superficie visible (titular, dek, metadatos, gráficos) y
 derivaciones presentadas como dato publicado. Los otros 5 pendientes no bloquean:
 3 son matices (B46, B50, B55) y 2 son caducidad programada (B57, B58).
 
-**Cuatro piezas están a cero y se pueden enlazar hoy:** `casio-encogerse`,
-`dijeron-que-no`, `tim-cook-apple` y `argentina-milei`.
+**Cinco piezas están a cero y se pueden enlazar hoy:** `casio-encogerse`,
+`dijeron-que-no`, `tim-cook-apple`, `argentina-milei` y `luz-roja`.
 
 | Pieza | BLOQUEA | | Pieza | BLOQUEA |
 |---|---|---|---|---|
-| luz-roja | 4 | | cafe-salud | 2 |
-| caida-gopro | 3 | | musk-ceguera | 2 |
-| apple-upgrade | 3 | | narcolepsia-orexina | 2 |
-| crisis-memoria-ia | 3 | | casio-encogerse | **0** |
-| cultura-financiera | 3 | | dijeron-que-no | **0** |
+| caida-gopro | 3 | | cafe-salud | 2 |
+| apple-upgrade | 3 | | musk-ceguera | 2 |
+| crisis-memoria-ia | 3 | | narcolepsia-orexina | 2 |
+| cultura-financiera | 3 | | casio-encogerse | **0** |
+| **luz-roja** | **0** | | dijeron-que-no | **0** |
 | **argentina-milei** | **0** | | tim-cook-apple | **0** |
 
 **La regla, con número detrás:** Pablo puede escribir a un medio **enlazando solo las

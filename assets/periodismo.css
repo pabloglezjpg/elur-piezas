@@ -190,6 +190,14 @@ a{color:inherit;}
   color:var(--gray); text-align:right; letter-spacing:.02em;
 }
 .pull-cite::before{content:"— ";}
+/* Hueco declarado: el sitio dibuja los datos que faltan, no los disimula.
+   Estaba copiado en tres piezas con tres valores distintos. */
+.hueco{
+  border:1px dashed var(--hairline,var(--hair)); padding:18px 20px; margin:0 auto 40px;
+  max-width:var(--measure); font-family:var(--font-mono,monospace); font-size:12.5px;
+  line-height:1.6; color:var(--grey-warm,var(--gray));
+}
+.hueco strong{color:var(--ink);}
 .pull + .pull-cite{margin-top:-2.4rem;}
 
 /* ============================================================
