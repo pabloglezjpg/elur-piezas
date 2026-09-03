@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brain implants for sight: Musk promises, a Spanish lab already did it | Pablo González</title>
+<meta name="description" content="Neuralink promises to cure blindness in months. A Spanish team has already made two blind people see shapes and letters. What is real and what is a promise.">
+<link rel="canonical" href="https://piezas.elur.es/musk-ceguera/en/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Musk promises to restore sight; a Spanish team already has">
+<meta property="og:description" content="Neuralink promises to cure blindness in months. A Spanish team has already made two blind people see shapes and letters. What is real and what is a promise.">
+<meta property="og:url" content="https://piezas.elur.es/musk-ceguera/en/">
+<meta property="og:image" content="https://piezas.elur.es/musk-ceguera/portada-en.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/musk-ceguera/portada-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Normal vision compared with a 60-electrode phosphene simulation; headline about Musk and brain implants for sight.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Musk promises to restore sight; a Spanish team already has">
+<meta name="twitter:description" content="What is real today in brain implants for sight, and what is only a promise.">
+<meta name="twitter:image" content="https://piezas.elur.es/musk-ceguera/portada-en.jpg">
+<meta name="twitter:image:alt" content="Normal vision next to a phosphene simulation from a cortical implant.">
+
+<link rel="preload" href="../../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Musk has spent years promising to restore sight. A Spanish team already has (and the man who did it urges caution)",
+  "description": "Neuralink promises to cure blindness within months. A team at a public university in Elche, in south-eastern Spain, has already made two blind people perceive shapes and letters. What is real today and what is only a promise.",
+  "image": ["https://piezas.elur.es/musk-ceguera/portada-en.jpg"],
+  "inLanguage": "en",
+  "articleSection": "Science · Health",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/musk-ceguera/en/" }
+}
+</script>
+  <link rel="alternate" hreflang="es" href="https://piezas.elur.es/musk-ceguera/">
+  <link rel="alternate" hreflang="en" href="https://piezas.elur.es/musk-ceguera/en/">
+
+<style>
+/* Design tokens (--accent, --hairline, --paper-raised, …) already live in periodismo.css */
+/* ===== Piece-specific styles (interactives) ===== */
+#musk .figure{max-width:820px;}
+#musk .nutgraf{border-left:3px solid var(--terra);padding-left:18px;}
+/* The interactive controls only show once musk.js has initialised.
+   The id (#musk) is used so these rules beat the component ones (.phos-controls, etc.). */
+#musk .needs-js{display:none;}
+#musk.ready .needs-js{display:revert;}
+#musk.ready .needs-js.flex{display:flex;}
+#musk.ready .via-btn{display:block;}
+
+/* G1 — promise vs reality */
+#promesa-tl{list-style:none;}
+.promesa-real{margin:0 auto 18px;max-width:var(--measure);}
+.promesa-real .zeros{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:8px;}
+.promesa-real .zeros b{font-family:var(--font-display,Georgia,serif);color:var(--terra);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums;}
+.promesa-real .zeros span{font-family:var(--font-mono,monospace);font-size:12px;color:var(--ink-2);display:block;}
+.promesa-readout{font-family:var(--font-mono,monospace);font-size:12.5px;line-height:1.5;color:var(--slate);margin-top:12px;min-height:1.5em;}
+.promesa-readout b{color:var(--terra);}
+#promesa-tl .tl-item{width:100%;text-align:left;background:none;border:0;border-radius:6px;padding:8px 8px 8px 8px;cursor:default;font:inherit;color:inherit;}
+.js #promesa-tl .tl-item{cursor:pointer;}
+.js #promesa-tl .tl-item:hover{background:var(--paper-2);}
+.js #promesa-tl .tl-item.sel{background:var(--paper-2);}
+.js #promesa-tl .tl-item.sel::before{background:var(--terra);transform:scale(1.25);}
+
+/* G2 — phosphenes */
+.phos-stage{position:relative;width:100%;max-width:520px;margin:0 auto;}
+.phos-stage canvas,.phos-stage .phos-static{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:6px;background:#100D09;}
+/* the static phosphene SVG must NOT inherit the min-width:560 of .fig-media .chart */
+#musk .phos-static{min-width:0;}
+.phos-controls{max-width:520px;margin:14px auto 0;display:flex;flex-direction:column;gap:12px;}
+.phos-slider{display:flex;align-items:center;gap:12px;}
+.phos-slider input[type=range]{flex:1;accent-color:var(--terra);}
+.phos-slider .lab{font-family:var(--font-mono,monospace);font-size:11px;color:var(--gray);white-space:nowrap;}
+.phos-elec{display:flex;gap:8px;flex-wrap:wrap;}
+.phos-elec button{font-family:var(--font-mono,monospace);font-size:12px;letter-spacing:.02em;padding:8px 10px;border:1px solid var(--hair);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:4px;flex:1 1 auto;}
+.phos-elec button[aria-pressed=true]{background:var(--terra);border-color:var(--terra);color:var(--paper);}
+
+/* G3 — implants by stage: bars + accordion (replaces the blob map) */
+.map-filters{display:flex;flex-wrap:wrap;gap:8px;max-width:var(--measure);margin:0 auto 14px;}
+.map-filters button{font-family:var(--font-mono,monospace);font-size:12px;padding:7px 11px;border:1px solid var(--hair);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:999px;}
+.map-filters button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.map-legend{display:flex;flex-wrap:wrap;gap:8px 18px;max-width:var(--measure);margin:12px auto 0;font-family:var(--font-mono,monospace);font-size:12px;color:var(--ink-2);}
+.map-legend span{display:inline-flex;align-items:center;gap:7px;}
+.map-legend i{width:13px;height:13px;border-radius:50%;display:inline-block;}
+.mrow.dim{display:none;}
+
+.phase-bars{max-width:var(--measure);margin:0 auto 22px;display:flex;flex-direction:column;gap:10px;}
+.pbar-row{display:grid;grid-template-columns:110px 1fr 30px;align-items:center;gap:10px;}
+.pbar-label{font-family:var(--font-mono,monospace);font-size:11.5px;color:var(--ink-2);}
+.pbar-track{height:16px;background:var(--paper-2);border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+.pbar-fill{height:100%;}
+.pbar-fill.com{background:#B84A2C;}
+.pbar-fill.ens{background:#3F5A63;}
+.pbar-fill.pre{background:var(--gray);}
+.pbar-fill.aband{background:var(--gray);}
+.pbar-count{font-family:var(--font-mono,monospace);font-size:12.5px;font-weight:600;color:var(--ink);text-align:right;}
+
+.phase-group{border:0;padding:0;margin:0 0 6px;}
+.phase-group summary{
+  cursor:pointer;list-style:none;font-family:var(--font-mono,monospace);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--slate);border-bottom:1px solid var(--hair);padding-bottom:6px;margin:16px 0 8px;
+  display:flex;align-items:center;gap:6px;
+}
+.phase-group summary::-webkit-details-marker{display:none;}
+.phase-group summary::before{content:"▸";display:inline-block;transition:transform .15s ease;}
+.phase-group[open] summary::before{transform:rotate(90deg);}
+.phase-group.aband summary{color:var(--gray);}
+.mrow{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;color:var(--ink);padding:5px 0;line-height:1.35;}
+.mrow .meta{font-family:var(--font-mono,monospace);font-size:12px;color:var(--gray);text-align:right;white-space:nowrap;}
+.mrow.faded{color:var(--ink-2);}
+
+/* G4 — visual pathway / 3D */
+.via-static svg{display:block;width:100%;height:auto;}
+.via-3d{position:relative;width:100%;max-width:640px;margin:0 auto;}
+.via-3d canvas{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:6px;background:var(--paper-2);touch-action:none;cursor:grab;}
+.via-3d canvas:active{cursor:grabbing;}
+.via-3d .hint{font-family:var(--font-mono,monospace);font-size:11px;color:var(--gray);text-align:center;margin-top:6px;}
+.via-btn{font-family:var(--font-mono,monospace);font-size:12.5px;letter-spacing:.03em;padding:9px 16px;border:1px solid var(--slate);background:transparent;color:var(--slate);cursor:pointer;border-radius:4px;margin:16px auto 0;display:block;}
+.via-btn:hover{background:var(--slate);color:var(--paper);}
+.via-legend{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;max-width:var(--measure);margin:12px auto 0;font-family:var(--font-mono,monospace);font-size:12px;color:var(--ink-2);}
+.via-legend span{display:inline-flex;align-items:center;gap:7px;}
+.via-legend i{width:13px;height:13px;border-radius:50%;display:inline-block;}
+.via-anno{max-width:var(--measure);margin:14px auto 0;display:flex;flex-direction:column;gap:8px;}
+.via-anno .row{display:flex;gap:10px;align-items:baseline;font-size:14.5px;line-height:1.4;color:var(--ink);}
+.via-anno .tag{font-family:var(--font-mono,monospace);font-size:11px;flex:0 0 auto;}
+.via-note{border-left:3px solid var(--terra);padding:10px 14px;margin:14px auto 0;max-width:var(--measure);background:var(--paper-2);font-size:13.5px;line-height:1.5;color:var(--ink);}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#musk">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../en/">PIEZAS<b>.</b></a>
+    <nav><a href="../../en/">All pieces</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="musk">
+  <article class="col">
+    <p class="kicker">Science · Health</p>
+    <h1 class="headline">Musk has spent years promising to restore sight. A Spanish team already has (and the man who did it urges caution)</h1>
+    <p class="dek">While Neuralink announces it will cure blindness within six to twelve months, a Spanish team has already made two blind people perceive shapes and letters, and in China the first commercial brain-computer interface has left the laboratory.</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>Analysis</span>
+      <span>11 August 2026</span>
+      <span>~9 min read</span>
+      <span class="lang"><a href="../" hreflang="es" lang="es">Versión en español</a></span>
+    </div>
+
+    <div class="body lead">
+      <p>On 3 August 2026, Elon Musk promised again what he has been repeating since 2024: that his Blindsight implant will restore sight imminently. He said it on Ashlee Vance's podcast, and the Spanish press headlined it "in the coming months", which is the wording that stuck. It is his favourite promise. It is also, so far, the one with the least evidence behind it. As of today, Neuralink has not implanted Blindsight in a single person, nor published a single peer-reviewed study on vision. Meanwhile, in the Spanish city of Elche, two blind people have already made out shapes and letters again.</p>
+
+      <p>Better to say this early, because it runs through the whole story: if we are talking about brain implants for sight at all, it is largely thanks to Musk. None of the other teams here has his megaphone; the field would probably have moved forward without Neuralink anyway, but quietly, with far less money and attention. The question is not whether Musk helps the cause (he does, a lot), but separating what is already real from what is still a promise.</p>
+
+      <p class="nutgraf">Musk's promise is the way into a story almost nobody is telling in the right order: brain implants have stopped being science fiction, but the ones that actually work today do not carry his name. A team at the <span lang="es">Universidad Miguel Hernández</span>, a public university in Elche, in south-eastern Spain, published its results in November 2025; in China, the first invasive brain-computer interface cleared for commercial use is already being fitted in hospitals; and one very recent precedent explains why any patient should look at these promises calmly. This is what exists today, who is behind it and what stage it is at.</p>
+
+      <h2 class="ladillo">The promise, dated</h2>
+
+      <p>Musk's history with blindness is a run of deadlines that keep moving. In September 2024 he announced on X that Blindsight would let people see "even those who were born blind", so long as the visual cortex is intact. That same month the FDA granted it Breakthrough Device designation, which speeds up the paperwork but is not an approval. In March 2025 he talked about "six to twelve months" for the first vision implants and compared the initial resolution to "the graphics of the first Nintendo". In May he put the first patient at "the end of this year or the start of next". In January 2026 he left it "awaiting regulatory approval". And on 3 August 2026 he repeated the "in the coming months". The calendar has changed several times; the promise has not.</p>
+    </div>
+
+    <!-- ============ G1 · Timeline promesa vs realidad ============ -->
+    <figure class="figure" id="fig-promesa">
+      <div class="fig-head reveal">
+        <div class="fig-num">Chart 1 · interactive</div>
+        <h3 class="fig-title">The promise vs. the reality (2024–2026)</h3>
+        <p class="fig-note">Every date is a fresh promise about Blindsight. The reality, below, has not moved. <span class="needs-js">Tap any milestone to see how much time has passed.</span></p>
+      </div>
+
+      <aside class="stat-band promesa-real" id="promesa-real" role="note">
+        <div style="font-family:var(--font-mono,monospace);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);">Constant reality · Sep 2024 → Aug 2026</div>
+        <div class="zeros">
+          <span><b>0</b> human patients with Blindsight</span>
+          <span><b>0</b> peer-reviewed studies</span>
+          <span><b>0</b> ClinicalTrials.gov registrations</span>
+        </div>
+        <div class="promesa-readout needs-js" id="promesa-readout" aria-live="polite">Tap a promise to compare it with today.</div>
+      </aside>
+
+      <ol class="timeline" id="promesa-tl">
+        <li class="tl-item" data-date="2024-09-17" aria-label="17 September 2024">
+          <div class="tl-date">17 Sep 2024</div>
+          <h4 class="tl-h">"You will see even if you were born blind"</h4>
+          <p class="tl-p">Said on X. That month the FDA grants Blindsight Breakthrough Device designation (it speeds up the paperwork, it is not an approval).</p>
+        </li>
+        <li class="tl-item" data-date="2025-03-06" aria-label="6 March 2025">
+          <div class="tl-date">6 Mar 2025</div>
+          <h4 class="tl-h">"6–12 months" for the first vision implant</h4>
+          <p class="tl-p">At Y Combinator. He compares the initial resolution to "the graphics of the first Nintendo".</p>
+        </li>
+        <li class="tl-item" data-date="2025-05-20" aria-label="20 May 2025">
+          <div class="tl-date">20 May 2025</div>
+          <h4 class="tl-h">First patient "in late 2025 or early 2026"</h4>
+          <p class="tl-p">At the Qatar Economic Forum.</p>
+        </li>
+        <li class="tl-item" data-date="2025-12-31" aria-label="31 December 2025">
+          <div class="tl-date">31 Dec 2025</div>
+          <h4 class="tl-h">Large-scale production promised for 2026</h4>
+          <p class="tl-p">On X.</p>
+        </li>
+        <li class="tl-item crit" data-date="2026-01-28" aria-label="28 January 2026">
+          <div class="tl-date">28 Jan 2026</div>
+          <h4 class="tl-h">"Awaiting regulatory approval"</h4>
+          <p class="tl-p">On X. That day, Reuters confirms 21 participants at Neuralink — motor control, not vision.</p>
+        </li>
+        <li class="tl-item crit" data-date="2026-08-03" aria-label="3 August 2026">
+          <div class="tl-date">3 Aug 2026</div>
+          <h4 class="tl-h">The promise, again</h4>
+          <p class="tl-p">On Ashlee Vance's podcast. "In the coming months" is how the press headlined it, not a direct quote from him.</p>
+        </li>
+      </ol>
+      <p class="fig-source">Source: Musk's public statements on X, at Y Combinator and Qatar Economic Forum events and on Ashlee Vance's podcast — a primary but self-interested source, with no peer-reviewed study and no ClinicalTrials.gov registration behind them; Reuters, 28 Jan 2026; FDA, Sep 2024.</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">What is actually true at Neuralink</h2>
+
+      <p>Separate what has been demonstrated from what has been announced. Neuralink does have 21 participants in its trials worldwide (the company confirmed it to Reuters on 28 January 2026), but those trials are about controlling devices with thought: moving a cursor, operating a computer. They are not about vision. Blindsight, the implant for sight, has no human patient yet, is not registered on ClinicalTrials.gov, and there is no peer-reviewed publication from Neuralink on visual restoration. Everything known about Blindsight comes from its founder's X account. That does not invalidate it, far from it, but it puts it where it belongs: in a very ambitious, hopeful promise, not in the evidence. Plenty of neuroscientists are in fact comfortable with the goal of restoring limited vision when the cortex is intact; what makes them raise an eyebrow is the promise of sight "better than human", which is another matter entirely.</p>
+
+      <h2 class="ladillo">The turn: what is happening far from Neuralink</h2>
+
+      <p>Now for the part almost nobody tells. In November 2025, a team at the UMH in Elche, led by Professor <span lang="es">Eduardo Fernández Jover</span> with the neurosurgeon <span lang="es">Pablo González López</span> (of the Dr Balmis Hospital in Alicante), published in <i>Science Advances</i> the results of implanting electrodes in the visual cortex of two blind people. The participants came to perceive patterns, movement and some letters. This is not natural vision (they are phosphenes, points of light the brain learns to interpret) and it is still research, not a device a patient can ask for.</p>
+    </div>
+
+    <!-- ============ G2 · Simulador de fosfenos ============ -->
+    <figure class="figure" id="fig-fosfenos">
+      <div class="fig-head reveal">
+        <div class="fig-num">Chart 2 · interactive</div>
+        <h3 class="fig-title">What a patient with a cortical implant sees</h3>
+        <p class="fig-note">Compare a real scene with its phosphene simulation. <span class="needs-js">Slide to reveal, and change the number of electrodes.</span></p>
+      </div>
+
+      <div class="fig-media" style="border:0;padding:0;overflow:visible;">
+        <div class="phos" id="phos" data-electrodes="60">
+          <div class="phos-stage" id="phos-stage">
+            <svg class="chart phos-static" viewBox="0 0 320 240" role="img" preserveAspectRatio="xMidYMid meet" aria-labelledby="g2t g2d">
+<title id="g2t">Normal vision compared with a phosphene simulation</title>
+<desc id="g2d">On the left, a real scene: a person standing in a lit doorway. On the right, the same scene seen through a 60-electrode cortical implant: a grid of points of light (phosphenes) in which the shape is barely distinguishable. The human eye has between 120 and 130 million photoreceptors.</desc>
+<defs>
+<clipPath id="clipL"><rect x="0" y="0" width="160" height="240"/></clipPath>
+<clipPath id="clipR"><rect x="160" y="0" width="160" height="240"/></clipPath>
+</defs>
+<rect x="0" y="0" width="320" height="240" fill="#100D09"/>
+<g clip-path="url(#clipL)">
+<rect x="96" y="19.2" width="128" height="220.8" fill="#F4EFE4"/>
+<ellipse cx="160" cy="76.8" rx="24" ry="21.6" fill="#100D09"/>
+<polygon points="132.8,100.8 187.2,100.8 203.2,220.8 116.8,220.8" fill="#100D09"/>
+</g>
+<g clip-path="url(#clipR)">
+<circle cx="17.8" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="160.0" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="195.6" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="231.1" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="17.1" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="17.8" cy="51.4" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="51.4" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="51.4" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="51.4" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="160.0" cy="51.4" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="195.6" cy="51.4" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="231.1" cy="51.4" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="51.4" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="51.4" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="17.8" cy="85.7" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="85.7" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="85.7" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="85.7" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="160.0" cy="85.7" r="3.9" fill="#F4EFE4" opacity="0.17"/>
+<circle cx="195.6" cy="85.7" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="231.1" cy="85.7" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="85.7" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="85.7" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="17.8" cy="120.0" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="120.0" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="120.0" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="120.0" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="160.0" cy="120.0" r="3.9" fill="#F4EFE4" opacity="0.17"/>
+<circle cx="195.6" cy="120.0" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="231.1" cy="120.0" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="120.0" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="120.0" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="17.8" cy="154.3" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="154.3" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="154.3" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="154.3" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="160.0" cy="154.3" r="3.9" fill="#F4EFE4" opacity="0.17"/>
+<circle cx="195.6" cy="154.3" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="231.1" cy="154.3" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="154.3" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="154.3" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="17.8" cy="188.6" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="188.6" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="188.6" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="188.6" r="3.9" fill="#F4EFE4" opacity="0.17"/>
+<circle cx="160.0" cy="188.6" r="3.9" fill="#F4EFE4" opacity="0.17"/>
+<circle cx="195.6" cy="188.6" r="3.9" fill="#F4EFE4" opacity="0.17"/>
+<circle cx="231.1" cy="188.6" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="188.6" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="188.6" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="17.8" cy="222.9" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="53.3" cy="222.9" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="88.9" cy="222.9" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="124.4" cy="222.9" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="160.0" cy="222.9" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="195.6" cy="222.9" r="15.1" fill="#F4EFE4" opacity="0.93"/>
+<circle cx="231.1" cy="222.9" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="266.7" cy="222.9" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+<circle cx="302.2" cy="222.9" r="5.0" fill="#F4EFE4" opacity="0.21"/>
+</g>
+<line x1="160" y1="0" x2="160" y2="240" stroke="#F4EFE4" stroke-width="1.5" opacity="0.7"/>
+<g font-family="'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#F4EFE4">
+<rect x="0" y="0" width="118" height="18" fill="#100D09" opacity="0.55"/>
+<text x="8" y="12" letter-spacing="0.06em">NORMAL VISION</text>
+<rect x="162" y="0" width="158" height="18" fill="#100D09" opacity="0.55"/>
+<text x="170" y="12" letter-spacing="0.06em">SIMULATION · 60 ELECTRODES</text>
+</g>
+</svg>
+          </div>
+          <div class="phos-controls needs-js flex" id="phos-controls">
+            <div class="phos-slider">
+              <span class="lab">Real</span>
+              <input type="range" id="phos-range" min="0" max="100" value="50" aria-label="Reveal the phosphene simulation">
+              <span class="lab">Phosphenes</span>
+            </div>
+            <div class="phos-elec" id="phos-elec" role="group" aria-label="Number of electrodes">
+              <button data-e="60" aria-pressed="true">60 electrodes (Orion)</button>
+              <button data-e="200" aria-pressed="false">200 electrodes</button>
+              <button data-e="1000" aria-pressed="false">1,000 electrodes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="fig-source" style="margin-top:14px;">The human eye has between 120 and 130 million photoreceptors. Today's cortical implants run from dozens — Orion, 60 electrodes — to around 1,000: this is not vision, it is points of light the brain learns to interpret. Source: UMH Elche (<i>Science Advances</i>); Second Sight Orion. Illustrative simulation.</p>
+    </figure>
+
+    <div class="body">
+      <p>The second focus is China. On 13 March 2026, the Chinese regulator (NMPA) approved the NEO implant (developed with Tsinghua University) as the world's first invasive brain-computer interface for commercial use. Mind the caveat: NEO does not restore sight; it is designed for people with tetraplegia from a cervical spinal cord injury, and it helps them recover movement in the hand. Its relevance to this story lies elsewhere: a brain implant has left the clinical trial and is already being fitted in ordinary hospitals, which has yet to happen in the United States or the European Union.</p>
+    </div>
+
+    <!-- ============ G3 · Mapa por país y fase ============ -->
+    <figure class="figure" id="fig-mapa">
+      <div class="fig-head reveal">
+        <div class="fig-num">Chart 3 · interactive</div>
+        <h3 class="fig-title">Brain implants, by stage of development</h3>
+        <p class="fig-note">Six active projects, one abandoned. <span class="needs-js">Filter by stage, or open each group for the detail.</span></p>
+      </div>
+
+      <div class="map-filters needs-js flex" id="map-filters" role="group" aria-label="Filter by stage">
+        <button data-f="all" aria-pressed="true">All</button>
+        <button data-f="com" aria-pressed="false">Commercial</button>
+        <button data-f="ens" aria-pressed="false">Trial</button>
+        <button data-f="pre" aria-pressed="false">Preclinical</button>
+        <button data-f="aband" aria-pressed="false">Abandoned</button>
+      </div>
+
+      <div class="phase-bars" aria-hidden="true">
+        <div class="pbar-row">
+          <span class="pbar-label">Commercial</span>
+          <div class="pbar-track"><div class="pbar-fill com" style="width:16.7%"></div></div>
+          <span class="pbar-count">1</span>
+        </div>
+        <div class="pbar-row">
+          <span class="pbar-label">Clinical trial</span>
+          <div class="pbar-track"><div class="pbar-fill ens" style="width:66.7%"></div></div>
+          <span class="pbar-count">4</span>
+        </div>
+        <div class="pbar-row">
+          <span class="pbar-label">Preclinical</span>
+          <div class="pbar-track"><div class="pbar-fill pre" style="width:16.7%"></div></div>
+          <span class="pbar-count">1</span>
+        </div>
+        <div class="pbar-row">
+          <span class="pbar-label">Abandoned</span>
+          <div class="pbar-track"><div class="pbar-fill aband" style="width:16.7%"></div></div>
+          <span class="pbar-count">1</span>
+        </div>
+      </div>
+
+      <div class="map-legend" aria-hidden="true">
+        <span><i style="background:#B84A2C"></i>Commercially approved</span>
+        <span><i style="background:#3F5A63"></i>Clinical trial</span>
+        <span><i style="background:var(--gray)"></i>Preclinical</span>
+        <span><i style="background:var(--gray)"></i>Abandoned</span>
+      </div>
+
+      <div class="data-table-wrap" style="max-width:var(--measure);">
+        <details class="phase-group com" open>
+          <summary>Commercially approved</summary>
+          <div class="mrow" data-fase="com"><span>NEO / Tsinghua — China</span><span class="meta">tetraplegia, motor · 13 Mar 2026</span></div>
+        </details>
+        <details class="phase-group ens" open>
+          <summary>Clinical trial</summary>
+          <div class="mrow" data-fase="ens"><span>Neuralink — US/UAE/Canada</span><span class="meta">21 patients, motor</span></div>
+          <div class="mrow" data-fase="ens"><span>Synchron — US/Australia</span><span class="meta">11 enrolled, endovascular</span></div>
+          <div class="mrow" data-fase="ens"><span>Blackrock Neurotech — US</span><span class="meta">Utah Array, no public count</span></div>
+          <div class="mrow" data-fase="ens"><span>UMH Elche — Spain</span><span class="meta">2 people, cortical vision</span></div>
+        </details>
+        <details class="phase-group pre" open>
+          <summary>Preclinical</summary>
+          <div class="mrow" data-fase="pre"><span>Blindsight / Neuralink — US</span><span class="meta">0 patients</span></div>
+        </details>
+        <details class="phase-group aband">
+          <summary>Abandoned</summary>
+          <div class="mrow faded" data-fase="aband"><span>Second Sight / Argus II — US</span><span class="meta">350+ patients, 2019–2022</span></div>
+        </details>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--hair);padding-top:12px;margin-top:12px;">Precision Neuroscience (US, temporary use: 510(k) K242618, March 2025, under 30 days) has no stage comparable to the ones above. <strong>Declared gap.</strong> There was a patient figure here. I am withdrawing it: the company has no trial registered on ClinicalTrials.gov, and its 510(k) was cleared with no clinical data, only bench testing and animal work.</p>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--hair);padding-top:12px;margin-top:12px;"><strong>Declared gap.</strong> The Blackrock Neurotech row carried a patient figure. I am withdrawing it: the company has no trials registered in its name on ClinicalTrials.gov and publishes no count of its own. The largest and longest trial of a brain implant of this kind, BrainGate, documents 14 people implanted between 2004 and 2021.</p>
+      </div>
+      <p class="fig-source">Source: Reuters; NMPA/Xinhua; <i>Science Advances</i>; IEEE Spectrum; ClinicalTrials.gov; FDA (510(k) K242618).</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">Why caution pays: the Second Sight case</h2>
+
+      <p>There is a concrete reason not to read these promises as a guaranteed purchase, and it has names. Second Sight gave partial sight back to more than 350 people with its Argus II implant. In 2019 it announced it would stop making the device, in 2020 it stopped supporting it, and in 2022 it merged with another company and vanished as such, leaving those patients with a device inside their heads, no spare parts and nobody to repair it (IEEE Spectrum documented it). One of them, Terry Byland, was the company's public face for years; this is how he sums up his position today: "As long as it doesn't break, fine. But if something goes wrong, I'm out of luck, because there is no way to fix it."</p>
+
+      <blockquote class="pull">Fantastic technology and a lousy company.</blockquote>
+      <p class="pull-cite">Ross Doerr, Second Sight patient</p>
+
+      <p>The useful question about an implant is not only whether it works, but whether it will still be working when the company changes its plans.</p>
+
+      <h2 class="ladillo">What the man who did it says</h2>
+
+      <p>The line that puts this whole story in order comes from <span lang="es">Eduardo Fernández</span>, the Spanish researcher who has actually made two people see:</p>
+
+      <blockquote class="pull">It is very important to move forward little by little and not create false expectations, because for now this is only ongoing research.</blockquote>
+      <p class="pull-cite"><span lang="es">Eduardo Fernández Jover</span>, <span lang="es">Universidad Miguel Hernández</span>, Elche (Spain)</p>
+
+      <p>His team points blind people towards organisations such as the ONCE, Spain's national organisation for the blind, and keeps repeating that this is still research. It is the exact counterpoint to the social-media announcement everybody has seen.</p>
+
+      <p>The wider frame comes from another Spaniard, the neurobiologist Rafael Yuste, who drove the idea of "neurorights" and is one of the voices behind the <span lang="es">León</span> Declaration on European neurotechnology, issued in 2023 during Spain's presidency of the EU Council: "The brain has to be protected as the sanctuary of our mind, because that is where human identity is generated." He is not talking about this case in particular, but about the ground it is played on.</p>
+
+      <h2 class="ladillo">What to watch to know whether this is really moving</h2>
+
+      <p>Four signals, above the noise: that Neuralink registers Blindsight on ClinicalTrials.gov and publishes it in a peer-reviewed journal; that the Elche team goes from two people to a larger clinical trial; that China publishes results from its patients beyond the regulatory announcement; and, above all, the real resolution (making out points of light is not the same as seeing). Until those boxes are ticked, every new "in the coming months" is a date, not a fact.</p>
+    </div>
+
+    <!-- ============ G4 · Explorador de la vía visual (3D opcional) ============ -->
+    <figure class="figure" id="fig-via">
+      <div class="fig-head reveal">
+        <div class="fig-num">Chart 4 · interactive</div>
+        <h3 class="fig-title">Where each implant acts: eye → optic nerve → cortex</h3>
+        <p class="fig-note">The chain of vision, and the point where each implant steps in.</p>
+      </div>
+
+      <div class="via">
+        <div class="via-static" id="via-static">
+          <svg viewBox="0 0 680 260" role="img" aria-labelledby="g4t g4d" preserveAspectRatio="xMidYMid meet">
+            <title id="g4t">The path of vision from the eye to the visual cortex</title>
+            <desc id="g4d">Schematic profile of a head. Light enters through the eye and the retina, travels along the optic nerve and reaches the visual cortex, at the back of the brain. Argus II acts on the retina; the UMH Elche implants and Neuralink's Blindsight act directly on the visual cortex.</desc>
+            <!-- head profile -->
+            <path d="M120 210 C70 200 40 150 60 105 C74 72 108 44 152 38 C176 20 214 14 250 22 C300 16 360 20 430 30 C520 42 600 78 618 130 C632 172 604 210 548 222 C520 250 470 250 430 236 C360 250 200 246 120 210 Z"
+                  fill="#EDE6D6" stroke="#D8CFBE" stroke-width="2"/>
+            <!-- nose/forehead hint (forehead on the left) -->
+            <path d="M60 118 C44 120 40 138 52 150" fill="none" stroke="#D8CFBE" stroke-width="2"/>
+            <!-- eye -->
+            <circle cx="96" cy="132" r="22" fill="#F4EFE4" stroke="#3F5A63" stroke-width="3"/>
+            <circle cx="96" cy="132" r="8" fill="#3F5A63"/>
+            <!-- optic nerve -->
+            <path d="M118 132 C200 150 300 150 402 128" fill="none" stroke="#70675C" stroke-width="6" stroke-linecap="round"/>
+            <!-- visual cortex (posterior lobe) -->
+            <path d="M470 96 C540 96 560 150 512 186 C468 216 430 196 430 150 C430 118 444 100 470 96 Z"
+                  fill="rgba(184,74,44,.10)" stroke="#B84A2C" stroke-width="3"/>
+            <!-- markers -->
+            <circle cx="96" cy="132" r="30" fill="none" stroke="#3F5A63" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <circle cx="484" cy="146" r="7" fill="#B84A2C"/>
+            <!-- labels -->
+            <g font-family="'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#191510">
+              <text x="96" y="188" text-anchor="middle">Eye / retina</text>
+              <text x="260" y="176" text-anchor="middle" fill="#70675C">Optic nerve</text>
+              <text x="490" y="70" text-anchor="middle">Visual cortex</text>
+            </g>
+            <g font-family="'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#3F5A63">
+              <text x="96" y="204" text-anchor="middle">Argus II</text>
+            </g>
+            <g font-family="'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#B84A2C">
+              <text x="490" y="234" text-anchor="middle">UMH Elche · Blindsight</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="via-3d" id="via-3d" hidden>
+          <canvas id="via-canvas" width="1280" height="640" aria-label="3D model of the visual pathway"></canvas>
+          <div class="hint">Drag to rotate. Light runs from the eye (left) to the visual cortex (right).</div>
+        </div>
+
+        <button class="via-btn needs-js" id="via-3d-btn" type="button" aria-expanded="false">Explore in 3D ▸</button>
+
+        <div class="via-legend" aria-hidden="true">
+          <span><i style="background:var(--data-secondary)"></i>Eye / retina</span>
+          <span><i style="background:var(--grey-warm)"></i>Optic nerve</span>
+          <span><i style="background:var(--accent)"></i>Visual cortex</span>
+        </div>
+
+        <div class="via-anno">
+          <div class="row"><span class="tag" style="color:var(--data-secondary)">RETINA →</span><span>Argus II (Second Sight): works if the retina is damaged but the optic nerve and the cortex still function.</span></div>
+          <div class="row"><span class="tag" style="color:var(--accent)">CORTEX →</span><span>UMH Elche and Blindsight: they go straight to the cortex, the only route if the damage lies beyond the retina or the optic nerve.</span></div>
+        </div>
+        <div class="via-note">The bottleneck: the further back the damage sits in this chain, the less use a retinal implant is, and the more it forces surgery directly on the cortex.</div>
+      </div>
+      <p class="fig-source"><i>Science Advances</i> (UMH Elche); IEEE Spectrum (Argus II). Schematic illustration.</p>
+    </figure>
+
+    <div class="body">
+
+      <p>Next time Musk promises to restore sight imminently, the useful question is not whether he will. It is who has already done it (two people in Elche) and what the man who did it asked for in return: no false expectations. And, if the day comes, that the implant stays switched on long after the spotlights go out.</p>
+    </div>
+
+    <details class="sources data-table-wrap" id="fuentes">
+      <summary>Sources</summary>
+      <ol>
+        <li>UMH / Dr Balmis Hospital (Alicante, Spain) — <i>Science Advances</i>, Nov 2025. <a href="https://doi.org/10.1126/sciadv.adv8846" rel="nofollow noopener" target="_blank">DOI 10.1126/sciadv.adv8846</a>. Primary.</li>
+        <li>Neuralink via Reuters, 28 Jan 2026 (21 participants). Primary / company statement.</li>
+        <li>FDA — Blindsight Breakthrough Device designation, Sep 2024. Primary.</li>
+        <li>FDA — 510(k) K242618, Precision Neuroscience's "Layer 7-T", cleared on 30 March 2025: temporary use (under 30 days), assessed with bench testing and an animal study, no clinical data. Primary.</li>
+        <li>Rubin DB <i>et al.</i>, "Interim Safety Profile From the Feasibility Study of the BrainGate Neural Interface System", <i>Neurology</i> 100(11):e1177-e1192, 14 March 2023 — <a href="https://doi.org/10.1212/WNL.0000000000201707" rel="nofollow noopener" target="_blank">DOI 10.1212/WNL.0000000000201707</a>. 14 adults implanted between 2004 and 2021 in BrainGate (NCT00912041), the longest and largest brain implant trial. Primary.</li>
+        <li>NMPA (China) / Xinhua — approval of NEO, 13 March 2026. Primary.</li>
+        <li>IEEE Spectrum, "Their Bionic Eyes Are Now Obsolete and Unsupported" (2022) — Second Sight / Argus II, more than 350 patients implanted; quotes from Terry Byland and Ross Doerr ("fantastic technology and a lousy company"). Solid secondary.</li>
+        <li>Public statements by Elon Musk on X, at Y Combinator, at the Qatar Economic Forum and on Ashlee Vance's podcast (Sep 2024–Aug 2026) — a primary but self-interested source: no ClinicalTrials.gov registration and no peer-reviewed publication behind them (see "What is actually true at Neuralink").</li>
+        <li>Rafael Yuste — published interviews; <span lang="es">León</span> Declaration (2023, Spanish presidency of the EU, 30+ countries). Secondary.</li>
+        <li>EurekAlert / MedicalXpress, Nov 2025 — UMH press release. Secondary.</li>
+      </ol>
+    </details>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../../en/">All pieces</a></span>
+  </div>
+</footer>
+
+<script src="../../assets/formato.js" defer></script>
+<script src="../../assets/graphics.js" defer></script>
+<script src="../../assets/musk.js" defer></script>
+</body>
+</html>

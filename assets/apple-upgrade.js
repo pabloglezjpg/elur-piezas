@@ -39,14 +39,26 @@
   // plazos de ACMI que no existen (36 meses en Mac, 24 en iPad).
   var ACMI_TERMS = { iPhone: 24, Watch: 12, iPad: 12, Mac: 12 };
 
+  // La calculadora escribe su veredicto entero desde JS, así que sin esta
+  // tabla la página inglesa mostraría un párrafo en castellano. El idioma
+  // se decide como en formato.js: por el lang del documento.
+  var EN = /^en/i.test(document.documentElement.getAttribute("lang") || "");
+
+  function meses(n) { return n + (EN ? " months" : " meses"); }
+  function anios(n) { return EN ? n + (n === 1 ? " year" : " years")
+                                : n + (n === 1 ? " año" : " años"); }
+
   function money(n, decimals) {
     // Fuente única: assets/formato.js. Antes esto era un formateador a mano
     // porque el ICU de algunos navegadores no separa millares en es-ES.
     if (window.Formato) return window.Formato.moneda(n, decimals, "$");
+    // Reserva sin formato.js. El símbolo cambia de sitio con el idioma:
+    // 1.099 $ en español, $1,099 en inglés.
     var dec = decimals == null ? (Number.isInteger(n) ? 0 : 2) : decimals;
     var parts = n.toFixed(dec).split(".");
-    var intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return (dec > 0 ? intPart + "," + parts[1] : intPart) + " $";
+    var intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, EN ? "," : ".");
+    var txt = dec > 0 ? intPart + (EN ? "." : ",") + parts[1] : intPart;
+    return EN ? "$" + txt : txt + " $";
   }
 
   function buildChartPaths(monthly, retail, horizonMonths) {
@@ -131,7 +143,7 @@
         b.setAttribute("aria-pressed", sel ? "true" : "false");
         b.innerHTML = '<span class="calc-dev-name"></span><span class="calc-dev-price"></span>';
         b.querySelector(".calc-dev-name").textContent = d.name;
-        b.querySelector(".calc-dev-price").textContent = money(d.retail) + " al contado";
+        b.querySelector(".calc-dev-price").textContent = money(d.retail) + (EN ? " outright" : " al contado");
         b.addEventListener("click", function () {
           state.deviceId = d.id;
           state.term = terms(d)[0];
@@ -158,11 +170,11 @@
 
       renderTabs(termWrap, tOptions, function (t) { return t === state.term; }, function (t) {
         state.term = t;
-      }, function (t) { return t + " meses"; });
+      }, meses);
 
       renderTabs(horWrap, HORIZONS, function (h) { return h === state.horizon; }, function (h) {
         state.horizon = h;
-      }, function (h) { return h + (h === 1 ? " año" : " años"); });
+      }, anios);
 
       var monthly = device.leases[state.term];
       var totalLease = Math.round(monthly * state.term * 100) / 100;
@@ -177,9 +189,9 @@
       if (radioProfesional) radioProfesional.checked = isProfesional;
       if (radioCapricho) radioCapricho.checked = !isProfesional;
 
-      if (out.monthly) out.monthly.textContent = money(monthly) + " /mes";
+      if (out.monthly) out.monthly.textContent = money(monthly) + (EN ? " /mo" : " /mes");
       if (out.retail) out.retail.textContent = money(device.retail);
-      var termTxt = state.term + " meses", horTxt = horizon + (horizon === 1 ? " año" : " años");
+      var termTxt = meses(state.term), horTxt = anios(horizon);
       if (out.termLabel1) out.termLabel1.textContent = termTxt;
       if (out.termLabel2) out.termLabel2.textContent = termTxt;
       if (out.horizonLabel1) out.horizonLabel1.textContent = horTxt;
@@ -187,8 +199,11 @@
       if (out.totalRent) out.totalRent.textContent = money(totalRentHorizon);
       if (out.totalBuy) out.totalBuy.textContent = money(device.retail);
       if (out.barFill) out.barFill.style.width = pct.toFixed(0) + "%";
-      if (out.pctLabel) out.pctLabel.textContent = pct.toFixed(0) + "% del valor del aparato · recompra: " + money(buyout);
-      if (out.finance) out.finance.textContent = money(financeMonthly) + " /mes a " + acmiTerm + " meses — a plazo terminas siendo dueño, sin coste extra por el 0% de interés.";
+      if (out.pctLabel) out.pctLabel.textContent = pct.toFixed(0) +
+      (EN ? "% of the device's value \u00b7 buyout: " : "% del valor del aparato \u00b7 recompra: ") + money(buyout);
+      if (out.finance) out.finance.textContent = EN
+      ? money(financeMonthly) + " /mo over " + acmiTerm + " months \u2014 by instalments you end up the owner, at no extra cost thanks to the 0% interest."
+      : money(financeMonthly) + " /mes a " + acmiTerm + " meses \u2014 a plazo terminas siendo due\u00f1o, sin coste extra por el 0% de inter\u00e9s.";
 
       if (out.chartRent && out.chartBuy) {
         var paths = buildChartPaths(monthly, device.retail, horizonMonths);
@@ -199,10 +214,15 @@
       if (out.verdict) {
         var verdictText;
         if (isProfesional) {
-          verdictText = "Si es material de trabajo: pagando " + money(monthly) + "/mes liberas " + money(device.retail) +
-            " de caja hoy. Con la recompra que asume este cálculo (" + money(totalLease) + " + " + money(buyout) +
-            " = " + money(device.retail) + "), quedártelo al final del primer ciclo cuesta lo mismo que comprarlo de una vez o financiarlo a 0% con Apple Card (" +
-            money(financeMonthly) + "/mes a " + acmiTerm + " meses). Compensa si el margen de no inmovilizar ese dinero supera lo que arriesgas por depender de Klarna y sus condiciones.";
+          verdictText = EN
+            ? "If it is work kit: paying " + money(monthly) + "/mo frees up " + money(device.retail) +
+              " of cash today. With the buyout this calculation assumes (" + money(totalLease) + " + " + money(buyout) +
+              " = " + money(device.retail) + "), keeping it at the end of the first cycle costs the same as buying it outright or financing it at 0% with Apple Card, which is sold in the United States only (" +
+              money(financeMonthly) + "/mo over " + acmiTerm + " months). It is worth it if the margin from not tying up that money beats what you risk by depending on Klarna and its terms."
+            : "Si es material de trabajo: pagando " + money(monthly) + "/mes liberas " + money(device.retail) +
+              " de caja hoy. Con la recompra que asume este c\u00e1lculo (" + money(totalLease) + " + " + money(buyout) +
+              " = " + money(device.retail) + "), qued\u00e1rtelo al final del primer ciclo cuesta lo mismo que comprarlo de una vez o financiarlo a 0% con Apple Card (" +
+              money(financeMonthly) + "/mes a " + acmiTerm + " meses). Compensa si el margen de no inmovilizar ese dinero supera lo que arriesgas por depender de Klarna y sus condiciones.";
         } else {
           // El veredicto dice lo que dice el cálculo, no lo contrario. En el
           // horizonte por defecto (2 años) el alquiler sale MÁS BARATO en caja
@@ -210,13 +230,23 @@
           // La diferencia cambia de signo según el horizonte, así que se calcula.
           var diffH = Math.round((device.retail - totalRentHorizon) * 100) / 100;
           var cmp;
-          if (diffH > 0) cmp = "En ese horizonte el alquiler sale " + money(diffH) + " más barato en caja, pero te quedas sin aparato.";
-          else if (diffH < 0) cmp = "En ese horizonte el alquiler sale " + money(-diffH) + " más caro, y además te quedas sin aparato.";
-          else cmp = "En ese horizonte el alquiler cuesta lo mismo, y además te quedas sin aparato.";
-          verdictText = "Si es un capricho: renovando cada " + state.term + " meses, en " + horTxt + " habrás pagado " +
-            money(totalRentHorizon) + " sin que el aparato llegue a ser tuyo en ningún momento, frente a " + money(device.retail) +
+          if (EN) {
+            if (diffH > 0) cmp = "Over that horizon renting comes out " + money(diffH) + " cheaper in cash, but you are left with no device.";
+            else if (diffH < 0) cmp = "Over that horizon renting comes out " + money(-diffH) + " dearer, and you are left with no device on top of that.";
+            else cmp = "Over that horizon renting costs the same, and you are left with no device on top of that.";
+            verdictText = "If it is a treat: renewing every " + meses(state.term) + ", in " + horTxt + " you will have paid " +
+              money(totalRentHorizon) + " without the device ever becoming yours at any point, against " + money(device.retail) +
+              " paid once if you buy it and keep it. " + cmp +
+              " The calculation credits the bought device with no resale value: the more it is worth second-hand, the worse renting looks.";
+          } else {
+          if (diffH > 0) cmp = "En ese horizonte el alquiler sale " + money(diffH) + " m\u00e1s barato en caja, pero te quedas sin aparato.";
+          else if (diffH < 0) cmp = "En ese horizonte el alquiler sale " + money(-diffH) + " m\u00e1s caro, y adem\u00e1s te quedas sin aparato.";
+          else cmp = "En ese horizonte el alquiler cuesta lo mismo, y adem\u00e1s te quedas sin aparato.";
+          verdictText = "Si es un capricho: renovando cada " + state.term + " meses, en " + horTxt + " habr\u00e1s pagado " +
+            money(totalRentHorizon) + " sin que el aparato llegue a ser tuyo en ning\u00fan momento, frente a " + money(device.retail) +
             " pagados una sola vez si lo compras y lo conservas. " + cmp +
-            " El cálculo no le asigna valor de reventa al comprado: cuanto más valga de segunda mano, peor sale el alquiler.";
+            " El c\u00e1lculo no le asigna valor de reventa al comprado: cuanto m\u00e1s valga de segunda mano, peor sale el alquiler.";
+          }
         }
         out.verdict.textContent = verdictText;
       }

@@ -5,6 +5,9 @@
    El DOM ya muestra el CASO POR DEFECTO (café solo, tamaño normal).
    Sin JS (o si esto falla) la pieza se lee entera igual; los controles
    solo aparecen con JS.
+   Lo cargan LAS DOS páginas: la española y cafe-salud/en/. Las cadenas se
+   eligen por el lang del documento, con la misma detección que
+   assets/formato.js, así que el español no cambia de comportamiento.
    ============================================================ */
 (function () {
   "use strict";
@@ -47,7 +50,10 @@
        Lo que queda es descriptivo: cómo se llama lo que hay en la taza y
        qué dice —o no dice— la evidencia sobre cada añadido.
        ------------------------------------------------------------------ */
-    var NOTAS = {
+    // Idioma de la página, igual que en assets/formato.js. Por defecto, español.
+    var EN = /^en/i.test(document.documentElement.getAttribute("lang") || "");
+
+    var NOTAS_ES = {
       // Tverdal 2020 (508.747 personas) es lo único localizado sobre formato,
       // y separa filtrado de no filtrado, no cápsula de café de calidad.
       capsula: "de la cápsula no hay estudio: del formato solo se ha medido filtrado frente a no filtrado, y la cápsula es filtrada",
@@ -63,6 +69,39 @@
       grande: "los estudios cuentan tazas al día, no el tamaño de la taza"
     };
 
+    // Mismas notas, misma ausencia de puntuación, en inglés.
+    var NOTAS_EN = {
+      capsula: "there is no study on the capsule: the only thing measured about format is filtered versus unfiltered, and a capsule is filtered",
+      descaf: "decaf takes nothing away: the two sources in this piece measure it and find no significant difference",
+      entera: "the milk poured into the coffee has not been measured in any of these studies",
+      vegetal: "plant-based milk has not been measured either",
+      azucar: "sugar is the only addition with studies behind it, and they do not agree: Zhou 2025 finds the benefit only in black coffee or coffee with little sugar, and Liu 2022 also finds it with a moderate amount of sugar",
+      sirope: "there is no study measuring syrup",
+      nata: "cream has not been measured on its own; what has been measured is added saturated fat",
+      grande: "the studies count cups a day, not the size of the cup"
+    };
+
+    var NOTAS = EN ? NOTAS_EN : NOTAS_ES;
+
+    // Etiquetas y tamaños. El texto por defecto ha de ser LITERALMENTE el que
+    // ya está en el HTML de cada idioma: si no, la taza cambia de frase al
+    // volver al estado inicial.
+    var T = EN ? {
+      solo: "Black coffee",
+      conLeche: "Coffee with milk",
+      conExtras: "Coffee with added sugar or fat",
+      base: "Black coffee, no added sugar and no added fat: this is how the benefit is measured in the studies.",
+      grande: "Large",
+      normal: "Regular"
+    } : {
+      solo: "Café solo",
+      conLeche: "Café con leche",
+      conExtras: "Café con azúcar o grasa añadida",
+      base: "Café solo, sin azúcar ni grasa añadida: así es como se mide el beneficio en los estudios.",
+      grande: "Grande",
+      normal: "Normal"
+    };
+
     function lectura() {
       var notas = [];
       if (NOTAS[state.base]) notas.push(NOTAS[state.base]);
@@ -73,11 +112,11 @@
       if (state.tamano === "grande") notas.push(NOTAS.grande);
 
       // Etiqueta descriptiva: nombra lo que hay en la taza. No ordena nada.
-      var etiqueta = "Café solo";
-      if (state.leche !== "ninguna") etiqueta = "Café con leche";
-      if (state.extras.length) etiqueta = "Café con azúcar o grasa añadida";
+      var etiqueta = T.solo;
+      if (state.leche !== "ninguna") etiqueta = T.conLeche;
+      if (state.extras.length) etiqueta = T.conExtras;
 
-      var explicacion = "Café solo, sin azúcar ni grasa añadida: así es como se mide el beneficio en los estudios.";
+      var explicacion = T.base;
       if (notas.length) {
         var t = notas.join("; ") + ".";
         explicacion = t.charAt(0).toUpperCase() + t.slice(1);
@@ -112,7 +151,7 @@
       layerMilk.classList.toggle("vegetal", state.leche === "vegetal");
 
       cupEl.classList.toggle("cafe-cup--grande", state.tamano === "grande");
-      if (cupSizeEl) cupSizeEl.textContent = state.tamano === "grande" ? "Grande" : "Normal";
+      if (cupSizeEl) cupSizeEl.textContent = state.tamano === "grande" ? T.grande : T.normal;
     }
 
     function selectSingle(group, value) {

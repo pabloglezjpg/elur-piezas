@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three and a half cups a day: 15% lower risk of dying | Pablo González</title>
+<meta name="description" content="The big studies link drinking coffee in moderation to a 15% lower risk of dying. They measure risk, not years of life. The caveats nobody tells you.">
+<link rel="canonical" href="https://piezas.elur.es/cafe-salud/en/">
+<meta name="author" content="Pablo González">
+<meta name="theme-color" content="#F4EFE4">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Piezas · Pablo González">
+<meta property="og:title" content="Three and a half cups a day: 15% lower risk of dying">
+<meta property="og:description" content="The big studies link drinking coffee in moderation to a 15% lower risk of dying. They measure risk, not years of life. The caveats nobody tells you.">
+<meta property="og:url" content="https://piezas.elur.es/cafe-salud/en/">
+<meta property="og:image" content="https://piezas.elur.es/cafe-salud/portada-en.jpg">
+<meta property="og:image:secure_url" content="https://piezas.elur.es/cafe-salud/portada-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Coffee and mortality: around 3.5 cups a day is where mortality risk drops the most in the reference meta-analysis.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Three and a half cups a day: 15% lower risk of dying">
+<meta name="twitter:description" content="The big studies link moderate coffee to a 15% lower risk of dying. They do not measure years of life. The two caveats, with the interactive cup.">
+<meta name="twitter:image" content="https://piezas.elur.es/cafe-salud/portada-en.jpg">
+<meta name="twitter:image:alt" content="Coffee and mortality: around 3.5 cups a day is where mortality risk drops the most in the reference meta-analysis.">
+
+<link rel="preload" href="../../assets/periodismo.css" as="style">
+<link rel="stylesheet" href="../../assets/periodismo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Three and a half cups a day: 15% lower risk of dying (with two caveats)",
+  "description": "The big studies of recent years link drinking coffee in moderation to a lower risk of dying: 15% lower at 3.5 cups a day, according to the meta-analysis by Kim, Je and Giovannucci (2019). What they measure is risk, not years of life. With two caveats: the curve is shaped like an inverted U, and the benefit is measured on coffee, not on what you add to it.",
+  "image": ["https://piezas.elur.es/cafe-salud/portada-en.jpg"],
+  "inLanguage": "en",
+  "articleSection": "Science · Health",
+  "keywords": "coffee, mortality, relative risk, meta-analysis, caffeine, type 2 diabetes, added sugar, health",
+  "author": { "@type": "Person", "name": "Pablo González" },
+  "publisher": { "@type": "Person", "name": "Pablo González" },
+  "datePublished": "2026-08-20",
+  "dateModified": "2026-08-20",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/cafe-salud/en/" }
+}
+</script>
+  <link rel="alternate" hreflang="es" href="https://piezas.elur.es/cafe-salud/">
+  <link rel="alternate" hreflang="en" href="https://piezas.elur.es/cafe-salud/en/">
+
+<style>
+/* Tokens del Design (--accent, --hairline, --paper-raised, …) ya viven en periodismo.css */
+/* ===== Estilos específicos de la pieza (curva en U + minijuego) ===== */
+#cafe .figure{max-width:820px;}
+#cafe .badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--hair);color:var(--gray);border-radius:2px;}
+
+/* ============ Fig. 1 · Curva en U (SVG estático, sin JS) ============ */
+#cafe .curve-wrap{
+  max-width:480px;margin:0 auto;min-width:0;
+  border:1px solid var(--hair);border-radius:6px;background:var(--paper);
+  padding:14px 16px 10px;
+}
+@media (min-width:641px){
+  #cafe .curve-wrap{max-width:640px;}
+}
+#cafe .curve-svg{display:block;width:100%;height:auto;min-width:0;}
+#cafe .curve-zone{fill:var(--terra);opacity:.12;}
+#cafe .curve-axis{stroke:var(--hair);stroke-width:1;}
+#cafe .curve-line{fill:none;stroke:var(--terra);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round;}
+#cafe .curve-dot{fill:var(--terra);}
+#cafe .curve-tick{font-family:var(--font-mono);font-size:10px;fill:var(--gray);text-anchor:middle;font-variant-numeric:tabular-nums;}
+#cafe .curve-zone-label{font-family:var(--font-mono);font-size:10px;fill:var(--terra);text-anchor:middle;letter-spacing:.04em;}
+#cafe .curve-axis-label{font-family:var(--font-mono);font-size:9.5px;fill:var(--gray);text-anchor:middle;letter-spacing:.04em;}
+#cafe .curve-side-label{font-family:var(--font-mono);font-size:9px;fill:var(--gray);}
+
+/* ============ Fig. 2 · Minijuego «Llena tu café» — máquina ============ */
+#cafe .cafe-game{max-width:620px;margin:0 auto;}
+#cafe .cafe-machine{
+  display:flex;flex-wrap:wrap;gap:22px 28px;align-items:flex-start;justify-content:center;
+  background:var(--ink);border-radius:14px;padding:26px 22px 22px;margin-bottom:4px;
+}
+#cafe .cafe-cup-wrap{flex:0 0 auto;text-align:center;width:120px;}
+#cafe .cafe-cup{
+  width:92px;height:108px;margin:0 auto;position:relative;
+  border:2.5px solid var(--paper);border-top:none;border-radius:0 0 16px 16px;
+  overflow:hidden;background:rgba(244,239,228,.06);
+  display:flex;flex-direction:column-reverse;
+  transition:width .3s ease,height .3s ease;
+}
+#cafe .cafe-cup::before{
+  content:"";position:absolute;top:0;left:-2.5px;right:-2.5px;height:2.5px;background:var(--paper);
+}
+#cafe .cafe-cup-handle{
+  position:absolute;right:-17px;top:22px;width:16px;height:30px;
+  border:2.5px solid var(--paper);border-left:none;border-radius:0 12px 12px 0;
+}
+#cafe .cafe-cup.cafe-cup--grande{width:108px;height:130px;}
+#cafe .cafe-layer{width:100%;flex:0 0 auto;transition:height .35s ease,background .35s ease;}
+#cafe .cafe-layer-coffee{background:#5C3A21;height:100%;}
+#cafe .cafe-layer-coffee.capsula{background:#8A6A4A;}
+#cafe .cafe-layer-coffee.descaf{background:#7A5638;}
+#cafe .cafe-layer-milk{background:#E8D9BE;height:0;}
+#cafe .cafe-layer-milk.vegetal{background:#DCE4C8;}
+#cafe .cafe-layer-extra{background:var(--terra);height:0;}
+#cafe .cafe-cup-size{color:var(--paper);opacity:.65;font-family:var(--font-mono);font-size:10.5px;
+  letter-spacing:.06em;text-transform:uppercase;margin-top:10px;}
+
+#cafe .cafe-controls{flex:1 1 240px;min-width:210px;}
+#cafe .cafe-group{margin-bottom:14px;}
+#cafe .cafe-group-label{
+  display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--paper);opacity:.6;margin-bottom:8px;
+}
+#cafe .cafe-tags{display:flex;flex-wrap:wrap;gap:8px;}
+#cafe .cafe-tag{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.01em;padding:7px 14px;
+  border:1px solid rgba(244,239,228,.28);border-radius:999px;background:transparent;color:var(--paper);
+  cursor:default;
+}
+.js #cafe .cafe-tag{cursor:pointer;}
+#cafe .cafe-tag[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:var(--paper);}
+.js #cafe .cafe-tag:hover{border-color:var(--terra);}
+
+#cafe .cafe-result{
+  border-top:1px solid var(--hairline);margin-top:16px;padding-top:16px;
+  display:flex;flex-direction:column;gap:2px;
+}
+/* Sin puntuación: los ocho coeficientes de la versión anterior no tenían fuente.
+   Queda el nombre de lo que hay en la taza, que es descriptivo, no una medida. */
+#cafe .cafe-state{
+  font-family:var(--font-display);font-weight:600;font-size:23px;color:var(--terra);
+  line-height:1.2;margin:0;
+}
+#cafe .cafe-explain{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:10px 0 0;}
+#cafe .cafe-noscore{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;line-height:1.5;
+  color:var(--gray);margin:12px 0 0;
+}
+#cafe .cafe-disclaimer{
+  font-family:var(--font-mono,monospace);font-size:10.5px;letter-spacing:.02em;line-height:1.55;
+  color:var(--gray);margin:14px 0 0;border-top:1px dashed var(--hairline);padding-top:10px;
+}
+
+/* Los controles del minijuego sólo se muestran cuando cafe-salud.js ha
+   inicializado. Se usa el id (#cafe) para ganar a las reglas de
+   componente (.cafe-controls), igual que en el resto de piezas. */
+#cafe .needs-js{display:none;}
+#cafe.ready .needs-js{display:revert;}
+
+@media (max-width:640px){
+  #cafe .cafe-state{font-size:20px;}
+  #cafe .curve-wrap{padding:10px 10px 8px;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#cafe">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../en/">PIEZAS<b>.</b></a>
+    <nav><a href="../../en/">All pieces</a></nav>
+  </div>
+</header>
+
+<main class="piece" id="cafe">
+  <article class="col">
+    <p class="kicker">Science · Health</p>
+    <h1 class="headline">Three and a half cups a day: 15% lower risk of dying (with two caveats)</h1>
+    <p class="dek">The big studies of recent years all point the same way: drinking coffee in moderation is linked to a lower risk of dying. Risk, not years of life: none of them measures that. With two caveats almost nobody tells you about.</p>
+
+    <div class="byline">
+      <span class="who">Pablo González</span>
+      <span>·</span>
+      <span>20 August 2026</span>
+      <span>·</span>
+      <span>~5 min read</span>
+      <span class="badge">Analysis</span>
+      <span class="lang"><a href="../" hreflang="es" lang="es">Versión en español</a></span>
+    </div>
+
+    <div class="body lead">
+      <p>For decades coffee had the reputation of a vice: bad for your heart, bad for your blood pressure, better give it up. The most recent data says the opposite, and not timidly: people who drink around three and a half cups a day have, on average, a slightly lower risk of dying. Of what? Above all, of what kills us most: the evidence links it to <b>less cardiovascular disease</b> (heart and stroke), <b>less type 2 diabetes</b> and <b>less liver disease and liver cancer</b>. The problem is not the coffee. It is what you put in it, and how far you take it.</p>
+      <p>This is an association, not a miracle: these studies follow a lot of people for years, they are not experiments that "prove" coffee extends life. But the signal turns up in large follow-up studies from the United States, Europe and Asia, with a warning from the meta-analysis itself: region is the one factor where the association is not consistent. The most cited is the meta-analysis by Kim, Je and Giovannucci (2019), which pooled 40 cohort studies and 3,852,651 people; for type 2 diabetes, the reference is Ding et al. (2014), with 28 studies and 1,109,272 people. Here is what the science actually says, and how to tell whether your coffee is working for you or against you.</p>
+    </div>
+
+    <div class="body">
+      <h2 class="ladillo">What the studies say</h2>
+      <p>The sweet spot is around three and a half cups a day. The exact figure is worth giving, because the study draws a distinction: the meta-analysis by Kim, Je and Giovannucci puts the lowest risk of <b>all-cause mortality</b> at <b>3.5 cups a day</b> (15% lower than for someone who drinks no coffee) and the lowest risk of <b>cardiovascular mortality</b> a little earlier, at <b>2.5 cups</b> (17% lower). For type 2 diabetes, Ding et al. put the fall at up to 9% for each cup of caffeinated coffee (6% for decaf, a difference that never reached statistical significance). And liver cancer risk also falls as intake rises.</p>
+      <p><strong>Declared gap.</strong> Risk is not life expectancy. What Kim measures is the relative risk of dying during follow-up, not how long you live: that meta-analysis does not contain a single year or a single month. Turning that 15% into "you live X years longer" is a calculation the source does not make, and it is not made here either.</p>
+    </div>
+
+    <div class="body">
+      <h2 class="ladillo">The first caveat: the curve is an inverted U</h2>
+      <p>More is not better. What the meta-analysis found is that, past that sweet spot, drinking more coffee no longer lowers the risk any further: the benefit stops growing. Watch out for the easy leap, which is where half the internet goes wrong: the benefit running out does not mean coffee starts doing harm, and the study sets no threshold beyond which the balance tips the other way. What does show up, through clinical experience rather than through this meta-analysis, are the known effects of too much caffeine (sleep, anxiety, blood pressure). And there are people the advice does not apply to: pregnant women, people with uncontrolled high blood pressure or with arrhythmias. The conclusion is not "drink coffee to live longer"; it is "if you already drink it in moderation, relax".</p>
+    </div>
+
+    <!-- ============ Fig. 1 · Curva en U (SVG estático, sin JS) ============ -->
+    <figure class="figure" id="fig-curva">
+      <div class="fig-head reveal">
+        <div class="fig-num">Chart 1</div>
+        <h3 class="fig-title">How far the risk falls by cups of coffee a day</h3>
+        <p class="fig-note">The drop in risk grows up to around 3.5 cups a day; beyond that, drinking more adds nothing.</p>
+      </div>
+
+      <div class="curve-wrap">
+        <svg class="curve-svg" viewBox="0 0 320 155" role="img" aria-labelledby="curveT curveD" preserveAspectRatio="xMidYMid meet">
+          <title id="curveT">Drop in mortality risk by cups of coffee a day</title>
+          <desc id="curveD">The drop in risk grows from 0 cups to a peak at around 3.5 cups a day (optimal zone highlighted) and from there fades away, moving back towards the level of someone who drinks no coffee. The study does not establish that coffee goes on to increase the risk beyond that point.</desc>
+          <rect class="curve-zone" x="129" y="10" width="31" height="100"/>
+          <line class="curve-axis" x1="36" y1="110" x2="284" y2="110"/>
+          <line class="curve-axis" x1="36" y1="10" x2="36" y2="130"/>
+          <path class="curve-line" d="M36,110.0 L67,76.2 L98,53.8 L129,25.6 L160,31.2 L191,52.0 L222,78.0 L253,95.0 L284,104.0"/>
+          <circle class="curve-dot" cx="36" cy="110.0" r="2.5"/>
+          <circle class="curve-dot" cx="67" cy="76.2" r="2.5"/>
+          <circle class="curve-dot" cx="98" cy="53.8" r="2.5"/>
+          <circle class="curve-dot" cx="129" cy="25.6" r="2.5"/>
+          <circle class="curve-dot" cx="160" cy="31.2" r="2.5"/>
+          <circle class="curve-dot" cx="191" cy="52.0" r="2.5"/>
+          <circle class="curve-dot" cx="222" cy="78.0" r="2.5"/>
+          <circle class="curve-dot" cx="253" cy="95.0" r="2.5"/>
+          <circle class="curve-dot" cx="284" cy="104.0" r="2.5"/>
+          <text class="curve-tick" x="36" y="126">0</text>
+          <text class="curve-tick" x="98" y="126">2</text>
+          <text class="curve-tick" x="160" y="126">4</text>
+          <text class="curve-tick" x="222" y="126">6</text>
+          <text class="curve-tick" x="284" y="126">8</text>
+          <text class="curve-zone-label" x="144.5" y="24">SWEET SPOT</text>
+          <text class="curve-axis-label" x="160" y="142">CUPS OF COFFEE A DAY</text>
+          <text class="curve-side-label" x="30" y="14">− risk</text>
+          <text class="curve-side-label" x="30" y="106">same as no coffee</text>
+        </svg>
+      </div>
+
+      <p class="fig-source">Source: based on Kim, Je and Giovannucci, <em>European Journal of Epidemiology</em>, 2019 (40 cohorts, 3,852,651 people, 450,256 deaths). The curve illustrates the shape of the association; the risk minimum sits at 3.5 cups for all-cause mortality and 2.5 for cardiovascular mortality. The fall in the final stretch stands for the benefit fading away, not for coffee turning harmful.</p>
+    </figure>
+
+    <div class="body">
+      <h2 class="ladillo">The second caveat: what you put in it</h2>
+      <p>This is where half the story falls apart. The benefit is measured on coffee, not on liquid desserts. But little has been measured about what goes in, and what has been measured does not agree: in Zhou's US cohort (2025, 46,222 adults) the link with lower mortality shows up only in black coffee and in coffee with little added sugar and little saturated fat; in the UK Biobank (Liu, 2022, 171,616 people) coffee with a moderate amount of sugar is also linked to lower mortality. On syrup and cream separately there is no study. A black coffee is not a caramel frappuccino, but how much that changes the risk nobody has measured.</p>
+    </div>
+
+    <!-- ============ Fig. 2 · Minijuego «Llena tu café» ============ -->
+    <figure class="figure" id="fig-minijuego">
+      <div class="fig-head reveal">
+        <div class="fig-num">Chart 2 · interactive</div>
+        <h3 class="fig-title">Fill your cup</h3>
+        <p class="fig-note">Default: black coffee, regular size — coffee exactly as the studies measure it. <span class="needs-js">Change the base, the milk, the extras and the size, and see what has been measured about each one and what has not.</span></p>
+      </div>
+
+      <div class="cafe-game" id="cafe-game">
+        <div class="cafe-machine">
+          <div class="cafe-cup-wrap">
+            <div class="cafe-cup" id="cafe-cup" aria-hidden="true">
+              <div class="cafe-layer cafe-layer-extra" id="layer-extra"></div>
+              <div class="cafe-layer cafe-layer-milk" id="layer-milk"></div>
+              <div class="cafe-layer cafe-layer-coffee" id="layer-coffee"></div>
+              <div class="cafe-cup-handle"></div>
+            </div>
+            <p class="cafe-cup-size needs-js" id="cafe-cup-size">Regular</p>
+          </div>
+
+          <div class="cafe-controls needs-js" id="cafe-controls">
+            <div class="cafe-group">
+              <span class="cafe-group-label">Base</span>
+              <div class="cafe-tags" role="group" aria-label="Coffee base">
+                <button type="button" class="cafe-tag" data-group="base" data-value="calidad" aria-pressed="true">Good coffee</button>
+                <button type="button" class="cafe-tag" data-group="base" data-value="capsula" aria-pressed="false">Cheap capsule</button>
+                <button type="button" class="cafe-tag" data-group="base" data-value="descaf" aria-pressed="false">Decaf</button>
+              </div>
+            </div>
+            <div class="cafe-group">
+              <span class="cafe-group-label">Milk</span>
+              <div class="cafe-tags" role="group" aria-label="Milk">
+                <button type="button" class="cafe-tag" data-group="leche" data-value="ninguna" aria-pressed="true">None</button>
+                <button type="button" class="cafe-tag" data-group="leche" data-value="entera" aria-pressed="false">Whole</button>
+                <button type="button" class="cafe-tag" data-group="leche" data-value="vegetal" aria-pressed="false">Plant-based</button>
+              </div>
+            </div>
+            <div class="cafe-group">
+              <span class="cafe-group-label">Extras</span>
+              <div class="cafe-tags" role="group" aria-label="Extras">
+                <button type="button" class="cafe-tag" data-group="extra" data-value="azucar" aria-pressed="false">Sugar</button>
+                <button type="button" class="cafe-tag" data-group="extra" data-value="sirope" aria-pressed="false">Syrup</button>
+                <button type="button" class="cafe-tag" data-group="extra" data-value="nata" aria-pressed="false">Cream</button>
+              </div>
+            </div>
+            <div class="cafe-group">
+              <span class="cafe-group-label">Size</span>
+              <div class="cafe-tags" role="group" aria-label="Size">
+                <button type="button" class="cafe-tag" data-group="tamano" data-value="normal" aria-pressed="true">Regular</button>
+                <button type="button" class="cafe-tag" data-group="tamano" data-value="grande" aria-pressed="false">Large</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <output class="cafe-result" id="cafe-result" aria-live="polite">
+          <p class="cafe-state" id="cafe-label">Black coffee</p>
+          <p class="cafe-explain" id="cafe-explain">Black coffee, no added sugar and no added fat: this is how the benefit is measured in the studies.</p>
+        </output>
+        <p class="cafe-noscore">This cup does not score. No source measures how much each addition takes away, so there is no score here: only what has been measured about each thing and what has not.</p>
+        <p class="cafe-disclaimer">An educational tool, not a medical diagnosis. The point is to understand what you are drinking, not to drink more or less of it.</p>
+      </div>
+
+      <p class="fig-source"><strong>Declared gap.</strong> This cup used to give a score from 0 to 100, and there was no source behind it: neither Kim 2019 nor Ding 2014 stratifies by what you add or by format, and Ding says so among its own limitations — "none of the studies assessed the amount of sugar and dairy added to coffee". The score has been withdrawn. What is left are the notes, and they only state what has been measured: Zhou 2025 (added sugar and saturated fat), Liu 2022 (sweetened coffee) and Tverdal 2020 (filtered versus unfiltered). On capsules, syrup, cream on their own, the milk poured into the coffee and the size of the cup, I have found no study measuring it. This is not medical advice.</p>
+    </figure>
+
+    <div class="body">
+      <p>Coffee went from suspect to recommended without the coffee changing: what changed was what we knew how to measure. The useful question is no longer "is it good or bad?", but "what am I putting in it?".</p>
+    </div>
+
+    <details class="sources data-table-wrap" id="fuentes">
+      <summary>Sources</summary>
+      <ol>
+        <li>Kim Y, Je Y, Giovannucci E. "Coffee consumption and all-cause and cause-specific mortality: a meta-analysis by potential modifiers". <em>European Journal of Epidemiology</em>, 2019; 34(8):731–752. DOI: <a href="https://doi.org/10.1007/s10654-019-00524-3">10.1007/s10654-019-00524-3</a> — primary source (40 cohort studies, 3,852,651 people).</li>
+        <li>Ding M, et al. "Caffeinated and Decaffeinated Coffee Consumption and Risk of Type 2 Diabetes: A Systematic Review and a Dose-Response Meta-analysis". <em>Diabetes Care</em>, 2014; 37(2):569–586. DOI: <a href="https://doi.org/10.2337/dc13-1203">10.2337/dc13-1203</a> — primary source (28 studies, 1,109,272 people).</li>
+        <li>Zhou B, Ruan M, Pan Y, Wang L, Zhang FF. "Coffee Consumption and Mortality among United States Adults: A Prospective Cohort Study". <em>The Journal of Nutrition</em>, 2025; 155(7):2312–2321. DOI: <a href="https://doi.org/10.1016/j.tjnut.2025.05.004">10.1016/j.tjnut.2025.05.004</a> — primary source (46,222 adults, NHANES 1999-2018). The only source found that measures the sugar and saturated fat added to coffee.</li>
+        <li>Liu D, Li ZH, Shen D, et al. "Association of Sugar-Sweetened, Artificially Sweetened, and Unsweetened Coffee Consumption With All-Cause and Cause-Specific Mortality". <em>Annals of Internal Medicine</em>, 2022; 175(7):909–917. DOI: <a href="https://doi.org/10.7326/M21-2977">10.7326/M21-2977</a> — primary source (UK Biobank, 171,616 people). It points the opposite way to Zhou on sugar; both are cited.</li>
+        <li>Tverdal A, Selmer R, Cohen JM, Thelle DS. "Coffee consumption and mortality from cardiovascular diseases and total mortality: Does the brewing method matter?". <em>European Journal of Preventive Cardiology</em>, 2020; 27(18):1986–1993. DOI: <a href="https://doi.org/10.1177/2047487320914443">10.1177/2047487320914443</a> — primary source (508,747 people). The only thing found on format: filtered versus unfiltered.</li>
+        <li><span lang="es">Fundación Española del Corazón</span> (the Spanish Heart Foundation) and specialist press — secondary.</li>
+      </ol>
+    </details>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Pablo González · piezas.elur.es</span>
+    <span><a href="../../en/">All pieces</a></span>
+  </div>
+</footer>
+
+<script src="../../assets/formato.js" defer></script>
+<script src="../../assets/graphics.js" defer></script>
+<script src="../../assets/cafe-salud.js" defer></script>
+</body>
+</html>

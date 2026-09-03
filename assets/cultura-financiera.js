@@ -59,12 +59,21 @@
     }
   }
 
+  /* Las dos versiones de la pieza comparten este fichero, así que el idioma se
+     decide por el lang del documento, igual que en assets/formato.js. */
   function finish() {
-    var msg = "Tú: " + score + " de 3 aciertos. ";
-    if (score === 3) {
-      msg += "Como solo el 19% de los españoles: acertar las tres a la vez.";
+    var eng = /^en/i.test(document.documentElement.getAttribute("lang") || "");
+    var msg;
+    if (eng) {
+      msg = "You: " + score + " of 3 correct. ";
+      msg += score === 3
+        ? "Same as the 19% of Spanish adults who get all three."
+        : "Only 19% of Spanish adults get all three right.";
     } else {
-      msg += "Solo el 19% de los españoles acierta las tres preguntas a la vez.";
+      msg = "Tú: " + score + " de 3 aciertos. ";
+      msg += score === 3
+        ? "Como solo el 19% de los españoles: acertar las tres a la vez."
+        : "Solo el 19% de los españoles acierta las tres preguntas a la vez.";
     }
     if (output) output.textContent = msg;
     if (resetBtn) resetBtn.style.display = "";

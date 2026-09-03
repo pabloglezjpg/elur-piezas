@@ -214,7 +214,7 @@ def main():
         return autotest(repo)
 
     slugs = a.piezas or sorted(d.split("/")[-2] for d in glob.glob(os.path.join(repo, "*/index.html"))
-                               if os.path.basename(os.path.dirname(d)) != "gracias")
+                               if os.path.basename(os.path.dirname(d)) not in ("gracias", "en"))
     tot_f = tot_c = con_manifiesto = 0
     sin_manifiesto = []
     for slug in slugs:

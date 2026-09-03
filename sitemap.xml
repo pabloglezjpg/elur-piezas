@@ -1,81 +1,238 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://piezas.elur.es/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/dijeron-que-no/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/dijeron-que-no/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/dijeron-que-no/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/dijeron-que-no/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/dijeron-que-no/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/dijeron-que-no/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/dijeron-que-no/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/dijeron-que-no/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/casio-encogerse/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/casio-encogerse/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/casio-encogerse/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/casio-encogerse/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/casio-encogerse/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/casio-encogerse/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/casio-encogerse/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/casio-encogerse/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/tim-cook-apple/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/tim-cook-apple/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/tim-cook-apple/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/tim-cook-apple/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/tim-cook-apple/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/tim-cook-apple/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/tim-cook-apple/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/tim-cook-apple/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/cultura-financiera/</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/cultura-financiera/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/cultura-financiera/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/cultura-financiera/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/cultura-financiera/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/cultura-financiera/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/cultura-financiera/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/cultura-financiera/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/cafe-salud/</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/cafe-salud/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/cafe-salud/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/cafe-salud/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/cafe-salud/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/cafe-salud/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/cafe-salud/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/cafe-salud/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/narcolepsia-orexina/</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/narcolepsia-orexina/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/narcolepsia-orexina/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/narcolepsia-orexina/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/narcolepsia-orexina/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/narcolepsia-orexina/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/narcolepsia-orexina/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/narcolepsia-orexina/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/crisis-memoria-ia/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/crisis-memoria-ia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/crisis-memoria-ia/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/crisis-memoria-ia/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/crisis-memoria-ia/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/crisis-memoria-ia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/crisis-memoria-ia/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/crisis-memoria-ia/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/luz-roja/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/luz-roja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/luz-roja/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/luz-roja/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/luz-roja/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/luz-roja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/luz-roja/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/luz-roja/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/argentina-milei/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/argentina-milei/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/argentina-milei/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/argentina-milei/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/argentina-milei/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/argentina-milei/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/argentina-milei/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/argentina-milei/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/apple-upgrade/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/apple-upgrade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/apple-upgrade/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/apple-upgrade/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/apple-upgrade/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/apple-upgrade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/apple-upgrade/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/apple-upgrade/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/musk-ceguera/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/musk-ceguera/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/musk-ceguera/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/musk-ceguera/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/musk-ceguera/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/musk-ceguera/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/musk-ceguera/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/musk-ceguera/"/>
   </url>
   <url>
     <loc>https://piezas.elur.es/caida-gopro/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/caida-gopro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/caida-gopro/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/caida-gopro/"/>
+  </url>
+  <url>
+    <loc>https://piezas.elur.es/caida-gopro/en/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://piezas.elur.es/caida-gopro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://piezas.elur.es/caida-gopro/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://piezas.elur.es/caida-gopro/"/>
   </url>
 </urlset>

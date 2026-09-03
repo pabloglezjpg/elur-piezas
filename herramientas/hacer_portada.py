@@ -34,9 +34,31 @@ F_MONO_B = f"{FONTS}/plexmono-600.ttf"
 
 MARGIN = 64
 
+# El nombre del sitio. Decisión del 3 de septiembre de 2026: PIEZAS también en la
+# edición inglesa, porque es el dominio y es la marca — un medio no traduce su
+# cabecera. Vivía como literal en tres maquetas distintas y por eso se quedó
+# partido en dos idiomas durante un día. Ahora se escribe una vez.
+MARCA = "PIEZAS"
+
 
 def font(path, size):
     return ImageFont.truetype(path, size)
+
+
+def marca(d, cfg, y, px, tracking, derecha=True):
+    """Dibuja «PIEZAS.» con el punto en rojo, y devuelve dónde termina.
+
+    Una pieza puede sobreescribirlo con «marca» en su configuración, pero piénsalo
+    dos veces: la cabecera es la misma en todo el sitio, y tenerla en un solo sitio
+    es justo lo que impide que vuelva a quedarse partida entre idiomas."""
+    txt = (cfg or {}).get("marca", MARCA)
+    f = font(F_MONO_B, px)
+    ancho = tracked_width(d, txt, f, tracking)
+    punto = d.textlength(".", font=f)
+    x = (W - MARGIN - ancho - punto) if derecha else MARGIN
+    x += tracked(d, (x, y), txt, f, INK, tracking)
+    d.text((x, y), ".", font=f, fill=TERRA)
+    return x + punto
 
 
 def tracked(draw, xy, text, fnt, fill, tracking=0.0):
@@ -135,12 +157,7 @@ def build(cfg, out_path):
 
     # Antetítulo + firma del sitio
     tracked(d, (MARGIN, 58), cfg["categoria"].upper(), font(F_MONO_B, 19), TERRA, 0.19)
-    f_wm = font(F_MONO_B, 19)
-    wm = "PIEZAS"
-    wm_w = tracked_width(d, wm, f_wm, 0.19)
-    x_wm = W - MARGIN - wm_w - d.textlength(".", font=f_wm)
-    tracked(d, (x_wm, 58), wm, f_wm, INK, 0.19)
-    d.text((x_wm + wm_w, 58), ".", font=f_wm, fill=TERRA)
+    marca(d, cfg, 58, 19, 0.19)
 
     col_w = cfg.get("col_w", 560)
 
@@ -192,9 +209,7 @@ def build_stats(cfg, out_path):
     img = Image.new("RGBA", (W, H), PAPER)
     d = ImageDraw.Draw(img)
 
-    d.text((MARGIN, 96), "PIEZAS", font=font(F_MONO_B, 20), fill=INK)
-    d.text((MARGIN + d.textlength("PIEZAS", font=font(F_MONO_B, 20)), 96), ".",
-           font=font(F_MONO_B, 20), fill=TERRA)
+    marca(d, cfg, 96, 20, 0.0, derecha=False)
 
     f_by = font(F_MONO, 15)
     by = "PABLO GONZÁLEZ  ·  PIEZAS.ELUR.ES"
@@ -251,6 +266,180 @@ def build_stats(cfg, out_path):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     img.convert("RGB").save(out_path, "JPEG", quality=92, optimize=True)
     print(f"✓ {out_path}  ({os.path.getsize(out_path)//1024} KB)")
+
+
+def _cabecera(d, cfg, y_kicker=62):
+    """Antetítulo a la izquierda y la marca a la derecha. Común a las maquetas."""
+    tracked(d, (MARGIN, y_kicker), cfg["categoria"].upper(), font(F_MONO_B, 17), TERRA, 0.14)
+    marca(d, cfg, y_kicker, 20, 0.14)
+
+
+def _pie(d, y=568):
+    d.text((MARGIN, y), "piezas.elur.es  \u00b7  Pablo Gonz\u00e1lez",
+           font=font(F_MONO, 15), fill=MUTED)
+
+
+def build_ancla(cfg, out_path):
+    """Titular a la izquierda, curva a la derecha y dos anclas abajo unidas por un
+    conector. Es la maqueta de tim-cook-apple y apple-upgrade, que hasta ahora
+    vivían como JPG sueltos: nadie podía regenerarlos, que es exactamente como la
+    portada de argentina-milei se quedó tres días diciendo «300%»."""
+    img = Image.new("RGBA", (W, H), PAPER)
+    d = ImageDraw.Draw(img)
+    _cabecera(d, cfg)
+
+    # ── Titular y dek, columna izquierda
+    ancho = cfg.get("ancho_texto", 660)
+    f_h1 = font(F_DISPLAY, cfg.get("titular_px", 52))
+    y = cfg.get("titular_y", 128)
+    for line in wrap(d, cfg["titular"], f_h1, ancho):
+        d.text((MARGIN, y), line, font=f_h1, fill=INK)
+        y += int(f_h1.size * 1.08)
+    if cfg.get("dek"):
+        f_dek = font(F_BODY, 26)
+        y += 12
+        for line in wrap(d, cfg["dek"], f_dek, ancho):
+            d.text((MARGIN, y), line, font=f_dek, fill=INK)
+            y += int(f_dek.size * 1.32)
+
+    # ── Curva de apoyo, columna derecha. Es un apunte, no un gráfico con ejes:
+    #    no lleva escala y por eso no rotula ningún valor.
+    gx0, gx1 = cfg.get("curva_x", (730, 1135))
+    gy0, gy1 = cfg.get("curva_y", (205, 380))
+    d.line([(gx0, gy0), (gx1, gy0)], fill=HAIRLINE, width=1)
+    d.line([(gx0, gy1 + 55), (gx1, gy1 + 55)], fill=HAIRLINE, width=1)
+    guia = cfg.get("guia", INK)
+    paso = 14
+    for x in range(gx0, gx1, paso):
+        d.line([(x, gy0 + 34), (min(x + 8, gx1), gy0 + 34)], fill=guia, width=3)
+    d.line([(gx0, gy1 + 48), (gx1, gy0 + 60)], fill=TERRA, width=4)
+    if cfg.get("punto", True):
+        d.ellipse([gx1 - 8, gy0 + 52, gx1 + 8, gy0 + 68], fill=TERRA)
+
+    # ── Anclas: etiqueta pequeña, cifra grande y pie opcional
+    f_lab = font(F_MONO, 15)
+    f_big = font(F_DISPLAY_B, 44)
+    f_con = font(F_MONO, 17)
+    x = MARGIN
+    y_lab, y_big = cfg.get("ancla_y", 470), cfg.get("ancla_y", 470) + 24
+    anclas = cfg["anclas"]
+    for i, a in enumerate(anclas):
+        etiqueta, cifra, pie, color = a
+        tracked(d, (x, y_lab), etiqueta.upper(), f_lab, MUTED, 0.08)
+        d.text((x, y_big), cifra, font=f_big, fill=color)
+        ancho_a = max(tracked_width(d, etiqueta.upper(), f_lab, 0.08),
+                      d.textlength(cifra, font=f_big))
+        if pie:
+            d.text((x, y_big + 58), pie, font=f_lab, fill=MUTED)
+            ancho_a = max(ancho_a, d.textlength(pie, font=f_lab))
+        x += ancho_a + 34
+        if i == 0 and cfg.get("conector"):
+            cw = d.textlength(cfg["conector"], font=f_con)
+            d.text((x, y_big + 16), cfg["conector"], font=f_con, fill=MUTED)
+            x += cw + 34
+
+    # Si alguna ancla lleva pie, el crédito baja: en la primera tirada
+    # «piezas.elur.es · Pablo González» se montó encima de «never yours».
+    hay_pie = any(a[2] for a in anclas)
+    _pie(d, cfg.get("pie_y", 596 if hay_pie else 568))
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    img.convert("RGB").save(out_path, "JPEG", quality=92, optimize=True)
+    print(f"\u2713 {out_path}  ({os.path.getsize(out_path)//1024} KB)")
+
+
+def build_cifra(cfg, out_path):
+    """Una cifra enorme a la izquierda con su pie, y el titular a la derecha.
+    Maqueta de cultura-financiera."""
+    img = Image.new("RGBA", (W, H), PAPER)
+    d = ImageDraw.Draw(img)
+    _cabecera(d, cfg, 66)
+
+    f_n = font(F_DISPLAY, cfg.get("cifra_px", 168))
+    d.text((MARGIN, 130), cfg["cifra"], font=f_n, fill=TERRA)
+    x = MARGIN + d.textlength(cfg["cifra"], font=f_n)
+    if cfg.get("sufijo"):
+        f_s = font(F_DISPLAY, cfg.get("sufijo_px", 74))
+        d.text((x, 130 + f_n.size - f_s.size - 26), cfg["sufijo"], font=f_s, fill=TERRA)
+
+    f_pie = font(F_MONO, 16)
+    y = cfg.get("pie_cifra_y", 340)
+    for line in wrap(d, cfg["pie_cifra"], f_pie, 300):
+        d.text((MARGIN, y), line, font=f_pie, fill=INK)
+        y += 26
+
+    f_h1 = font(F_DISPLAY, cfg.get("titular_px", 44))
+    yh = cfg.get("titular_y", 262)
+    for line in wrap(d, cfg["titular"], f_h1, W - 440 - MARGIN):
+        d.text((440, yh), line, font=f_h1, fill=INK)
+        yh += int(f_h1.size * 1.16)
+
+    d.line([(MARGIN, 520), (W - MARGIN, 520)], fill=INK, width=2)
+    tracked(d, (MARGIN, 548), "PABLO GONZ\u00c1LEZ", font(F_MONO_B, 16), INK, 0.1)
+    f_u = font(F_MONO, 16)
+    url = cfg["url"]
+    d.text((W - MARGIN - d.textlength(url, font=f_u), 548), url, font=f_u, fill=MUTED)
+
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    img.convert("RGB").save(out_path, "JPEG", quality=92, optimize=True)
+    print(f"\u2713 {out_path}  ({os.path.getsize(out_path)//1024} KB)")
+
+
+def build_panel(cfg, out_path):
+    """Titular a la izquierda y un panel gráfico a la derecha. El panel NO se
+    redibuja: se toma de la portada española de la misma pieza, para que las dos
+    versiones enseñen exactamente la misma imagen y no dos simulaciones distintas.
+    Solo se reescribe su rótulo. Maqueta de musk-ceguera."""
+    base = Image.open(cfg["panel_de"]).convert("RGBA")
+    corte = cfg.get("panel_x", 620)
+    img = Image.new("RGBA", (W, H), PAPER)
+    img.paste(base.crop((corte, 0, W, H)), (corte, 0))
+    d = ImageDraw.Draw(img)
+
+    # El rótulo del panel va sobre negro: se tapa y se reescribe.
+    if cfg.get("rotulo"):
+        # La caja tapa SOLO la banda del rótulo. Con 28 px de alto recortaba la
+        # primera fila de puntos del panel.
+        rx0, ry0, rx1, ry1 = cfg.get("rotulo_caja", (760, 24, W - 24, 46))
+        # El negro del panel no se adivina: se muestrea del propio JPEG. Con un
+        # hex a ojo el parche se veía como un recuadro más claro sobre el fondo.
+        muestra = [base.getpixel((x, ry0 - 10))[:3]
+                   for x in range(int(rx0), int(rx1), 7)]
+        fondo = max(set(muestra), key=muestra.count)
+        d.rectangle([rx0, ry0, rx1, ry1], fill=fondo)
+        f_r = font(F_MONO, 15)
+        w_r = tracked_width(d, cfg["rotulo"], f_r, 0.1)
+        tracked(d, (rx1 - w_r, ry0 + 6), cfg["rotulo"], f_r, "#CFC6B8", 0.1)
+
+    ancho = corte - MARGIN - 40
+    tracked(d, (MARGIN, 56), cfg["categoria"].upper(), font(F_MONO_B, 17), TERRA, 0.14)
+
+    f_h1 = font(F_DISPLAY, cfg.get("titular_px", 46))
+    y = cfg.get("titular_y", 96)
+    for line in wrap(d, cfg["titular"], f_h1, ancho):
+        d.text((MARGIN, y), line, font=f_h1, fill=INK)
+        y += int(f_h1.size * 1.12)
+    if cfg.get("dek"):
+        f_dek = font(F_BODY, 23)
+        y += 14
+        for line in wrap(d, cfg["dek"], f_dek, ancho):
+            d.text((MARGIN, y), line, font=f_dek, fill=INK)
+            y += int(f_dek.size * 1.34)
+
+    f_big = font(F_DISPLAY, 52)
+    f_lab = font(F_MONO, 15)
+    x = MARGIN
+    for cifra, pie in cfg["stats"]:
+        d.text((x, 440), cifra, font=f_big, fill=TERRA)
+        lineas = wrap(d, pie, f_lab, 245)[:2]
+        for j, ln in enumerate(lineas):
+            d.text((x, 508 + j * 21), ln, font=f_lab, fill=INK)
+        x += max(d.textlength(cifra, font=f_big),
+                 max(d.textlength(ln, font=f_lab) for ln in lineas)) + 40
+    _pie(d, 562)
+
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    img.convert("RGB").save(out_path, "JPEG", quality=92, optimize=True)
+    print(f"\u2713 {out_path}  ({os.path.getsize(out_path)//1024} KB)")
 
 
 # ── Piezas ───────────────────────────────────────────────────────────────────
@@ -386,6 +575,124 @@ PORTADAS = {
             4: ("$0.60", "today", -62),
         },
     },
+    "casio-encogerse-en": {
+        "categoria": "Economy & business",
+        "titular": "Casio made itself smaller to survive",
+        "dek": "It dropped displays, chips, phones and the consumer digital camera it invented",
+        "dato": "+62.1 %",
+        "dato_pie": ["of operating profit", "in a single financial year"],
+        "grafico": "linea",
+        "serie": [("2022", 22.0), ("2023", 18.2), ("2024", 14.2),
+                  ("2025", 14.2), ("2026", 23.1)],
+        "anotaciones": {
+            2: ("14.2", "the floor, 2024", -62),
+            4: ("23.1", "March 2026", -62),
+        },
+    },
+    "cafe-salud-en": {
+        "formato": "stats",
+        "categoria": "Science & health",
+        "titular": "Three and a half cups a day: 15% lower risk of dying",
+        "titular_px": 46,
+        "stats": [
+            ("3.5", "Cups a day, the point of lowest risk"),
+            ("\u221215%", "In all-cause mortality vs drinking no coffee"),
+            ("Risk", "Not years of life: no study measures that"),
+        ],
+    },
+    "crisis-memoria-ia-en": {
+        "formato": "stats",
+        "categoria": "Technology \u00b7 Consumer",
+        "titular": "Your next PC, phone or console costs more because of AI",
+        "titular_px": 46,
+        "stats": [
+            ("6.5\u00d7", "What a 30 TB SSD has multiplied by in a year"),
+            ("2.5\u00d7", "What a hard drive went up, and it carries no NAND memory"),
+            ("+93\u201398%", "DRAM, in a single quarter"),
+        ],
+    },
+    "luz-roja-en": {
+        "formato": "stats",
+        "categoria": "Science & health",
+        "titular": "Red light: science vs marketing",
+        "stats": [
+            ("630-700 nm", "The red light that phototherapy uses"),
+            ("2", "Uses with solid evidence: wounds and mucositis"),
+            ("Very limited", "What there is on \u201cfat burning\u201d"),
+        ],
+    },
+    "argentina-milei-en": {
+        "formato": "stats",
+        "categoria": "Economy \u00b7 International",
+        "titular": "Argentina under Milei, without picking a side",
+        "stats": [
+            ("211.4", "33%", "Year-on-year inflation, 2023\u20132026"),
+            ("28.2", "30%", "Poverty, 2025\u2013Q1 2026"),
+            ("Surplus", "2024 fiscal balance"),
+        ],
+    },
+    # La portada española dice «CIENCIA · NEUROLOGÍA» y el antetítulo de la pieza
+    # dice «Ciencia · Salud». La inglesa se alinea con SU página, no con el JPG
+    # español. La discrepancia del par español queda reportada, no tocada.
+    "narcolepsia-orexina-en": {
+        "formato": "stats",
+        "categoria": "Science \u00b7 Health",
+        "titular": "Narcolepsy: the cause, not just the symptom",
+        "stats": [
+            ("FDA", "Approves Orzeyful (oveporexton) on 5 August 2026"),
+            ("2 \u00b7 273", "Phase 3 trials, double-blind, placebo-controlled"),
+            ("~20 years", "Since orexin was identified as a target"),
+        ],
+    },
+    # Mismo aviso: el JPG español dice «EMPRESA Y TECNOLOGÍA», el antetítulo de la
+    # pieza dice «Economía · Empresa». La inglesa sigue a la página.
+    "tim-cook-apple-en": {
+        "formato": "ancla",
+        "categoria": "Economy \u00b7 Business",
+        "titular": "Tim Cook: the man who made Apple 13 times bigger",
+        "titular_px": 50,
+        "anclas": [
+            ("August 2011", "$350,000M", None, TERRA),
+            ("7 Aug 2026", "$4.57 trillion", None, TERRA),
+        ],
+        "conector": "13\u00d7",
+        "guia": INK,
+    },
+    "apple-upgrade-en": {
+        "formato": "ancla",
+        "categoria": "Economy \u00b7 Business",
+        "titular": "Apple wants you to rent your next iPhone",
+        "titular_px": 50,
+        "dek": "Apple Upgrade turns the hardware into one more subscription",
+        "anclas": [
+            ("Rent, 24 months", "$767.76", "never yours", TERRA),
+            ("Buy it", "$1,099", "yours from day 1", INK),
+        ],
+        "conector": "vs",
+        "guia": "#3F5A63",
+    },
+    "cultura-financiera-en": {
+        "formato": "cifra",
+        "categoria": "Economy \u00b7 Spain",
+        "cifra": "19",
+        "sufijo": "%",
+        "pie_cifra": "of Spanish adults get all three basic money questions right \u2014 the three the OECD asks worldwide",
+        "titular": "Do we really have no financial literacy?",
+        "url": "piezas.elur.es/cultura-financiera/en",
+    },
+    "musk-ceguera-en": {
+        "formato": "panel",
+        "categoria": "Neurotechnology",
+        "titular": "Musk promises to restore sight. In Elche they already have.",
+        "titular_px": 44,
+        "dek": "What is real today in brain implants for sight \u2014 and what is only a promise.",
+        "stats": [
+            ("0", "patients with Blindsight (Neuralink)"),
+            ("2", "people already see shapes, in Elche"),
+        ],
+        "panel_de": "musk-ceguera/portada.jpg",
+        "rotulo": "SIMULATION \u00b7 CORTICAL IMPLANT",
+    },
 }
 
 
@@ -401,4 +708,6 @@ if __name__ == "__main__":
             destino = os.path.join(repo, slug[:-3], "portada-en.jpg")
         else:
             destino = os.path.join(repo, slug, "portada.jpg")
-        (build_stats if cfg.get("formato") == "stats" else build)(cfg, destino)
+        MAQUETAS = {"stats": build_stats, "ancla": build_ancla,
+                    "cifra": build_cifra, "panel": build_panel}
+        MAQUETAS.get(cfg.get("formato"), build)(cfg, destino)

@@ -19,6 +19,14 @@
 (function (global) {
   "use strict";
 
+  /* La página inglesa invierte los separadores: 1,093.5 en vez de
+     1.093,5. Se decide por el lang del documento, así que las piezas
+     en español no cambian de comportamiento. */
+  function ingles() {
+    return typeof document !== "undefined" &&
+      /^en/i.test(document.documentElement.getAttribute("lang") || "");
+  }
+
   function numero(n, decimales) {
     var v = Number(n);
     if (!isFinite(v)) return String(n);
@@ -26,20 +34,23 @@
     var negativo = v < 0 || Object.is(v, -0);
     var fijo = Math.abs(v).toFixed(dec);
     var partes = fijo.split(".");
-    /* La página inglesa invierte los separadores: 1,093.5 en vez de
-       1.093,5. Se decide por el lang del documento, así que las piezas
-       en español no cambian de comportamiento. */
-    var eng = typeof document !== "undefined" &&
-      /^en/i.test(document.documentElement.getAttribute("lang") || "");
-    var sepMil = eng ? "," : ".";
-    var sepDec = eng ? "." : ",";
+    var sepMil = ingles() ? "," : ".";
+    var sepDec = ingles() ? "." : ",";
     var entera = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, sepMil);
     var salida = dec > 0 ? entera + sepDec + partes[1] : entera;
     return (negativo && Number(fijo) !== 0 ? "−" : "") + salida;
   }
 
+  /* El símbolo cambia de sitio, no solo los separadores: en español
+     va detrás y separado (1.099 $), en inglés delante y pegado
+     ($1,099). Y el signo negativo se queda por fuera del símbolo:
+     −$1,099, nunca $−1,099. */
   function moneda(n, decimales, simbolo) {
-    return numero(n, decimales) + " " + (simbolo || "€");
+    var s = simbolo || "€";
+    var txt = numero(n, decimales);
+    if (!ingles()) return txt + " " + s;
+    var signo = txt.charAt(0) === "−" ? "−" : "";
+    return signo + s + (signo ? txt.slice(1) : txt);
   }
 
   function porcentaje(n, decimales) {

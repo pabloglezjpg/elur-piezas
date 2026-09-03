@@ -288,7 +288,8 @@ def main():
     home = open("index.html", encoding="utf-8").read()
 
     slugs = args.piezas or [d.split("/")[0] for d in sorted(glob.glob("*/index.html"))]
-    slugs = [s for s in slugs if s != "gracias"]
+    # «en» es el índice inglés, no una pieza: no tiene dek ni tarjeta propia.
+    slugs = [s for s in slugs if s not in ("gracias", "en")]
 
     errores = avisos = 0
     cobertura = {}

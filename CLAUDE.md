@@ -99,6 +99,36 @@ Ejemplos reales, todos de piezas ya publicadas:
 comprobación fuera de ti.** Y cuando audites lo que escribió otro, no arregles
 datos: repórtalos con la fuente que los desmiente.
 
+### Cómo se prueba un verificador: con ficheros reales, no con casos de laboratorio
+
+**El ejemplo que hay que recordar es este: «28 de agosto de 2026».**
+
+El verificador de la edición inglesa buscaba castellano por las tildes. Es lo
+razonable, y es lo que se le ocurre a cualquiera. Pero «28 de agosto de 2026» **no
+lleva ni una tilde**, así que una fecha en castellano entera —una de las siete capas
+que había que traducir— era invisible para él. Las doce piezas salían limpias.
+
+No lo destapó ninguna lista de reglas ni ningún caso de laboratorio. Lo destapó
+**inyectar errores en los ficheros publicados**: seis inyecciones en cada una de las
+doce piezas, 72 en total, exigiendo que el verificador cazara cada una. Se escapó
+trece veces. Un caso sintético no lo habría encontrado nunca, porque un caso
+sintético lo escribe quien ya sabe qué está buscando.
+
+De la misma tanda salió el segundo: una portada española colada en `og:image` solo
+saltaba de rebote, por el JSON-LD. La pieza que no tiene esa clave —
+`casio-encogerse`— pasaba limpia.
+
+**Las dos normas que quedan:**
+
+1. **El control positivo se hace sobre los ficheros reales**, no sobre ficheros de
+   prueba. Copia, rompe la copia, exige que salte.
+2. **Un detector que salta con todo es tan inútil como uno que no salta nunca.**
+   Calíbralo con casos correctos conocidos antes de fiarte: aquí dieron falso
+   positivo un DOI (`10.1016/j.tjnut.2025.05.004`), un p-valor español correcto
+   (`p < 0,001`), un `hreflang="es"` legítimo, una cita marcada en francés y la
+   palabra inglesa «cliché». Los cinco eran correctos; el que se equivocaba era el
+   escáner.
+
 ---
 
 ## Las cinco reglas duras de datos
@@ -234,7 +264,7 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado · actualizado el 2 de septiembre de 2026 (6.ª tanda del día · BLOQUEA a cero)
+## Estado · actualizado el 3 de septiembre de 2026 (edición inglesa completa)
 
 > **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
 > los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
@@ -262,6 +292,90 @@ son matices (B46, B50, B55).
 **Aviso de calendario:** el keynote de Apple es el **miércoles 9** y caduca
 `apple-upgrade` entera (B57). Esa pieza necesita una segunda pasada de actualización
 de datos el 9 por la tarde o el jueves 10 — no de corrección, que ya está hecha.
+
+### La edición inglesa
+
+**Las doce piezas existen en inglés**, en `<slug>/en/index.html`, más un índice propio
+en `en/index.html` con sus doce tarjetas y su ItemList. Cada pieza tiene su
+`portada-en.jpg`: antes las dos versiones de una pieza compartían la portada
+española, así que un editor anglófono pegaba el enlace en Slack y le salía una
+tarjeta en castellano, con puntuación española.
+
+Lo que cambia entre versiones no es solo el texto. Son siete capas, y las siete
+han fallado alguna vez en este proyecto:
+
+1. **Texto visible**, escrito en inglés, no traducido palabra a palabra.
+2. **Cifras**: `99,4%` → `99.4%`, `1.093,5` → `1,093.5`. Incluidos los nodos que
+   son SOLO un número —etiquetas de SVG, celdas de tabla—, que es justo lo que se
+   escapa cuando el extractor descarta lo que no parece texto.
+3. **Fechas**: `28 de agosto de 2026` → `28 August 2026`; `18-ago-2026` → `18 Aug 2026`.
+4. **Atributos**: `alt`, `title`, `aria-label`, y `<title>`/`<desc>` dentro del SVG.
+5. **JSON-LD entero**, `inLanguage` incluido y `mainEntityOfPage.@id` a la URL `/en/`.
+6. **`canonical`, `og:url` y `hreflang`** en los dos sentidos.
+7. **La portada social**, que es la única que no vive en el HTML.
+
+**El JS también habla.** Cinco ficheros de `assets/` escribían texto en castellano
+desde JavaScript y ahora conmutan por `document.documentElement.lang`, igual que
+`formato.js`: `apple-upgrade.js`, `cultura-financiera.js`, `cafe-salud.js`,
+`musk.js`. Si añades una pieza con JS que escriba texto, hazlo bilingüe desde el
+principio.
+
+**`Formato.moneda` cambia el símbolo de sitio, no solo el separador.** En español
+va detrás y separado (`1.099 $`), en inglés delante y pegado (`$1,099`), y el signo
+negativo queda fuera del símbolo (`−$331.24`). Está en `assets/formato.js`, que es
+la fuente única.
+
+`python3 herramientas/verificar_en.py` recorre las trece páginas inglesas y falla
+con código 1. Cubre las siete capas y además coteja cada cifra contra el
+`datos.json` de la pieza española y exige que el `portada-en.jpg` exista de verdad,
+sea un JPEG y no una portada española colada.
+
+**Lo que enseñó el control positivo, y por qué no basta con `--autotest`.** El
+escáner daba las doce piezas limpias. Al inyectar errores en los ficheros reales
+—seis por pieza, 72 en total— se vio que **las fechas en castellano no las miraba
+nadie**: «28 de agosto de 2026» no lleva ni una tilde, y la única defensa contra el
+castellano era buscar tildes. Y que una portada española en `og:image` solo saltaba
+de rebote por el JSON-LD, así que `casio-encogerse`, que no tiene esa clave, se
+colaba. Los dos agujeros están tapados y el control vive en el guion que los
+destapó. **Un verificador que da limpio a la primera no está probado: está sin
+probar.**
+
+### El rótulo dice PIEZAS, también en inglés
+
+Decisión de Pablo del 3 de septiembre de 2026, después de haberlo unificado primero
+en el otro sentido. **El sitio se llama PIEZAS en las dos ediciones**: es el dominio
+y es la marca, y un medio no traduce su cabecera — nadie llama «The World» a *Le
+Monde*. «Pieces» sobre un enlace a `piezas.elur.es` deja el nombre desalineado con
+la URL que el lector tiene en la barra.
+
+Con eso, las cuatro superficies del nombre dicen lo mismo por primera vez: el rótulo
+visible, `og:site_name`, los títulos y `image:alt` del índice, y las once portadas
+sociales que lo dibujan.
+
+**El rótulo ya no es un literal.** Vivía escrito a mano en tres maquetas distintas de
+`hacer_portada.py`, y por eso pudo quedarse partido entre idiomas. Ahora es la
+constante `MARCA` y el ayudante `marca()`, que dibujan las cuatro maquetas con
+rótulo (`panel` no lleva). Una pieza puede sobreescribirlo con `"marca"` en su
+configuración; piénsalo dos veces antes de usarlo. El refactor se comprobó
+regenerando las 24 portadas antes y después: **idénticas byte a byte.**
+
+### Portadas: tres maquetas nuevas
+
+`hacer_portada.py` tenía dos maquetas y cuatro piezas llevaban su portada como JPG
+suelto, sin configuración: nadie podía regenerarlas. Así es exactamente como la
+portada de `argentina-milei` se quedó tres días diciendo «300%» después de
+corregirse el HTML. Ahora hay tres maquetas más —`ancla`, `cifra` y `panel`— y las
+doce piezas se regeneran con un comando.
+
+`panel` no redibuja el gráfico: lo recorta de la portada española de la misma pieza
+y solo reescribe su rótulo, para que las dos versiones enseñen la misma imagen y no
+dos simulaciones distintas.
+
+### Orden de despliegue
+
+`pablogonzalez.elur.es` enlaza a las doce piezas inglesas. Esos enlaces dan **404
+honesto** hasta que se suba `piezas.elur.es`. **Primero piezas, después el
+portfolio.**
 
 ### El manifiesto de datos
 

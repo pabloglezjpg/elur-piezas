@@ -9,6 +9,12 @@
   var musk = document.getElementById("musk");
   if (!musk) return;
 
+  /* La misma pieza sirve en /musk-ceguera/ y en /musk-ceguera/en/: los textos
+     que este script INYECTA (no los que ya están en el DOM) se eligen por el
+     lang del documento, igual que hace assets/formato.js con los separadores. */
+  var EN = /^en/i.test(document.documentElement.getAttribute("lang") || "");
+  function num(n) { return window.Formato ? window.Formato.numero(n) : String(n); }
+
   // ---- Escena compartida G2 (misma función de luminancia que el generador) ----
   function lum(x, y) {
     var base = 0.10; // muro
@@ -46,7 +52,8 @@
       var n = new Date();
       return new Date(n.getFullYear(), n.getMonth(), n.getDate());
     })();
-    var M = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+    var M = EN ? ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+               : ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
     function fmt(d){ return d.getDate() + " " + M[d.getMonth()] + " " + d.getFullYear(); }
     function select(item) {
       items.forEach(function (x) { x.classList.remove("sel"); x.setAttribute("aria-pressed", "false"); });
@@ -54,8 +61,11 @@
       var p = item.getAttribute("data-date").split("-");
       var d = new Date(+p[0], +p[1] - 1, +p[2]);
       var days = Math.round((TODAY - d) / 86400000);
-      readout.innerHTML = "Prometido el <b>" + fmt(d) + "</b>. Hoy, <b>" + days +
-        " días</b> después: Blindsight sigue en <b>0 pacientes</b>, 0 estudios revisados y 0 registros.";
+      readout.innerHTML = EN
+        ? "Promised on <b>" + fmt(d) + "</b>. Today, <b>" + num(days) +
+          " days</b> later: Blindsight is still on <b>0 patients</b>, 0 peer-reviewed studies and 0 registrations."
+        : "Prometido el <b>" + fmt(d) + "</b>. Hoy, <b>" + num(days) +
+          " días</b> después: Blindsight sigue en <b>0 pacientes</b>, 0 estudios revisados y 0 registros.";
     }
     items.forEach(function (it) {
       // El rol de botón lo pone el JS: sin JS estos elementos no son
@@ -86,8 +96,9 @@
     canvas.width = W; canvas.height = H;
     canvas.className = "phos-canvas";
     canvas.setAttribute("role", "img");
-    canvas.setAttribute("aria-label",
-      "Escena real (una persona en un portal iluminado) que se revela como una rejilla de fosfenos según el número de electrodos.");
+    canvas.setAttribute("aria-label", EN
+      ? "A real scene (a person in a lit doorway) revealed as a grid of phosphenes according to the number of electrodes."
+      : "Escena real (una persona en un portal iluminado) que se revela como una rejilla de fosfenos según el número de electrodos.");
     var ctx = canvas.getContext("2d");
     if (!ctx) return; // sin canvas: se queda el SVG estático
 
@@ -144,10 +155,10 @@
       ctx.fillStyle = "#F4EFE4"; ctx.globalAlpha = 0.7;
       ctx.fillRect(divX - 1, 0, 2, H); ctx.globalAlpha = 1;
       // etiquetas
-      label("VISIÓN NORMAL", 8, 8, false);
-      label("SIMULACIÓN · " + fmtNum(state.e) + " ELECTRODOS", W - 8, 8, true);
+      label(EN ? "NORMAL VISION" : "VISIÓN NORMAL", 8, 8, false);
+      label(EN ? "SIMULATION · " + num(state.e) + " ELECTRODES"
+               : "SIMULACIÓN · " + num(state.e) + " ELECTRODOS", W - 8, 8, true);
     }
-    function fmtNum(n) { return n >= 1000 ? "1.000" : String(n); }
 
     range.addEventListener("input", function () { state.reveal = +range.value; render(); });
     Array.prototype.slice.call(elec.querySelectorAll("button")).forEach(function (b) {
@@ -207,12 +218,14 @@
     btn.addEventListener("click", function () {
       if (!started) {
         btn.disabled = true;
-        btn.textContent = "Cargando 3D…";
+        btn.textContent = EN ? "Loading 3D…" : "Cargando 3D…";
         loadThree(function (ok) {
           btn.disabled = false;
           if (!ok || !window.THREE) {
             box.hidden = false;
-            box.innerHTML = '<p class="hint">No se pudo cargar el visor 3D. La ilustración de arriba muestra el recorrido completo.</p>';
+            box.innerHTML = EN
+              ? '<p class="hint">The 3D viewer could not be loaded. The illustration above shows the full path.</p>'
+              : '<p class="hint">No se pudo cargar el visor 3D. La ilustración de arriba muestra el recorrido completo.</p>';
             btn.style.display = "none";
             return;
           }
@@ -220,18 +233,22 @@
           box.hidden = false;
           try { sceneApi = buildScene(THREEref, canvas); }
           catch (e) {
-            box.innerHTML = '<p class="hint">Tu dispositivo no admite el visor 3D. La ilustración de arriba muestra el recorrido completo.</p>';
+            box.innerHTML = EN
+              ? '<p class="hint">Your device does not support the 3D viewer. The illustration above shows the full path.</p>'
+              : '<p class="hint">Tu dispositivo no admite el visor 3D. La ilustración de arriba muestra el recorrido completo.</p>';
             btn.style.display = "none";
             return;
           }
           started = true; visible = true;
-          btn.textContent = "Ocultar 3D";
+          btn.textContent = EN ? "Hide 3D" : "Ocultar 3D";
           btn.setAttribute("aria-expanded", "true");
         });
       } else {
         visible = !visible;
         box.hidden = !visible;
-        btn.textContent = visible ? "Ocultar 3D" : "Explorar en 3D ▸";
+        btn.textContent = visible
+          ? (EN ? "Hide 3D" : "Ocultar 3D")
+          : (EN ? "Explore in 3D ▸" : "Explorar en 3D ▸");
         btn.setAttribute("aria-expanded", visible ? "true" : "false");
         if (visible && sceneApi) sceneApi.resume();
       }
@@ -240,7 +257,7 @@
     function loadThree(cb) {
       if (window.THREE) return cb(true);
       var s = document.createElement("script");
-      s.src = "../assets/three.min.js";
+      s.src = (EN ? "../../" : "../") + "assets/three.min.js";
       s.async = true;
       s.onload = function () { cb(true); };
       s.onerror = function () { cb(false); };
