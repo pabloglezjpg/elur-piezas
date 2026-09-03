@@ -40,6 +40,15 @@ PALABRAS_ES = ['millones','millón','dólares','años','año','empresa','mercado
                'desploma','cae','de la','se','los','las','una','por','con','para','está']
 RE_ACENTO = re.compile(r'\b\w*[áéíóúñ¿¡]\w*\b')
 
+# Puntuación. El guillemet «» es probablemente el signo MÁS inequívocamente
+# español que existe y este escáner lo dejaba pasar entero: es el tercer agujero
+# de la familia de las fechas — un detector de castellano ciego al castellano.
+# Las rectas (" y ') no son castellano, son texto sin maquetar: la edición
+# española tiene 129 guillemets y cero comillas rectas, así que en este sitio
+# una recta es siempre un descuido, en el idioma que sea.
+RE_GUILLEMET = re.compile(r'[«»]')
+RE_RECTA = re.compile(r'["\u0027]')
+
 # El castellano sin tildes era invisible. «28 de agosto de 2026» no lleva
 # ninguna y pasaba las doce piezas: el control positivo lo destapó.
 _MESES = ('enero|febrero|marzo|abril|mayo|junio|julio|agosto|'
@@ -190,7 +199,10 @@ def revisar(path):
                 t2 = re.sub(w, '', t2, flags=re.I)
             acc = RE_ACENTO.findall(t2)
             if acc: fallos.append((donde, f'acento español {acc[:3]} → {txt[:80]}'))
-        f = RE_FECHA_ES.findall(txt)
+        if RE_GUILLEMET.search(txt):
+            fallos.append((donde, f'comilla española «» → {txt[:80]}'))
+        if RE_RECTA.search(txt):
+            fallos.append((donde, f'comilla o apóstrofo recto (usa “ ” y ’) → {txt[:80]}'))
         if RE_FECHA_ES.search(txt):
             fallos.append((donde, f'fecha en formato español → {txt[:80]}'))
         pal = RE_PALABRA_ES.findall(txt)
@@ -262,6 +274,13 @@ def autotest():
         ("ld+json inLanguage es", base.replace('</head>', LD.replace('"en"','"es"') + '</head>'), 1),
         ("ld+json castellano", base.replace('</head>', LD.replace('A clean headline','La caída de GoPro') + '</head>'), 1),
         ("ld+json limpio", base.replace('</head>', LD + '</head>'), 0),
+        # Puntuación. El guillemet lo dejaba pasar entero; las rectas son
+        # texto sin maquetar y en este sitio no aparecen en ningún idioma.
+        ("guillemet en el cuerpo", base.replace('All fine here', 'He said «no»'), 1),
+        ("comilla recta en el cuerpo", base.replace('All fine here', 'He said "no"'), 1),
+        ("apóstrofo recto en el cuerpo", base.replace('All fine here', "It isn't here"), 1),
+        ("apóstrofo recto en meta", base.replace('A clean english description', "It isn't clean"), 1),
+        ("comillas tipográficas correctas", base.replace('All fine here', 'He said \u201cno\u201d, it\u2019s fine'), 0),
         ("enlace de idioma marcado", base.replace('<p>All fine here</p>',
             '<p><a href="../" lang="es">Versión en español</a></p>'), 0),
         ("castellano SIN marcar", base.replace('<p>All fine here</p>',

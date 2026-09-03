@@ -247,6 +247,39 @@ incoherencia**.
 Castellano de España. Miles con punto, decimales con coma, porcentaje pegado al
 número: 90%.
 
+### Comillas: nunca rectas, en ningún idioma
+
+| Edición | Cita | Apóstrofo |
+|---|---|---|
+| Español | `«…»` | `’` |
+| Inglés | `“…”` | `’` |
+
+**Una comilla recta (`"` o `'`) es siempre un descuido aquí.** No es un error de
+idioma: es texto sin maquetar, y Pablo le vende cuidado tipográfico a redacciones.
+La edición española lleva 129 guillemets y **cero** rectas desde el principio; la
+inglesa nació con tres convenciones a la vez —guillemets en dos piezas, tipográficas
+en una y rectas en nueve— y se unificó el 3 de septiembre de 2026.
+
+Dos cosas que enseñó esa unificación:
+
+- **Las comillas viven también en los metadatos.** Al convertir solo el cuerpo
+  quedaron 28 apóstrofos rectos en `content=""`, `alt` y JSON-LD, diciendo
+  `wasn't` donde el cuerpo ya decía `wasn’t`. Es el fallo de siempre: corregido en
+  el cuerpo y no en las otras ocho superficies. Convierte las dos capas o ninguna.
+- **Una cita en otro idioma lleva las comillas del texto que la envuelve.** El
+  francés de `cultura-financiera` estaba como `<span lang="fr">«…»</span>`; ahora
+  las comillas van fuera del span y son inglesas, porque son puntuación de la frase
+  inglesa. El span solo contiene francés.
+
+Lo vigila `verificar_en.py`, y el guillemet entra ahí por una razón incómoda: es
+probablemente el signo más inequívocamente español que existe y el escáner lo
+dejaba pasar entero. Tercer agujero de la familia de las fechas.
+
+**Nunca conviertas comillas con un `sed` sobre el fichero.** Las rectas son
+obligatorias en los atributos HTML y en el JSON-LD. Hay que trocear el documento y
+tocar solo los nodos de texto; y para decidir si una comilla abre o cierra, usa dos
+métodos independientes —alternancia y contexto— y aborta si discrepan.
+
 ---
 
 ## La voz de Pablo
