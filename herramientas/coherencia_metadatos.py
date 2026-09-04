@@ -314,8 +314,15 @@ def main():
     # ── control de cobertura ──
     previo = lee_cobertura()
     # solo se compara contra las piezas que se han pedido en esta ejecución
-    previo_filtrado = {k: v for k, v in previo.items() if k in cobertura} if previo else None
-    caidas = revisa_cobertura(cobertura, previo_filtrado)
+    # Pedir una pieza suelta no puede disparar «ya no se comprueba» en las once
+    # restantes, así que ahí sí se filtra la línea base. En la ejecución COMPLETA
+    # no: si una pieza desaparece del disco su slug tampoco está en `cobertura`,
+    # y filtrar la borraba de la línea base justo antes de compararla. Por eso la
+    # rama «la pieza ya no se comprueba» no podía dispararse nunca. Comprobado
+    # por una auditoría externa: borrada `luz-roja` entera, esto salía con 0.
+    if previo and args.piezas:
+        previo = {k: v for k, v in previo.items() if k in cobertura}
+    caidas = revisa_cobertura(cobertura, previo)
     if caidas:
         print(f"\n{'='*72}")
         print("ERROR DE COBERTURA. La herramienta comprueba menos que en la ejecución anterior:")

@@ -1,6 +1,6 @@
 {
   "pieza": "cultura-financiera",
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-04",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "acciones_cotizadas": {
@@ -39,6 +39,28 @@
       "motivo": "No existe en la EFF 2024, que da 12,1%.",
       "url": "https://www.bde.es/f/webbe/SES/Secciones/Publicaciones/PublicacionesSeriadas/DocumentosOcasionales/26/Fich/do2610.pdf",
       "consultado": "2026-09-02"
+    },
+    "aciertan_las_tres": {
+      "valor": "19",
+      "unidad": "% de la población adulta",
+      "periodo": "ECF 2021 (trabajo de campo 2021)",
+      "fuente": "Banco de España, presentación «Encuesta de Competencias Financieras 2021» (Arce y Gavilán, 14-11-2023), diapositiva 10: «Solo un 19% responden correctamente a las tres preguntas». NO está en el informe de la ECF 2021, que publica el índice promedio del 53% (p. 18): comprobadas sus 60 páginas el 4-9-2026.",
+      "url": "https://www.bde.es/f/webbe/GAP/Secciones/SalaPrensa/IntervencionesPublicas/DirectoresGenerales/economia/Arc/Fic/IIPP-2023-11-14-gavilan-or.pdf",
+      "consultado": "2026-09-04",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "meta_description",
+        "og_description",
+        "twitter_description",
+        "og_image_alt",
+        "twitter_image_alt",
+        "jsonld",
+        "graficos",
+        "pie_fuentes",
+        "cuerpo",
+        "tarjeta_portada"
+      ]
     }
   }
 }

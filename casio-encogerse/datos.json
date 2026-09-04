@@ -1,6 +1,6 @@
 {
   "pieza": "casio-encogerse",
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-04",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "facturacion_2026": {
@@ -43,7 +43,8 @@
         "jsonld",
         "cuerpo",
         "tarjeta_portada"
-      ]
+      ],
+      "signo": "negativo"
     },
     "cambio_bce": {
       "valor": "183,39",

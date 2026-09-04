@@ -1,6 +1,6 @@
 {
   "pieza": "musk-ceguera",
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-04",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "synchron_inscritos": {
@@ -20,9 +20,9 @@
       "valor": "2",
       "unidad": "personas",
       "periodo": "equipo de la Universidad Miguel Hernández",
-      "fuente": "Publicación del equipo de Elche recogida en la ficha de fuentes de la pieza",
-      "url": "https://www.science.org/doi/10.1126/sciadv.abd0323",
-      "consultado": "2026-09-02",
+      "fuente": "Fernández et al., «Neural correlates of phosphene perception in blind individuals», Science Advances, 7-11-2025, DOI 10.1126/sciadv.adv8846: matriz de 100 electrodos en DOS voluntarios ciegos. El DOI que declaraba antes esta entrada (10.1126/sciadv.abd0323) da 404 en Crossref; comprobado el 4-9-2026. Las LETRAS no son de este estudio: son de Fernández et al., J Clin Invest 2021;131(23):e151331 (DOI 10.1172/JCI151331), con UNA sola participante.",
+      "url": "https://doi.org/10.1126/sciadv.adv8846",
+      "consultado": "2026-09-04",
       "tipo": "ESTABLE",
       "derivado": false,
       "superficies": [

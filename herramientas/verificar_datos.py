@@ -104,6 +104,33 @@ def aparece(valor, texto):
     return bool(re.search(borde % re.escape(valor.replace(" ", "")), plano))
 
 
+OPUESTO = {"negativo": ("+",), "positivo": ("\u2212", "-")}
+
+
+def signo_equivocado(valor, texto, signo):
+    """¿Aparece el valor con el signo CONTRARIO al declarado?
+
+    Una auditoría externa invirtió «\u221299,4%» a «+99,4%» en las cuatro
+    superficies declaradas y este verificador siguió diciendo «0 fallos»: la
+    frontera de `aparece()` excluye dígito, punto y coma, pero NO el signo, así
+    que «99,4» casaba igual delante de un menos que de un más. En una pieza cuyo
+    titular es una caída del 99%, ese es el error más caro que existe y era justo
+    el que no se miraba.
+
+    Sin signo declarado no se comprueba nada: «perdió el 99,4%» en prosa va sin
+    signo y es correcto. Lo que se persigue es el signo INVERTIDO, no el ausente.
+    """
+    if not signo:
+        return []
+    malos = []
+    plano = texto.replace(" ", "").replace("\u00a0", "")
+    for s in OPUESTO.get(signo, ()):
+        pat = re.escape(s) + r"\s?" + re.escape(valor) + r"(?![\d])(?![.,]\d)"
+        if re.search(pat, texto) or re.search(pat.replace(r"\s?", ""), plano):
+            malos.append(s + valor)
+    return malos
+
+
 # ── comprobación ─────────────────────────────────────────────────────────────
 
 def revisa(slug, repo, doc=None):
@@ -154,11 +181,15 @@ def revisa(slug, repo, doc=None):
         # «Tres tazas y media» donde el cuerpo dice «3,5». Se declaran como
         # variantes y vale cualquiera de ellas.
         formas = [valor] + [str(v) for v in e.get("variantes", [])]
+        signo = e.get("signo")
         for nombre in e.get("superficies", []):
             if nombre not in sup:
                 avisos.append(f"{clave}: superficie desconocida «{nombre}»")
-            elif not any(aparece(f, sup[nombre]) for f in formas):
+                continue
+            if not any(aparece(f, sup[nombre]) for f in formas):
                 fallos.append(f"{clave}: «{valor}» NO aparece en «{nombre}»")
+            for mal in signo_equivocado(valor, sup[nombre], signo):
+                fallos.append(f"{clave}: declarada {signo} y en «{nombre}» aparece como «{mal}»")
     return man, fallos, avisos, n
 
 
@@ -238,6 +269,13 @@ def main():
         print(f"SIN MANIFIESTO ({len(sin_manifiesto)}): {', '.join(sin_manifiesto)}")
     if tot_f:
         print("Hay cifras que no dicen lo mismo en todas sus superficies. No publiques así.")
+    # Una pieza publicada SIN manifiesto no es un aviso: es un hueco por el que
+    # cabe cualquier cosa, y el verificador salía con 0 informando «43 cifras en
+    # 11 piezas», que se lee como éxito. Si hay una pieza en el disco sin
+    # datos.json, esto falla.
+    if sin_manifiesto:
+        print("Hay piezas publicadas sin datos.json: el verificador no las mira.")
+        return 1
     return 1 if tot_f else 0
 
 

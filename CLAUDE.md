@@ -297,7 +297,7 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado · actualizado el 3 de septiembre de 2026 (edición inglesa completa)
+## Estado · actualizado el 4 de septiembre de 2026 (auditoría externa aplicada)
 
 > **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
 > los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
@@ -325,6 +325,55 @@ son matices (B46, B50, B55).
 **Aviso de calendario:** el keynote de Apple es el **miércoles 9** y caduca
 `apple-upgrade` entera (B57). Esa pieza necesita una segunda pasada de actualización
 de datos el 9 por la tarde o el jueves 10 — no de corrección, que ya está hecha.
+
+### Auditoría externa del 4 de septiembre: las seis piezas bloqueadas
+
+Un chat auditor abrió 183 afirmaciones en su fuente primaria y 31 fallaron. Seis
+piezas quedaron marcadas «no enlazar», y eran casi exactamente las seis que abren
+los veintinueve correos. **Las seis están cerradas.** Todas las cifras se
+reverificaron abriendo la fuente, no leyendo el informe.
+
+| Pieza | Qué fallaba | Qué dice la fuente |
+|---|---|---|
+| `caida-gopro` | cerraba preguntando quién compraría GoPro | 8-K del 1-9-2026: fusión con Starman Optical. 285 M$, 1,14 $/acción, **y los accionistas conservan ~10%**; sigue en el Nasdaq; **no está cerrado** |
+| `dijeron-que-no` | ×6.600 · patente de Sasson «expira en 2007» · cita atribuida a Blockbuster | 333.000÷50 = **6.660** · Google Patents: **20-5-1997** (20 años desde la presentación, regla GATT) · es paráfrasis de McCarthy, y Antioco lo niega |
+| `casio-encogerse` | 44% de relojería «del ejercicio» · «China bajó un 3% en el ejercicio» | dossier S25 p. 33: el 44% es el **4T**; el ejercicio es **47,8%** · dossier S26 p. 8: el −3% es **4T, relojería, moneda local** |
+| `cultura-financiera` | el 19% atribuido al informe de la ECF 2021 | **no está en sus 60 páginas** (su único 19% es de vehículos de ahorro, p. 30). Está en la **diapositiva 10** de la presentación del BdE (Arce y Gavilán, 14-11-2023) |
+| `musk-ceguera` | «formas y letras a dos personas» · DOI muerto | *Science Advances* 2025 = **dos** personas, fosfenos, sin letras · las letras son *JCI* 2021, **una** participante · el DOI declarado daba **404** |
+| `argentina-milei` | «dólar oficial ≈1.400 → ≈1.700» · pobreza trimestral atribuida al INDEC | API del BCRA: **391** y **1.531**; el **máximo histórico es 1.533,63** · el INDEC no publica pobreza trimestral: retirada con hueco declarado |
+
+**El patrón, y es uno solo:** una cifra que se mueve, congelada en el escaparate y
+sin fecha. Pasaba con el 99,4% de GoPro, el «0,60 $ **hoy**» de su portada, el
+«lo que vale Netflix **hoy**» de la de Netflix y el ≈33% de Argentina.
+
+> **La regla que faltaba, y ahora es de la casa:** toda cifra que se mueva lleva su
+> fecha pegada **en la superficie donde se publique**, no solo en el gráfico. «El
+> 99,4% que perdió hasta agosto de 2026» no caduca. «Ha perdido el 99,4%» caduca
+> cada día.
+
+### Lo que el verificador no ve, medido
+
+El auditor le inyectó **84 errores y cazaba 27**. Arreglados los dos suyos —el
+signo y la pieza que desaparece— **caza 35**. Los dos agujeros:
+
+- **No distinguía el signo.** La frontera de `aparece()` excluía dígito, punto y
+  coma, pero no el signo, así que «−99,4%» y «+99,4%» eran la misma cifra. En una
+  pieza titulada con una caída del 99% ese es el error más caro que existe. Ahora
+  el manifiesto acepta `"signo": "negativo"|"positivo"` y se comprueba.
+- **Salía con éxito si desaparecía una pieza.** `coherencia_metadatos.py` filtraba
+  la línea base a las piezas que estaba mirando **antes** de comparar, así que la
+  rama «ya no se comprueba» no podía dispararse. Ahora solo filtra cuando se pide
+  una pieza suelta.
+
+**Los dos verificadores se cubren mutuamente y hay que correr los dos:** borrar una
+pieza entera lo caza `coherencia_metadatos.py`; borrar solo su `datos.json` lo caza
+`verificar_datos.py`. Ninguno solo cubre los dos casos.
+
+**De las 49 que aún se escapan, cuatro son imposibles por diseño** y conviene no
+prometerlas: la mentira coherente (cambiar la cifra en el manifiesto *y* en todas
+las superficies), la permutación de dos valores, y las dos en que el cuerpo
+contradice a su propio pie. `verificar_datos.py` compara la pieza **consigo misma**,
+no con el mundo: puede dar «0 fallos» mientras GoPro se fusiona.
 
 ### La edición inglesa
 

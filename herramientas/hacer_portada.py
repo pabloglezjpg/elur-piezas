@@ -464,11 +464,11 @@ PORTADAS = {
         "categoria": "Economía y empresa",
         "titular": "Nadie quería comprar Netflix",
         "dek": "Blockbuster pudo quedársela por 50 millones. Y tenía sus motivos",
-        "dato": "6.600×",
-        "dato_pie": ["menos de lo que vale hoy", "lo que pedía aquella tarde"],
+        "dato": "6.660×",
+        "dato_pie": ["menos de lo que valía en agosto de 2026", "lo que pedía aquella tarde"],
         "grafico": "brecha",
         "barra_pequena": ("50 M$", 50, "lo que pedía Netflix en 2000", TERRA),
-        "barra_grande": ("333.000 M$", 333000, "lo que vale Netflix hoy", INK),
+        "barra_grande": ("333.000 M$", 333000, "lo que valía Netflix en agosto de 2026", INK),
     },
     # Regenerada dos veces. La 1.ª por datos viejos (−99,2 % y 0,75 $); la 2.ª el
     # 2-sep-2026 porque el 93,85 $ no es el máximo de CIERRE: el 10-K del ejercicio
@@ -526,7 +526,7 @@ PORTADAS = {
         # ~300% era el pico interanual de abril de 2024, ya con Milei.
         "stats": [
             ("211,4", "33%", "Inflación interanual, 2023–2026"),
-            ("28,2", "30%", "Pobreza, 2025–1T 2026"),
+            ("28,2%", "Pobreza al cierre de 2025, INDEC"),
             ("Superávit", "Resultado fiscal 2024"),
         ],
     },
@@ -535,13 +535,13 @@ PORTADAS = {
         "titular": "La caída de GoPro",
         "dek": "Los errores que hicieron desaparecer a la marca de las calles",
         "dato": "−99,4 %",
-        "dato_pie": ["de su valor en bolsa", "en una década"],
+        "dato_pie": ["de su valor en bolsa", "entre 2014 y agosto de 2026"],
         "grafico": "linea",
         "serie": [("2014a", 24.0), ("2014", 98.47), ("2018", 6.0),
                   ("2022", 5.5), ("2026", 0.60)],
         "anotaciones": {
             1: ("98,47 $", "4T 2014", -62),
-            4: ("0,60 $", "hoy", -62),
+            4: ("0,60 $", "ago. 2026", -62),
         },
     },
 
@@ -555,24 +555,24 @@ PORTADAS = {
         "categoria": "Economy & business",
         "titular": "Nobody wanted to buy Netflix",
         "dek": "Blockbuster could have had it for $50 million. And it had its reasons",
-        "dato": "6,600\u00d7",
-        "dato_pie": ["less than it is worth today", "was what it asked that afternoon"],
+        "dato": "6,660\u00d7",
+        "dato_pie": ["less than it was worth in August 2026", "was what it asked that afternoon"],
         "grafico": "brecha",
         "barra_pequena": ("$50M", 50, "what Netflix asked for in 2000", TERRA),
-        "barra_grande": ("$333B", 333000, "what Netflix is worth today", INK),
+        "barra_grande": ("$333B", 333000, "what Netflix was worth in August 2026", INK),
     },
     "caida-gopro-en": {
         "categoria": "Economy & business",
         "titular": "The fall of GoPro",
         "dek": "The mistakes that made the brand disappear from the streets",
         "dato": "\u2212""99.4 %",
-        "dato_pie": ["of its market value", "in a decade"],
+        "dato_pie": ["of its market value", "from 2014 to August 2026"],
         "grafico": "linea",
         "serie": [("2014a", 24.0), ("2014", 98.47), ("2018", 6.0),
                   ("2022", 5.5), ("2026", 0.60)],
         "anotaciones": {
             1: ("$98.47", "Q4 2014", -62),
-            4: ("$0.60", "today", -62),
+            4: ("$0.60", "Aug 2026", -62),
         },
     },
     "casio-encogerse-en": {
@@ -627,7 +627,7 @@ PORTADAS = {
         "titular": "Argentina under Milei, without picking a side",
         "stats": [
             ("211.4", "33%", "Year-on-year inflation, 2023\u20132026"),
-            ("28.2", "30%", "Poverty, 2025\u2013Q1 2026"),
+            ("28.2%", "Poverty at the close of 2025, INDEC"),
             ("Surplus", "2024 fiscal balance"),
         ],
     },

@@ -37,7 +37,8 @@
       "superficies": [
         "cuerpo",
         "graficos"
-      ]
+      ],
+      "signo": "positivo"
     },
     "dram_contrato": {
       "valor": "93",
@@ -51,7 +52,8 @@
       "superficies": [
         "cuerpo",
         "graficos"
-      ]
+      ],
+      "signo": "positivo"
     },
     "mac_subida": {
       "valor": "25,0",
@@ -64,7 +66,8 @@
       "derivado": true,
       "superficies": [
         "cuerpo"
-      ]
+      ],
+      "signo": "positivo"
     },
     "ssd_257_retirada": {
       "valor": "+257%",

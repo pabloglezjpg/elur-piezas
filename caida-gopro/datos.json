@@ -1,6 +1,6 @@
 {
   "pieza": "caida-gopro",
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-04",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "maximo_cierre_2014": {
@@ -22,8 +22,8 @@
     "caida_desde_maximos": {
       "valor": "99,4",
       "unidad": "%",
-      "periodo": "2014-2026",
-      "fuente": "Cálculo propio: 1 − 0,60/98,47 = 99,39%. Las dos cotizaciones, en el 10-K y en el cierre del 25-ago-2026",
+      "periodo": "de 2014 a agosto de 2026",
+      "fuente": "Cálculo propio: 1 − 0,60/98,47 = 99,39%. Las dos cotizaciones, en el 10-K y en el cierre del 25-ago-2026 La cifra se publica FECHADA en todas sus superficies: es una cotización y se mueve.",
       "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043516000063/gpro2015-12x3110xk.htm",
       "consultado": "2026-09-02",
       "tipo": "DINAMICO",
@@ -37,7 +37,8 @@
         "og_image_alt",
         "twitter_image_alt",
         "tarjeta_portada"
-      ]
+      ],
+      "signo": "negativo"
     },
     "ingresos_2022": {
       "valor": "1.093,5",

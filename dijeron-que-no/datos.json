@@ -1,6 +1,6 @@
 {
   "pieza": "dijeron-que-no",
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-04",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "precio_netflix_2000": {
@@ -23,14 +23,28 @@
       ]
     },
     "patente_kodak": {
-      "valor": "2007",
+      "valor": "1997",
       "unidad": "año de expiración",
-      "periodo": "patente de Sasson",
-      "fuente": "Ficha de verificación de la propia pieza, contrastada con la cronología de Kodak",
-      "url": "https://www.kodak.com/en/company/page/kodak-history/",
-      "consultado": "2026-09-02",
+      "periodo": "caducidad de la patente US4131919 (Sasson), 20 de mayo de 1997",
+      "fuente": "Google Patents, US4131919A: «1997-05-20 · Anticipated expiration». Presentada el 20-5-1977, concedida el 26-12-1978. Por la regla de transición del GATT el plazo es el mayor entre 17 años desde la concesión (26-12-1995) y 20 desde la presentación (20-5-1997). Corrección del 4-9-2026: esta entrada certificaba 2007, diez años de más, y la certificaba como estable y no derivada.",
+      "url": "https://patents.google.com/patent/US4131919A/en",
+      "consultado": "2026-09-04",
       "tipo": "ESTABLE",
       "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "multiplo_netflix": {
+      "valor": "6.660",
+      "unidad": "veces la oferta de 2000",
+      "periodo": "valor de Netflix a 25-8-2026 frente a los 50 M$ de 2000",
+      "fuente": "Cálculo propio: 333.000 ÷ 50 = 6.660. El texto publicaba 6.600, que es la misma división mal hecha.",
+      "url": "https://piezas.elur.es/dijeron-que-no/",
+      "consultado": "2026-09-04",
+      "tipo": "DINAMICO",
+      "derivado": true,
       "superficies": [
         "cuerpo",
         "graficos"
