@@ -71,6 +71,57 @@ for slug in slugs:
             shutil.rmtree(tmp, ignore_errors=True)
 
 print(f'inyecciones probadas: {total}  ({len(slugs)} piezas × 10)')
+
+# ── Segunda parte: la regla de la fecha pegada ───────────────────────────────
+# «Ha perdido el 99,4%» caduca cada día; «el 99,4% que perdió hasta agosto de
+# 2026» no caduca nunca. verificar_datos.py exige la fecha a toda cifra DINAMICA
+# en cada superficie donde se publica. Esto comprueba que la puerta suena.
+FECHAS = [
+    ('caida-gopro',       'entre 2014 y agosto de 2026', 'en una década'),
+    ('crisis-memoria-ia', 'rondaba en agosto de 2026',   'ronda hoy'),
+    ('dijeron-que-no',    'a finales de agosto de 2026', 'ahora mismo'),
+]
+print()
+for slug, fecha, sin in FECHAS:
+    tmp = tempfile.mkdtemp()
+    try:
+        for d in (slug, 'herramientas'):
+            shutil.copytree(os.path.join(REPO, d), os.path.join(tmp, d))
+        shutil.copy(os.path.join(REPO, 'index.html'), os.path.join(tmp, 'index.html'))
+        ruta = os.path.join(tmp, slug, 'index.html')
+        h = io.open(ruta, encoding='utf-8').read()
+        if fecha not in h:
+            fallos_del_control.append(f'{slug}: la cadena de prueba «{fecha}» ya no está en la pieza')
+            continue
+        io.open(ruta, 'w', encoding='utf-8').write(h.replace(fecha, sin))
+        r = subprocess.run([sys.executable, 'herramientas/verificar_datos.py', slug],
+                           cwd=tmp, capture_output=True, text=True)
+        if not (r.returncode and 'sin fecha' in r.stdout):
+            fallos_del_control.append(f'{slug}: NO caza la fecha borrada («{fecha}» → «{sin}»)')
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+print(f'regla de la fecha: {len(FECHAS)} fechas borradas en piezas reales')
+
+# ── Tercera parte: el trinquete de cobertura del manifiesto ──────────────────
+# El agujero de fondo: si declarar es opcional, un verde no significa nada.
+# verificar_datos.py registra cuántas cifras se publican en dos o más
+# superficies sin estar en el manifiesto, y falla si suben. Esto comprueba que
+# esa puerta suena al añadir una cifra nueva sin declarar.
+tmp = tempfile.mkdtemp() + '/repo'
+shutil.copytree(REPO, tmp, ignore=shutil.ignore_patterns('.git'))
+try:
+    ruta = os.path.join(tmp, 'luz-roja', 'index.html')
+    h = io.open(ruta, encoding='utf-8').read()
+    h = h.replace('</p>', '</p><p>Control: 37,4 unidades.</p>', 1)
+    h = h.replace('</li>', '</li><li>Control: 37,4 unidades.</li>', 1)
+    io.open(ruta, 'w', encoding='utf-8').write(h)
+    r = subprocess.run([sys.executable, 'herramientas/verificar_datos.py'],
+                       cwd=tmp, capture_output=True, text=True)
+    if not (r.returncode and 'sin declarar' in r.stdout.lower()):
+        fallos_del_control.append('trinquete: NO caza una cifra nueva publicada sin declarar')
+finally:
+    shutil.rmtree(os.path.dirname(tmp), ignore_errors=True)
+print('trinquete del manifiesto: 1 cifra nueva sin declarar')
 if fallos_del_control:
     print(f'\n✗ EL VERIFICADOR SE ESCAPA {len(fallos_del_control)} VECES:')
     for f in fallos_del_control: print('   ', f)

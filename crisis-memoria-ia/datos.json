@@ -29,7 +29,7 @@
       "fuente": "VDURA: HDD de 30 TB, de 495 $ a 1.216 $. El titular de la propia nota dice «HDDs Only 2.5x»",
       "url": "https://vdura.com/flash-volatility-index/",
       "consultado": "2026-09-02",
-      "tipo": "ESTABLE",
+      "tipo": "DINAMICO",
       "derivado": false,
       "variantes": [
         "2,5 veces"
@@ -47,7 +47,7 @@
       "fuente": "TrendForce, precio de CONTRATO de DRAM. Distinto del precio spot, que es el del Gráfico 3",
       "url": "https://www.trendforce.com/presscenter/news/",
       "consultado": "2026-09-02",
-      "tipo": "ESTABLE",
+      "tipo": "DINAMICO",
       "derivado": false,
       "superficies": [
         "cuerpo",
@@ -62,7 +62,7 @@
       "fuente": "apple.com, Mac Studio de 1.999 $ a 2.499 $, contrastado con instantánea archivada del 31-may-2026. El registro exacto es +25,01%; la pieza publica +25,0% y muestra los dos precios.",
       "url": "https://www.apple.com/mac-studio/",
       "consultado": "2026-09-02",
-      "tipo": "ESTABLE",
+      "tipo": "DINAMICO",
       "derivado": true,
       "superficies": [
         "cuerpo"

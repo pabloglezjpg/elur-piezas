@@ -351,6 +351,69 @@ sin fecha. Pasaba con el 99,4% de GoPro, el «0,60 $ **hoy**» de su portada, el
 > 99,4% que perdió hasta agosto de 2026» no caduca. «Ha perdido el 99,4%» caduca
 > cada día.
 
+**Y ya no es solo una norma escrita: es una puerta.** `verificar_datos.py` exige la
+fecha a toda cifra declarada `DINAMICO` en **cada superficie donde se publica**, y
+falla con código 1 si no está. Tres detalles que costó afinar, y que conviene no
+deshacer:
+
+- **Se mira la frase, y también la anterior.** «Vale 333.000 M$ a finales de agosto
+  de 2026. Unas 6.660 veces lo que pedía» está fechado: obligar a repetir la fecha
+  en cada frase la convertiría en un tic.
+- **Un «hoy» no lo salva ninguna otra fecha de la frase.** «Costaba 3.460 $ en el 3T
+  de 2025 y ronda **hoy** los 22.600» tiene fecha de inicio y un final que caduca
+  cada día. La fecha que legitima un «hoy» va **detrás y pegada**: «Vale hoy ·
+  25.08.2026» es correcto.
+- **A las cifras de un solo dígito no se les exige.** Un «0» o un «2» casan en
+  cualquier tabla y en cualquier coordenada de un SVG.
+
+Aplicarla obliga a la pregunta correcta, que es la útil: **¿esto sigue moviéndose?**
+El ×13 de Apple dejó de moverse el 1 de septiembre de 2026, cuando Cook se fue: es
+un tramo cerrado y vuelve a `ESTABLE`, pero con el periodo declarado. Los precios de
+memoria siguen vivos y son `DINAMICO`.
+
+`herramientas/control_positivo.py` borra la fecha a tres cifras dinámicas en piezas
+reales y exige que la puerta suene. Desactivando la puerta, el control falla con 3:
+puede fallar, así que prueba algo.
+
+### El agujero de fondo: mientras declarar sea opcional, un verde no significa nada
+
+**Este es el hallazgo que hay debajo de todos los demás.** El 5 de septiembre de
+2026 `argentina-milei` publicaba, en su panel interactivo de Pobreza, un «≈30% ·
+1T 2026» atribuido al INDEC tres párrafos por debajo de un cuerpo que declaraba esa
+atribución falsa. Con esa cifra viva en dos idiomas, `verificar_datos.py` daba **«51
+cifras · 0 fallos»** y `coherencia_metadatos.py` **«0 ERROR»**. Los dos en verde.
+
+No fallaron: **para ellos esa cifra no existía**, porque `datos.json` no la
+declaraba. Habíamos construido un sistema que comprueba lo que le decimos que
+compruebe.
+
+Medido con el barrido inverso, sobre las doce piezas:
+
+| | |
+|---|---|
+| Cifras **publicadas** | **394** |
+| Declaradas en los `datos.json` | **56** |
+| Que viven en **dos o más superficies** —el alcance que el manifiesto se atribuye— | **277** |
+| De esas, **sin declarar** | **248** |
+
+El manifiesto cubría **29 de 277**: el verificador vigilaba el 10% de lo que decía
+vigilar, y el 90% restante podía decir cualquier cosa sin que sonara nada.
+
+**El arreglo es un trinquete, no una exigencia total.** Declarar 248 cifras de golpe
+no es realista y forzarlo produciría manifiestos rellenados a desgana. Lo que hace
+`verificar_datos.py` ahora:
+
+1. Barre lo **publicado** y lo compara con lo **declarado**, al revés que antes.
+2. Guarda la deuda por pieza en `herramientas/sin_declarar.json`.
+3. **Falla con código 1 si sube en cualquier pieza.** Lo que ya está, está; lo que
+   se añada a partir de ahora, se declara.
+4. El suelo **solo baja**: al declarar una cifra, el listón se ajusta y no se puede
+   volver atrás.
+
+`control_positivo.py` añade una cifra nueva en dos superficies de una pieza real y
+exige que el trinquete suene. Y la deuda sale impresa en cada ejecución, así que
+deja de ser invisible.
+
 ### Lo que el verificador no ve, medido
 
 El auditor le inyectó **84 errores y cazaba 27**. Arreglados los dos suyos —el

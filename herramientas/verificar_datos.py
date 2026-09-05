@@ -106,6 +106,76 @@ def aparece(valor, texto):
 
 OPUESTO = {"negativo": ("+",), "positivo": ("\u2212", "-")}
 
+# Una fecha, en cualquiera de las formas que usa el sitio en los dos idiomas.
+RE_FECHA = re.compile(
+    r"\b(20\d\d"
+    r"|ene|feb|mar|abr|may|jun|jul|ago|sep|oct|nov|dic"
+    r"|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre"
+    r"|jan|apr|aug|dec|january|february|march|april|june|july|august|september|october|november|december"
+    r"|[1-4][TQ]\b|trimestre|quarter|ejercicio|financial year)\b", re.I)
+
+
+RE_AHORA = re.compile(
+    r"\b(hoy|actualmente|ahora mismo|a d[íi]a de hoy|en la actualidad"
+    r"|today|currently|right now|as of today)\b", re.I)
+
+
+def _frase(texto, i, j, tope=420):
+    """La frase que contiene texto[i:j], acotada a `tope` por lado.
+
+    Se mira la FRASE, no una ventana fija de caracteres: «comparando la
+    instantánea del 31 de mayo de 2026 con la tienda en vivo: iMac …, MacBook …,
+    Mac Studio … (+25,0%)» es una sola comparación fechada, y una ventana corta
+    la partía por la mitad y la daba por indatada.
+    """
+    ini = max(0, i - tope)
+    # Se incluye también la frase ANTERIOR: «…vale 333.000 M$ a finales de agosto
+    # de 2026. Unas 6.660 veces lo que pedía» fecha la cifra igual de bien, y
+    # exigir la fecha dentro de la misma frase obligaría a repetirla como un tic.
+    corte = max(texto.rfind(". ", ini, i), texto.rfind("! ", ini, i), texto.rfind("? ", ini, i))
+    if corte != -1:
+        prev = max(texto.rfind(". ", ini, corte), texto.rfind("! ", ini, corte), texto.rfind("? ", ini, corte))
+        ini = prev + 2 if prev != -1 else ini
+    fin = min(len(texto), j + tope)
+    m = re.search(r"[.!?]\s", texto[j:fin])
+    return texto[ini: j + m.end() if m else fin]
+
+
+def sin_fecha(valor, texto, ventana=None):
+    # Un valor de una sola cifra («0», «2») casa en cualquier tabla y en
+    # cualquier coordenada: no se puede localizar con fiabilidad, así que no se
+    # le exige fecha. Se le exige a las que se pueden encontrar de verdad.
+    if len(str(valor).strip()) < 2:
+        return None
+    """¿La cifra se publica aquí SIN una fecha cerca?
+
+    La regla que dejó la auditoría del 4-9-2026, y es la más importante del
+    proyecto: toda cifra que se mueva lleva su fecha pegada EN LA SUPERFICIE
+    DONDE SE PUBLICA, no solo en el gráfico. «Ha perdido el 99,4%» caduca cada
+    día; «el 99,4% que perdió hasta agosto de 2026» no caduca nunca.
+
+    Solo se exige a las cifras declaradas DINAMICO: son las que el propio
+    manifiesto reconoce que se mueven. Pedírselo a todas sería ruido.
+    """
+    for m in re.finditer(r"(?<![\d.,])%s(?![\d])(?![.,]\d)" % re.escape(valor), texto):
+        ctx = _frase(texto, m.start(), m.end())
+        # «hoy» no lo salva ninguna otra fecha de la frase. «Costaba 3.460 $ en
+        # el 3T de 2025 y ronda HOY los 22.600» tiene fecha de inicio y un final
+        # que caduca cada día: es justo el fallo que persigue esta regla.
+        for a in RE_AHORA.finditer(ctx):
+            # «Vale hoy · 25.08.2026» es correcto: el «hoy» lleva su fecha
+            # pegada. «Ronda hoy los 22.600 dólares» no. Se mira el entorno
+            # inmediato del adverbio, no el de la cifra.
+            # La fecha que legitima un «hoy» va DETRÁS y pegada: «Vale hoy ·
+            # 25.08.2026». Una fecha por delante pertenece al otro extremo de la
+            # comparación —«costaba X en el 3T de 2025 y ronda hoy Y»— y no dice
+            # cuándo es ese «hoy».
+            if not RE_FECHA.search(ctx[a.end(): a.end() + 32]):
+                return " ".join(ctx[:110].split())
+        if not RE_FECHA.search(ctx):
+            return " ".join(ctx[:110].split())
+    return None
+
 
 def signo_equivocado(valor, texto, signo):
     """¿Aparece el valor con el signo CONTRARIO al declarado?
@@ -129,6 +199,61 @@ def signo_equivocado(valor, texto, signo):
         if re.search(pat, texto) or re.search(pat.replace(r"\s?", ""), plano):
             malos.append(s + valor)
     return malos
+
+
+# ── el barrido inverso ───────────────────────────────────────────────────────
+# Todo lo de arriba comprueba LO DECLARADO. Eso deja el agujero de fondo: si
+# declarar es opcional, un verde no significa nada — el verificador comprueba lo
+# que le decimos que compruebe. El 5-9-2026 se midió: 394 cifras publicadas en las
+# doce piezas, 56 declaradas; de las 277 que viven en dos o más superficies —el
+# alcance que el propio manifiesto se atribuye—, 248 no estaban declaradas.
+#
+# Declararlas todas de golpe no es realista, así que esto funciona como trinquete:
+# registra cuántas hay sin declarar por pieza y FALLA SI SUBEN. Lo que ya está,
+# está; lo que se añada a partir de ahora, se declara.
+
+RE_PUBLICADA = re.compile(
+    r'(?<![\w.,/-])([+\u2212-]?\d{1,3}(?:\.\d{3})+(?:,\d+)?|[+\u2212-]?\d+,\d+|[+\u2212-]?\d+)'
+    r'\s*(%|\u20ac|\$|M\$|M\u20ac|M\u00a5|\u5104\u5186|millones|million|billion|bn|veces|times|\u00d7|puntos|pp|mg|nm|TB|GB)?')
+RE_ANIO = re.compile(r'^(19|20)\d\d$')
+RE_RUIDO = re.compile(r'DOI|10\.\d{4}|NCT\d|NDA\s?\d|viewBox|px|rgba?\(|#[0-9a-f]{3,6}', re.I)
+DEUDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sin_declarar.json")
+
+
+def publicadas(sup):
+    """{valor: {superficies}} de todo lo que la pieza publica como cifra."""
+    out = {}
+    for nombre, txt in sup.items():
+        if not txt:
+            continue
+        for m in RE_PUBLICADA.finditer(RE_RUIDO.sub(" ", txt)):
+            val, uni = m.group(1), m.group(2)
+            if not uni and RE_ANIO.match(val):
+                continue                      # un año suelto no es un dato
+            if not uni and "." not in val and "," not in val:
+                continue                      # entero pelado sin unidad: demasiado ruido
+            out.setdefault(val, set()).add(nombre)
+    return out
+
+
+def _misma_cifra(v):
+    """«−99,4», «+99,4» y «99,4» son la misma cifra para saber si está declarada.
+
+    El SIGNO sí se comprueba, pero en `signo_equivocado()`, que es su sitio. Aquí
+    lo que se pregunta es otra cosa: si la cifra figura o no en el manifiesto.
+    Sin esto, el barrido daba por no declaradas cinco que sí lo están —el −99,4
+    de GoPro entre ellas— y engordaba la deuda con un fallo propio.
+    """
+    return re.sub(r"^[+\u2212-]", "", v).replace(".", "")
+
+
+def sin_declarar(sup, man):
+    """Cifras en DOS O MÁS superficies que el manifiesto no declara."""
+    dec = {str(e.get("valor")) for e in man.get("cifras", {}).values()}
+    dec |= {str(v) for e in man.get("cifras", {}).values() for v in e.get("variantes", [])}
+    dec_n = {_misma_cifra(d) for d in dec}
+    return sorted(v for v, s in publicadas(sup).items()
+                  if len(s) >= 2 and v not in dec and _misma_cifra(v) not in dec_n)
 
 
 # ── comprobación ─────────────────────────────────────────────────────────────
@@ -190,7 +315,11 @@ def revisa(slug, repo, doc=None):
                 fallos.append(f"{clave}: «{valor}» NO aparece en «{nombre}»")
             for mal in signo_equivocado(valor, sup[nombre], signo):
                 fallos.append(f"{clave}: declarada {signo} y en «{nombre}» aparece como «{mal}»")
-    return man, fallos, avisos, n
+            if e.get("tipo") == "DINAMICO":
+                ctx = sin_fecha(valor, sup[nombre])
+                if ctx:
+                    fallos.append(f"{clave}: DINÁMICA y se publica sin fecha en «{nombre}» → …{ctx}…")
+    return man, fallos, avisos, n, sin_declarar(sup, man)
 
 
 def autotest(repo):
@@ -202,7 +331,7 @@ def autotest(repo):
     fallos_test = 0
     for slug in slugs:
         doc = open(os.path.join(repo, slug, "index.html"), encoding="utf-8").read()
-        man, base, _, _ = revisa(slug, repo, doc)
+        man, base, _, _, _ = revisa(slug, repo, doc)
         if base:
             print(f"  ✗ {slug}: la pieza YA falla antes de inyectar nada, el test no vale")
             fallos_test += 1
@@ -220,7 +349,7 @@ def autotest(repo):
         if roto == doc:
             print(f"  ? {slug}: no he podido inyectar el error (valor no literal en el HTML)")
             continue
-        _, fallos, _, _ = revisa(slug, repo, roto)
+        _, fallos, _, _, _ = revisa(slug, repo, roto)
         if fallos:
             print(f"  ✓ {slug}: cazado — {fallos[0]}")
         else:
@@ -248,14 +377,16 @@ def main():
                                if os.path.basename(os.path.dirname(d)) not in ("gracias", "en"))
     tot_f = tot_c = con_manifiesto = 0
     sin_manifiesto = []
+    deuda = {}
     for slug in slugs:
-        man, fallos, avisos, n = revisa(slug, repo)
+        man, fallos, avisos, n, sin_dec = revisa(slug, repo)
         if man is None:
             sin_manifiesto.append(slug)
             continue
         con_manifiesto += 1
         tot_c += n
         tot_f += len(fallos)
+        deuda[slug] = len(sin_dec)
         estado = "OK" if not fallos else f"{len(fallos)} FALLO(S)"
         print(f"\n{'='*72}\n{slug}  —  {n} cifras declaradas  —  {estado}")
         for f in fallos:
@@ -265,6 +396,36 @@ def main():
 
     print(f"\n{'='*72}")
     print(f"TOTAL: {tot_c} cifras en {con_manifiesto} piezas · {tot_f} fallos")
+
+    # ── trinquete de cobertura del manifiesto ───────────────────────────────
+    # Si declarar es opcional, un verde no significa nada. Esto no exige
+    # declararlo todo de golpe —serían 248—, pero impide que la deuda crezca.
+    previo = {}
+    if os.path.exists(DEUDA):
+        try:
+            previo = json.load(open(DEUDA, encoding="utf-8"))
+        except Exception as e:
+            print(f"AVISO: no se ha podido leer {DEUDA} ({e}).")
+    subidas = [(s, previo[s], deuda[s]) for s in deuda
+               if s in previo and deuda[s] > previo[s]]
+    nuevas = [s for s in deuda if s not in previo]
+    total_deuda = sum(deuda.values())
+    print(f"SIN DECLARAR: {total_deuda} cifras que se publican en dos o más "
+          f"superficies y no están en su datos.json")
+    if subidas:
+        print("\nHan subido las cifras publicadas sin declarar:")
+        for s, antes, ahora in sorted(subidas):
+            print(f"  [FALLO] {s}: {antes} → {ahora}")
+        print("Toda cifra nueva que viva en dos superficies va al manifiesto.")
+        tot_f += len(subidas)
+    elif not previo:
+        print(f"Deuda registrada por primera vez en {DEUDA}.")
+    if not subidas:
+        # el suelo solo baja: si se declara una cifra, el listón se ajusta
+        base = {k: min(v, previo[k]) if k in previo else v for k, v in deuda.items()}
+        with open(DEUDA, "w", encoding="utf-8") as f:
+            json.dump(base, f, ensure_ascii=False, indent=1, sort_keys=True)
+            f.write("\n")
     if sin_manifiesto:
         print(f"SIN MANIFIESTO ({len(sin_manifiesto)}): {', '.join(sin_manifiesto)}")
     if tot_f:

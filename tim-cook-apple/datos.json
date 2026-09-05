@@ -40,8 +40,8 @@
     "multiplicador_bolsa": {
       "valor": "13",
       "unidad": "veces",
-      "periodo": "agosto de 2011 a agosto de 2026",
-      "fuente": "Cálculo propio: ~350.000 → 4.572.790 millones de dólares de capitalización. Mide capitalización, no retorno del accionista",
+      "periodo": "agosto de 2011 a agosto de 2026 (mandato de Cook, cerrado el 1-9-2026)",
+      "fuente": "Cálculo propio: ~350.000 → 4.572.790 millones de dólares de capitalización. Mide capitalización, no retorno del accionista Deja de ser dinámica el 1-9-2026: al irse Cook el tramo queda cerrado, y el ancla publicada es la capitalización del 7-8-2026 del Gráfico 1.",
       "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&type=10-K",
       "consultado": "2026-09-02",
       "tipo": "ESTABLE",
