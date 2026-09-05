@@ -297,7 +297,7 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado · actualizado el 4 de septiembre de 2026 (auditoría externa aplicada)
+## Estado · actualizado el 5 de septiembre de 2026 (panel adversarial a las doce)
 
 > **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
 > los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
@@ -311,16 +311,65 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 > **Quien cierre una tanda actualiza esta sección y le cambia la fecha, o la borra.**
 > Una sección de estado caducada ya provocó una contradicción entre dos chats.
 
-**12 piezas publicadas.** De los 52 hallazgos documentados: 38 aplicados, 9 cerrados
-con hueco declarado, 1 retirado, 1 abierto, 1 sin acción y **2 pendientes**, que son
-las dos caducidades con fecha (B57 el 9 de septiembre, B58 el 24).
+**Once piezas publicadas.** `musk-ceguera` se descartó el 5 de septiembre: su titular
+—«Musk promete, Elche ya lo hizo»— descansaba en que dos personas vieron formas; son
+cuatro, vieron fosfenos, la UMH dice que «no se trata de volver a ver» y les retiraron el
+implante a los seis meses. Arreglar eso no era corregir una frase: era cambiar de qué iba
+la pieza.
 
-# BLOQUEA: 0
+Ese mismo día un panel adversarial de 48 subagentes —cuatro lentes por pieza, con la
+consigna de tumbarlas, no de comprobarlas— abrió **114 hallazgos, 26 de nivel A**. Esta
+sección dijo «BLOQUEA: 0» mientras eran 26.
 
-Las doce piezas están a cero. Es el número que decide si Pablo puede escribir a un
-medio: cuenta las cifras falsas en superficie visible, las atribuciones fabricadas y
-las derivaciones presentadas como dato publicado. Los tres pendientes que no bloquean
-son matices (B46, B50, B55).
+# BLOQUEA: 16
+
+Hallazgos de nivel A pendientes. **Es el único número que importa, y cuando sea 0 salen los
+correos.** Ni antes ni por partes.
+
+**Por qué no se cuenta por correos desbloqueados.** Pablo manda el índice, `piezas.elur.es`,
+no piezas sueltas: once piezas son un cuerpo de trabajo y tres son una muestra. Si el editor
+puede pinchar cualquiera, no sale ningún correo hasta que estén todas. El fichero
+`~/Desktop/AUDITORIA-2026-09-04/ORDEN-DE-REPARACION.md` está ordenado por correos: sirve de
+inventario, no para decidir el orden.
+
+**El orden es por coste, lo más barato primero, para llegar a cero antes:**
+
+| Pieza | A | Nota |
+|---|--:|---|
+| `cafe-salud` | 2 | |
+| `caida-gopro` | 2 | |
+| `casio-encogerse` | 3 | + las dos erratas del guion de vídeo, en la misma pasada |
+| `narcolepsia-orexina` | 3 | |
+| `apple-upgrade` | 6 | **no se toca hasta el keynote del 9**; caduca entera ese día |
+
+Cerradas el 5 de septiembre: `argentina-milei` (5), `cultura-financiera` (1), `luz-roja` (1).
+Sin ningún A desde el panel: `crisis-memoria-ia`, `dijeron-que-no`, `tim-cook-apple`.
+
+### El hueco declarado en falso
+
+El patrón que el panel encontró tres veces, y que vale más que los 114 hallazgos:
+**una pieza declara un hueco que no existe, y la conclusión sobrevive al dato que la
+sostenía.** `argentina-milei` declaraba que la tabla del IIEP «no se puede leer como
+texto» —se lee, está en la página 2 del mismo PDF que cita—. `cultura-financiera`
+declaraba que el Banco de España no pone salvedad a la comparación 2016-2021 —la pone,
+en la diapositiva 11, justo entre la 10 y la 12 que la pieza sí cita—. `luz-roja` retiró
+el Gráfico 2 por falta de fuente y dejó vivos el ladillo, la afirmación y la calificación
+de evidencia «Sólida» sobre la fila que su propia confesión dice que no tiene fuente.
+
+Un hueco declarado es lo que hace que estas piezas parezcan honestas. Cuando es falso, se
+convierte en el sitio donde se esconde lo que no se miró.
+
+**La regla que sale de aquí: al retirar un dato, se persigue la conclusión que colgaba de
+él por TODAS las superficies.** En `argentina-milei` la tesis retirada seguía viva en doce:
+ladillo, dek, meta description, og:description y JSON-LD en los dos idiomas, más las dos
+tarjetas de la portada. Y en `luz-roja`, retirado el Gráfico 2, la fila de la tabla siguió
+calificando de evidencia «Sólida» justo lo que el hueco declaraba sin fuente.
+
+Las tarjetas de la portada eran el punto ciego: son prosa, no cifra, y ningún verificador
+las miraba. Ahora sí — `herramientas/deriva_tarjeta.py`, con trinquete por conjunto de
+palabras y control positivo de 4 sobre 4 contra los ficheros publicados. Las dos primeras
+versiones fueron peores y consta por qué en sus comentarios: por trigramas contra la pieza
+entera gritaba 97 veces, y por conteo en vez de por conjunto no veía una sustitución.
 
 **Aviso de calendario:** el keynote de Apple es el **miércoles 9** y caduca
 `apple-upgrade` entera (B57). Esa pieza necesita una segunda pasada de actualización

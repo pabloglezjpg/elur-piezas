@@ -1,6 +1,6 @@
 {
   "pieza": "cultura-financiera",
-  "actualizado": "2026-09-04",
+  "actualizado": "2026-09-05",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "acciones_cotizadas": {
@@ -19,18 +19,22 @@
       ]
     },
     "propiedad_vivienda_es": {
-      "valor": "73",
+      "valor": "72",
+      "variantes": [
+        "72,1"
+      ],
       "unidad": "% de hogares",
-      "periodo": "HFCS ola 2021",
-      "fuente": "BCE, HFCS Statistical Tables wave 2021, tabla A1, «Owners DH Households»: España 73,9",
-      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2021_July2023.pdf",
+      "periodo": "HFCS ola 2023 (tablas del BCE, junio de 2026)",
+      "fuente": "BCE, HFCS Statistical Tables Wave 2023, tabla A1 «Owners Share» y tabla B1 «DA1110i Has HMR»: España 72,1",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_June_2026.pdf",
       "pagina": 4,
-      "consultado": "2026-09-02",
+      "consultado": "2026-09-05",
       "tipo": "ESTABLE",
       "derivado": false,
       "superficies": [
         "cuerpo",
-        "graficos"
+        "graficos",
+        "pie_fuentes"
       ]
     },
     "acciones_176_vieja": {
@@ -60,6 +64,111 @@
         "pie_fuentes",
         "cuerpo",
         "tarjeta_portada"
+      ]
+    },
+    "caida_compuesto_bruta": {
+      "valor": "5",
+      "unidad": "pp",
+      "periodo": "entre 2016 y 2021",
+      "fuente": "Banco de España, «Encuesta de Competencias Financieras (ECF) 2021», p. 16, nota 6: «La caída de 5 pp con respecto a 2016 en la pregunta sobre el interés compuesto se reduce a 2 pp si se considera el porcentaje de respuestas correctas entre quienes respondieron a la pregunta anterior sobre el interés simple». Mismo aviso en la diapositiva 11 de la presentación de Arce y Gavilán (14-11-2023). Aquí: caída bruta de respuestas correctas en interés compuesto.",
+      "url": "https://www.bde.es/f/webbe/SES/AnalisisEconomico/Competencis_Financieras/EncuestaCompetencias_2021.pdf",
+      "pagina": 16,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "pie_fuentes"
+      ]
+    },
+    "caida_compuesto_limpia": {
+      "valor": "2",
+      "unidad": "pp",
+      "periodo": "entre 2016 y 2021",
+      "fuente": "Banco de España, «Encuesta de Competencias Financieras (ECF) 2021», p. 16, nota 6: «La caída de 5 pp con respecto a 2016 en la pregunta sobre el interés compuesto se reduce a 2 pp si se considera el porcentaje de respuestas correctas entre quienes respondieron a la pregunta anterior sobre el interés simple». Mismo aviso en la diapositiva 11 de la presentación de Arce y Gavilán (14-11-2023). Aquí: caída una vez restringida la muestra a quienes acertaron el interés simple.",
+      "url": "https://www.bde.es/f/webbe/SES/AnalisisEconomico/Competencis_Financieras/EncuestaCompetencias_2021.pdf",
+      "pagina": 16,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "pie_fuentes"
+      ]
+    },
+    "propiedad_vivienda_it": {
+      "valor": "74,5",
+      "unidad": "% de hogares",
+      "periodo": "HFCS ola 2023 (tablas del BCE, junio de 2026)",
+      "fuente": "BCE, HFCS Statistical Tables Wave 2023, tabla A1 «Owners Share» y tabla B1 «DA1110i Has HMR»: Italia 74,5",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_June_2026.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "propiedad_vivienda_fr": {
+      "valor": "57",
+      "unidad": "% de hogares",
+      "periodo": "HFCS ola 2023 (tablas del BCE, junio de 2026)",
+      "fuente": "BCE, HFCS Statistical Tables Wave 2023, tabla A1 «Owners Share» y tabla B1 «DA1110i Has HMR»: Francia 57,2",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_June_2026.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "propiedad_vivienda_de": {
+      "valor": "42",
+      "unidad": "% de hogares",
+      "periodo": "HFCS ola 2023 (tablas del BCE, junio de 2026)",
+      "fuente": "BCE, HFCS Statistical Tables Wave 2023, tabla A1 «Owners Share» y tabla B1 «DA1110i Has HMR»: Alemania 41,8",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_June_2026.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "graficos"
+      ]
+    },
+    "propiedad_vivienda_lt": {
+      "valor": "91,6",
+      "unidad": "% de hogares",
+      "periodo": "HFCS ola 2023 (tablas del BCE, junio de 2026)",
+      "fuente": "BCE, HFCS Statistical Tables Wave 2023, tabla A1 «Owners Share» y tabla B1 «DA1110i Has HMR»: Lituania, el país con más propietarios de los veintidós 91,6",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_June_2026.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "pie_fuentes"
+      ]
+    },
+    "propiedad_vivienda_cz": {
+      "valor": "73,3",
+      "unidad": "% de hogares",
+      "periodo": "HFCS ola 2023 (tablas del BCE, junio de 2026)",
+      "fuente": "BCE, HFCS Statistical Tables Wave 2023, tabla A1 «Owners Share» y tabla B1 «DA1110i Has HMR»: Chequia, el último por delante de España 73,3",
+      "url": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_June_2026.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo",
+        "pie_fuentes"
       ]
     }
   }

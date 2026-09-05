@@ -1,6 +1,6 @@
 {
   "pieza": "argentina-milei",
-  "actualizado": "2026-09-04",
+  "actualizado": "2026-09-05",
   "alcance": "Manifiesto de datos. Declara las cifras que viven en más de una superficie —titular, dek, metadatos, gráficos, pies— que es donde este proyecto ha cometido todos sus errores. No cubre cada número del cuerpo. Lo comprueba herramientas/verificar_datos.py.",
   "cifras": {
     "inflacion_2023": {
@@ -86,6 +86,166 @@
       "motivo": "Era el pico interanual de abril de 2024, ya con Milei, rotulado como diciembre de 2023.",
       "url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_24DBD5D8158C.pdf",
       "consultado": "2026-09-02"
+    },
+    "pobreza_pico_2024": {
+      "valor": "52,9",
+      "unidad": "%",
+      "periodo": "primer semestre de 2024",
+      "fuente": "INDEC, «Incidencia de la pobreza y la indigencia en 31 aglomerados urbanos», 2.º semestre de 2025, cuadro 1: Pobreza, personas, 1.º semestre 2024 = 52,9",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_269225CA3217.pdf",
+      "pagina": 5,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "meta_description",
+        "og_description",
+        "jsonld",
+        "dek",
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "indigencia_pico_2024": {
+      "valor": "18,1",
+      "unidad": "%",
+      "periodo": "primer semestre de 2024",
+      "fuente": "INDEC, mismo informe, cuadro 1: Indigencia, personas, 1.º semestre 2024 = 18,1",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_269225CA3217.pdf",
+      "pagina": 5,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "cuerpo"
+      ]
+    },
+    "pobreza_2s2023": {
+      "valor": "41,7",
+      "unidad": "%",
+      "periodo": "segundo semestre de 2023",
+      "fuente": "INDEC, mismo informe, cuadro 1: Pobreza, personas, 2.º semestre 2023 = 41,7",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_269225CA3217.pdf",
+      "pagina": 5,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "pobreza_cierre_2025": {
+      "valor": "28,2",
+      "unidad": "%",
+      "periodo": "segundo semestre de 2025",
+      "fuente": "INDEC, mismo informe, p. 4: «El porcentaje de hogares por debajo de la línea de pobreza (LP) alcanzó el 21,0%; en ellos reside el 28,2% de las personas»",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_269225CA3217.pdf",
+      "pagina": 4,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "meta_description",
+        "og_description",
+        "og_image_alt",
+        "twitter_image_alt",
+        "jsonld",
+        "dek",
+        "graficos",
+        "pie_fuentes",
+        "cuerpo"
+      ]
+    },
+    "pib_2025": {
+      "valor": "4,4",
+      "unidad": "%",
+      "periodo": "año 2025, variación interanual",
+      "fuente": "INDEC, Cuentas nacionales, «Informe de avance del nivel de actividad. Cuarto trimestre de 2025» (20-3-2026), p. 5: «El aumento de 4,4% interanual (i.a.) del PIB en 2025». La p. 7 lo repite como acumulado del año.",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/pib_03_26D14C2E1ADC.pdf",
+      "pagina": 5,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "tarifas_gas": {
+      "valor": "2.071",
+      "unidad": "%",
+      "periodo": "diciembre de 2023 a agosto de 2026",
+      "fuente": "IIEP (UBA-CONICET), Reporte de Tarifas y Subsidios n.º 41, tabla 1, columna «VAR % vs DIC-23»: GAS NATURAL 2071%",
+      "url": "https://economicas.uba.ar/iiep/wp-content/uploads/INFORME-IIEP-AGOSTO-2026.pdf",
+      "pagina": 2,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "tarifas_transporte": {
+      "valor": "1.442",
+      "unidad": "%",
+      "periodo": "diciembre de 2023 a agosto de 2026",
+      "fuente": "IIEP (UBA-CONICET), Reporte de Tarifas y Subsidios n.º 41, tabla 1, columna «VAR % vs DIC-23»: TRANSPORTE 1442%",
+      "url": "https://economicas.uba.ar/iiep/wp-content/uploads/INFORME-IIEP-AGOSTO-2026.pdf",
+      "pagina": 2,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "tarifas_agua": {
+      "valor": "544",
+      "unidad": "%",
+      "periodo": "diciembre de 2023 a agosto de 2026",
+      "fuente": "IIEP (UBA-CONICET), Reporte de Tarifas y Subsidios n.º 41, tabla 1, columna «VAR % vs DIC-23»: AGUA 544%",
+      "url": "https://economicas.uba.ar/iiep/wp-content/uploads/INFORME-IIEP-AGOSTO-2026.pdf",
+      "pagina": 2,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "tarifas_luz": {
+      "valor": "501",
+      "unidad": "%",
+      "periodo": "diciembre de 2023 a agosto de 2026",
+      "fuente": "IIEP (UBA-CONICET), Reporte de Tarifas y Subsidios n.º 41, tabla 1, columna «VAR % vs DIC-23»: ENERGIA ELECTRICA 501%",
+      "url": "https://economicas.uba.ar/iiep/wp-content/uploads/INFORME-IIEP-AGOSTO-2026.pdf",
+      "pagina": 2,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
+    },
+    "tarifas_ipc": {
+      "valor": "249",
+      "unidad": "%",
+      "periodo": "diciembre de 2023 a agosto de 2026",
+      "fuente": "IIEP (UBA-CONICET), Reporte n.º 41, p. 2: «se estima que el nivel general de precios lo hizo en 249%»; tabla 1, IPC - GENERAL 249%",
+      "url": "https://economicas.uba.ar/iiep/wp-content/uploads/INFORME-IIEP-AGOSTO-2026.pdf",
+      "pagina": 2,
+      "consultado": "2026-09-05",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
     }
   }
 }
