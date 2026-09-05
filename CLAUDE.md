@@ -311,23 +311,24 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 > **Quien cierre una tanda actualiza esta sección y le cambia la fecha, o la borra.**
 > Una sección de estado caducada ya provocó una contradicción entre dos chats.
 
-**Once piezas publicadas.** `musk-ceguera` se descartó el 5 de septiembre: su titular
-—«Musk promete, Elche ya lo hizo»— descansaba en que dos personas vieron formas; son
-cuatro, vieron fosfenos, la UMH dice que «no se trata de volver a ver» y les retiraron el
-implante a los seis meses. Arreglar eso no era corregir una frase: era cambiar de qué iba
-la pieza.
+**Doce piezas publicadas.** El 5 de septiembre se decidió descartar `musk-ceguera` y ese
+mismo día se revirtió la decisión, por coste: descartarla toca dos portadas, la numeración de
+once tarjetas, el ItemList del JSON-LD, ocho entradas del sitemap, un JS y tres herramientas
+—todo eso contra tres hallazgos—. Y el hecho que la tumbaba mejora la pieza: que a los seis
+meses les retirasen el implante es el matiz que la separa de una nota de prensa. Baja el
+titular a lo que el estudio sostiene, se cuenta el explante, y queda mejor que antes.
 
-Ese mismo día un panel adversarial de 48 subagentes —cuatro lentes por pieza, con la
-consigna de tumbarlas, no de comprobarlas— abrió **114 hallazgos, 26 de nivel A**. Esta
-sección dijo «BLOQUEA: 0» mientras eran 26.
+Ese día un panel adversarial de 48 subagentes —cuatro lentes por pieza, con la consigna de
+tumbarlas, no de comprobarlas— abrió **114 hallazgos, 26 de nivel A**. Esta sección dijo
+«BLOQUEA: 0» mientras eran 26.
 
-# BLOQUEA: 16
+# BLOQUEA: 17
 
 Hallazgos de nivel A pendientes. **Es el único número que importa, y cuando sea 0 salen los
 correos.** Ni antes ni por partes.
 
 **Por qué no se cuenta por correos desbloqueados.** Pablo manda el índice, `piezas.elur.es`,
-no piezas sueltas: once piezas son un cuerpo de trabajo y tres son una muestra. Si el editor
+no piezas sueltas: doce piezas son un cuerpo de trabajo y tres son una muestra. Si el editor
 puede pinchar cualquiera, no sale ningún correo hasta que estén todas. El fichero
 `~/Desktop/AUDITORIA-2026-09-04/ORDEN-DE-REPARACION.md` está ordenado por correos: sirve de
 inventario, no para decidir el orden.
@@ -336,14 +337,29 @@ inventario, no para decidir el orden.
 
 | Pieza | A | Nota |
 |---|--:|---|
-| `cafe-salud` | 2 | |
-| `caida-gopro` | 2 | |
+| `caida-gopro` | 2 | siguiente |
 | `casio-encogerse` | 3 | + las dos erratas del guion de vídeo, en la misma pasada |
 | `narcolepsia-orexina` | 3 | |
-| `apple-upgrade` | 6 | **no se toca hasta el keynote del 9**; caduca entera ese día |
+| `musk-ceguera` | 3 | el titular baja a lo que sostiene el estudio; se cuenta el explante |
+| `apple-upgrade` | 6 | **no se toca hasta el keynote del 9.** Decisión tomada en frío: si el keynote la deja irreconocible, **se descarta**; no se rehace en caliente |
 
-Cerradas el 5 de septiembre: `argentina-milei` (5), `cultura-financiera` (1), `luz-roja` (1).
+Cerradas: `argentina-milei` (5), `cultura-financiera` (1), `luz-roja` (1), `cafe-salud` (2).
 Sin ningún A desde el panel: `crisis-memoria-ia`, `dijeron-que-no`, `tim-cook-apple`.
+
+### Los parches del auditor no se aplican a ciegas
+
+`~/Desktop/AUDITORIA-2026-09-04/parches/` convierte los 114 hallazgos en 186 entradas, una por
+idioma. **El motor es correcto** —comprueba dos veces, aborta el fichero entero si algo no
+cuadra, hace copia antes de escribir— y como localizador ahorra el trabajo de transcripción,
+que es para lo que hay que usarlo.
+
+Pero **de las catorce sustituciones marcadas como automáticas, siete publican texto roto**: en
+esas siete el campo `nuevo` trae la FUENTE, no el reemplazo. Publicaban una frase en japonés
+dentro de un párrafo castellano, un `[primer autor]` literal, un `<h4>` castellano sustituido
+por un párrafo en inglés, y un `"dateModified": "2026-08-25"` convertido en `actualizado,`, que
+rompe el JSON-LD entero. Se aplicaron, se revisaron una a una y se revirtieron.
+
+**Regla: `--aplicar` no. Se lee el diff de cada sustitución antes de dejarla escrita.**
 
 ### El hueco declarado en falso
 
