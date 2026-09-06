@@ -345,9 +345,14 @@ if __name__ == '__main__':
     total = 0
     slugs = sys.argv[1:]
     if not slugs:
-        slugs = sorted(d.split('/')[0] for d in
-                       __import__('glob').glob('*/index.html')
-                       if d.split('/')[0] not in ('gracias', 'en'))
+        _glob = __import__('glob').glob
+        # La lista salia de las paginas ESPANOLAS y lo que se verifica son las
+        # INGLESAS: si faltaba una espanola, su inglesa no se miraba y el
+        # programa salia con 0. Se toma la union de las dos caras.
+        slugs = sorted(set(
+            [d.split('/')[0] for d in _glob('*/index.html')
+             if d.split('/')[0] not in ('gracias', 'en')] +
+            [d.split('/')[0] for d in _glob('*/en/index.html')]))
         # El índice inglés es una superficie publicada más y no lo miraba nadie:
         # vive en «en/index.html», no en «<slug>/en/index.html».
         if os.path.exists('en/index.html'):

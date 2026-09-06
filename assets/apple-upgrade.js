@@ -221,7 +221,7 @@
               money(financeMonthly) + "/mo over " + acmiTerm + " months). It is worth it if the margin from not tying up that money beats what you risk by depending on Klarna and its terms."
             : "Si es material de trabajo: pagando " + money(monthly) + "/mes liberas " + money(device.retail) +
               " de caja hoy. Con la recompra que asume este c\u00e1lculo (" + money(totalLease) + " + " + money(buyout) +
-              " = " + money(device.retail) + "), qued\u00e1rtelo al final del primer ciclo cuesta lo mismo que comprarlo de una vez o financiarlo a 0% con Apple Card (" +
+              " = " + money(device.retail) + "), qued\u00e1rtelo al final del primer ciclo cuesta lo mismo que comprarlo de una vez o financiarlo a 0% con Apple Card, que solo se vende en Estados Unidos (" +
               money(financeMonthly) + "/mes a " + acmiTerm + " meses). Compensa si el margen de no inmovilizar ese dinero supera lo que arriesgas por depender de Klarna y sus condiciones.";
         } else {
           // El veredicto dice lo que dice el cálculo, no lo contrario. En el
