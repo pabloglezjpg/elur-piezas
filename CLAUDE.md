@@ -297,7 +297,7 @@ pregunta útil no es X sino Y» (12 veces en 8 piezas), «Cierre» como ladillo 
 
 ---
 
-## Estado · actualizado el 5 de septiembre de 2026 (panel adversarial a las doce)
+## Estado · actualizado el 6 de septiembre de 2026 (los 26 hallazgos A, cerrados)
 
 > **Esta sección caduca sola.** Si la fecha de arriba no es la de hoy, no te fíes de
 > los números: vuelven a contarse solos. La verdad viva está en tres sitios, y los
@@ -322,29 +322,47 @@ Ese día un panel adversarial de 48 subagentes —cuatro lentes por pieza, con l
 tumbarlas, no de comprobarlas— abrió **114 hallazgos, 26 de nivel A**. Esta sección dijo
 «BLOQUEA: 0» mientras eran 26.
 
-# BLOQUEA: 17
+# BLOQUEA: 0
 
 Hallazgos de nivel A pendientes. **Es el único número que importa, y cuando sea 0 salen los
-correos.** Ni antes ni por partes.
+correos.** Los 26 del panel adversarial del 5 de septiembre están cerrados; el último, el año
+de salida del negocio de impresoras de Casio, el 6 de septiembre.
 
 **Por qué no se cuenta por correos desbloqueados.** Pablo manda el índice, `piezas.elur.es`,
 no piezas sueltas: doce piezas son un cuerpo de trabajo y tres son una muestra. Si el editor
-puede pinchar cualquiera, no sale ningún correo hasta que estén todas. El fichero
-`~/Desktop/AUDITORIA-2026-09-04/ORDEN-DE-REPARACION.md` está ordenado por correos: sirve de
-inventario, no para decidir el orden.
+puede pinchar cualquiera, no sale ningún correo hasta que estén todas.
 
-**El orden es por coste, lo más barato primero, para llegar a cero antes:**
+**Lo único con reloj:** el keynote de Apple del **miércoles 9** caduca `apple-upgrade`. Sus
+tres hallazgos A ya están cerrados —eran una atribución, un hueco falso y un cierre, nada que
+dependiera del keynote—, así que el 9 por la tarde o el 10 hace falta una pasada corta **solo
+de precios y modelos**. Decisión tomada en frío: si el keynote la deja irreconocible, se
+descarta; no se rehace en caliente.
 
-| Pieza | A | Nota |
-|---|--:|---|
-| `caida-gopro` | 2 | siguiente |
-| `casio-encogerse` | 3 | + las dos erratas del guion de vídeo, en la misma pasada |
-| `narcolepsia-orexina` | 3 | |
-| `musk-ceguera` | 3 | el titular baja a lo que sostiene el estudio; se cuenta el explante |
-| `apple-upgrade` | 6 | **no se toca hasta el keynote del 9.** Decisión tomada en frío: si el keynote la deja irreconocible, **se descarta**; no se rehace en caliente |
+### Un archivo incompleto no convierte un dato en inexistente
 
-Cerradas: `argentina-milei` (5), `cultura-financiera` (1), `luz-roja` (1), `cafe-salud` (2).
-Sin ningún A desde el panel: `crisis-memoria-ia`, `dijeron-que-no`, `tim-cook-apple`.
+Casio anunció su salida del negocio de impresoras el **2 de noviembre de 2016** —marca
+SPEEDIA—, y la compañía ya no conserva el comunicado en su web: `world.casio.com/news/`,
+`casio.co.jp/release/` y su archivo de IR no devuelven ni una mención a 2016. La pieza lo
+había declarado como hueco («Año no publicado») por eso.
+
+Lo publicó **Nikkei** ese mismo día, y sus cifras cuadran con el panel: la división de
+sistemas facturó 19.200 millones de yenes entre abril y septiembre de 2016 con 1.400 millones
+de pérdida operativa. **Que el emisor no guarde su propio comunicado hace incompleto su
+archivo, no inexistente el hecho.** Lo que hay que escribir es el dato con su atribución a la
+vista, que es lo que distingue a estas piezas: «2016 · Salida anunciada por la compañía el 2
+de noviembre de 2016 (Nikkei). Casio no conserva el comunicado en su archivo».
+
+### El precio de cierre no es el del día que te conviene
+
+`caida-gopro` publicaba «0,60 $ el 25 de agosto de 2026» en doce superficies y en sus dos
+portadas JPG. Nasdaq da **0,6084 el día 25**; el 0,60 exacto es del **24**. No mueve el
+titular —1 − 0,6084/98,47 sigue redondeando a 99,4%—, pero sí la capitalización derivada:
+184.504.409 acciones × 0,6084 $ = **112,3 M$**, no 110,7. Corregido a 0,61 en las doce
+superficies, en las dos ediciones y en las dos portadas, que se regeneraron y **se abrieron
+para mirarlas**.
+
+La fecha no se movió al 24 a propósito: todo el bloque se sostiene sobre «todas las cifras de
+esta pieza están fechadas a 25 de agosto», y cambiar el ancla lo rompía.
 
 ### Los parches del auditor no se aplican a ciegas
 

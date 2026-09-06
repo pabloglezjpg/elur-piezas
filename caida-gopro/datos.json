@@ -23,7 +23,7 @@
       "valor": "99,4",
       "unidad": "%",
       "periodo": "de 2014 a agosto de 2026",
-      "fuente": "Cálculo propio: 1 − 0,60/98,47 = 99,39%. Las dos cotizaciones, en el 10-K y en el cierre del 25-ago-2026 La cifra se publica FECHADA en todas sus superficies: es una cotización y se mueve.",
+      "fuente": "Cálculo propio: 1 − 0,6084/98,47 = 99,38%. Las dos cotizaciones, en el 10-K y en el cierre del 25-ago-2026 La cifra se publica FECHADA en todas sus superficies: es una cotización y se mueve.",
       "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043516000063/gpro2015-12x3110xk.htm",
       "consultado": "2026-09-02",
       "tipo": "DINAMICO",
@@ -85,6 +85,45 @@
       "motivo": "No es el máximo de cierre: no aparece en ningún 10-K. El del 4T de 2014 es 98,47 $.",
       "url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043516000063/gpro2015-12x3110xk.htm",
       "consultado": "2026-09-02"
+    },
+    "cotizacion_25ago2026": {
+      "valor": "0,61",
+      "variantes": [
+        "0,6084"
+      ],
+      "unidad": "dólares por acción",
+      "periodo": "cierre del 25 de agosto de 2026",
+      "fuente": "Nasdaq, histórico de GPRO: cierre de 0,6084 $ el 25-8-2026 (el 0,60 exacto es del día 24). Se publica redondeado a 0,61.",
+      "url": "https://api.nasdaq.com/api/quote/GPRO/historical?assetclass=stocks",
+      "consultado": "2026-09-06",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "og_image_alt",
+        "twitter_image_alt",
+        "dek",
+        "graficos",
+        "pie_fuentes",
+        "cuerpo"
+      ]
+    },
+    "capitalizacion_25ago2026": {
+      "valor": "112",
+      "variantes": [
+        "112,3"
+      ],
+      "unidad": "millones de dólares",
+      "periodo": "25 de agosto de 2026",
+      "fuente": "Cálculo propio: 184.504.409 acciones (10-Q de 10-8-2026, clase A + clase B a 7 de agosto) × 0,6084 $ = 112,3 M$.",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001500435&type=10-Q",
+      "consultado": "2026-09-06",
+      "tipo": "ESTABLE",
+      "derivado": true,
+      "superficies": [
+        "graficos",
+        "pie_fuentes",
+        "cuerpo"
+      ]
     }
   }
 }

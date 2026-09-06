@@ -59,6 +59,50 @@
         "cuerpo",
         "pie_fuentes"
       ]
+    },
+    "impresoras_ventas_2016": {
+      "valor": "19.200",
+      "unidad": "millones de yenes",
+      "periodo": "abril-septiembre de 2016",
+      "fuente": "Nikkei, «カシオ、プリンター事業から撤退», 2 de noviembre de 2016: la división de sistemas facturó 19.200 millones de yenes entre abril y septiembre de 2016 con 1.400 millones de pérdida operativa.",
+      "url": "https://www.nikkei.com/article/DGXLASDZ02HWN_S6A101C1TJC000/",
+      "consultado": "2026-09-06",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "pie_fuentes",
+        "cuerpo"
+      ]
+    },
+    "impresoras_perdida_2016": {
+      "valor": "1.400",
+      "unidad": "millones de yenes, pérdida operativa",
+      "periodo": "abril-septiembre de 2016",
+      "fuente": "Nikkei, «カシオ、プリンター事業から撤退», 2 de noviembre de 2016: la división de sistemas facturó 19.200 millones de yenes entre abril y septiembre de 2016 con 1.400 millones de pérdida operativa.",
+      "url": "https://www.nikkei.com/article/DGXLASDZ02HWN_S6A101C1TJC000/",
+      "consultado": "2026-09-06",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "pie_fuentes",
+        "cuerpo"
+      ]
+    },
+    "calculadora_ventas_eeuu": {
+      "valor": "7",
+      "unidad": "% de las ventas de calculadora",
+      "periodo": "previsión del ejercicio de marzo de 2026, publicada en mayo de 2025",
+      "fuente": "Casio, «2025年3月期 決算概要» (presentación de resultados del ejercicio cerrado en marzo de 2025), 13 de mayo de 2025, p. 19: «EdTech (calculator): Percentage of sales to the U.S. approx. 7%», en la diapositiva de exposición a los aranceles estadounidenses. No se repite en la presentación de mayo de 2026.",
+      "url": "https://www.casio.co.jp/content/dam/casio/global/corporate/ir/library/results/2025/setumei25_all.pdf",
+      "pagina": 19,
+      "consultado": "2026-09-06",
+      "tipo": "ESTABLE",
+      "derivado": false,
+      "superficies": [
+        "graficos",
+        "pie_fuentes",
+        "cuerpo"
+      ]
     }
   }
 }

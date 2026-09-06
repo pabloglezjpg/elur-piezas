@@ -472,7 +472,9 @@ PORTADAS = {
     },
     # Regenerada dos veces. La 1.ª por datos viejos (−99,2 % y 0,75 $); la 2.ª el
     # 2-sep-2026 porque el 93,85 $ no es el máximo de CIERRE: el 10-K del ejercicio
-    # 2015 da 98,47 $ en el 4T de 2014. El −99,4 % aguanta: 1 − 0,60/98,47 = 99,39 %.
+    # 2015 da 98,47 $ en el 4T de 2014. El −99,4 % aguanta: 1 − 0,6084/98,47 = 99,38 %.
+    # Regenerada una 3.ª el 6-sep-2026: Nasdaq da 0,6084 el 25-ago-2026, que redondea
+    # a 0,61; el 0,60 exacto es del día 24. El −99,4 % no se mueve.
     "cafe-salud": {
         "formato": "stats",
         "categoria": "Ciencia · Salud",
@@ -538,10 +540,10 @@ PORTADAS = {
         "dato_pie": ["de su valor en bolsa", "entre 2014 y agosto de 2026"],
         "grafico": "linea",
         "serie": [("2014a", 24.0), ("2014", 98.47), ("2018", 6.0),
-                  ("2022", 5.5), ("2026", 0.60)],
+                  ("2022", 5.5), ("2026", 0.61)],
         "anotaciones": {
             1: ("98,47 $", "4T 2014", -62),
-            4: ("0,60 $", "ago. 2026", -62),
+            4: ("0,61 $", "ago. 2026", -62),
         },
     },
 
@@ -569,10 +571,10 @@ PORTADAS = {
         "dato_pie": ["of its market value", "from 2014 to August 2026"],
         "grafico": "linea",
         "serie": [("2014a", 24.0), ("2014", 98.47), ("2018", 6.0),
-                  ("2022", 5.5), ("2026", 0.60)],
+                  ("2022", 5.5), ("2026", 0.61)],
         "anotaciones": {
             1: ("$98.47", "Q4 2014", -62),
-            4: ("$0.60", "Aug 2026", -62),
+            4: ("$0.61", "Aug 2026", -62),
         },
     },
     "casio-encogerse-en": {

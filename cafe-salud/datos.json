@@ -47,6 +47,20 @@
       "motivo": "Convertía un riesgo relativo de mortalidad en esperanza de vida. El abstract de Kim 2019 no contiene ninguna unidad temporal.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31055709/",
       "consultado": "2026-09-02"
+    },
+    "caida_dibujada_retirada": {
+      "valor": "9,4",
+      "unidad": "% del beneficio dibujado",
+      "periodo": "trazo publicado hasta el 6 de septiembre de 2026",
+      "fuente": "Cálculo propio sobre el atributo «d» del propio gráfico, tal como se servía: la curva subía de y=110,0 a y=25,6 —84,4 unidades— y volvía a y=33,5, devolviendo 7,9. 7,9/84,4 = 9,36%. Es una medición de esta pieza, no un dato del metaanálisis: documenta que la nota decía «redibujado plano» mientras el trazo aún bajaba.",
+      "url": "https://piezas.elur.es/cafe-salud/",
+      "consultado": "2026-09-06",
+      "tipo": "ESTABLE",
+      "derivado": true,
+      "superficies": [
+        "graficos",
+        "cuerpo"
+      ]
     }
   }
 }
