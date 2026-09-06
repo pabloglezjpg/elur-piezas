@@ -318,6 +318,18 @@ once tarjetas, el ItemList del JSON-LD, ocho entradas del sitemap, un JS y tres 
 meses les retirasen el implante es el matiz que la separa de una nota de prensa. Baja el
 titular a lo que el estudio sostiene, se cuenta el explante, y queda mejor que antes.
 
+> ⚠ **6 de septiembre de 2026 · ESTA DECISIÓN ESTÁ REGISTRADA Y NO EJECUTADA.** Comprobado
+> con grep: la palabra «explante» no aparece en `musk-ceguera/index.html`, ni en su edición
+> inglesa, ni en su `datos.json`. Lo detectó el chat de vídeo al convertir la pieza en guion
+> y venir aquí a buscar el dato. Hasta que se escriba en la pieza, **este párrafo describe
+> una intención, no el estado del repositorio**.
+>
+> Y hay más de lo que se registró aquí: los dos pacientes del ensayo de Elche llevaron el
+> implante seis meses con estimulación diaria, se les retiró, y **la mejora persistió tras
+> el explante** — tres años después de la extracción el paciente conserva parte de la
+> percepción visual, algo que los propios investigadores no esperaban. Pendiente de
+> verificar contra el paper antes de escribirlo en la pieza.
+
 Ese día un panel adversarial de 48 subagentes —cuatro lentes por pieza, con la consigna de
 tumbarlas, no de comprobarlas— abrió **114 hallazgos, 26 de nivel A**. Esta sección dijo
 «BLOQUEA: 0» mientras eran 26.
