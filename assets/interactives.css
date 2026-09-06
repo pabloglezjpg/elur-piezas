@@ -1,0 +1,92 @@
+/* ============================================================
+   piezas.elur.es — interactives.css
+   El contrato de mejora progresiva, en un solo sitio.
+
+   POR QUÉ ESTE FICHERO EXISTE
+   Estas tres reglas son la regla técnica nº 2 del repo —«la pieza se lee
+   entera sin JavaScript; los controles interactivos van ocultos por ID»— y
+   NO estaban en assets/periodismo.css. Comprobado:
+
+       grep -n "needs-js\|\.ready" assets/periodismo.css   →  sin resultados
+
+   Estaban copiadas a mano, con el ID de cada pieza delante, en seis:
+
+       #casio  .needs-js{display:none;}   casio-encogerse/index.html:208
+       #musk   .needs-js{display:none;}   musk-ceguera/index.html:62
+       …y en argentina-milei, cafe-salud, cultura-financiera y dijeron-que-no
+
+   La regla que más se repite en la documentación del proyecto era la única
+   que no tenía casa. Una pieza nueva que olvidase esas tres líneas publicaría
+   sus controles a la vista sin JavaScript: el lector los pulsa y no pasa nada.
+   Ahora la regla vive aquí, se carga con la librería y `verifica_pieza.py`
+   comprueba en un navegador de verdad que se cumple.
+
+   CÓMO FUNCIONA
+   La raíz de la pieza recibe `.ready` cuando interactives.js ha terminado de
+   montar sus componentes. Sin JS —o si el montaje revienta— la clase nunca
+   llega y todo lo marcado `.needs-js` sigue oculto.
+   ============================================================ */
+
+/* POR QUÉ LLEVAN !important, Y NO ES PEREZA
+   Este fichero se escribió primero sin él y `verifica_pieza.py` lo tumbó a la
+   primera sobre `argentina-milei`: sin JavaScript se veía el grupo de botones.
+
+   La causa es de especificidad, y es la razón por la que la copia a mano con
+   el ID delante funcionaba sin que nadie supiera por qué:
+
+       #milei .needs-js  { display:none }   (1,1,0)  ← la copia de la pieza
+       #milei .dash-tags { display:flex }   (1,1,0)  ← el CSS de la pieza
+       .needs-js         { display:none }   (0,1,0)  ← aquí, y PIERDE
+
+   Al subir la regla a la hoja compartida pierde el ID y cualquier
+   `#pieza .loquesea{display:flex}` la gana. El resultado sería el fallo exacto
+   que esta regla existe para impedir: un control interactivo a la vista sin
+   JavaScript, que el lector pulsa y no hace nada.
+
+   «Sin JS esto no se ve» no es una preferencia estética que deba negociar
+   especificidad con el CSS de cada pieza: es una condición de seguridad. Por
+   eso va con !important, y por eso lo llevan también las de `.ready`, que si no
+   no podrían revertirlo. */
+
+/* Oculto por defecto: es el estado sin JavaScript. */
+.needs-js { display: none !important; }
+
+/* Y visible solo cuando la pieza se ha declarado lista. `revert` devuelve el
+   display que le tocara por su etiqueta o por el CSS de la pieza. */
+.ready .needs-js { display: revert !important; }
+.ready .needs-js.flex { display: flex !important; }
+.ready .needs-js.grid { display: grid !important; }
+.ready .needs-js.inline { display: inline !important; }
+.ready .needs-js.inline-block { display: inline-block !important; }
+
+/* Al revés: lo que solo tiene sentido SIN JavaScript. La nota que explica que
+   la tabla de abajo trae los mismos datos que el interactivo de arriba sobra
+   en cuanto el interactivo funciona. */
+.ready .solo-sin-js { display: none !important; }
+
+/* Atenuado del filtro. Atenúa, no oculta: el lector sigue viendo el conjunto y
+   entiende que está filtrando, en vez de creer que faltan datos. */
+[data-piezas-filtrable] { transition: opacity .18s ease; }
+[data-piezas-filtrable].dim { opacity: .22; }
+@media (prefers-reduced-motion: reduce) {
+  [data-piezas-filtrable] { transition: none; }
+}
+
+/* `hidden` gana SIEMPRE, incluso sobre las reglas de arriba.
+
+   Sin esto, un elemento que es a la vez `.needs-js` y `[hidden]` —el botón de
+   «Repetir el test» de `cultura-financiera`, que nace oculto y solo aparece al
+   terminar— se hacía visible en cuanto la pieza recibía `.ready`, porque
+   `display:revert !important` ganaba a `hidden`. La comparación con la pieza
+   original lo cazó: un botón visible de más desde el primer segundo.
+   Y no basta con `[hidden]`: entre declaraciones `!important` sigue mandando
+   la especificidad, y `.ready .needs-js` (0,2,0) le gana a `[hidden]` (0,1,0).
+   Por eso el selector nombra las dos cosas: así vale (0,3,0) y gana. */
+[hidden],
+.ready .needs-js[hidden],
+.ready [data-piezas-panel][hidden] { display: none !important; }
+
+/* Los botones de grupo ya se dibujan en periodismo.css (.dash-tag, .cafe-tag);
+   aquí solo se marca el estado, que es lo que necesita el lector de pantalla
+   y lo que antes ponía cada JS por su cuenta. */
+[data-piezas-grupo] [data-valor][aria-pressed="true"] { font-weight: 600; }

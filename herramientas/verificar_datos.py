@@ -378,8 +378,40 @@ def main():
     tot_f = tot_c = con_manifiesto = 0
     sin_manifiesto = []
     deuda = {}
+    no_revisadas = []
+    mal_formadas = []
     for slug in slugs:
-        man, fallos, avisos, n, sin_dec = revisa(slug, repo)
+        # La forma del manifiesto se comprueba antes de fiarse de él. Con
+        # «superficies» como cadena en vez de lista, esto salía con 0: iterar
+        # una cadena da caracteres, ninguno casa con un nombre de superficie y
+        # la cifra no se comprobaba en ningún sitio. Verde sin mirar nada.
+        ruta_man = os.path.join(repo, slug, "datos.json")
+        if os.path.exists(ruta_man):
+            try:
+                crudo = json.load(open(ruta_man, encoding="utf-8"))
+            except Exception as e:
+                mal_formadas.append((slug, "datos.json no parsea: %s" % e))
+                continue
+            cifras_crudas = crudo.get("cifras")
+            if cifras_crudas is not None and not isinstance(cifras_crudas, dict):
+                mal_formadas.append((slug, "«cifras» es %s y tiene que ser un objeto"
+                                     % type(cifras_crudas).__name__))
+                continue
+            for k, v in (cifras_crudas or {}).items():
+                if not isinstance(v, dict):
+                    mal_formadas.append((slug, "«%s» no es un objeto" % k))
+                elif "superficies" in v and not isinstance(v["superficies"], list):
+                    mal_formadas.append(
+                        (slug, "«%s.superficies» es %s y tiene que ser una lista"
+                         % (k, type(v["superficies"]).__name__)))
+        # Y la revisión va envuelta: una pieza que revienta se anota y se
+        # nombra al final, no mata la pasada dejando a las demás sin mirar
+        # detrás de un puñado de «OK».
+        try:
+            man, fallos, avisos, n, sin_dec = revisa(slug, repo)
+        except Exception as e:
+            no_revisadas.append((slug, "%s: %s" % (type(e).__name__, e)))
+            continue
         if man is None:
             sin_manifiesto.append(slug)
             continue
@@ -436,6 +468,20 @@ def main():
     # datos.json, esto falla.
     if sin_manifiesto:
         print("Hay piezas publicadas sin datos.json: el verificador no las mira.")
+        return 1
+    # Una pasada incompleta no es una pasada limpia. Si alguna pieza no se ha
+    # podido mirar, se dice cuál y se sale con 1, aunque todo lo demás esté OK.
+    if mal_formadas:
+        print("\nMANIFIESTOS MAL FORMADOS (%d):" % len(mal_formadas))
+        for slug, por in mal_formadas:
+            print("  [FALLO] %s: %s" % (slug, por))
+        return 1
+    if no_revisadas:
+        print("\nPIEZAS QUE NO SE HAN PODIDO REVISAR (%d de %d):"
+              % (len(no_revisadas), len(slugs)))
+        for slug, por in no_revisadas:
+            print("  [FALLO] %s — %s" % (slug, por))
+        print("La pasada está incompleta: esto NO es un verde.")
         return 1
     return 1 if tot_f else 0
 
