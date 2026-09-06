@@ -11,8 +11,19 @@
 # Publicar cómo se comprueba una pieza es el argumento, no el riesgo.
 
 /CLAUDE.md                        /404.html  404
-/_BRIEFING_COWORK_piezas.md       /404.html  404
+/FLUJO.md                         /404.html  404
 /schema.sql                       /404.html  404
+/_BRIEFING_COWORK_piezas.md       /404.html  404
 /herramientas/sin_declarar.json   /404.html  404
 /herramientas/deriva_tarjeta.json /404.html  404
 /herramientas/superficies.json    /404.html  404
+/herramientas/lib/*               /404.html  404
+
+# El directorio ENTERO, no solo el __pycache__: lib/ lleva sonda_overflow.js, y una
+# regla por extension no lo habria cazado porque .js esta en la lista blanca. La
+# frontera por extension ya fallo una vez el 7 de septiembre de 2026.
+
+# Canario. Existe solo para saber si un despliegue concreto ha llegado: no se puede
+# comprobar desde fuera, y por eso una vez se dio por desplegado un _redirects que no
+# lo estaba. Si /_canario-2026-09-07 responde, esta version esta arriba.
+/_canario-2026-09-07             /404.html  200
