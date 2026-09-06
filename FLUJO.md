@@ -176,3 +176,43 @@ fallaron las reglas: falló que fueran prosa.
 ---
 
 *Si este fichero deja de describir lo que se hace, arréglalo antes de seguir.*
+
+---
+
+## Código que entró sin revisión externa
+
+**7 de septiembre de 2026, commit `5db935f`.** Entraron 2.632 líneas en una sola subida,
+instaladas por el asistente de Pablo. De ellas, **1.666 no las ha leído nadie más**:
+
+| Fichero | Líneas | Estado |
+|---|---|---|
+| `herramientas/verifica_pieza.py` | 1.177 | **sin revisar** |
+| `herramientas/scaffold_pieza.py` | 489 | **sin revisar** |
+| `herramientas/lib/arbol.py` | 120 | sin revisar |
+| `herramientas/lib/sonda_overflow.js` | 131 | sin revisar |
+| `herramientas/verificar_datos.py` | +48/−1 | revisado: el auditor leyó el diff y probó el arreglo |
+| `assets/interactives.{js,css}` | 490 | retirados en `df4ce7e` sin llegar a usarse |
+
+Ninguno toca las doce piezas publicadas, así que no bloqueaba el envío. **Pero el día que
+alguien se apoye en `verifica_pieza.py` creyendo que pasó por alguna comprobación, se
+estará apoyando en esto.** La regla de la casa —quien escribe una pieza no puede ser quien
+la valida— vale igual para las herramientas que deciden si una pieza está bien.
+
+Lo que sí está comprobado, por dos personas por separado: los cinco verificadores dan los
+mismos números (74 cifras · 0 fallos · 235 sin declarar · 13 páginas EN · 0 ERROR · 120
+inyecciones cazadas), y el arreglo del fallo que hacía que `verificar_datos.py` reventara
+dejando piezas sin mirar funciona: ahora nombra la que falla y dice «La pasada está
+incompleta: esto NO es un verde».
+
+### Y la trampa que vino firmada
+
+Del chat que construyó el gate, con sus palabras:
+
+> «Hoy he escrito dos comprobadores que daban por buena una protección sin medirla —el que
+> aceptaba `_redirects` y, cuatro horas antes, el control que se conformaba con cualquier
+> fallo en vez de exigir uno nuevo—. Es exactamente el error que este proyecto lleva un mes
+> pagando, y lo he cometido **dentro de la herramienta escrita para impedirlo**.»
+
+Que el fallo aparezca dentro del aparato construido para cazarlo no es un descuido: es la
+forma que tiene este error de colarse. Por eso el gate exige que el control positivo salte
+**en la misma ejecución**, y por eso un código de salida `2` pesa más que un `1`.

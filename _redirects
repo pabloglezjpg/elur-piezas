@@ -1,29 +1,30 @@
-# Cloudflare Pages · reglas de despliegue
+# ⚠ ESTAS REGLAS NO CIERRAN NADA. SE QUEDAN COMO REGISTRO DEL INTENTO Y COMO AVISO.
 #
-# Cierra los ficheros internos que el despliegue estaba sirviendo en abierto.
-# Detectado el 7 de septiembre de 2026: piezas.elur.es/CLAUDE.md devolvía el manual
-# de operación entero — pretensiones económicas, historial de errores de las piezas,
-# rutas locales e identificadores de Notion.
+# Medido en produccion el 7 de septiembre de 2026, con este fichero desplegado y su
+# canario respondiendo: las siete rutas cuyo fichero existe seguian devolviendo 200
+# —/CLAUDE.md con sus 38.150 bytes— y la unica que devolvia 404 era
+# /_BRIEFING_COWORK_piezas.md, que no existe porque esta en .gitignore. En Pages, un
+# fichero que existe gana a su regla.
 #
-# Lo que SÍ se queda público, y a propósito:
-#   · <slug>/datos.json      el manifiesto de datos de cada pieza
-#   · herramientas/*.py      los verificadores
-# Publicar cómo se comprueba una pieza es el argumento, no el riesgo.
+# El cierre real lo hace functions/_middleware.js. NO anadas rutas aqui creyendo que las
+# cierras: anadelas alli, y compruebalas con curl y con parametro anti-cache.
 
 /CLAUDE.md                        /404.html  404
 /FLUJO.md                         /404.html  404
 /schema.sql                       /404.html  404
 /_BRIEFING_COWORK_piezas.md       /404.html  404
+/.gitignore                       /404.html  404
 /herramientas/sin_declarar.json   /404.html  404
 /herramientas/deriva_tarjeta.json /404.html  404
 /herramientas/superficies.json    /404.html  404
 /herramientas/lib/*               /404.html  404
 
-# El directorio ENTERO, no solo el __pycache__: lib/ lleva sonda_overflow.js, y una
-# regla por extension no lo habria cazado porque .js esta en la lista blanca. La
-# frontera por extension ya fallo una vez el 7 de septiembre de 2026.
-
-# Canario. Existe solo para saber si un despliegue concreto ha llegado: no se puede
-# comprobar desde fuera, y por eso una vez se dio por desplegado un _redirects que no
-# lo estaba. Si /_canario-2026-09-07 responde, esta version esta arriba.
-/_canario-2026-09-07             /404.html  200
+# Canario. Existe solo para saber si un despliegue concreto ha llegado: eso no se puede
+# comprobar desde fuera, y por eso una vez se dio por desplegado un _redirects que no lo
+# estaba. Responde 308 hacia /404: la regla se dispara pero no hace la reescritura 200
+# que pide. Da igual el codigo; lo que importa es que NO sea 404, porque una ruta sin
+# regla devuelve 404 directo. NO lo "arregles" para que de 200: funciona.
+#
+# Cambiale la fecha del nombre en cada despliegue que haya que verificar. Un canario con
+# el nombre de ayer no distingue el despliegue de hoy del de ayer.
+/_canario-2026-09-07b            /404.html  200

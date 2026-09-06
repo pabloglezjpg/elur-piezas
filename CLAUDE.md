@@ -324,11 +324,11 @@ titular a lo que el estudio sostiene, se cuenta el explante, y queda mejor que a
 > y venir aquí a buscar el dato. Hasta que se escriba en la pieza, **este párrafo describe
 > una intención, no el estado del repositorio**.
 >
-> Y hay más de lo que se registró aquí: los dos pacientes del ensayo de Elche llevaron el
-> implante seis meses con estimulación diaria, se les retiró, y **la mejora persistió tras
-> el explante** — tres años después de la extracción el paciente conserva parte de la
-> percepción visual, algo que los propios investigadores no esperaban. Pendiente de
-> verificar contra el paper antes de escribirlo en la pieza.
+> Y hay más de lo que se registró aquí: **la mejora persistió tras el explante**. El
+> asistente lo escribió primero desde prensa secundaria como «los dos pacientes» y «tres
+> años después»; el chat de auditoría fue al paper y las dos cifras estaban mal. Lo que
+> sostiene la fuente primaria es **un participante** y **dieciocho meses**. Queda escrito
+> el error porque es el de siempre: dos medios repitiendo lo mismo no son una fuente.
 
 Ese día un panel adversarial de 48 subagentes —cuatro lentes por pieza, con la consigna de
 tumbarlas, no de comprobarlas— abrió **114 hallazgos, 26 de nivel A**. Esta sección dijo
