@@ -1,0 +1,18 @@
+# Cloudflare Pages · reglas de despliegue
+#
+# Cierra los ficheros internos que el despliegue estaba sirviendo en abierto.
+# Detectado el 7 de septiembre de 2026: piezas.elur.es/CLAUDE.md devolvía el manual
+# de operación entero — pretensiones económicas, historial de errores de las piezas,
+# rutas locales e identificadores de Notion.
+#
+# Lo que SÍ se queda público, y a propósito:
+#   · <slug>/datos.json      el manifiesto de datos de cada pieza
+#   · herramientas/*.py      los verificadores
+# Publicar cómo se comprueba una pieza es el argumento, no el riesgo.
+
+/CLAUDE.md                        /404.html  404
+/_BRIEFING_COWORK_piezas.md       /404.html  404
+/schema.sql                       /404.html  404
+/herramientas/sin_declarar.json   /404.html  404
+/herramientas/deriva_tarjeta.json /404.html  404
+/herramientas/superficies.json    /404.html  404
