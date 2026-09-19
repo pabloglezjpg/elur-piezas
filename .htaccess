@@ -1,0 +1,80 @@
+# Cierra los ficheros internos que el despliegue serviría en abierto.
+# Réplica de functions/_middleware.js para Apache (Hostinger).
+#
+# EN CLOUDFLARE PAGES ESTE FICHERO NO HACE NADA. Pages ignora .htaccess; allí quien
+# cierra es functions/_middleware.js. Los dos conviven a propósito: así el repo vale
+# para los dos sitios y la mudanza no depende de acordarse de añadir nada.
+#
+# ⚠ NO SE DA POR CERRADO PORQUE ESTÉ ESCRITO. Se da por cerrado cuando una petición
+# real devuelve 404. Ya pasó una vez: el _redirects de este mismo repo declaraba siete
+# rutas cerradas, se desplegó, y las siete seguían devolviendo 200 —/CLAUDE.md con sus
+# 38.150 bytes—. La única que daba 404 era la que no existía.
+#
+# CÓMO SE COMPRUEBA, con control positivo:
+#   1. Pide una ruta que SÍ debe estar cerrada, con parámetro anti-caché:
+#        /CLAUDE.md?v=<timestamp>          → tiene que dar 404
+#   2. Pide una que NO debe estarlo:
+#        /casio-encogerse/datos.json?v=...  → tiene que dar 200
+#   Si la 1 da 200, esto no cierra nada. Si la 2 da 404, cierra de más.
+#
+# LA FRONTERA DE LO INTERNO ES EL DIRECTORIO, NO LA EXTENSIÓN. herramientas/lib/ lleva
+# un sonda_overflow.js, y una lista blanca por extensión no lo habría cazado nunca.
+# Por eso lib/ se cierra entero.
+#
+# LO QUE SE QUEDA PÚBLICO, Y A PROPÓSITO: <slug>/datos.json y herramientas/*.py.
+# Publicar cómo se comprueba una pieza es el argumento; el andamio interno del gate, no.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Ficheros internos, uno a uno. Dos de ellos aún no existen: los creará el gate.
+  # Cerrarlos por adelantado no cuesta nada y evita la ventana en que existen y están
+  # abiertos, que es como se coló todo esto la primera vez.
+  RewriteRule ^CLAUDE\.md$                            - [R=404,L]
+  RewriteRule ^FLUJO\.md$                             - [R=404,L]
+  RewriteRule ^_BRIEFING_COWORK_piezas\.md$           - [R=404,L]
+  RewriteRule ^schema\.sql$                           - [R=404,L]
+  RewriteRule ^\.gitignore$                           - [R=404,L]
+  RewriteRule ^herramientas/sin_declarar\.json$       - [R=404,L]
+  RewriteRule ^herramientas/deriva_tarjeta\.json$     - [R=404,L]
+  RewriteRule ^herramientas/superficies\.json$        - [R=404,L]
+  RewriteRule ^herramientas/despliegue\.json$         - [R=404,L]
+  RewriteRule ^herramientas/retiradas_sin_declarar\.json$ - [R=404,L]
+
+  # El directorio entero del andamio interno.
+  RewriteRule ^herramientas/lib/                      - [R=404,L]
+</IfModule>
+
+# Cinturón y tirantes: si mod_rewrite no estuviera activo, estas reglas siguen cerrando.
+<FilesMatch "^(CLAUDE\.md|FLUJO\.md|_BRIEFING_COWORK_piezas\.md|schema\.sql|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+
+# Nada de listados de directorio.
+Options -Indexes
+
+# La página de error propia del sitio.
+ErrorDocument 404 /404.html
+
+# Tipos y compresión, que en Pages venían de serie y aquí hay que declararlos.
+<IfModule mod_mime.c>
+  AddType application/json .json
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Caché: el HTML siempre fresco —una corrección tiene que verse ya—, lo demás largo.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
