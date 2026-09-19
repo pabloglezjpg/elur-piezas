@@ -140,6 +140,13 @@
 .via-anno .row{display:flex;gap:10px;align-items:baseline;font-size:14.5px;line-height:1.4;color:var(--ink);}
 .via-anno .tag{font-family:var(--font-mono,monospace);font-size:11px;flex:0 0 auto;}
 .via-note{border-left:3px solid var(--terra);padding:10px 14px;margin:14px auto 0;max-width:var(--measure);background:var(--paper-2);font-size:13.5px;line-height:1.5;color:var(--ink);}
+
+/* Móvil: la ficha de cada empresa se apila. En una sola línea, el `nowrap`
+   de .meta empujaba la fila hasta 885px y obligaba a arrastrar de lado. */
+@media (max-width:640px){
+  .mrow{flex-direction:column;gap:2px;}
+  .mrow .meta{white-space:normal;text-align:left;}
+}
 </style>
 </head>
 <body>
@@ -169,9 +176,9 @@
     <div class="body lead">
       <p>On 3 August 2026, Elon Musk promised again what he has been repeating since 2024: that his Blindsight implant will restore sight imminently. He said it on Ashlee Vance’s podcast, and the Spanish press headlined it “in the coming months”, which is the wording that stuck. It is his favourite promise. It is also, so far, the one with the least evidence behind it. As of today, Neuralink has not implanted Blindsight in a single person, nor published a single peer-reviewed study on vision. Meanwhile, in the Spanish city of Elche, two blind people have already made out shapes again, and before them a third came to identify letters.</p>
 
-      <p>Better to say this early, because it runs through the whole story: if we are talking about brain implants for sight at all, it is largely thanks to Musk. None of the other teams here has his megaphone; the field would probably have moved forward without Neuralink anyway, but quietly, with far less money and attention. The question is not whether Musk helps the cause (he does, a lot), but separating what is already real from what is still a promise.</p>
+      <p>If we are talking about brain implants for sight at all, it is largely thanks to Musk. None of the other teams here has his megaphone; the field would probably have moved forward without Neuralink anyway, but quietly, with far less money and attention. The question is not whether Musk helps the cause (he does, a lot), but separating what is already real from what is still a promise.</p>
 
-      <p class="nutgraf">Musk’s promise is the way into a story almost nobody is telling in the right order: brain implants have stopped being science fiction, but the ones that actually work today do not carry his name. A team at the <span lang="es">Universidad Miguel Hernández</span>, a public university in Elche, in south-eastern Spain, published its results in November 2025; in China, the first invasive brain-computer interface cleared for commercial use is already being fitted in hospitals; and one very recent precedent explains why any patient should look at these promises calmly. This is what exists today, who is behind it and what stage it is at.</p>
+      <p class="nutgraf">Musk’s promise is the way into a story almost nobody is telling in the right order: brain implants have stopped being science fiction, but the ones that actually work today do not carry his name. A team at the <span lang="es">Universidad Miguel Hernández</span>, a public university in Elche, in south-eastern Spain, published its results in November 2025; in China, the first invasive brain-computer interface cleared for commercial use is already being fitted in hospitals; and one very recent precedent explains why any patient should look at these promises calmly.</p>
 
       <h2 class="ladillo">The promise, dated</h2>
 
@@ -181,7 +188,7 @@
     <!-- ============ G1 · Timeline promesa vs realidad ============ -->
     <figure class="figure" id="fig-promesa">
       <div class="fig-head reveal">
-        <div class="fig-num">Chart 1 · interactive</div>
+        <div class="fig-num">Chart 1</div>
         <h3 class="fig-title">The promise vs. the reality (2024–2026)</h3>
         <p class="fig-note">Every date is a fresh promise about Blindsight. The reality, below, has not moved. <span class="needs-js">Tap any milestone to see how much time has passed.</span></p>
       </div>
@@ -210,7 +217,7 @@
         <li class="tl-item" data-date="2025-06-19" aria-label="19 June 2025">
           <div class="tl-date">19 Jun 2025</div>
           <h4 class="tl-h">“6–12 months” to the first vision implant</h4>
-          <p class="tl-p">At Y Combinator. He compares the initial resolution to “the graphics of the first Nintendo”. <strong>Correction:</strong> this milestone was dated 6 March 2025 and belongs after the Doha forum, not before it.</p>
+          <p class="tl-p">At Y Combinator. He compares the initial resolution to “the graphics of the first Nintendo”.</p>
         </li>
         <li class="tl-item" data-date="2025-12-31" aria-label="31 December 2025">
           <div class="tl-date">31 Dec 2025</div>
@@ -238,13 +245,13 @@
 
       <h2 class="ladillo">The turn: what is happening far from Neuralink</h2>
 
-      <p>Now for the part almost nobody tells. In November 2025, a team at the UMH in Elche, led by Professor <span lang="es">Eduardo Fernández Jover</span> with the neurosurgeon <span lang="es">Pablo González López</span> (of the Dr Balmis Hospital in Alicante), published in <i>Science Advances</i> the results of implanting a 100-electrode array in the visual cortex of <strong>two</strong> blind people. The participants came to perceive patterns and movement. The <strong>letters come from a different experiment and a different person</strong>: the same team had published them in 2021 in the <i>Journal of Clinical Investigation</i>, with 96 electrodes and <strong>a single</strong> participant, a 57-year-old woman, who came to identify some letters and the edges of objects. This text used to run the two together; they are two separate studies. This is not natural vision (they are phosphenes, points of light the brain learns to interpret) and it is still research, not a device a patient can ask for.</p>
+      <p>In November 2025, a team at the UMH in Elche, led by Professor <span lang="es">Eduardo Fernández Jover</span> with the neurosurgeon <span lang="es">Pablo González López</span> (of the Dr Balmis Hospital in Alicante), published in <i>Science Advances</i> the results of implanting a 100-electrode array in the visual cortex of <strong>two</strong> blind people. The participants came to perceive patterns and movement. The <strong>letters come from a different experiment and a different person</strong>: the same team had published them in 2021 in the <i>Journal of Clinical Investigation</i>, with 96 electrodes and <strong>a single</strong> participant, a 57-year-old woman, who came to identify some letters and the edges of objects. They are two separate studies. This is not natural vision (they are phosphenes, points of light the brain learns to interpret) and it is still research, not a device a patient can ask for.</p>
     </div>
 
     <!-- ============ G2 · Simulador de fosfenos ============ -->
     <figure class="figure" id="fig-fosfenos">
       <div class="fig-head reveal">
-        <div class="fig-num">Chart 2 · interactive</div>
+        <div class="fig-num">Chart 2</div>
         <h3 class="fig-title">What a patient with a cortical implant sees</h3>
         <p class="fig-note">Compare a real scene with its phosphene simulation. <span class="needs-js">Slide to reveal, and change the number of electrodes.</span></p>
       </div>
@@ -363,7 +370,7 @@
     <!-- ============ G3 · Mapa por país y fase ============ -->
     <figure class="figure" id="fig-mapa">
       <div class="fig-head reveal">
-        <div class="fig-num">Chart 3 · interactive</div>
+        <div class="fig-num">Chart 3</div>
         <h3 class="fig-title">Brain implants, by stage of development</h3>
         <p class="fig-note">Seven active projects, one abandoned. <span class="needs-js">Filter by stage, or open each group for the detail.</span></p>
       </div>
@@ -427,8 +434,7 @@
           <summary>Abandoned</summary>
           <div class="mrow faded" data-fase="aband"><span>Second Sight / Argus II — US</span><span class="meta">retinal, 350+ patients, 2019–2022 · the house’s cortical programme, Orion, lives on at Cortigent</span></div>
         </details>
-        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--hair);padding-top:12px;margin-top:12px;">Precision Neuroscience (US, temporary use: 510(k) K242618, March 2025, under 30 days) has no stage comparable to the ones above. <strong>Declared gap.</strong> There was a patient figure here. I am withdrawing it: the company has no trial registered on ClinicalTrials.gov, and its 510(k) was cleared with no clinical data, only bench testing and animal work.</p>
-        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--hair);padding-top:12px;margin-top:12px;"><strong>Declared gap.</strong> The Blackrock Neurotech row carried a patient figure. I am withdrawing it: the company has no trials registered in its name on ClinicalTrials.gov and publishes no count of its own. The largest and longest trial of a brain implant of this kind, BrainGate, documents 14 people implanted between 2004 and 2021.</p>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--hair);padding-top:12px;margin-top:12px;">Precision Neuroscience (US, temporary use: 510(k) K242618, March 2025, under 30 days) has no stage comparable to the ones above: it has no trial registered on ClinicalTrials.gov, and its 510(k) was cleared with no clinical data, only bench testing and animal work. Blackrock Neurotech has no trials registered in its name either. The largest and longest trial of a brain implant of this kind, BrainGate, documents 14 people implanted between 2004 and 2021.</p>
       </div>
       <p class="fig-source">Source: Reuters; NMPA/Xinhua; <i>Science Advances</i>; IEEE Spectrum; ClinicalTrials.gov; FDA (510(k) K242618).</p>
     </figure>
@@ -462,7 +468,7 @@
     <!-- ============ G4 · Explorador de la vía visual (3D opcional) ============ -->
     <figure class="figure" id="fig-via">
       <div class="fig-head reveal">
-        <div class="fig-num">Chart 4 · interactive</div>
+        <div class="fig-num">Chart 4</div>
         <h3 class="fig-title">Where each implant acts: eye → optic nerve → cortex</h3>
         <p class="fig-note">The chain of vision, and the point where each implant steps in.</p>
       </div>
