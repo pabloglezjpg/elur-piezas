@@ -9,8 +9,12 @@
 <meta name="author" content="Pablo González">
 <meta name="theme-color" content="#F4EFE4">
 
-<link rel="preload" href="assets/periodismo.css" as="style">
-<link rel="stylesheet" href="assets/periodismo.css">
+<!-- Rutas ABSOLUTAS a proposito. Esta pagina se sirve desde cualquier profundidad
+     (/herramientas/lib/loquesea la dispara), y con ruta relativa el navegador
+     buscaba el CSS en /herramientas/lib/assets/ y la pagina de error salia sin
+     estilos. Corregido el 19-09-2026. -->
+<link rel="preload" href="/assets/periodismo.css" as="style">
+<link rel="stylesheet" href="/assets/periodismo.css">
 
 <style>
   /* Solo lo que el sistema no tiene ya: el centrado de esta página y la cifra. */
