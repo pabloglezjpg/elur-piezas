@@ -45,7 +45,7 @@
   "author": { "@type": "Person", "name": "Pablo González" },
   "publisher": { "@type": "Person", "name": "Pablo González" },
   "datePublished": "2026-08-11",
-  "dateModified": "2026-09-04",
+  "dateModified": "2026-09-22",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://piezas.elur.es/musk-ceguera/en/" }
 }
 </script>
@@ -246,13 +246,15 @@
       <h2 class="ladillo">The turn: what is happening far from Neuralink</h2>
 
       <p>In November 2025, a team at the UMH in Elche, led by Professor <span lang="es">Eduardo Fernández Jover</span> with the neurosurgeon <span lang="es">Pablo González López</span> (of the Dr Balmis Hospital in Alicante), published in <i>Science Advances</i> the results of implanting a 100-electrode array in the visual cortex of <strong>two</strong> blind people. The participants came to perceive patterns and movement. The <strong>letters come from a different experiment and a different person</strong>: the same team had published them in 2021 in the <i>Journal of Clinical Investigation</i>, with 96 electrodes and <strong>a single</strong> participant, a 57-year-old woman, who came to identify some letters and the edges of objects. They are two separate studies. This is not natural vision (they are phosphenes, points of light the brain learns to interpret) and it is still research, not a device a patient can ask for.</p>
+      <p>What that study adds is not how many points of light can be produced but how the work is done. The implant does not only stimulate: it also records how the neurons respond, and the next stimulation is adjusted to that response. “You have to keep up a dialogue with the brain,” <span lang="es">Fernández</span> explains in a phone conversation on 22 September 2026.</p>
+      <p>And there is one case that goes further, which his own team treats with caution. In February 2026 it published in <i>Brain Communications</i> the case of a participant blinded by ischaemic optic neuropathy in both eyes, whose implant was removed after six months of experiments. Eighteen months after its removal, the participant kept an improvement nobody had expected: perceiving light and movement again, and reading large letters and words. It is a single case, and the paper’s title sums it up: <i>The unexpected sight</i>.</p>
     </div>
 
     <!-- ============ G2 · Simulador de fosfenos ============ -->
     <figure class="figure" id="fig-fosfenos">
       <div class="fig-head reveal">
         <div class="fig-num">Chart 2</div>
-        <h3 class="fig-title">What a patient with a cortical implant sees</h3>
+        <h3 class="fig-title">The classic model: what a patient with a cortical implant would see</h3>
         <p class="fig-note">Compare a real scene with its phosphene simulation. <span class="needs-js">Slide to reveal, and change the number of electrodes.</span></p>
       </div>
 
@@ -261,7 +263,7 @@
           <div class="phos-stage" id="phos-stage">
             <svg class="chart phos-static" viewBox="0 0 320 240" role="img" preserveAspectRatio="xMidYMid meet" aria-labelledby="g2t g2d">
 <title id="g2t">Normal vision compared with a phosphene simulation</title>
-<desc id="g2d">On the left, a real scene: a person standing in a lit doorway. On the right, the same scene seen through a 60-electrode cortical implant: a grid of points of light (phosphenes) in which the shape is barely distinguishable. The human eye has between 120 and 130 million photoreceptors.</desc>
+<desc id="g2d">On the left, a real scene: a person standing in a lit doorway. On the right, the same scene simulated with the classic model of a 60-electrode cortical implant: a grid of points of light (phosphenes) in which the shape is barely distinguishable. The human eye has between 120 and 130 million photoreceptors.</desc>
 <defs>
 <clipPath id="clipL"><rect x="0" y="0" width="160" height="240"/></clipPath>
 <clipPath id="clipR"><rect x="160" y="0" width="160" height="240"/></clipPath>
@@ -360,7 +362,7 @@
           </div>
         </div>
       </div>
-      <p class="fig-source" style="margin-top:14px;">The human eye has between 120 and 130 million photoreceptors. Today’s cortical implants run from dozens — Orion, 60 electrodes — to around 1,000: this is not vision, it is points of light the brain learns to interpret. Source: UMH Elche (<i>Science Advances</i>); Second Sight Orion. Illustrative simulation.</p>
+      <p class="fig-source" style="margin-top:14px;">The human eye has between 120 and 130 million photoreceptors. Today’s cortical implants run from dozens — Orion, 60 electrodes — to around 1,000. The simulation follows the model the classic studies start from: one electrode, one point of light. <span lang="es">Fernández</span> sees it as a good theoretical basis, but it is not what his patients describe: “They don’t see points as such, but shapes.” Sometimes something defined, like a straight line or a cross; at other times something diffuse, like a cloud. Source: UMH Elche (<i>Science Advances</i>); Second Sight Orion; <span lang="es">Eduardo Fernández</span>, phone conversation, 22 September 2026. Illustrative simulation.</p>
     </figure>
 
     <div class="body">
@@ -424,7 +426,7 @@
           <div class="mrow" data-fase="ens"><span>Orion / Cortigent (Vivani) — US</span><span class="meta">6 implanted 2018–2019, cortical vision · feasibility study closed March 2025, pivotal in preparation</span></div>
           <div class="mrow" data-fase="ens"><span>Synchron — US/Australia</span><span class="meta">11 enrolled, endovascular</span></div>
           <div class="mrow" data-fase="ens"><span>Blackrock Neurotech — US</span><span class="meta">Utah Array, no public count</span></div>
-          <div class="mrow" data-fase="ens"><span>UMH Elche — Spain</span><span class="meta">2 people, cortical vision</span></div>
+          <div class="mrow" data-fase="ens"><span>UMH Elche — Spain</span><span class="meta">5 people implanted, cortical vision</span></div>
         </details>
         <details class="phase-group pre" open>
           <summary>Preclinical</summary>
@@ -436,7 +438,7 @@
         </details>
         <p style="font-size:13.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--hair);padding-top:12px;margin-top:12px;">Precision Neuroscience (US, temporary use: 510(k) K242618, March 2025, under 30 days) has no stage comparable to the ones above: it has no trial registered on ClinicalTrials.gov, and its 510(k) was cleared with no clinical data, only bench testing and animal work. Blackrock Neurotech has no trials registered in its name either. The largest and longest trial of a brain implant of this kind, BrainGate, documents 14 people implanted between 2004 and 2021.</p>
       </div>
-      <p class="fig-source">Source: Reuters; NMPA/Xinhua; <i>Science Advances</i>; IEEE Spectrum; ClinicalTrials.gov; FDA (510(k) K242618).</p>
+      <p class="fig-source">Source: Reuters; NMPA/Xinhua; <i>Science Advances</i>; IEEE Spectrum; ClinicalTrials.gov; FDA (510(k) K242618); <span lang="es">Eduardo Fernández</span> (UMH), 22 Sep 2026.</p>
     </figure>
 
     <div class="body">
@@ -451,18 +453,20 @@
 
       <h2 class="ladillo">What the man who did it says</h2>
 
-      <p>The line that puts this whole story in order comes from <span lang="es">Eduardo Fernández</span>, the Spanish researcher who has actually made two people see:</p>
+      <p><span lang="es">Eduardo Fernández</span>, who leads the Elche team, summed it up like this when the study came out:</p>
 
       <blockquote class="pull">It is very important to move forward little by little and not create false expectations, because for now this is only ongoing research.</blockquote>
       <p class="pull-cite"><span lang="es">Eduardo Fernández Jover</span>, <span lang="es">Universidad Miguel Hernández</span>, Elche (Spain)</p>
 
-      <p>His team points blind people towards organisations such as the ONCE, Spain’s national organisation for the blind, and keeps repeating that this is still research. It is the exact counterpoint to the social-media announcement everybody has seen.</p>
+      <p>On the phone, on 22 September 2026, he explains why he insists on it: “When someone has a problem, an accident for instance, they go to the internet, ask artificial intelligence and find several groups. That can raise false hopes that don’t match reality. This is pure research, and although it is moving forward, you never know.” That is why his team points blind people to the ONCE, Spain’s national organisation for the blind: “The ONCE already has tools. This may work and it may not.”</p>
+      <p>And he draws the line: “Recovering sight the way people who are not blind understand it is, for now, not viable.” What they have achieved is something else: “The progress we see comes more from the patient’s interpretation in their brain than from vision as such.”</p>
+      <p>Nor does it work for everyone. “Most blindness is in the eye, from something genetic, for example. But there are several bottlenecks to solve, and each case of blindness can have different causes.” A cortical implant only makes sense when the damage lies further back, which is what Chart 4 shows. The work goes on: counting the patient they are working with now, his team has implanted five people.</p>
 
       <p>The wider frame comes from another Spaniard, the neurobiologist Rafael Yuste, who drove the idea of “neurorights” and is one of the voices behind the <span lang="es">León</span> Declaration on European neurotechnology, issued in 2023 during Spain’s presidency of the EU Council: “The brain has to be protected as the sanctuary of our mind, because that is where human identity is generated.” He is not talking about this case in particular, but about the ground it is played on.</p>
 
       <h2 class="ladillo">What to watch to know whether this is really moving</h2>
 
-      <p>Four signals, above the noise: that Neuralink registers Blindsight on ClinicalTrials.gov and publishes it in a peer-reviewed journal; that the Elche team goes from two people to a larger clinical trial; that China publishes results from its patients beyond the regulatory announcement; and, above all, the real resolution (making out points of light is not the same as seeing). Until those boxes are ticked, every new “in the coming months” is a date, not a fact.</p>
+      <p>Four signals, above the noise: that Neuralink registers Blindsight on ClinicalTrials.gov and publishes it in a peer-reviewed journal; that the Elche team goes from individual cases to a larger clinical trial; that China publishes results from its patients beyond the regulatory announcement; and, above all, the real resolution (making out shapes is not the same as seeing). Until those boxes are ticked, every new “in the coming months” is a date, not a fact.</p>
     </div>
 
     <!-- ============ G4 · Explorador de la vía visual (3D opcional) ============ -->
@@ -549,6 +553,8 @@
         <li>Public statements by Elon Musk on X, at Y Combinator, at the Qatar Economic Forum and on Ashlee Vance’s podcast (Sep 2024–Aug 2026) — a primary but self-interested source: no ClinicalTrials.gov registration and no peer-reviewed publication behind them (see “What is actually true at Neuralink”).</li>
         <li>Rafael Yuste — published interviews; <span lang="es">León</span> Declaration (2023, Spanish presidency of the EU, 30+ countries). Secondary.</li>
         <li>EurekAlert / MedicalXpress, Nov 2025 — UMH press release. Secondary.</li>
+        <li>Alfaro A, Soo L, Waclawczyk D, <span lang="es">Morollón</span> R, Grani F, <span lang="es">Fernández</span> E, “The unexpected sight: improvement of visual function following intracortical microstimulation of the human occipital cortex”, <i>Brain Communications</i> 8(1), 3 Feb 2026 — <a href="https://doi.org/10.1093/braincomms/fcaf504" rel="nofollow noopener" target="_blank">DOI 10.1093/braincomms/fcaf504</a>. One participant; implant removed after six months, improvement still present eighteen months later. Primary.</li>
+        <li><span lang="es">Eduardo Fernández Jover</span>, phone conversation with the author, 22 Sep 2026: shapes rather than points, the dialogue with the brain, the ONCE, the limits of the technique and the five people implanted, a figure he later confirmed by email (it includes the current patient). Primary.</li>
       </ol>
     </details>
   </article>
